@@ -85,6 +85,7 @@ namespace ALLinONE
                 //if (i == 24) btnPR24.Text = comm.ExecuteScalar().ToString();
                 //if (i == 25) btnPR25.Text = comm.ExecuteScalar().ToString();
                 //if (i == 26) btnPR26.Text = comm.ExecuteScalar().ToString();
+                //dfgbrthnjguyktfyjdfghdrtjghk
             }
         }
 
