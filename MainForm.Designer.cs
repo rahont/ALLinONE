@@ -1159,12 +1159,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(636, 649);
             this.Controls.Add(this.menuStrip);
-            this.Controls.Add(this.panRequest);
-            this.Controls.Add(this.reOS);
             this.Controls.Add(this.panSrvc);
             this.Controls.Add(this.panPR);
             this.Controls.Add(this.panPrint);
             this.Controls.Add(this.panAddRequest);
+            this.Controls.Add(this.panRequest);
+            this.Controls.Add(this.reOS);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(652, 688);

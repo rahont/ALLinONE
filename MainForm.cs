@@ -573,6 +573,7 @@ namespace ALLinONE
                 UseDB usedb = new UseDB("Printers", "Name", "NetName", "Location", "InvNumber", tbPrintName.Text, tbPrintNetName.Text, tbPrintLocation.Text, tbPrintInvNumber.Text);
                 usedb.InsertDB();
                 RefreshDBPrinters();
+                ClearPrintTB();
             }
         }
 
@@ -599,7 +600,7 @@ namespace ALLinONE
             TextBox tb = (TextBox)sender;
             if (tb.TextLength > 0)
             {
-                tb.SelectAll();
+                //tb.SelectAll();
                 Clipboard.SetText(tb.Text);
                 tmrComm5555.Enabled = false;
                 tmrComm5555.Enabled = true;
@@ -630,6 +631,7 @@ namespace ALLinONE
                     UseDB usedb = new UseDB("Printers", "Id", strId);
                     usedb.DeleteDB();
                     dgvPrinters.Rows.RemoveAt(dgvPrinters.CurrentRow.Index); //удаляет строку из DataGridView
+                    ClearPrintTB();
                 }
             }
         }
@@ -693,6 +695,14 @@ namespace ALLinONE
                     this.reOS.lbProgList.Items.Add(val["Prog"]); //запись столбца БД в listbox
                 }
             }
+        }
+
+        private void ClearPrintTB()
+        {
+            tbPrintName.Clear();
+            tbPrintNetName.Clear();
+            tbPrintLocation.Clear();
+            tbPrintInvNumber.Clear();
         }
     }
 }
