@@ -216,19 +216,21 @@
             // toolStripSettings
             // 
             this.toolStripSettings.Name = "toolStripSettings";
-            this.toolStripSettings.Size = new System.Drawing.Size(134, 22);
+            this.toolStripSettings.Size = new System.Drawing.Size(180, 22);
             this.toolStripSettings.Text = "Настройки";
+            this.toolStripSettings.Visible = false;
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(131, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // toolStripExit
             // 
             this.toolStripExit.Name = "toolStripExit";
-            this.toolStripExit.Size = new System.Drawing.Size(134, 22);
+            this.toolStripExit.Size = new System.Drawing.Size(180, 22);
             this.toolStripExit.Text = "Выход";
+            this.toolStripExit.Click += new System.EventHandler(this.toolStripExit_Click);
             // 
             // toolStripPR
             // 

@@ -37,7 +37,7 @@ namespace ALLinONE
         {
             LoadFormPosition();
             //MainForm main = new MainForm();
-            Text += " (" + Environment.UserName + ")   - v.2.4";
+            Text += " (" + Environment.UserName + ")   - v.2.5";
             Refresh_btnPR();
             RefreshProgList();
             panPR.Visible = true;
@@ -703,6 +703,11 @@ namespace ALLinONE
             tbPrintNetName.Clear();
             tbPrintLocation.Clear();
             tbPrintInvNumber.Clear();
+        }
+
+        private void toolStripExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
