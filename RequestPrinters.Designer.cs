@@ -186,6 +186,7 @@
             // 
             // rdbtnPaperRoll
             // 
+            this.rdbtnPaperRoll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.rdbtnPaperRoll.AutoSize = true;
             this.rdbtnPaperRoll.Location = new System.Drawing.Point(307, 465);
             this.rdbtnPaperRoll.Name = "rdbtnPaperRoll";
