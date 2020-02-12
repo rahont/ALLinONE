@@ -37,12 +37,11 @@
             this.rdbtnReplace = new System.Windows.Forms.RadioButton();
             this.rdbtnPaper = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.chckbColor = new System.Windows.Forms.CheckBox();
-            this.rdbtnYellow = new System.Windows.Forms.RadioButton();
-            this.rdbtnBlue = new System.Windows.Forms.RadioButton();
-            this.rdbtnRed = new System.Windows.Forms.RadioButton();
             this.rdbtnBlack = new System.Windows.Forms.RadioButton();
-            this.rdbtnPaperRoll = new System.Windows.Forms.RadioButton();
+            this.rdbtnRed = new System.Windows.Forms.RadioButton();
+            this.rdbtnBlue = new System.Windows.Forms.RadioButton();
+            this.rdbtnYellow = new System.Windows.Forms.RadioButton();
+            this.chckbColor = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequestPrint)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -99,7 +98,7 @@
             this.rdbtnReplace.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.rdbtnReplace.AutoSize = true;
             this.rdbtnReplace.Checked = true;
-            this.rdbtnReplace.Location = new System.Drawing.Point(12, 465);
+            this.rdbtnReplace.Location = new System.Drawing.Point(66, 465);
             this.rdbtnReplace.Name = "rdbtnReplace";
             this.rdbtnReplace.Size = new System.Drawing.Size(122, 17);
             this.rdbtnReplace.TabIndex = 5;
@@ -111,7 +110,7 @@
             // 
             this.rdbtnPaper.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.rdbtnPaper.AutoSize = true;
-            this.rdbtnPaper.Location = new System.Drawing.Point(153, 465);
+            this.rdbtnPaper.Location = new System.Drawing.Point(211, 465);
             this.rdbtnPaper.Name = "rdbtnPaper";
             this.rdbtnPaper.Size = new System.Drawing.Size(132, 17);
             this.rdbtnPaper.TabIndex = 6;
@@ -132,6 +131,50 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             // 
+            // rdbtnBlack
+            // 
+            this.rdbtnBlack.AutoSize = true;
+            this.rdbtnBlack.Location = new System.Drawing.Point(50, 37);
+            this.rdbtnBlack.Name = "rdbtnBlack";
+            this.rdbtnBlack.Size = new System.Drawing.Size(65, 17);
+            this.rdbtnBlack.TabIndex = 0;
+            this.rdbtnBlack.TabStop = true;
+            this.rdbtnBlack.Text = "Черный";
+            this.rdbtnBlack.UseVisualStyleBackColor = true;
+            // 
+            // rdbtnRed
+            // 
+            this.rdbtnRed.AutoSize = true;
+            this.rdbtnRed.Location = new System.Drawing.Point(121, 37);
+            this.rdbtnRed.Name = "rdbtnRed";
+            this.rdbtnRed.Size = new System.Drawing.Size(70, 17);
+            this.rdbtnRed.TabIndex = 1;
+            this.rdbtnRed.TabStop = true;
+            this.rdbtnRed.Text = "Красный";
+            this.rdbtnRed.UseVisualStyleBackColor = true;
+            // 
+            // rdbtnBlue
+            // 
+            this.rdbtnBlue.AutoSize = true;
+            this.rdbtnBlue.Location = new System.Drawing.Point(197, 37);
+            this.rdbtnBlue.Name = "rdbtnBlue";
+            this.rdbtnBlue.Size = new System.Drawing.Size(56, 17);
+            this.rdbtnBlue.TabIndex = 2;
+            this.rdbtnBlue.TabStop = true;
+            this.rdbtnBlue.Text = "Синий";
+            this.rdbtnBlue.UseVisualStyleBackColor = true;
+            // 
+            // rdbtnYellow
+            // 
+            this.rdbtnYellow.AutoSize = true;
+            this.rdbtnYellow.Location = new System.Drawing.Point(259, 37);
+            this.rdbtnYellow.Name = "rdbtnYellow";
+            this.rdbtnYellow.Size = new System.Drawing.Size(67, 17);
+            this.rdbtnYellow.TabIndex = 3;
+            this.rdbtnYellow.TabStop = true;
+            this.rdbtnYellow.Text = "Желтый";
+            this.rdbtnYellow.UseVisualStyleBackColor = true;
+            // 
             // chckbColor
             // 
             this.chckbColor.AutoSize = true;
@@ -142,65 +185,11 @@
             this.chckbColor.Text = "Желаешь добавить цвета?";
             this.chckbColor.UseVisualStyleBackColor = true;
             // 
-            // rdbtnYellow
-            // 
-            this.rdbtnYellow.AutoSize = true;
-            this.rdbtnYellow.Location = new System.Drawing.Point(259, 37);
-            this.rdbtnYellow.Name = "rdbtnYellow";
-            this.rdbtnYellow.Size = new System.Drawing.Size(67, 17);
-            this.rdbtnYellow.TabIndex = 3;
-            this.rdbtnYellow.Text = "Желтый";
-            this.rdbtnYellow.UseVisualStyleBackColor = true;
-            // 
-            // rdbtnBlue
-            // 
-            this.rdbtnBlue.AutoSize = true;
-            this.rdbtnBlue.Location = new System.Drawing.Point(197, 37);
-            this.rdbtnBlue.Name = "rdbtnBlue";
-            this.rdbtnBlue.Size = new System.Drawing.Size(56, 17);
-            this.rdbtnBlue.TabIndex = 2;
-            this.rdbtnBlue.Text = "Синий";
-            this.rdbtnBlue.UseVisualStyleBackColor = true;
-            // 
-            // rdbtnRed
-            // 
-            this.rdbtnRed.AutoSize = true;
-            this.rdbtnRed.Location = new System.Drawing.Point(121, 37);
-            this.rdbtnRed.Name = "rdbtnRed";
-            this.rdbtnRed.Size = new System.Drawing.Size(70, 17);
-            this.rdbtnRed.TabIndex = 1;
-            this.rdbtnRed.Text = "Красный";
-            this.rdbtnRed.UseVisualStyleBackColor = true;
-            // 
-            // rdbtnBlack
-            // 
-            this.rdbtnBlack.AutoSize = true;
-            this.rdbtnBlack.Checked = true;
-            this.rdbtnBlack.Location = new System.Drawing.Point(50, 37);
-            this.rdbtnBlack.Name = "rdbtnBlack";
-            this.rdbtnBlack.Size = new System.Drawing.Size(65, 17);
-            this.rdbtnBlack.TabIndex = 0;
-            this.rdbtnBlack.TabStop = true;
-            this.rdbtnBlack.Text = "Черный";
-            this.rdbtnBlack.UseVisualStyleBackColor = true;
-            // 
-            // rdbtnPaperRoll
-            // 
-            this.rdbtnPaperRoll.AutoSize = true;
-            this.rdbtnPaperRoll.Location = new System.Drawing.Point(307, 465);
-            this.rdbtnPaperRoll.Name = "rdbtnPaperRoll";
-            this.rdbtnPaperRoll.Size = new System.Drawing.Size(94, 17);
-            this.rdbtnPaperRoll.TabIndex = 8;
-            this.rdbtnPaperRoll.TabStop = true;
-            this.rdbtnPaperRoll.Text = "Рулон бумаги";
-            this.rdbtnPaperRoll.UseVisualStyleBackColor = true;
-            // 
             // RequestPrinters
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(545, 576);
-            this.Controls.Add(this.rdbtnPaperRoll);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.rdbtnPaper);
             this.Controls.Add(this.rdbtnReplace);
@@ -236,6 +225,5 @@
         private System.Windows.Forms.RadioButton rdbtnBlue;
         private System.Windows.Forms.RadioButton rdbtnRed;
         private System.Windows.Forms.RadioButton rdbtnBlack;
-        private System.Windows.Forms.RadioButton rdbtnPaperRoll;
     }
 }

@@ -56,7 +56,6 @@ namespace ALLinONE
 
             if (rdbtnReplace.Checked) str = "Заменить" + colorCart + " картридж в ";
             if (rdbtnPaper.Checked) str = "Устранить замятие в ";
-            if (rdbtnPaperRoll.Checked) str = "Заменить рулон бумаги в ";
 
             str += dgvRequestPrint.SelectedCells[1].Value.ToString() + " распологающийся в " + dgvRequestPrint.SelectedCells[3].Value.ToString();
 
