@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace ALLinONE
     public partial class MainForm : Form
     {
         public SQLiteConnection DB; //БД
+        private string result3;
 
         public MainForm()
         {
@@ -37,7 +39,7 @@ namespace ALLinONE
         {
             LoadFormPosition();
             //MainForm main = new MainForm();
-            Text += " (" + Environment.UserName + ")   - v.2.4";
+            Text += " (" + Environment.UserName + ")   - v.2.6";
             Refresh_btnPR();
             RefreshProgList();
             panPR.Visible = true;
@@ -293,6 +295,7 @@ namespace ALLinONE
 
             lblQuantity.Text = "Количество заявок: " + dgvRequest.Rows.Count.ToString();
 
+            dgvRequest.Columns["id"].Visible = false;
             //Переименовка колонок в DataGridView
             dgvRequest.Columns["Value"].HeaderText = "Заявки";
             dgvRequest.Columns["User"].HeaderText = "Пользователь";
@@ -300,10 +303,10 @@ namespace ALLinONE
             dgvRequest.Columns["DateUse"].HeaderText = "Использована";
 
             //Длина колонок в DataGridView
-            dgvRequest.Columns[0].Width = dgvRequest.Width - 100 - 111 - 111 - 20;
-            dgvRequest.Columns[1].Width = 100;
-            dgvRequest.Columns[2].Width = 111;
+            dgvRequest.Columns[1].Width = dgvRequest.Width - 100 - 111 - 111 - 20;
+            dgvRequest.Columns[2].Width = 100;
             dgvRequest.Columns[3].Width = 111;
+            dgvRequest.Columns[4].Width = 111;
 
             dgvRequest.ClearSelection();
         }
@@ -367,7 +370,7 @@ namespace ALLinONE
         private void dgvRequest_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
-                tbAddRequest.Text = dgvRequest.SelectedCells[0].Value.ToString();
+                tbAddRequest.Text = dgvRequest.SelectedCells[1].Value.ToString();
         }
 
         private void btnRemoveRequest_Click(object sender, EventArgs e)
@@ -378,9 +381,10 @@ namespace ALLinONE
             }
             else
             {
-                string strValue = dgvRequest.SelectedCells[0].Value.ToString();
-                string strUser = dgvRequest.SelectedCells[1].Value.ToString();
-                string strDate = dgvRequest.SelectedCells[2].Value.ToString();
+                string strId = dgvRequest.SelectedCells[0].Value.ToString();
+                string strValue = dgvRequest.SelectedCells[1].Value.ToString();
+                string strUser = dgvRequest.SelectedCells[2].Value.ToString();
+                string strDate = dgvRequest.SelectedCells[3].Value.ToString();
 
                 DialogResult result = MessageBox.Show
                     ("Удалить запись?\n\n" +
@@ -390,7 +394,7 @@ namespace ALLinONE
                     "Ты уверен?", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (result == DialogResult.Yes)
                 {
-                    UseDB usedb = new UseDB("RequestList", "Value", strValue);
+                    UseDB usedb = new UseDB("RequestList", "id", strId);
                     usedb.DeleteDB();
                     dgvRequest.Rows.RemoveAt(dgvRequest.CurrentRow.Index); //удаляет строку из DataGridView
                     lblQuantity.Text = "Количество заявок: " + dgvRequest.Rows.Count.ToString(); // -1 заявка в lbl после удаления из dgv
@@ -542,7 +546,7 @@ namespace ALLinONE
             if (dgvRequest.SelectedRows.Count > 0)
             {
                 tmrComm5555.Enabled = false;
-                string strRequest = dgvRequest.SelectedCells[0].Value.ToString();
+                string strRequest = dgvRequest.SelectedCells[1].Value.ToString();
                 Clipboard.SetText(strRequest);
                 lblInfoRequest.Text = "В буфер уехало:\n" + strRequest;
                 tmrComm5555.Enabled = true;
@@ -550,7 +554,7 @@ namespace ALLinONE
                 UseDB usedb = new UseDB("RequestList", "Value", "DateUse", strRequest, DateTime.Now.ToString());
                 usedb.UpdateDB();
 
-                dgvRequest.SelectedCells[3].Value = DateTime.Now.ToString(); //запись даты в ячейку "DataUse"
+                dgvRequest.SelectedCells[4].Value = DateTime.Now.ToString(); //запись даты в ячейку "DataUse"
 
                 if (chckbRemoveRequest.Checked)
                 {
@@ -703,6 +707,39 @@ namespace ALLinONE
             tbPrintNetName.Clear();
             tbPrintLocation.Clear();
             tbPrintInvNumber.Clear();
+        }
+
+        private void toolStripExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        void PrintPageHandler(object sender, PrintPageEventArgs e)
+        {
+            e.Graphics.DrawString(result3, new Font("Arial", 12), Brushes.Black, 20, 20);
+        }
+
+        private void btnPrintPrinting_Click(object sender, EventArgs e)
+        {
+            result3 = null;
+            for (int i = 0; i < dgvPrinters.RowCount; i++)
+            {
+                for (int j = 1; j < dgvPrinters.ColumnCount; j++)
+                {
+                    if (dgvPrinters[j, i].Value.ToString() != "")
+                        result3 += dgvPrinters[j, i].Value.ToString() + "\t";
+                }
+                result3 += "\n";
+            }
+
+            PrintDocument printDocument = new PrintDocument();
+            printDocument.PrintPage += PrintPageHandler;
+
+            PrintDialog printDialog = new PrintDialog();
+            printDialog.Document = printDocument;
+
+            if (printDialog.ShowDialog() == DialogResult.OK)
+                printDialog.Document.Print();
         }
     }
 }

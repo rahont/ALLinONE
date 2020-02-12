@@ -122,6 +122,7 @@
             this.rdbtnAddRequest2 = new System.Windows.Forms.RadioButton();
             this.rdbtnAddRequest1 = new System.Windows.Forms.RadioButton();
             this.lbProgList = new System.Windows.Forms.ListBox();
+            this.btnPrintPrinting = new System.Windows.Forms.Button();
             this.reOS = new ALLinONE.ReinstallOS();
             this.menuStrip.SuspendLayout();
             this.panPR.SuspendLayout();
@@ -218,6 +219,7 @@
             this.toolStripSettings.Name = "toolStripSettings";
             this.toolStripSettings.Size = new System.Drawing.Size(134, 22);
             this.toolStripSettings.Text = "Настройки";
+            this.toolStripSettings.Visible = false;
             // 
             // toolStripSeparator1
             // 
@@ -229,6 +231,7 @@
             this.toolStripExit.Name = "toolStripExit";
             this.toolStripExit.Size = new System.Drawing.Size(134, 22);
             this.toolStripExit.Text = "Выход";
+            this.toolStripExit.Click += new System.EventHandler(this.toolStripExit_Click);
             // 
             // toolStripPR
             // 
@@ -710,6 +713,7 @@
             // 
             // panPrint
             // 
+            this.panPrint.Controls.Add(this.btnPrintPrinting);
             this.panPrint.Controls.Add(this.btnPrintRemove);
             this.panPrint.Controls.Add(this.lblPrintBuffer);
             this.panPrint.Controls.Add(this.lblPrintInvNumber);
@@ -1144,6 +1148,16 @@
             this.lbProgList.TabIndex = 0;
             this.lbProgList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbProgList_KeyDown);
             // 
+            // btnPrintPrinting
+            // 
+            this.btnPrintPrinting.Location = new System.Drawing.Point(443, 541);
+            this.btnPrintPrinting.Name = "btnPrintPrinting";
+            this.btnPrintPrinting.Size = new System.Drawing.Size(183, 23);
+            this.btnPrintPrinting.TabIndex = 11;
+            this.btnPrintPrinting.Text = "Кривоватая, но все же печать";
+            this.btnPrintPrinting.UseVisualStyleBackColor = true;
+            this.btnPrintPrinting.Click += new System.EventHandler(this.btnPrintPrinting_Click);
+            // 
             // reOS
             // 
             this.reOS.Location = new System.Drawing.Point(0, 24);
@@ -1159,12 +1173,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(636, 649);
             this.Controls.Add(this.menuStrip);
-            this.Controls.Add(this.panSrvc);
-            this.Controls.Add(this.panPR);
             this.Controls.Add(this.panPrint);
             this.Controls.Add(this.panAddRequest);
             this.Controls.Add(this.panRequest);
             this.Controls.Add(this.reOS);
+            this.Controls.Add(this.panSrvc);
+            this.Controls.Add(this.panPR);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(652, 688);
@@ -1288,6 +1302,7 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button btnPingShow;
         private ReinstallOS reOS;
+        private System.Windows.Forms.Button btnPrintPrinting;
     }
 }
 
