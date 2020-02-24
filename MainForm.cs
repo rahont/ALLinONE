@@ -60,34 +60,6 @@ namespace ALLinONE
                 comm.CommandText = "select btn_title from ProfRab where btn_name like '%btnPR" + i + "%'";
                 var btn = GetControl(panPR, "btnPR" + i);   //метод поиска контролов (записывем имя кнопки в переменную)
                 btn.Text = comm.ExecuteScalar().ToString(); //задаем Text кнопке
-
-                //if (i == 1) btnPR1.Text = comm.ExecuteScalar().ToString();
-                //if (i == 2) btnPR2.Text = comm.ExecuteScalar().ToString();
-                //if (i == 3) btnPR3.Text = comm.ExecuteScalar().ToString();
-                //if (i == 4) btnPR4.Text = comm.ExecuteScalar().ToString();
-                //if (i == 5) btnPR5.Text = comm.ExecuteScalar().ToString();
-                //if (i == 6) btnPR6.Text = comm.ExecuteScalar().ToString();
-                //if (i == 7) btnPR7.Text = comm.ExecuteScalar().ToString();
-                //if (i == 8) btnPR8.Text = comm.ExecuteScalar().ToString();
-                //if (i == 9) btnPR9.Text = comm.ExecuteScalar().ToString();
-                //if (i == 10) btnPR10.Text = comm.ExecuteScalar().ToString();
-                //if (i == 11) btnPR11.Text = comm.ExecuteScalar().ToString();
-                //if (i == 12) btnPR12.Text = comm.ExecuteScalar().ToString();
-                //if (i == 13) btnPR13.Text = comm.ExecuteScalar().ToString();
-                //if (i == 14) btnPR14.Text = comm.ExecuteScalar().ToString();
-                //if (i == 15) btnPR15.Text = comm.ExecuteScalar().ToString();
-                //if (i == 16) btnPR16.Text = comm.ExecuteScalar().ToString();
-                //if (i == 17) btnPR17.Text = comm.ExecuteScalar().ToString();
-                //if (i == 18) btnPR18.Text = comm.ExecuteScalar().ToString();
-                //if (i == 19) btnPR19.Text = comm.ExecuteScalar().ToString();
-                //if (i == 20) btnPR20.Text = comm.ExecuteScalar().ToString();
-                //if (i == 21) btnPR21.Text = comm.ExecuteScalar().ToString();
-                //if (i == 22) btnPR22.Text = comm.ExecuteScalar().ToString();
-                //if (i == 23) btnPR23.Text = comm.ExecuteScalar().ToString();
-                //if (i == 24) btnPR24.Text = comm.ExecuteScalar().ToString();
-                //if (i == 25) btnPR25.Text = comm.ExecuteScalar().ToString();
-                //if (i == 26) btnPR26.Text = comm.ExecuteScalar().ToString();
-                //dfgbrthnjguyktfyjdfghdrtjghk
             }
         }
 
