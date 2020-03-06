@@ -102,6 +102,12 @@
     <Compile Include="SrvcChange.Designer.cs">
       <DependentUpon>SrvcChange.cs</DependentUpon>
     </Compile>
+    <Compile Include="ToDoList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ToDoList.Designer.cs">
+      <DependentUpon>ToDoList.cs</DependentUpon>
+    </Compile>
     <Compile Include="UseDB.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -126,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SrvcChange.resx">
       <DependentUpon>SrvcChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToDoList.resx">
+      <DependentUpon>ToDoList.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

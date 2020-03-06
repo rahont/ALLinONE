@@ -39,7 +39,7 @@ namespace ALLinONE
         {
             LoadFormPosition();
             //MainForm main = new MainForm();
-            Text += " (" + Environment.UserName + ")   - v.2.6";
+            Text += " (" + Environment.UserName + ")   - v.2.7";
             Refresh_btnPR();
             RefreshProgList();
             panPR.Visible = true;
@@ -125,6 +125,7 @@ namespace ALLinONE
             panRequest.Visible = false;
             panAddRequest.Visible = false;
             reOS.Visible = false;
+            toDoList.Visible = false;
         }
 
         private void ToolStripPR_Click(object sender, EventArgs e)
@@ -712,6 +713,14 @@ namespace ALLinONE
 
             if (printDialog.ShowDialog() == DialogResult.OK)
                 printDialog.Document.Print();
+        }
+
+        private void toDoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PanVis();
+            //ToDoList tdl = new ToDoList();
+            //tdl.RefreshList();
+            toDoList.Visible = true;
         }
     }
 }
