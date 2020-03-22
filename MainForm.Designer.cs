@@ -49,6 +49,7 @@
             this.toolStripReqOS = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripDBList = new System.Windows.Forms.ToolStripMenuItem();
+            this.toDoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panPR = new System.Windows.Forms.Panel();
             this.lblPR = new System.Windows.Forms.Label();
             this.btnPR23 = new System.Windows.Forms.Button();
@@ -123,9 +124,9 @@
             this.rdbtnAddRequest2 = new System.Windows.Forms.RadioButton();
             this.rdbtnAddRequest1 = new System.Windows.Forms.RadioButton();
             this.lbProgList = new System.Windows.Forms.ListBox();
-            this.reOS = new ALLinONE.ReinstallOS();
+            this.remoteAccsessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toDoList = new ALLinONE.ToDoList();
-            this.toDoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reOS = new ALLinONE.ReinstallOS();
             this.menuStrip.SuspendLayout();
             this.panPR.SuspendLayout();
             this.panSrvc.SuspendLayout();
@@ -200,7 +201,8 @@
             this.toolStripSrvc,
             this.toolStripPrint,
             this.toolStripRequests,
-            this.toDoToolStripMenuItem});
+            this.toDoToolStripMenuItem,
+            this.remoteAccsessToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(636, 24);
@@ -273,34 +275,42 @@
             this.toolStripReqOne,
             this.toolStripReqOS});
             this.toolStripMakeRequest.Name = "toolStripMakeRequest";
-            this.toolStripMakeRequest.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMakeRequest.Size = new System.Drawing.Size(148, 22);
             this.toolStripMakeRequest.Text = "Создать";
             // 
             // toolStripReqOne
             // 
             this.toolStripReqOne.Name = "toolStripReqOne";
-            this.toolStripReqOne.Size = new System.Drawing.Size(180, 22);
+            this.toolStripReqOne.Size = new System.Drawing.Size(177, 22);
             this.toolStripReqOne.Text = "По одной";
             this.toolStripReqOne.Click += new System.EventHandler(this.toolStripReqOne_Click);
             // 
             // toolStripReqOS
             // 
             this.toolStripReqOS.Name = "toolStripReqOS";
-            this.toolStripReqOS.Size = new System.Drawing.Size(180, 22);
+            this.toolStripReqOS.Size = new System.Drawing.Size(177, 22);
             this.toolStripReqOS.Text = "Переустановка ОС";
             this.toolStripReqOS.Click += new System.EventHandler(this.toolStripReqOS_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(145, 6);
             // 
             // toolStripDBList
             // 
             this.toolStripDBList.Name = "toolStripDBList";
-            this.toolStripDBList.Size = new System.Drawing.Size(180, 22);
+            this.toolStripDBList.Size = new System.Drawing.Size(148, 22);
             this.toolStripDBList.Text = "Список из БД";
             this.toolStripDBList.Click += new System.EventHandler(this.ToolStripDBList_Click);
+            // 
+            // toDoToolStripMenuItem
+            // 
+            this.toDoToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toDoToolStripMenuItem.Name = "toDoToolStripMenuItem";
+            this.toDoToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.toDoToolStripMenuItem.Text = "ToDo";
+            this.toDoToolStripMenuItem.Click += new System.EventHandler(this.toDoToolStripMenuItem_Click);
             // 
             // panPR
             // 
@@ -1161,14 +1171,13 @@
             this.lbProgList.TabIndex = 0;
             this.lbProgList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbProgList_KeyDown);
             // 
-            // reOS
+            // remoteAccsessToolStripMenuItem
             // 
-            this.reOS.Location = new System.Drawing.Point(0, 24);
-            this.reOS.Name = "reOS";
-            this.reOS.Size = new System.Drawing.Size(636, 625);
-            this.reOS.TabIndex = 8;
-            this.reOS.Visible = false;
-            this.reOS.VisibleChanged += new System.EventHandler(this.reOS_VisibleChanged);
+            this.remoteAccsessToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.remoteAccsessToolStripMenuItem.Name = "remoteAccsessToolStripMenuItem";
+            this.remoteAccsessToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
+            this.remoteAccsessToolStripMenuItem.Text = "RemoteAccsess";
+            this.remoteAccsessToolStripMenuItem.Click += new System.EventHandler(this.remoteAccsessToolStripMenuItem_Click);
             // 
             // toDoList
             // 
@@ -1178,13 +1187,14 @@
             this.toDoList.TabIndex = 12;
             this.toDoList.Visible = false;
             // 
-            // toDoToolStripMenuItem
+            // reOS
             // 
-            this.toDoToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toDoToolStripMenuItem.Name = "toDoToolStripMenuItem";
-            this.toDoToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
-            this.toDoToolStripMenuItem.Text = "ToDo";
-            this.toDoToolStripMenuItem.Click += new System.EventHandler(this.toDoToolStripMenuItem_Click);
+            this.reOS.Location = new System.Drawing.Point(0, 24);
+            this.reOS.Name = "reOS";
+            this.reOS.Size = new System.Drawing.Size(636, 625);
+            this.reOS.TabIndex = 8;
+            this.reOS.Visible = false;
+            this.reOS.VisibleChanged += new System.EventHandler(this.reOS_VisibleChanged);
             // 
             // MainForm
             // 
@@ -1192,13 +1202,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(636, 649);
             this.Controls.Add(this.menuStrip);
+            this.Controls.Add(this.panPR);
+            this.Controls.Add(this.toDoList);
             this.Controls.Add(this.panPrint);
             this.Controls.Add(this.panAddRequest);
             this.Controls.Add(this.panRequest);
             this.Controls.Add(this.reOS);
             this.Controls.Add(this.panSrvc);
-            this.Controls.Add(this.panPR);
-            this.Controls.Add(this.toDoList);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(652, 688);
@@ -1325,6 +1335,7 @@
         private System.Windows.Forms.Button btnPrintPrinting;
         private System.Windows.Forms.ToolStripMenuItem toDoToolStripMenuItem;
         private ToDoList toDoList;
+        private System.Windows.Forms.ToolStripMenuItem remoteAccsessToolStripMenuItem;
     }
 }
 

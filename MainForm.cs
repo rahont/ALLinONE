@@ -22,6 +22,7 @@ namespace ALLinONE
         public SQLiteConnection DB; //БД
         private string result3;
 
+        #region Form
         public MainForm()
         {
             InitializeComponent();
@@ -39,7 +40,7 @@ namespace ALLinONE
         {
             LoadFormPosition();
             //MainForm main = new MainForm();
-            Text += " (" + Environment.UserName + ")   - v.2.7";
+            Text += " (" + Environment.UserName + ")   - v.2.8";
             Refresh_btnPR();
             RefreshProgList();
             panPR.Visible = true;
@@ -51,83 +52,26 @@ namespace ALLinONE
             SaveFormPosition();
         }
 
-        public void Refresh_btnPR()
+        private void SaveFormPosition()
         {
-            SQLiteCommand comm = DB.CreateCommand();
+            RegistryKey formPos = Registry.CurrentUser.CreateSubKey("All in One");
 
-            for (int i = 1; i < 27; i++)
-            {
-                comm.CommandText = "select btn_title from ProfRab where btn_name like '%btnPR" + i + "%'";
-                var btn = GetControl(panPR, "btnPR" + i);   //метод поиска контролов (записывем имя кнопки в переменную)
-                btn.Text = comm.ExecuteScalar().ToString(); //задаем Text кнопке
-            }
+            if (Registry.CurrentUser.OpenSubKey(@"All in One") == null) //проверяем наличие раздела в реестре. если отсутствует раздел, то создаем
+                formPos.CreateSubKey("All in One");
+
+            formPos.SetValue("PositionX", Location.X);
+            formPos.SetValue("PositionY", Location.Y);
         }
 
-        private Control GetControl(Control control, string name)    //метод поиска контролов
+        private void LoadFormPosition()
         {
-            var fetchedControl = control.Controls[name];
-            if (fetchedControl == null)
-                foreach (Control c in control.Controls)
-                {
-                    fetchedControl = GetControl(c, name);
-                    if (fetchedControl != null)
-                        break;
-                }
-            return fetchedControl;
+            RegistryKey formPos = Registry.CurrentUser.CreateSubKey("All in One");
+            Location = new Point(Convert.ToInt32(formPos.GetValue("PositionX", Location.X)),
+                Convert.ToInt32(formPos.GetValue("PositionY", Location.Y)));   //загрузить позицию формы из реестра
         }
+        #endregion
 
-        //public void Style()
-        //{
-        //    foreach (Control panel in Controls)
-        //    {
-        //        Panel pnl = panel as Panel;
-        //        if (pnl != null)
-        //        {
-        //            pnl.BackColor = ColorTranslator.FromHtml("#D0D0D0");
-        //        }
-        //    }
-        //    foreach (Control button in panPR.Controls)
-        //    {
-        //        Button btn = button as Button;
-        //        if (btn != null)
-        //        {
-        //            btn.FlatAppearance.BorderSize = 0;
-        //            btn.FlatStyle = FlatStyle.Flat;
-        //            btn.BackColor = ColorTranslator.FromHtml("#808080");
-        //        }
-        //    }
-        //    menuStrip.BackColor = ColorTranslator.FromHtml("#D0D0D0");
-        //}
-
-        private void BtnPR1_Click(object sender, EventArgs e)
-        {
-            SQLiteCommand comm = DB.CreateCommand();
-            string bName = (sender as Button).Name; //Получает имя нажатой кнопки
-            comm.CommandText = "select btn_value from ProfRab where btn_name like '%" + bName + "%'";
-            lblPR.Text = comm.ExecuteScalar().ToString();
-            Clipboard.SetText(comm.ExecuteScalar().ToString());
-            tmrComm5555.Enabled = false;
-            tmrComm5555.Enabled = true;
-        }
-
-        private void BtnPRChange_Click(object sender, EventArgs e)
-        {
-            PRChangeButton form = new PRChangeButton();
-            form.Owner = this;
-            form.ShowDialog();
-        }
-
-        private void PanVis()
-        {
-            panPR.Visible = false;
-            panSrvc.Visible = false;
-            panPrint.Visible = false;
-            panRequest.Visible = false;
-            panAddRequest.Visible = false;
-            reOS.Visible = false;
-            toDoList.Visible = false;
-        }
-
+        #region MenuStrip
         private void ToolStripPR_Click(object sender, EventArgs e)
         {
             if (panPR.Visible == false)
@@ -159,11 +103,77 @@ namespace ALLinONE
             }
         }
 
-        private void BtnSrvcChange_Click(object sender, EventArgs e)
+        private void ToolStripDBList_Click(object sender, EventArgs e)
         {
-            SrvcChange form = new SrvcChange();
+            RefreshDBGrid();
+            lblUserRequest.Text = Environment.UserName;
+
+            PanVis();
+            panRequest.Visible = true;
+
+            dgvRequest.ClearSelection();
+        }
+
+        private void toolStripReqOne_Click(object sender, EventArgs e)
+        {
+            PanVis();
+            panAddRequest.Visible = true;
+        }
+
+        private void toolStripReqOS_Click(object sender, EventArgs e)
+        {
+            PanVis();
+            reOS.Visible = true;
+        }
+
+        private void toolStripExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void remoteAccsessToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RemoteAccsess form = new RemoteAccsess();
             form.Owner = this;
             form.ShowDialog();
+        }
+        #endregion
+
+        #region Methods
+        public void Refresh_btnPR()
+        {
+            SQLiteCommand comm = DB.CreateCommand();
+
+            for (int i = 1; i < 27; i++)
+            {
+                comm.CommandText = "select btn_title from ProfRab where btn_name like '%btnPR" + i + "%'";
+                var btn = GetControl(panPR, "btnPR" + i);   //метод поиска контролов (записывем имя кнопки в переменную)
+                btn.Text = comm.ExecuteScalar().ToString(); //задаем Text кнопке
+            }
+        }
+
+        private Control GetControl(Control control, string name)    //метод поиска контролов
+        {
+            var fetchedControl = control.Controls[name];
+            if (fetchedControl == null)
+                foreach (Control c in control.Controls)
+                {
+                    fetchedControl = GetControl(c, name);
+                    if (fetchedControl != null)
+                        break;
+                }
+            return fetchedControl;
+        }
+
+        private void PanVis()
+        {
+            panPR.Visible = false;
+            panSrvc.Visible = false;
+            panPrint.Visible = false;
+            panRequest.Visible = false;
+            panAddRequest.Visible = false;
+            reOS.Visible = false;
+            toDoList.Visible = false;
         }
 
         public void RefreshLBRDP()
@@ -175,7 +185,7 @@ namespace ALLinONE
             SQLiteDataReader rdp = commRDP.ExecuteReader(); //результат кода в переменную
             while (rdp.Read()) //цикл перебора результатов кода БД
             {
-                    lbRDP.Items.Add(rdp["Title"]); //запись столбца БД в listbox
+                lbRDP.Items.Add(rdp["Title"]); //запись столбца БД в listbox
             }
         }
 
@@ -190,66 +200,6 @@ namespace ALLinONE
             {
                 lbShare.Items.Add(share["Title"]); //запись столбца БД в listbox
             }
-        }
-
-        private void LbRDP_Leave(object sender, EventArgs e)
-        {
-            lbRDP.ClearSelected();
-        }
-
-        private void LbShare_Leave(object sender, EventArgs e)
-        {
-            lbShare.ClearSelected();
-        }
-
-        private void LbRDP_DoubleClick(object sender, EventArgs e)
-        {
-            if (lbRDP.SelectedItem != null)
-            {
-                SQLiteCommand comm = DB.CreateCommand();
-                comm.CommandText = "select Name from ServiceRDP where Title like '" + lbRDP.SelectedItem.ToString() + "'";
-                //Process.Start("Cmd.exe", @"/C mstsc.exe /admin /f /v:" + comm.ExecuteScalar().ToString());
-                Process.Start("mstsc", @"/admin /f /v:" + comm.ExecuteScalar().ToString());
-            }
-        }
-
-        private void LbShare_DoubleClick(object sender, EventArgs e)
-        {
-            if (lbShare.SelectedItem != null)
-            {
-                SQLiteCommand comm = DB.CreateCommand();
-                comm.CommandText = "select Name from ServiceShare where Title like '" + lbShare.SelectedItem.ToString() + "'";
-                //Process.Start("Cmd.exe", @"/C explorer.exe " + comm.ExecuteScalar().ToString());
-                Process.Start("explorer", comm.ExecuteScalar().ToString());
-            }
-        }
-
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            SQLiteCommand comm = DB.CreateCommand();
-            Ping ping = new Ping();
-            listBox1.Items.Clear();
-
-            foreach (var item in lbRDP.Items)
-            {
-                
-                comm.CommandText = "select Name from ServiceRDP where Title like '" + item.ToString() + "'";
-                string str = comm.ExecuteScalar().ToString();
-                PingReply pingReply = ping.Send(str, 64);
-                if (pingReply.Status.ToString() != "Success") listBox1.Items.Insert(listBox1.Items.Count, ".!.");
-                else listBox1.Items.Insert(listBox1.Items.Count, pingReply.RoundtripTime.ToString());
-            }
-
-            //for (int i = 0; i < lbRDP.Items.Count; i++)
-            //{
-            //    string str = null;
-            //    str = lbRDP.Items.IndexOf[i];
-
-            //    PingReply pingReply = ping.Send(str, 64);
-            //}
-            //PingReply pingReply = ping.Send("ya.ru", 64);
-            //MessageBox.Show(pingReply.Status.ToString() + " " + pingReply.RoundtripTime.ToString(), "Test_ping", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
         }
 
         private void RefreshDBGrid()
@@ -286,7 +236,7 @@ namespace ALLinONE
 
         public void RefreshDBPrinters()
         {
-            
+
             var sqlCommand = new SQLiteCommand("select * from Printers", DB);
             sqlCommand.ExecuteNonQuery();
 
@@ -313,15 +263,252 @@ namespace ALLinONE
             dgvPrinters.ClearSelection();
         }
 
-        private void ToolStripDBList_Click(object sender, EventArgs e)
+        private void RefreshProgList()
         {
-            RefreshDBGrid();
-            lblUserRequest.Text = Environment.UserName;
+            lbProgList.Items.Clear();
 
-            PanVis();
-            panRequest.Visible = true;
+            UseDB usedb = new UseDB("ProgList", "Name");
+            SQLiteDataReader rdp = usedb.SelectDB();
 
-            dgvRequest.ClearSelection();
+            while (rdp.Read()) //цикл перебора результатов кода БД
+            {
+                lbProgList.Items.Add(rdp["Name"]); //запись столбца БД в listbox
+            }
+        }
+
+        private void ClearPrintTB()
+        {
+            tbPrintName.Clear();
+            tbPrintNetName.Clear();
+            tbPrintLocation.Clear();
+            tbPrintInvNumber.Clear();
+        }
+        #endregion
+
+        //public void Style()
+        //{
+        //    foreach (Control panel in Controls)
+        //    {
+        //        Panel pnl = panel as Panel;
+        //        if (pnl != null)
+        //        {
+        //            pnl.BackColor = ColorTranslator.FromHtml("#D0D0D0");
+        //        }
+        //    }
+        //    foreach (Control button in panPR.Controls)
+        //    {
+        //        Button btn = button as Button;
+        //        if (btn != null)
+        //        {
+        //            btn.FlatAppearance.BorderSize = 0;
+        //            btn.FlatStyle = FlatStyle.Flat;
+        //            btn.BackColor = ColorTranslator.FromHtml("#808080");
+        //        }
+        //    }
+        //    menuStrip.BackColor = ColorTranslator.FromHtml("#D0D0D0");
+        //}
+
+        #region ProfRab
+        private void BtnPR1_Click(object sender, EventArgs e)
+        {
+            SQLiteCommand comm = DB.CreateCommand();
+            string bName = (sender as Button).Name; //Получает имя нажатой кнопки
+            comm.CommandText = "select btn_value from ProfRab where btn_name like '%" + bName + "%'";
+            lblPR.Text = comm.ExecuteScalar().ToString();
+            Clipboard.SetText(comm.ExecuteScalar().ToString());
+            tmrComm5555.Enabled = false;
+            tmrComm5555.Enabled = true;
+        }
+
+        private void BtnPRChange_Click(object sender, EventArgs e)
+        {
+            PRChangeButton form = new PRChangeButton();
+            form.Owner = this;
+            form.ShowDialog();
+        }
+        #endregion
+
+        #region Service
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            SQLiteCommand comm = DB.CreateCommand();
+            Ping ping = new Ping();
+            listBox1.Items.Clear();
+
+            foreach (var item in lbRDP.Items)
+            {
+
+                comm.CommandText = "select Name from ServiceRDP where Title like '" + item.ToString() + "'";
+                string str = comm.ExecuteScalar().ToString();
+                PingReply pingReply = ping.Send(str, 64);
+                if (pingReply.Status.ToString() != "Success") listBox1.Items.Insert(listBox1.Items.Count, ".!.");
+                else listBox1.Items.Insert(listBox1.Items.Count, pingReply.RoundtripTime.ToString());
+            }
+
+            //for (int i = 0; i < lbRDP.Items.Count; i++)
+            //{
+            //    string str = null;
+            //    str = lbRDP.Items.IndexOf[i];
+
+            //    PingReply pingReply = ping.Send(str, 64);
+            //}
+            //PingReply pingReply = ping.Send("ya.ru", 64);
+            //MessageBox.Show(pingReply.Status.ToString() + " " + pingReply.RoundtripTime.ToString(), "Test_ping", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void LbRDP_Leave(object sender, EventArgs e)
+        {
+            lbRDP.ClearSelected();
+        }
+
+        private void LbShare_Leave(object sender, EventArgs e)
+        {
+            lbShare.ClearSelected();
+        }
+
+        private void LbRDP_DoubleClick(object sender, EventArgs e)
+        {
+            if (lbRDP.SelectedItem != null)
+            {
+                SQLiteCommand comm = DB.CreateCommand();
+                comm.CommandText = "select Name from ServiceRDP where Title like '" + lbRDP.SelectedItem.ToString() + "'";
+                //Process.Start("Cmd.exe", @"/C mstsc.exe /admin /f /v:" + comm.ExecuteScalar().ToString());
+                Process.Start("mstsc", @"/admin /f /v:" + comm.ExecuteScalar().ToString());
+            }
+        }
+
+        private void LbShare_DoubleClick(object sender, EventArgs e)
+        {
+            if (lbShare.SelectedItem != null)
+            {
+                SQLiteCommand comm = DB.CreateCommand();
+                comm.CommandText = "select Name from ServiceShare where Title like '" + lbShare.SelectedItem.ToString() + "'";
+                //Process.Start("Cmd.exe", @"/C explorer.exe " + comm.ExecuteScalar().ToString());
+                Process.Start("explorer", comm.ExecuteScalar().ToString());
+            }
+        }
+
+        private void BtnSrvcChange_Click(object sender, EventArgs e)
+        {
+            SrvcChange form = new SrvcChange();
+            form.Owner = this;
+            form.ShowDialog();
+        }
+        #endregion
+
+        #region Printers
+        private void dgvPrinters_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                tbPrintName.Text = dgvPrinters.SelectedCells[1].Value.ToString();
+                tbPrintNetName.Text = dgvPrinters.SelectedCells[2].Value.ToString();
+                tbPrintLocation.Text = dgvPrinters.SelectedCells[3].Value.ToString();
+                tbPrintInvNumber.Text = dgvPrinters.SelectedCells[4].Value.ToString();
+            }
+        }
+
+        private void dgvPrinters_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Delete) //проверяем нажат ли Del,
+                btnPrintRemove.PerformClick(); //если да, то жмем кнопку Удалить
+        }
+
+        private void tbPrintName_Click(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (tb.TextLength > 0)
+            {
+                //tb.SelectAll();
+                Clipboard.SetText(tb.Text);
+                tmrComm5555.Enabled = false;
+                tmrComm5555.Enabled = true;
+                lblPrintBuffer.Text = "В буфер уехало: " + tb.Text;
+            }
+        }
+
+        private void btnPrintPrinting_Click(object sender, EventArgs e)
+        {
+            result3 = null;
+            for (int i = 0; i < dgvPrinters.RowCount; i++)
+            {
+                for (int j = 1; j < dgvPrinters.ColumnCount; j++)
+                {
+                    if (dgvPrinters[j, i].Value.ToString() != "")
+                        result3 += dgvPrinters[j, i].Value.ToString() + "\t";
+                }
+                result3 += "\n";
+            }
+
+            PrintDocument printDocument = new PrintDocument();
+            printDocument.PrintPage += PrintPageHandler;
+
+            PrintDialog printDialog = new PrintDialog();
+            printDialog.Document = printDocument;
+
+            if (printDialog.ShowDialog() == DialogResult.OK)
+                printDialog.Document.Print();
+        }
+
+        private void btnPrintAdd_Click(object sender, EventArgs e)
+        {
+            if (tbPrintName.Text == "")
+            {
+                MessageBox.Show("Что забыл?", "Атата...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                UseDB usedb = new UseDB("Printers", "Name", "NetName", "Location", "InvNumber", tbPrintName.Text, tbPrintNetName.Text, tbPrintLocation.Text, tbPrintInvNumber.Text);
+                usedb.InsertDB();
+                RefreshDBPrinters();
+                ClearPrintTB();
+            }
+        }
+
+        private void btnPrintRemove_Click(object sender, EventArgs e)
+        {
+            if (dgvPrinters.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("Кого кикаем?", "Упс", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            }
+            else
+            {
+                string strId = dgvPrinters.SelectedCells[0].Value.ToString();
+                string strValue = dgvPrinters.SelectedCells[1].Value.ToString();
+
+                DialogResult result = MessageBox.Show
+                    ("Удалить запись?\n\n" + strValue, "Ты уверен?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    UseDB usedb = new UseDB("Printers", "Id", strId);
+                    usedb.DeleteDB();
+                    dgvPrinters.Rows.RemoveAt(dgvPrinters.CurrentRow.Index); //удаляет строку из DataGridView
+                    ClearPrintTB();
+                }
+            }
+        }
+        #endregion
+
+        #region Request
+        private void dgvRequest_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+                tbAddRequest.Text = dgvRequest.SelectedCells[1].Value.ToString();
+        }
+
+        private void dgvRequest_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvRequest.SelectedRows.Count > 0) btnAddRequestBuffer.PerformClick();
+        }
+
+        private void dgvRequest_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Delete) //проверяем нажат ли Del,
+                btnRemoveRequest.PerformClick(); //если да, то жмем кнопку Удалить
+
+            if (e.KeyData == Keys.Enter) //проверяем нажат ли Enter,
+                btnAddRequestBuffer.PerformClick(); //если да, то жмем кнопку Добавления в буфер
         }
 
         private void btnAddRequest_Click(object sender, EventArgs e)
@@ -338,12 +525,6 @@ namespace ALLinONE
                 RefreshDBGrid();
                 tbAddRequest.Clear();
             }
-        }
-
-        private void dgvRequest_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-                tbAddRequest.Text = dgvRequest.SelectedCells[1].Value.ToString();
         }
 
         private void btnRemoveRequest_Click(object sender, EventArgs e)
@@ -363,7 +544,7 @@ namespace ALLinONE
                     ("Удалить запись?\n\n" +
                         "'" + strValue + "'\n\n" +
                             "Созданная: " + "'" + strDate + "'\n" +
-                                "Пользователем: " + "'" + strUser + "'", 
+                                "Пользователем: " + "'" + strUser + "'",
                     "Ты уверен?", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (result == DialogResult.Yes)
                 {
@@ -375,10 +556,40 @@ namespace ALLinONE
             }
         }
 
-        private void dgvRequest_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void btnAddRequestBuffer_Click(object sender, EventArgs e)
         {
-            if (dgvRequest.SelectedRows.Count > 0) btnAddRequestBuffer.PerformClick();
+            if (dgvRequest.SelectedRows.Count > 0)
+            {
+                tmrComm5555.Enabled = false;
+                string strRequest = dgvRequest.SelectedCells[1].Value.ToString();
+                Clipboard.SetText(strRequest);
+                lblInfoRequest.Text = "В буфер уехало:\n" + strRequest;
+                tmrComm5555.Enabled = true;
+
+                UseDB usedb = new UseDB("RequestList", "Value", "DateUse", strRequest, DateTime.Now.ToString());
+                usedb.UpdateDB();
+
+                dgvRequest.SelectedCells[4].Value = DateTime.Now.ToString(); //запись даты в ячейку "DataUse"
+
+                if (chckbRemoveRequest.Checked)
+                {
+                    usedb = new UseDB("RequestList", "Value", strRequest);
+                    usedb.DeleteDB();
+                    dgvRequest.Rows.RemoveAt(dgvRequest.CurrentRow.Index); //удаляет строку из DataGridView
+                    lblQuantity.Text = "Количество заявок: " + dgvRequest.Rows.Count.ToString(); // -1 заявка в lbl после удаления из dgv
+                }
+            }
         }
+
+        private void tbAddRequest_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter) //проверяем нажат ли Enter,
+                btnAddRequest.PerformClick(); //если да, то жмем кнопку Добавить
+        }
+        #endregion
+
+
+
 
         private void tmrRequest_Tick(object sender, EventArgs e)
         {
@@ -387,27 +598,6 @@ namespace ALLinONE
             lblPrintBuffer.Text = "";
             lblPR.Text = "";
             tmrComm5555.Enabled = false;
-        }
-
-        private void tbAddRequest_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyData == Keys.Enter) //проверяем нажат ли Enter,
-                btnAddRequest.PerformClick(); //если да, то жмем кнопку Добавить
-        }
-
-        private void dgvRequest_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyData == Keys.Delete) //проверяем нажат ли Del,
-                btnRemoveRequest.PerformClick(); //если да, то жмем кнопку Удалить
-
-            if (e.KeyData == Keys.Enter) //проверяем нажат ли Enter,
-                btnAddRequestBuffer.PerformClick(); //если да, то жмем кнопку Добавления в буфер
-        }
-
-        private void toolStripReqOne_Click(object sender, EventArgs e)
-        {
-            PanVis();
-            panAddRequest.Visible = true;
         }
 
         private void btnAddRequestDB_Click(object sender, EventArgs e)
@@ -433,7 +623,6 @@ namespace ALLinONE
             }
             else MessageBox.Show("Что ты упустил?", "IQ тест", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
 
         private void btnAddProg_Click(object sender, EventArgs e)
         {
@@ -463,19 +652,6 @@ namespace ALLinONE
                 }
             }
             else MessageBox.Show("Шо те нада?", "Ну и дурак...", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void RefreshProgList()
-        {
-            lbProgList.Items.Clear();
-
-            UseDB usedb = new UseDB("ProgList", "Name");
-            SQLiteDataReader rdp = usedb.SelectDB();
-
-            while (rdp.Read()) //цикл перебора результатов кода БД
-            {
-                lbProgList.Items.Add(rdp["Name"]); //запись столбца БД в listbox
-            }
         }
 
         private void lbProgList_KeyDown(object sender, KeyEventArgs e)
@@ -514,120 +690,9 @@ namespace ALLinONE
             }
         }
 
-        private void btnAddRequestBuffer_Click(object sender, EventArgs e)
-        {
-            if (dgvRequest.SelectedRows.Count > 0)
-            {
-                tmrComm5555.Enabled = false;
-                string strRequest = dgvRequest.SelectedCells[1].Value.ToString();
-                Clipboard.SetText(strRequest);
-                lblInfoRequest.Text = "В буфер уехало:\n" + strRequest;
-                tmrComm5555.Enabled = true;
-
-                UseDB usedb = new UseDB("RequestList", "Value", "DateUse", strRequest, DateTime.Now.ToString());
-                usedb.UpdateDB();
-
-                dgvRequest.SelectedCells[4].Value = DateTime.Now.ToString(); //запись даты в ячейку "DataUse"
-
-                if (chckbRemoveRequest.Checked)
-                {
-                    usedb = new UseDB("RequestList", "Value", strRequest);
-                    usedb.DeleteDB();
-                    dgvRequest.Rows.RemoveAt(dgvRequest.CurrentRow.Index); //удаляет строку из DataGridView
-                    lblQuantity.Text = "Количество заявок: " + dgvRequest.Rows.Count.ToString(); // -1 заявка в lbl после удаления из dgv
-                }
-            }
-        }
-
-        private void btnPrintAdd_Click(object sender, EventArgs e)
-        {
-            if (tbPrintName.Text == "")
-            {
-                MessageBox.Show("Что забыл?", "Атата...", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                UseDB usedb = new UseDB("Printers", "Name", "NetName", "Location", "InvNumber", tbPrintName.Text, tbPrintNetName.Text, tbPrintLocation.Text, tbPrintInvNumber.Text);
-                usedb.InsertDB();
-                RefreshDBPrinters();
-                ClearPrintTB();
-            }
-        }
-
-        private void SaveFormPosition()
-        {
-            RegistryKey formPos = Registry.CurrentUser.CreateSubKey("All in One");
-
-            if (Registry.CurrentUser.OpenSubKey(@"All in One") == null) //проверяем наличие раздела в реестре. если отсутствует раздел, то создаем
-                formPos.CreateSubKey("All in One");
-
-            formPos.SetValue("PositionX", Location.X);
-            formPos.SetValue("PositionY", Location.Y);
-        }
-
-        private void LoadFormPosition()
-        {
-            RegistryKey formPos = Registry.CurrentUser.CreateSubKey("All in One");
-            Location = new Point(Convert.ToInt32(formPos.GetValue("PositionX", Location.X)), 
-                Convert.ToInt32(formPos.GetValue("PositionY", Location.Y)));   //загрузить позицию формы из реестра
-        }
-
-        private void tbPrintName_Click(object sender, EventArgs e)
-        {
-            TextBox tb = (TextBox)sender;
-            if (tb.TextLength > 0)
-            {
-                //tb.SelectAll();
-                Clipboard.SetText(tb.Text);
-                tmrComm5555.Enabled = false;
-                tmrComm5555.Enabled = true;
-                lblPrintBuffer.Text = "В буфер уехало: " + tb.Text;
-            }
-        }
-
         private void chckbMyRequest_CheckedChanged(object sender, EventArgs e)
         {
             RefreshDBGrid();
-        }
-
-        private void btnPrintRemove_Click(object sender, EventArgs e)
-        {
-            if (dgvPrinters.SelectedRows.Count <= 0)
-            {
-                MessageBox.Show("Кого кикаем?", "Упс", MessageBoxButtons.OK, MessageBoxIcon.Question);
-            }
-            else
-            {
-                string strId = dgvPrinters.SelectedCells[0].Value.ToString();
-                string strValue = dgvPrinters.SelectedCells[1].Value.ToString();
-
-                DialogResult result = MessageBox.Show
-                    ("Удалить запись?\n\n" + strValue, "Ты уверен?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
-                {
-                    UseDB usedb = new UseDB("Printers", "Id", strId);
-                    usedb.DeleteDB();
-                    dgvPrinters.Rows.RemoveAt(dgvPrinters.CurrentRow.Index); //удаляет строку из DataGridView
-                    ClearPrintTB();
-                }
-            }
-        }
-
-        private void dgvPrinters_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyData == Keys.Delete) //проверяем нажат ли Del,
-                btnPrintRemove.PerformClick(); //если да, то жмем кнопку Удалить
-        }
-
-        private void dgvPrinters_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                tbPrintName.Text = dgvPrinters.SelectedCells[1].Value.ToString();
-                tbPrintNetName.Text = dgvPrinters.SelectedCells[2].Value.ToString();
-                tbPrintLocation.Text = dgvPrinters.SelectedCells[3].Value.ToString();
-                tbPrintInvNumber.Text = dgvPrinters.SelectedCells[4].Value.ToString();
-            }
         }
 
         private void chckbServiceSorted_CheckedChanged(object sender, EventArgs e)
@@ -653,12 +718,6 @@ namespace ALLinONE
             form.ShowDialog();
         }
 
-        private void toolStripReqOS_Click(object sender, EventArgs e)
-        {
-            PanVis();
-            reOS.Visible = true;
-        }
-
         private void reOS_VisibleChanged(object sender, EventArgs e)
         {
             if (reOS.Visible)
@@ -674,45 +733,9 @@ namespace ALLinONE
             }
         }
 
-        private void ClearPrintTB()
-        {
-            tbPrintName.Clear();
-            tbPrintNetName.Clear();
-            tbPrintLocation.Clear();
-            tbPrintInvNumber.Clear();
-        }
-
-        private void toolStripExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         void PrintPageHandler(object sender, PrintPageEventArgs e)
         {
             e.Graphics.DrawString(result3, new Font("Arial", 12), Brushes.Black, 20, 20);
-        }
-
-        private void btnPrintPrinting_Click(object sender, EventArgs e)
-        {
-            result3 = null;
-            for (int i = 0; i < dgvPrinters.RowCount; i++)
-            {
-                for (int j = 1; j < dgvPrinters.ColumnCount; j++)
-                {
-                    if (dgvPrinters[j, i].Value.ToString() != "")
-                        result3 += dgvPrinters[j, i].Value.ToString() + "\t";
-                }
-                result3 += "\n";
-            }
-
-            PrintDocument printDocument = new PrintDocument();
-            printDocument.PrintPage += PrintPageHandler;
-
-            PrintDialog printDialog = new PrintDialog();
-            printDialog.Document = printDocument;
-
-            if (printDialog.ShowDialog() == DialogResult.OK)
-                printDialog.Document.Print();
         }
 
         private void toDoToolStripMenuItem_Click(object sender, EventArgs e)

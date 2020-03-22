@@ -36,9 +36,11 @@ namespace ALLinONE
             }
         }
 
-        public void RefreshList()
+        private void RefreshList()
         {
-            var sqlCommand = new SQLiteCommand("select * from ToDo", DB);
+            MainForm mf = new MainForm();
+
+            var sqlCommand = new SQLiteCommand("select * from ToDo", mf.DB);
             sqlCommand.ExecuteNonQuery();
 
             var dataTable = new DataTable("ToDo");
@@ -64,10 +66,10 @@ namespace ALLinONE
 
         private void ToDoList_Load(object sender, EventArgs e)
         {
-            DB = new SQLiteConnection("Data Source=Data_DB.db; Version=3"); //БД
-            DB.Open();
+            //DB = new SQLiteConnection("Data Source=Data_DB.db; Version=3"); //БД
+            //DB.Open();
 
-            RefreshList();
+            //RefreshList();
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
