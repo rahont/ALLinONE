@@ -13,7 +13,6 @@ using System.Net.NetworkInformation;
 using System.Diagnostics;
 using System.IO;
 using Microsoft.Win32;
-//using System.Drawing;
 
 namespace ALLinONE
 {
@@ -38,9 +37,18 @@ namespace ALLinONE
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //if (File.Exists("Data_DB.db"))
+            //    DB = new SQLiteConnection("Data Source=Data_DB.db; Version=3"); //БД
+            //else
+            //{
+            //    MessageBox.Show("Положи рядом с exe'шником файл БД с именем 'Data_DB.db' с правильными таблицами, иначе работать будешь без меня.", "Нам нужно поговорить...", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    Application.Exit();
+            //}
+            //DB.Open(); //открыть БД
+
+
             LoadFormPosition();
-            //MainForm main = new MainForm();
-            Text += " (" + Environment.UserName + ")   - v.2.8";
+            Text += " (" + Environment.UserName + ")   - v.2.9";
             Refresh_btnPR();
             RefreshProgList();
             panPR.Visible = true;
@@ -83,14 +91,21 @@ namespace ALLinONE
 
         private void ToolStripSrvc_Click(object sender, EventArgs e)
         {
-            RefreshLBRDP();
-            RefreshLBShare();
+            //RefreshLBRDP();
+            //RefreshLBShare();
 
-            if (panSrvc.Visible == false)
-            {
-                PanVis();
-                panSrvc.Visible = true;
-            }
+            //if (panSrvc.Visible == false)
+            //{
+            //    PanVis();
+            //    panSrvc.Visible = true;
+            //}
+
+
+            rdP_Share.RefreshLBRDP();
+            rdP_Share.RefreshLBShare();
+
+            PanVis();
+            rdP_Share.Visible = true;
         }
 
         private void ToolStripPrint_Click(object sender, EventArgs e)
@@ -174,6 +189,7 @@ namespace ALLinONE
             panAddRequest.Visible = false;
             reOS.Visible = false;
             toDoList.Visible = false;
+            rdP_Share.Visible = false;
         }
 
         public void RefreshLBRDP()
@@ -394,6 +410,23 @@ namespace ALLinONE
             SrvcChange form = new SrvcChange();
             form.Owner = this;
             form.ShowDialog();
+        }
+
+        private void chckbServiceSorted_CheckedChanged(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            if (chckbServiceSorted.Checked)
+            {
+                lbRDP.Sorted = true;
+                lbShare.Sorted = true;
+            }
+            else
+            {
+                lbRDP.Sorted = false;
+                lbShare.Sorted = false;
+            }
+            RefreshLBRDP();
+            RefreshLBShare();
         }
         #endregion
 
@@ -693,23 +726,6 @@ namespace ALLinONE
         private void chckbMyRequest_CheckedChanged(object sender, EventArgs e)
         {
             RefreshDBGrid();
-        }
-
-        private void chckbServiceSorted_CheckedChanged(object sender, EventArgs e)
-        {
-            listBox1.Items.Clear();
-            if (chckbServiceSorted.Checked)
-            {
-                lbRDP.Sorted = true;
-                lbShare.Sorted = true;
-            }
-            else
-            {
-                lbRDP.Sorted = false;
-                lbShare.Sorted = false;
-            }
-            RefreshLBRDP();
-            RefreshLBShare();
         }
 
         private void btnCartPaper_Click(object sender, EventArgs e)

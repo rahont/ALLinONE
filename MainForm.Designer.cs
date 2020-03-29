@@ -50,6 +50,7 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripDBList = new System.Windows.Forms.ToolStripMenuItem();
             this.toDoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.remoteAccsessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panPR = new System.Windows.Forms.Panel();
             this.lblPR = new System.Windows.Forms.Label();
             this.btnPR23 = new System.Windows.Forms.Button();
@@ -84,6 +85,7 @@
             this.btnSrvcChange = new System.Windows.Forms.Button();
             this.lbShare = new System.Windows.Forms.ListBox();
             this.lbRDP = new System.Windows.Forms.ListBox();
+            this.rdP_Share = new ALLinONE.RDP_Share();
             this.panPrint = new System.Windows.Forms.Panel();
             this.btnPrintPrinting = new System.Windows.Forms.Button();
             this.btnPrintRemove = new System.Windows.Forms.Button();
@@ -124,7 +126,6 @@
             this.rdbtnAddRequest2 = new System.Windows.Forms.RadioButton();
             this.rdbtnAddRequest1 = new System.Windows.Forms.RadioButton();
             this.lbProgList = new System.Windows.Forms.ListBox();
-            this.remoteAccsessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toDoList = new ALLinONE.ToDoList();
             this.reOS = new ALLinONE.ReinstallOS();
             this.menuStrip.SuspendLayout();
@@ -311,6 +312,14 @@
             this.toDoToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.toDoToolStripMenuItem.Text = "ToDo";
             this.toDoToolStripMenuItem.Click += new System.EventHandler(this.toDoToolStripMenuItem_Click);
+            // 
+            // remoteAccsessToolStripMenuItem
+            // 
+            this.remoteAccsessToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.remoteAccsessToolStripMenuItem.Name = "remoteAccsessToolStripMenuItem";
+            this.remoteAccsessToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
+            this.remoteAccsessToolStripMenuItem.Text = "RemoteAccsess";
+            this.remoteAccsessToolStripMenuItem.Click += new System.EventHandler(this.remoteAccsessToolStripMenuItem_Click);
             // 
             // panPR
             // 
@@ -723,6 +732,14 @@
             this.lbRDP.TabIndex = 0;
             this.lbRDP.DoubleClick += new System.EventHandler(this.LbRDP_DoubleClick);
             this.lbRDP.Leave += new System.EventHandler(this.LbRDP_Leave);
+            // 
+            // rdP_Share
+            // 
+            this.rdP_Share.Location = new System.Drawing.Point(0, 27);
+            this.rdP_Share.Name = "rdP_Share";
+            this.rdP_Share.Size = new System.Drawing.Size(636, 620);
+            this.rdP_Share.TabIndex = 8;
+            this.rdP_Share.Visible = false;
             // 
             // panPrint
             // 
@@ -1171,14 +1188,6 @@
             this.lbProgList.TabIndex = 0;
             this.lbProgList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbProgList_KeyDown);
             // 
-            // remoteAccsessToolStripMenuItem
-            // 
-            this.remoteAccsessToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.remoteAccsessToolStripMenuItem.Name = "remoteAccsessToolStripMenuItem";
-            this.remoteAccsessToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
-            this.remoteAccsessToolStripMenuItem.Text = "RemoteAccsess";
-            this.remoteAccsessToolStripMenuItem.Click += new System.EventHandler(this.remoteAccsessToolStripMenuItem_Click);
-            // 
             // toDoList
             // 
             this.toDoList.Location = new System.Drawing.Point(0, 24);
@@ -1201,14 +1210,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(636, 649);
+            this.Controls.Add(this.rdP_Share);
             this.Controls.Add(this.menuStrip);
+            this.Controls.Add(this.panSrvc);
             this.Controls.Add(this.panPR);
             this.Controls.Add(this.toDoList);
             this.Controls.Add(this.panPrint);
             this.Controls.Add(this.panAddRequest);
             this.Controls.Add(this.panRequest);
             this.Controls.Add(this.reOS);
-            this.Controls.Add(this.panSrvc);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(652, 688);
@@ -1336,6 +1346,7 @@
         private System.Windows.Forms.ToolStripMenuItem toDoToolStripMenuItem;
         private ToDoList toDoList;
         private System.Windows.Forms.ToolStripMenuItem remoteAccsessToolStripMenuItem;
+        private RDP_Share rdP_Share;
     }
 }
 

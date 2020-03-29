@@ -77,6 +77,7 @@ namespace ALLinONE
             tbShareTitle.ForeColor = Color.Gray;
             RefreshLBRDP();
             RefreshLBShare();
+            RefreshLBPing();
         }
 
         private void RefreshLBRDP()
@@ -102,6 +103,18 @@ namespace ALLinONE
             while (share.Read()) //цикл перебора результатов кода БД
             {
                 lbShare.Items.Add(share["Title"]); //запись столбца БД в listbox
+            }
+        }
+
+        public void RefreshLBPing()
+        {
+            lbPing.Items.Clear();
+
+            UseDB useDB = new UseDB("PingList", "Title");
+            SQLiteDataReader ping = useDB.SelectDB();
+            while (ping.Read()) //цикл перебора результатов кода БД
+            {
+                lbPing.Items.Add(ping["Title"]); //запись столбца БД в listbox
             }
         }
 
@@ -168,6 +181,48 @@ namespace ALLinONE
                 else tb.Text = "Наименование";  //если не находим, то вписываем другой вариант
                 tb.ForeColor = Color.Gray;
             }
+        }
+
+        private void btnPingAdd_Click(object sender, EventArgs e)
+        {
+            if (tbPingName.TextLength <= 0 || tbPingTitle.TextLength <= 0)
+                MessageBox.Show("Заполни все поля под колонкой Ping!", "Не заполнил!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+            {
+                bool available = false;
+                foreach (var item in lbPing.Items)
+                {
+                    if (tbPingTitle.Text == item.ToString())
+                    {
+                        available = true;
+                        MessageBox.Show("Test");
+                        return;
+                    }
+                }
+                if (available == false)
+                {
+                    UseDB useDB = new UseDB("PingList", "Name", "Title", tbPingName.Text, tbPingTitle.Text);
+                    useDB.InsertDB();
+
+                    RefreshLBPing();
+                }
+            }
+        }
+
+        private void btnPingRmv_Click(object sender, EventArgs e)
+        {
+            if (lbPing.SelectedItem != null)
+            {
+                DialogResult result = MessageBox.Show("Удалить запись '" + lbPing.SelectedItem + "'?", "Ты уверен?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    UseDB useDB = new UseDB("PingList", "Title", lbPing.SelectedItem.ToString());
+                    useDB.DeleteDB();
+
+                    RefreshLBPing();
+                }
+            }
+            else MessageBox.Show("Шо те нада?", "Ну и дурак...", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

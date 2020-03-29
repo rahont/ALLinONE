@@ -67,6 +67,8 @@ namespace ALLinONE
         /// </summary>
         public SQLiteDataReader SelectDB()
         {
+            
+
             SQLiteCommand comm = mainForm.DB.CreateCommand(); //переменная БД
             comm.CommandText = "select " + col1 + " from " + table + ""; //код БД в переменную
             SQLiteDataReader rdp = comm.ExecuteReader(); //результат кода в переменную
@@ -77,13 +79,22 @@ namespace ALLinONE
         /// <summary>
         /// select *COLUMN_1* from *TABLE* where *COLUMN_2* like *STRING*
         /// </summary>
-        public SQLiteDataReader SelectDBLike()
+        public string SelectDBLike()
         {
-            SQLiteCommand comm = mainForm.DB.CreateCommand(); //переменная БД
-            comm.CommandText = "select " + col1 + " from " + table + " where " + col2 + " like " + str1 + ""; //код БД в переменную
-            SQLiteDataReader rdp = comm.ExecuteReader(); //результат кода в переменную
+            string res = null;
 
-            return rdp;
+            try
+            {
+                SQLiteCommand comm = mainForm.DB.CreateCommand(); //переменная БД
+                comm.CommandText = $"select {col1} from {table} where {col2} like '{str1}'"; //код БД в переменную
+                res = comm.ExecuteScalar().ToString(); //результат кода в переменную
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show($"{ex}");
+            }
+
+            return res;
         }
 
         /// <summary>

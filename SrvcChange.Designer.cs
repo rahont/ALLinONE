@@ -41,6 +41,12 @@
             this.lblShare = new System.Windows.Forms.Label();
             this.tbRDPTitle = new System.Windows.Forms.TextBox();
             this.tbShareTitle = new System.Windows.Forms.TextBox();
+            this.lbPing = new System.Windows.Forms.ListBox();
+            this.lblPing = new System.Windows.Forms.Label();
+            this.btnPingAdd = new System.Windows.Forms.Button();
+            this.btnPingRmv = new System.Windows.Forms.Button();
+            this.tbPingTitle = new ALLinONE.MyTextBox();
+            this.tbPingName = new ALLinONE.MyTextBox();
             this.SuspendLayout();
             // 
             // lbRDP
@@ -169,11 +175,77 @@
             this.tbShareTitle.Click += new System.EventHandler(this.tbRDPName_Click);
             this.tbShareTitle.Leave += new System.EventHandler(this.tbRDPName_Leave);
             // 
+            // lbPing
+            // 
+            this.lbPing.FormattingEnabled = true;
+            this.lbPing.Location = new System.Drawing.Point(492, 43);
+            this.lbPing.Name = "lbPing";
+            this.lbPing.Size = new System.Drawing.Size(206, 368);
+            this.lbPing.TabIndex = 11;
+            // 
+            // lblPing
+            // 
+            this.lblPing.AutoSize = true;
+            this.lblPing.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblPing.Location = new System.Drawing.Point(574, 13);
+            this.lblPing.Name = "lblPing";
+            this.lblPing.Size = new System.Drawing.Size(41, 18);
+            this.lblPing.TabIndex = 14;
+            this.lblPing.Text = "Ping";
+            // 
+            // btnPingAdd
+            // 
+            this.btnPingAdd.Location = new System.Drawing.Point(517, 451);
+            this.btnPingAdd.Name = "btnPingAdd";
+            this.btnPingAdd.Size = new System.Drawing.Size(75, 26);
+            this.btnPingAdd.TabIndex = 15;
+            this.btnPingAdd.Text = "Добавить";
+            this.btnPingAdd.UseVisualStyleBackColor = true;
+            this.btnPingAdd.Click += new System.EventHandler(this.btnPingAdd_Click);
+            // 
+            // btnPingRmv
+            // 
+            this.btnPingRmv.Location = new System.Drawing.Point(598, 451);
+            this.btnPingRmv.Name = "btnPingRmv";
+            this.btnPingRmv.Size = new System.Drawing.Size(75, 26);
+            this.btnPingRmv.TabIndex = 16;
+            this.btnPingRmv.Text = "Удалить";
+            this.btnPingRmv.UseVisualStyleBackColor = true;
+            this.btnPingRmv.Click += new System.EventHandler(this.btnPingRmv_Click);
+            // 
+            // tbPingTitle
+            // 
+            this.tbPingTitle.Location = new System.Drawing.Point(598, 417);
+            this.tbPingTitle.MaximumSize = new System.Drawing.Size(1000, 20);
+            this.tbPingTitle.MinimumSize = new System.Drawing.Size(1, 20);
+            this.tbPingTitle.Name = "tbPingTitle";
+            this.tbPingTitle.Size = new System.Drawing.Size(100, 20);
+            this.tbPingTitle.TabIndex = 13;
+            this.tbPingTitle.TextMaxLength = 100;
+            this.tbPingTitle.TextTitle = "Наименование";
+            // 
+            // tbPingName
+            // 
+            this.tbPingName.Location = new System.Drawing.Point(492, 417);
+            this.tbPingName.MaximumSize = new System.Drawing.Size(1000, 20);
+            this.tbPingName.MinimumSize = new System.Drawing.Size(1, 20);
+            this.tbPingName.Name = "tbPingName";
+            this.tbPingName.Size = new System.Drawing.Size(100, 20);
+            this.tbPingName.TabIndex = 12;
+            this.tbPingName.TextMaxLength = 255;
+            this.tbPingName.TextTitle = "Адрес";
+            // 
             // SrvcChange
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(477, 485);
+            this.ClientSize = new System.Drawing.Size(710, 485);
+            this.Controls.Add(this.btnPingRmv);
+            this.Controls.Add(this.btnPingAdd);
+            this.Controls.Add(this.lblPing);
+            this.Controls.Add(this.tbPingTitle);
+            this.Controls.Add(this.tbPingName);
+            this.Controls.Add(this.lbPing);
             this.Controls.Add(this.tbShareTitle);
             this.Controls.Add(this.tbRDPTitle);
             this.Controls.Add(this.lblShare);
@@ -188,8 +260,7 @@
             this.Controls.Add(this.lbRDP);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(493, 524);
-            this.MinimumSize = new System.Drawing.Size(493, 524);
+            this.MinimumSize = new System.Drawing.Size(16, 524);
             this.Name = "SrvcChange";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -215,5 +286,11 @@
         private System.Windows.Forms.Label lblShare;
         private System.Windows.Forms.TextBox tbRDPTitle;
         private System.Windows.Forms.TextBox tbShareTitle;
+        private System.Windows.Forms.ListBox lbPing;
+        private MyTextBox tbPingName;
+        private MyTextBox tbPingTitle;
+        private System.Windows.Forms.Label lblPing;
+        private System.Windows.Forms.Button btnPingAdd;
+        private System.Windows.Forms.Button btnPingRmv;
     }
 }
