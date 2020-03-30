@@ -186,7 +186,7 @@ namespace ALLinONE
         private void btnPingAdd_Click(object sender, EventArgs e)
         {
             if (tbPingName.TextLength <= 0 || tbPingTitle.TextLength <= 0)
-                MessageBox.Show("Заполни все поля под колонкой Ping!", "Не заполнил!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Заполни все поля под колонкой Ping!", "Не заполнил!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
                 bool available = false;
@@ -195,7 +195,7 @@ namespace ALLinONE
                     if (tbPingTitle.Text == item.ToString())
                     {
                         available = true;
-                        MessageBox.Show("Test");
+                        MessageBox.Show("Такое название уже существует.", "Не плоди двойников", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                 }

@@ -89,7 +89,7 @@
             this.lbShare.Sorted = true;
             this.lbShare.TabIndex = 1;
             this.lbShare.DoubleClick += new System.EventHandler(this.lbShare_DoubleClick);
-            this.lbShare.Leave += new System.EventHandler(this.lbShare_Leave);
+            this.lbShare.Leave += new System.EventHandler(this.lbRDP_Leave);
             // 
             // lbRDP
             // 
@@ -117,31 +117,30 @@
             // 
             // lbPingSuccess
             // 
-            this.lbPingSuccess.Enabled = false;
             this.lbPingSuccess.FormattingEnabled = true;
             this.lbPingSuccess.Location = new System.Drawing.Point(12, 372);
             this.lbPingSuccess.Name = "lbPingSuccess";
-            this.lbPingSuccess.Size = new System.Drawing.Size(242, 186);
+            this.lbPingSuccess.Size = new System.Drawing.Size(135, 186);
             this.lbPingSuccess.Sorted = true;
             this.lbPingSuccess.TabIndex = 3;
+            this.lbPingSuccess.Leave += new System.EventHandler(this.lbRDP_Leave);
             // 
             // lbPingTimeOut
             // 
-            this.lbPingTimeOut.Enabled = false;
             this.lbPingTimeOut.FormattingEnabled = true;
-            this.lbPingTimeOut.Location = new System.Drawing.Point(260, 372);
+            this.lbPingTimeOut.Location = new System.Drawing.Point(159, 372);
             this.lbPingTimeOut.Name = "lbPingTimeOut";
-            this.lbPingTimeOut.Size = new System.Drawing.Size(242, 186);
+            this.lbPingTimeOut.Size = new System.Drawing.Size(135, 186);
             this.lbPingTimeOut.Sorted = true;
             this.lbPingTimeOut.TabIndex = 4;
             this.lbPingTimeOut.Visible = false;
+            this.lbPingTimeOut.Leave += new System.EventHandler(this.lbRDP_Leave);
             // 
             // lblPingSuccess
             // 
             this.lblPingSuccess.AutoSize = true;
-            this.lblPingSuccess.Enabled = false;
             this.lblPingSuccess.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblPingSuccess.Location = new System.Drawing.Point(99, 355);
+            this.lblPingSuccess.Location = new System.Drawing.Point(42, 355);
             this.lblPingSuccess.Name = "lblPingSuccess";
             this.lblPingSuccess.Size = new System.Drawing.Size(72, 15);
             this.lblPingSuccess.TabIndex = 15;
@@ -150,9 +149,8 @@
             // lblPingTimeOut
             // 
             this.lblPingTimeOut.AutoSize = true;
-            this.lblPingTimeOut.Enabled = false;
             this.lblPingTimeOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblPingTimeOut.Location = new System.Drawing.Point(337, 355);
+            this.lblPingTimeOut.Location = new System.Drawing.Point(180, 355);
             this.lblPingTimeOut.Name = "lblPingTimeOut";
             this.lblPingTimeOut.Size = new System.Drawing.Size(92, 15);
             this.lblPingTimeOut.TabIndex = 16;

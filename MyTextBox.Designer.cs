@@ -47,6 +47,7 @@
             this.lbl.AutoSize = true;
             this.lbl.BackColor = System.Drawing.SystemColors.Window;
             this.lbl.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.lbl.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.lbl.ForeColor = System.Drawing.Color.Gray;
             this.lbl.Location = new System.Drawing.Point(4, 3);
             this.lbl.Name = "lbl";

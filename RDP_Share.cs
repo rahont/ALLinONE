@@ -23,12 +23,13 @@ namespace ALLinONE
 
         private void lbShare_Leave(object sender, EventArgs e)
         {
-            lbShare.ClearSelected();
+            //lbShare.ClearSelected();
         }
 
         private void lbRDP_Leave(object sender, EventArgs e)
         {
-            lbRDP.ClearSelected();
+            ListBox lb = (ListBox)sender;
+            lb.ClearSelected();
         }
 
         private void lbShare_DoubleClick(object sender, EventArgs e)
