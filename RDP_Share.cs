@@ -16,15 +16,15 @@ namespace ALLinONE
 {
     public partial class RDP_Share : UserControl
     {
-        List<string> listName = new List<string>();
-        List<string> listTitle = new List<string>();
-        Ping ping = new Ping();
-        PingReply pingReply;
-
         public RDP_Share()
         {
             InitializeComponent();
         }
+
+        List<string> listName = new List<string>();
+        List<string> listTitle = new List<string>();
+        Ping ping = new Ping();
+        PingReply pingReply;
 
         private void lbRDP_Leave(object sender, EventArgs e)
         {
@@ -244,7 +244,7 @@ namespace ALLinONE
         private void RDP_Share_Load(object sender, EventArgs e)
         {
             numPingProgress.Value = Properties.Settings.Default.rdp_shareProgressBarSec;
-            LoadListNameAndListTitle();
+            //LoadListNameAndListTitle();
         }
     }
 }

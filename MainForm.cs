@@ -52,6 +52,8 @@ namespace ALLinONE
             Refresh_btnPR();
             RefreshProgList();
             panPR.Visible = true;
+
+            rdP_Share.LoadListNameAndListTitle();   //Запускает метод юзерконтрола, иначе происходит какая-то хрень с вылетом прямо из конструктора
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -101,11 +103,11 @@ namespace ALLinONE
             //}
 
 
-            //rdP_Share.RefreshLBRDP();
-            //rdP_Share.RefreshLBShare();
+            rdP_Share.RefreshLBRDP();
+            rdP_Share.RefreshLBShare();
 
-            //PanVis();
-            //rdP_Share.Visible = true;
+            PanVis();
+            rdP_Share.Visible = true;
         }
 
         private void ToolStripPrint_Click(object sender, EventArgs e)
@@ -189,7 +191,7 @@ namespace ALLinONE
             panAddRequest.Visible = false;
             reOS.Visible = false;
             toDoList.Visible = false;
-            //rdP_Share.Visible = false;
+            rdP_Share.Visible = false;
         }
 
         public void RefreshLBRDP()

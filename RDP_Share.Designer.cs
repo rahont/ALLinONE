@@ -201,6 +201,11 @@
             0,
             0,
             0});
+            this.numPingTimeOut.Minimum = new decimal(new int[] {
+            32,
+            0,
+            0,
+            0});
             this.numPingTimeOut.Name = "numPingTimeOut";
             this.numPingTimeOut.Size = new System.Drawing.Size(39, 20);
             this.numPingTimeOut.TabIndex = 20;
