@@ -42,7 +42,9 @@
             this.pbPingProgress = new System.Windows.Forms.ProgressBar();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.numPingProgress = new System.Windows.Forms.NumericUpDown();
+            this.numPingTimeOut = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.numPingProgress)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPingTimeOut)).BeginInit();
             this.SuspendLayout();
             // 
             // chckbServiceSorted
@@ -159,7 +161,7 @@
             // 
             // pbPingProgress
             // 
-            this.pbPingProgress.Location = new System.Drawing.Point(12, 580);
+            this.pbPingProgress.Location = new System.Drawing.Point(31, 590);
             this.pbPingProgress.Name = "pbPingProgress";
             this.pbPingProgress.Size = new System.Drawing.Size(242, 20);
             this.pbPingProgress.TabIndex = 19;
@@ -170,9 +172,14 @@
             // 
             // numPingProgress
             // 
-            this.numPingProgress.Location = new System.Drawing.Point(260, 580);
+            this.numPingProgress.Location = new System.Drawing.Point(113, 564);
             this.numPingProgress.Maximum = new decimal(new int[] {
             64,
+            0,
+            0,
+            0});
+            this.numPingProgress.Minimum = new decimal(new int[] {
+            1,
             0,
             0,
             0});
@@ -186,10 +193,28 @@
             0});
             this.numPingProgress.ValueChanged += new System.EventHandler(this.numPingProgress_ValueChanged);
             // 
+            // numPingTimeOut
+            // 
+            this.numPingTimeOut.Location = new System.Drawing.Point(159, 564);
+            this.numPingTimeOut.Maximum = new decimal(new int[] {
+            164,
+            0,
+            0,
+            0});
+            this.numPingTimeOut.Name = "numPingTimeOut";
+            this.numPingTimeOut.Size = new System.Drawing.Size(39, 20);
+            this.numPingTimeOut.TabIndex = 20;
+            this.numPingTimeOut.Value = new decimal(new int[] {
+            64,
+            0,
+            0,
+            0});
+            // 
             // RDP_Share
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.numPingTimeOut);
             this.Controls.Add(this.numPingProgress);
             this.Controls.Add(this.pbPingProgress);
             this.Controls.Add(this.lblPingTimeOut);
@@ -207,6 +232,7 @@
             this.Load += new System.EventHandler(this.RDP_Share_Load);
             this.VisibleChanged += new System.EventHandler(this.RDP_Share_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.numPingProgress)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPingTimeOut)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,5 +253,6 @@
         private System.Windows.Forms.ProgressBar pbPingProgress;
         public System.Windows.Forms.Timer timer;
         private System.Windows.Forms.NumericUpDown numPingProgress;
+        private System.Windows.Forms.NumericUpDown numPingTimeOut;
     }
 }

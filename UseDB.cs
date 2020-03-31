@@ -67,17 +67,16 @@ namespace ALLinONE
         /// </summary>
         public SQLiteDataReader SelectDB()
         {
-            
-
             SQLiteCommand comm = mainForm.DB.CreateCommand(); //переменная БД
             comm.CommandText = "select " + col1 + " from " + table + ""; //код БД в переменную
             SQLiteDataReader rdp = comm.ExecuteReader(); //результат кода в переменную
 
             return rdp;
         }
-
+        
         /// <summary>
         /// select *COLUMN_1* from *TABLE* where *COLUMN_2* like *STRING*
+        /// returns *string*;
         /// </summary>
         public string SelectDBLike()
         {

@@ -127,5 +127,11 @@ namespace ALLinONE
             lblValue.Text = "";
             tmr3333.Enabled = false;
         }
+
+        private void tbFIO_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter) //проверяем нажат ли Del,
+                btnAddDB.PerformClick(); //если да, то жмем кнопку Удалить
+        }
     }
 }

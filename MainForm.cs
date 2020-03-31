@@ -35,7 +35,7 @@ namespace ALLinONE
             DB.Open(); //открыть БД
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        public void Form1_Load(object sender, EventArgs e)
         {
             //if (File.Exists("Data_DB.db"))
             //    DB = new SQLiteConnection("Data Source=Data_DB.db; Version=3"); //БД
@@ -101,11 +101,11 @@ namespace ALLinONE
             //}
 
 
-            rdP_Share.RefreshLBRDP();
-            rdP_Share.RefreshLBShare();
+            //rdP_Share.RefreshLBRDP();
+            //rdP_Share.RefreshLBShare();
 
-            PanVis();
-            rdP_Share.Visible = true;
+            //PanVis();
+            //rdP_Share.Visible = true;
         }
 
         private void ToolStripPrint_Click(object sender, EventArgs e)
@@ -189,7 +189,7 @@ namespace ALLinONE
             panAddRequest.Visible = false;
             reOS.Visible = false;
             toDoList.Visible = false;
-            rdP_Share.Visible = false;
+            //rdP_Share.Visible = false;
         }
 
         public void RefreshLBRDP()
@@ -294,10 +294,10 @@ namespace ALLinONE
 
         private void ClearPrintTB()
         {
-            tbPrintName.Clear();
-            tbPrintNetName.Clear();
-            tbPrintLocation.Clear();
-            tbPrintInvNumber.Clear();
+            tbPrintName1.Clear();
+            tbPrintNetName1.Clear();
+            tbPrintLocation1.Clear();
+            tbPrintInvNumber1.Clear();
         }
         #endregion
 
@@ -435,10 +435,10 @@ namespace ALLinONE
         {
             if (e.RowIndex >= 0)
             {
-                tbPrintName.Text = dgvPrinters.SelectedCells[1].Value.ToString();
-                tbPrintNetName.Text = dgvPrinters.SelectedCells[2].Value.ToString();
-                tbPrintLocation.Text = dgvPrinters.SelectedCells[3].Value.ToString();
-                tbPrintInvNumber.Text = dgvPrinters.SelectedCells[4].Value.ToString();
+                tbPrintName1.Text = dgvPrinters.SelectedCells[1].Value.ToString();
+                tbPrintNetName1.Text = dgvPrinters.SelectedCells[2].Value.ToString();
+                tbPrintLocation1.Text = dgvPrinters.SelectedCells[3].Value.ToString();
+                tbPrintInvNumber1.Text = dgvPrinters.SelectedCells[4].Value.ToString();
             }
         }
 
@@ -486,13 +486,13 @@ namespace ALLinONE
 
         private void btnPrintAdd_Click(object sender, EventArgs e)
         {
-            if (tbPrintName.Text == "")
+            if (tbPrintName1.Text == "")
             {
                 MessageBox.Show("Что забыл?", "Атата...", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                UseDB usedb = new UseDB("Printers", "Name", "NetName", "Location", "InvNumber", tbPrintName.Text, tbPrintNetName.Text, tbPrintLocation.Text, tbPrintInvNumber.Text);
+                UseDB usedb = new UseDB("Printers", "Name", "NetName", "Location", "InvNumber", tbPrintName1.Text, tbPrintNetName1.Text, tbPrintLocation1.Text, tbPrintInvNumber1.Text);
                 usedb.InsertDB();
                 RefreshDBPrinters();
                 ClearPrintTB();

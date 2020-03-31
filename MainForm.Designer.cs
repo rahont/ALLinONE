@@ -85,7 +85,6 @@
             this.btnSrvcChange = new System.Windows.Forms.Button();
             this.lbShare = new System.Windows.Forms.ListBox();
             this.lbRDP = new System.Windows.Forms.ListBox();
-            this.rdP_Share = new ALLinONE.RDP_Share();
             this.panPrint = new System.Windows.Forms.Panel();
             this.btnPrintPrinting = new System.Windows.Forms.Button();
             this.btnPrintRemove = new System.Windows.Forms.Button();
@@ -94,12 +93,12 @@
             this.lblPrintLocation = new System.Windows.Forms.Label();
             this.lblPrintNetName = new System.Windows.Forms.Label();
             this.lblPrintName = new System.Windows.Forms.Label();
-            this.tbPrintInvNumber = new System.Windows.Forms.TextBox();
+            this.tbPrintInvNumber1 = new System.Windows.Forms.TextBox();
             this.dgvPrinters = new System.Windows.Forms.DataGridView();
             this.btnPrintAdd = new System.Windows.Forms.Button();
-            this.tbPrintLocation = new System.Windows.Forms.TextBox();
-            this.tbPrintNetName = new System.Windows.Forms.TextBox();
-            this.tbPrintName = new System.Windows.Forms.TextBox();
+            this.tbPrintLocation1 = new System.Windows.Forms.TextBox();
+            this.tbPrintNetName1 = new System.Windows.Forms.TextBox();
+            this.tbPrintName1 = new System.Windows.Forms.TextBox();
             this.panRequest = new System.Windows.Forms.Panel();
             this.chckbMyRequest = new System.Windows.Forms.CheckBox();
             this.chckbRemoveRequest = new System.Windows.Forms.CheckBox();
@@ -276,32 +275,32 @@
             this.toolStripReqOne,
             this.toolStripReqOS});
             this.toolStripMakeRequest.Name = "toolStripMakeRequest";
-            this.toolStripMakeRequest.Size = new System.Drawing.Size(148, 22);
+            this.toolStripMakeRequest.Size = new System.Drawing.Size(180, 22);
             this.toolStripMakeRequest.Text = "Создать";
             // 
             // toolStripReqOne
             // 
             this.toolStripReqOne.Name = "toolStripReqOne";
-            this.toolStripReqOne.Size = new System.Drawing.Size(177, 22);
+            this.toolStripReqOne.Size = new System.Drawing.Size(180, 22);
             this.toolStripReqOne.Text = "По одной";
             this.toolStripReqOne.Click += new System.EventHandler(this.toolStripReqOne_Click);
             // 
             // toolStripReqOS
             // 
             this.toolStripReqOS.Name = "toolStripReqOS";
-            this.toolStripReqOS.Size = new System.Drawing.Size(177, 22);
+            this.toolStripReqOS.Size = new System.Drawing.Size(180, 22);
             this.toolStripReqOS.Text = "Переустановка ОС";
             this.toolStripReqOS.Click += new System.EventHandler(this.toolStripReqOS_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(145, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // toolStripDBList
             // 
             this.toolStripDBList.Name = "toolStripDBList";
-            this.toolStripDBList.Size = new System.Drawing.Size(148, 22);
+            this.toolStripDBList.Size = new System.Drawing.Size(180, 22);
             this.toolStripDBList.Text = "Список из БД";
             this.toolStripDBList.Click += new System.EventHandler(this.ToolStripDBList_Click);
             // 
@@ -733,14 +732,6 @@
             this.lbRDP.DoubleClick += new System.EventHandler(this.LbRDP_DoubleClick);
             this.lbRDP.Leave += new System.EventHandler(this.LbRDP_Leave);
             // 
-            // rdP_Share
-            // 
-            this.rdP_Share.Location = new System.Drawing.Point(0, 27);
-            this.rdP_Share.Name = "rdP_Share";
-            this.rdP_Share.Size = new System.Drawing.Size(636, 620);
-            this.rdP_Share.TabIndex = 8;
-            this.rdP_Share.Visible = false;
-            // 
             // panPrint
             // 
             this.panPrint.Controls.Add(this.btnPrintPrinting);
@@ -750,12 +741,12 @@
             this.panPrint.Controls.Add(this.lblPrintLocation);
             this.panPrint.Controls.Add(this.lblPrintNetName);
             this.panPrint.Controls.Add(this.lblPrintName);
-            this.panPrint.Controls.Add(this.tbPrintInvNumber);
+            this.panPrint.Controls.Add(this.tbPrintInvNumber1);
             this.panPrint.Controls.Add(this.dgvPrinters);
             this.panPrint.Controls.Add(this.btnPrintAdd);
-            this.panPrint.Controls.Add(this.tbPrintLocation);
-            this.panPrint.Controls.Add(this.tbPrintNetName);
-            this.panPrint.Controls.Add(this.tbPrintName);
+            this.panPrint.Controls.Add(this.tbPrintLocation1);
+            this.panPrint.Controls.Add(this.tbPrintNetName1);
+            this.panPrint.Controls.Add(this.tbPrintName1);
             this.panPrint.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panPrint.Location = new System.Drawing.Point(0, 0);
             this.panPrint.Name = "panPrint";
@@ -828,14 +819,14 @@
             this.lblPrintName.TabIndex = 6;
             this.lblPrintName.Text = "Наименование";
             // 
-            // tbPrintInvNumber
+            // tbPrintInvNumber1
             // 
-            this.tbPrintInvNumber.Location = new System.Drawing.Point(384, 587);
-            this.tbPrintInvNumber.MaxLength = 15;
-            this.tbPrintInvNumber.Name = "tbPrintInvNumber";
-            this.tbPrintInvNumber.Size = new System.Drawing.Size(100, 20);
-            this.tbPrintInvNumber.TabIndex = 4;
-            this.tbPrintInvNumber.Click += new System.EventHandler(this.tbPrintName_Click);
+            this.tbPrintInvNumber1.Location = new System.Drawing.Point(384, 587);
+            this.tbPrintInvNumber1.MaxLength = 15;
+            this.tbPrintInvNumber1.Name = "tbPrintInvNumber1";
+            this.tbPrintInvNumber1.Size = new System.Drawing.Size(100, 20);
+            this.tbPrintInvNumber1.TabIndex = 4;
+            this.tbPrintInvNumber1.Click += new System.EventHandler(this.tbPrintName_Click);
             // 
             // dgvPrinters
             // 
@@ -866,32 +857,32 @@
             this.btnPrintAdd.UseVisualStyleBackColor = true;
             this.btnPrintAdd.Click += new System.EventHandler(this.btnPrintAdd_Click);
             // 
-            // tbPrintLocation
+            // tbPrintLocation1
             // 
-            this.tbPrintLocation.Location = new System.Drawing.Point(262, 587);
-            this.tbPrintLocation.MaxLength = 20;
-            this.tbPrintLocation.Name = "tbPrintLocation";
-            this.tbPrintLocation.Size = new System.Drawing.Size(100, 20);
-            this.tbPrintLocation.TabIndex = 3;
-            this.tbPrintLocation.Click += new System.EventHandler(this.tbPrintName_Click);
+            this.tbPrintLocation1.Location = new System.Drawing.Point(262, 587);
+            this.tbPrintLocation1.MaxLength = 20;
+            this.tbPrintLocation1.Name = "tbPrintLocation1";
+            this.tbPrintLocation1.Size = new System.Drawing.Size(100, 20);
+            this.tbPrintLocation1.TabIndex = 3;
+            this.tbPrintLocation1.Click += new System.EventHandler(this.tbPrintName_Click);
             // 
-            // tbPrintNetName
+            // tbPrintNetName1
             // 
-            this.tbPrintNetName.Location = new System.Drawing.Point(137, 587);
-            this.tbPrintNetName.MaxLength = 50;
-            this.tbPrintNetName.Name = "tbPrintNetName";
-            this.tbPrintNetName.Size = new System.Drawing.Size(100, 20);
-            this.tbPrintNetName.TabIndex = 2;
-            this.tbPrintNetName.Click += new System.EventHandler(this.tbPrintName_Click);
+            this.tbPrintNetName1.Location = new System.Drawing.Point(137, 587);
+            this.tbPrintNetName1.MaxLength = 50;
+            this.tbPrintNetName1.Name = "tbPrintNetName1";
+            this.tbPrintNetName1.Size = new System.Drawing.Size(100, 20);
+            this.tbPrintNetName1.TabIndex = 2;
+            this.tbPrintNetName1.Click += new System.EventHandler(this.tbPrintName_Click);
             // 
-            // tbPrintName
+            // tbPrintName1
             // 
-            this.tbPrintName.Location = new System.Drawing.Point(12, 587);
-            this.tbPrintName.MaxLength = 100;
-            this.tbPrintName.Name = "tbPrintName";
-            this.tbPrintName.Size = new System.Drawing.Size(100, 20);
-            this.tbPrintName.TabIndex = 1;
-            this.tbPrintName.Click += new System.EventHandler(this.tbPrintName_Click);
+            this.tbPrintName1.Location = new System.Drawing.Point(12, 587);
+            this.tbPrintName1.MaxLength = 100;
+            this.tbPrintName1.Name = "tbPrintName1";
+            this.tbPrintName1.Size = new System.Drawing.Size(100, 20);
+            this.tbPrintName1.TabIndex = 1;
+            this.tbPrintName1.Click += new System.EventHandler(this.tbPrintName_Click);
             // 
             // panRequest
             // 
@@ -1210,15 +1201,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(636, 649);
-            this.Controls.Add(this.rdP_Share);
             this.Controls.Add(this.menuStrip);
-            this.Controls.Add(this.panSrvc);
-            this.Controls.Add(this.panPR);
-            this.Controls.Add(this.toDoList);
             this.Controls.Add(this.panPrint);
             this.Controls.Add(this.panAddRequest);
             this.Controls.Add(this.panRequest);
             this.Controls.Add(this.reOS);
+            this.Controls.Add(this.panSrvc);
+            this.Controls.Add(this.panPR);
+            this.Controls.Add(this.toDoList);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(652, 688);
@@ -1320,13 +1310,13 @@
         private System.Windows.Forms.Button btnAddProg;
         private System.Windows.Forms.TextBox tbAddProg;
         private System.Windows.Forms.Button btnPrintAdd;
-        private System.Windows.Forms.TextBox tbPrintLocation;
-        private System.Windows.Forms.TextBox tbPrintNetName;
-        private System.Windows.Forms.TextBox tbPrintName;
+        private System.Windows.Forms.TextBox tbPrintLocation1;
+        private System.Windows.Forms.TextBox tbPrintNetName1;
+        private System.Windows.Forms.TextBox tbPrintName1;
         private System.Windows.Forms.TextBox tbAddFIORequest;
         private System.Windows.Forms.Button btnAddRequestBuffer;
         private System.Windows.Forms.DataGridView dgvPrinters;
-        private System.Windows.Forms.TextBox tbPrintInvNumber;
+        private System.Windows.Forms.TextBox tbPrintInvNumber1;
         private System.Windows.Forms.CheckBox chckbRemoveRequest;
         private System.Windows.Forms.Label lblPrintInvNumber;
         private System.Windows.Forms.Label lblPrintLocation;
@@ -1346,7 +1336,6 @@
         private System.Windows.Forms.ToolStripMenuItem toDoToolStripMenuItem;
         private ToDoList toDoList;
         private System.Windows.Forms.ToolStripMenuItem remoteAccsessToolStripMenuItem;
-        private RDP_Share rdP_Share;
     }
 }
 
