@@ -214,7 +214,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Заявки по принтерам";
             this.Load += new System.EventHandler(this.RequestPrinters_Load);
-            this.ResizeEnd += new System.EventHandler(this.RequestPrinters_ResizeEnd);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequestPrint)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

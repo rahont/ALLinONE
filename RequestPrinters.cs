@@ -13,6 +13,8 @@ namespace ALLinONE
 {
     public partial class RequestPrinters : Form
     {
+        UseDB usedb = new UseDB();
+
         public RequestPrinters()
         {
             InitializeComponent();
@@ -26,7 +28,15 @@ namespace ALLinONE
 
                 string str = RequestString();
 
-                UseDB usedb = new UseDB("RequestList", "Value", "User", "DateCreate", str, Environment.UserName, DateTime.Now.ToString());
+                //UseDB usedb = new UseDB("RequestList", "Value", "User", "DateCreate", str, Environment.UserName, DateTime.Now.ToString());
+                usedb.table = "RequestList";
+                usedb.col1 = "Value";
+                usedb.col2 = "User";
+                usedb.col3 = "DateCreate";
+                usedb.str1 = str;
+                usedb.str2 = Environment.UserName;
+                usedb.str3 = DateTime.Now.ToString();
+                usedb.numbCol = 3;
                 usedb.InsertDB();
 
                 lblRequestPrint.Text = "Улетело в БД: " + str;
@@ -66,7 +76,8 @@ namespace ALLinONE
         private void RefreshDBPrinters()
         {
             MainForm mf = new MainForm();
-            var sqlCommand = new SQLiteCommand("select * from Printers", mf.DB);
+            usedb.connectDB.Open();
+            var sqlCommand = new SQLiteCommand("select * from Printers", usedb.connectDB);
             sqlCommand.ExecuteNonQuery();
 
             var dataTable = new DataTable("Printers");
@@ -76,6 +87,8 @@ namespace ALLinONE
             dgvRequestPrint.DataSource = dataTable.DefaultView;
             sqlAdapter.Update(dataTable);
 
+            usedb.connectDB.Close();
+
             dgvRequestPrint.Columns["id"].Visible = false;
             //Переименовка колонок в DataGridView
             dgvRequestPrint.Columns["Name"].HeaderText = "Наименование";
@@ -84,8 +97,7 @@ namespace ALLinONE
             dgvRequestPrint.Columns["InvNumber"].HeaderText = "Инвентарный";
 
             //Длина колонок в DataGridView
-            //dgvRequestPrint.Columns[1].Width = dgvRequestPrint.Width - 100 - 111 - 111 - 20;
-            dgvRequestPrint.Columns[1].Width = dgvRequestPrint.Width - 87 - 91 - 82 - 20;
+            dgvRequestPrint.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvRequestPrint.Columns[2].Width = 87;
             dgvRequestPrint.Columns[3].Width = 91;
             dgvRequestPrint.Columns[4].Width = 82;
@@ -101,11 +113,6 @@ namespace ALLinONE
         private void dgvRequestPrint_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             btnAddRequestPrint.PerformClick();
-        }
-
-        private void RequestPrinters_ResizeEnd(object sender, EventArgs e)
-        {
-            dgvRequestPrint.Columns[1].Width = dgvRequestPrint.Width - 87 - 91 - 82 - 20;
         }
     }
 }

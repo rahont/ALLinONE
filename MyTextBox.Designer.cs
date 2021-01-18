@@ -40,7 +40,9 @@
             this.tb.Name = "tb";
             this.tb.Size = new System.Drawing.Size(100, 20);
             this.tb.TabIndex = 0;
+            this.tb.Click += new System.EventHandler(this.tb_Click);
             this.tb.TextChanged += new System.EventHandler(this.tb_TextChanged);
+            this.tb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_KeyDown);
             // 
             // lbl
             // 

@@ -13,6 +13,8 @@ namespace ALLinONE
 {
     public partial class ReinstallOS : UserControl
     {
+        readonly UseDB usedb = new UseDB();
+
         public ReinstallOS()
         {
             InitializeComponent();
@@ -20,13 +22,16 @@ namespace ALLinONE
 
         private void RefreshListProg()
         {
-            UseDB usedb = new UseDB("ReinstallOS", "Prog");
+            //UseDB usedb = new UseDB("ReinstallOS", "Prog");
+            usedb.table = "ReinstallOS";
+            usedb.col1 = "Prog";
             lbProgList.Items.Clear();
             SQLiteDataReader prog = usedb.SelectDB();
             while (prog.Read()) //цикл перебора результатов кода БД
             {
                 lbProgList.Items.Add(prog["Prog"]); //запись столбца БД в listbox
             }
+            usedb.DB111.Close();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -39,7 +44,11 @@ namespace ALLinONE
             }
             else
             {
-                UseDB usedb = new UseDB("ReinstallOS", "Prog", tbAddProg.Text);
+                //UseDB usedb = new UseDB("ReinstallOS", "Prog", tbAddProg.Text);
+                usedb.table = "ReinstallOS";
+                usedb.col1 = "Prog";
+                usedb.str1 = tbAddProg.Text;
+                usedb.numbCol = 1;
                 usedb.InsertDB();
 
 
@@ -53,16 +62,20 @@ namespace ALLinONE
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            MainForm main = new MainForm();
+            //MainForm main = new MainForm();
 
             if (lbProgList.SelectedItem != null)
             {
                 DialogResult result = MessageBox.Show("Удалить запись '" + lbProgList.SelectedItem + "'?", "Ты уверен?", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (result == DialogResult.Yes)
                 {
-                    SQLiteCommand comm = main.DB.CreateCommand(); //переменная БД
-                    comm.CommandText = "delete from ReinstallOS where Prog like '" + lbProgList.SelectedItem.ToString() + "'"; //код БД в переменную
-                    comm.ExecuteNonQuery();
+                    //SQLiteCommand comm = main.DB.CreateCommand(); //переменная БД
+                    //comm.CommandText = "delete from ReinstallOS where Prog like '" + lbProgList.SelectedItem.ToString() + "'"; //код БД в переменную
+                    //comm.ExecuteNonQuery();
+                    usedb.table = "ReinstallOS";
+                    usedb.col1 = "Prog";
+                    usedb.str1 = lbProgList.SelectedItem.ToString();
+                    usedb.DeleteDB();
 
                     RefreshListProg();
                 }
@@ -102,7 +115,7 @@ namespace ALLinONE
 
         private void btnAddDB_Click(object sender, EventArgs e)
         {
-            MainForm main = new MainForm();
+            //MainForm main = new MainForm();
 
             if (tbFIO.Text == "" || tbFIO.Text == "Наименование")
                 MessageBox.Show("На кого оформляем?", "СберБанка", MessageBoxButtons.OK, MessageBoxIcon.Question);
@@ -112,7 +125,15 @@ namespace ALLinONE
                 {
                     string result = item.ToString() + ". " + tbFIO.Text;
 
-                    UseDB usedb = new UseDB("RequestList", "Value", "User", "DateCreate", result, Environment.UserName, DateTime.Now.ToString());
+                    //UseDB usedb = new UseDB("RequestList", "Value", "User", "DateCreate", result, Environment.UserName, DateTime.Now.ToString());
+                    usedb.table = "RequestList";
+                    usedb.col1 = "Value";
+                    usedb.col2 = "User";
+                    usedb.col3 = "DateCreate";
+                    usedb.str1 = result;
+                    usedb.str2 = Environment.UserName;
+                    usedb.str3 = DateTime.Now.ToString();
+                    usedb.numbCol = 3;
                     usedb.InsertDB();
                 }
                 tbFIO.Text = "";
@@ -132,6 +153,26 @@ namespace ALLinONE
         {
             if (e.KeyData == Keys.Enter) //проверяем нажат ли Del,
                 btnAddDB.PerformClick(); //если да, то жмем кнопку Удалить
+        }
+
+        private void reOS_VisibleChanged(object sender, EventArgs e)
+        {
+            //if (reOS.Visible)
+            //{
+            //    //usedb1.table = "ReinstallOS";
+            //    //usedb1.col1 = "Prog";
+            //    //ReinstallOS reOS = new ReinstallOS();
+            //    //UseDB usedb = new UseDB("ReinstallOS", "Prog");
+            //    usedb.table = "ReinstallOS";
+            //    usedb.col1 = "Prog";
+            //    this.reOS.lbProgList.Items.Clear();
+            //    SQLiteDataReader val = usedb.SelectDB();
+            //    while (val.Read()) //цикл перебора результатов кода БД
+            //    {
+            //        this.reOS.lbProgList.Items.Add(val["Prog"]); //запись столбца БД в listbox
+            //    }
+            //    usedb.DB111.Close();
+            //}
         }
     }
 }

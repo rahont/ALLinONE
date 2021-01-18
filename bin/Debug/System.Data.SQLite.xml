@@ -345,6 +345,13 @@
             it will only be non-zero if the environment variable was present.
             </summary>
         </member>
+        <member name="F:System.Data.SQLite.SQLite3.forceLogLifecycle">
+            <summary>
+            This field is used to keep track of whether or not the
+            "SQLite_ForceLogLifecycle" environment variable has been queried.  If
+            so, it will only be non-zero if the environment variable was present.
+            </summary>
+        </member>
         <member name="M:System.Data.SQLite.SQLite3.ForceLogPrepare">
             <summary>
             Determines if all calls to prepare a SQL query will be logged,
@@ -352,6 +359,17 @@
             </summary>
             <returns>
             Non-zero to log all calls to prepare a SQL query.
+            </returns>
+        </member>
+        <member name="M:System.Data.SQLite.SQLite3.ForceLogLifecycle">
+            <summary>
+            Determines if calls into key members pertaining to the lifecycle of
+            connections and their associated classes will be logged, regardless
+            of the flags for the associated connection.
+            </summary>
+            <returns>
+            Non-zero to log calls into key members pertaining to the lifecycle of
+            connections and their associated classes (e.g. LINQ, EF6, etc).
             </returns>
         </member>
         <member name="M:System.Data.SQLite.SQLite3.GetShimExtensionFileName(System.Boolean@)">
@@ -1825,6 +1843,17 @@
             SQLITE_DBSTATUS_CACHE_USED_SHARED is always 0.
             </summary>
         </member>
+        <member name="F:System.Data.SQLite.SQLiteStatusOpsEnum.SQLITE_DBSTATUS_CACHE_SPILL">
+            <summary>
+            This parameter returns the number of dirty cache entries that have
+            been written to disk in the middle of a transaction due to the page
+            cache overflowing. Transactions are more efficient if they are
+            written to disk all at once. When pages spill mid-transaction, that
+            introduces additional overhead. This parameter can be used help
+            identify inefficiencies that can be resolved by increasing the cache
+            size.
+            </summary>
+        </member>
         <member name="T:System.Data.SQLite.SQLiteConfigDbOpsEnum">
             <summary>
             These are the supported configuration verbs for use with the native
@@ -1956,6 +1985,35 @@
         <member name="F:System.Data.SQLite.SQLiteConfigDbOpsEnum.SQLITE_DBCONFIG_ENABLE_VIEW">
             <summary>
             This option is used to enable or disable CREATE VIEW.
+            </summary>
+        </member>
+        <member name="F:System.Data.SQLite.SQLiteConfigDbOpsEnum.SQLITE_DBCONFIG_LEGACY_FILE_FORMAT">
+            <summary>
+            This option activates or deactivates the legacy file format flag.
+            </summary>
+        </member>
+        <member name="F:System.Data.SQLite.SQLiteConfigDbOpsEnum.SQLITE_DBCONFIG_TRUSTED_SCHEMA">
+            <summary>
+            This option tells SQLite to assume that database schemas (i.e. the
+            contents of the sqlite_master tables) are untainted by malicious
+            content.  When the trusted schema option is disabled, SQLite takes
+            additional defensive steps to protect the application from harm
+            including:
+            <![CDATA[<ul>]]>
+            <![CDATA[<li>]]>
+            Prohibit the use of SQL functions inside triggers, views, CHECK
+            constraints, DEFAULT clauses, expression indexes, partial indexes,
+            or generated columns unless those functions are tagged with
+            SQLITE_INNOCUOUS.
+            <![CDATA[</li>]]>
+            <![CDATA[<li>]]>
+            Prohibit the use of virtual tables inside of triggers or views
+            unless those virtual tables are tagged with SQLITE_VTAB_INNOCUOUS.
+            <![CDATA[</ul>]]>
+            This setting defaults to "on" for legacy compatibility, however
+            all applications are advised to turn it off if possible.  This
+            setting can also be controlled using the PRAGMA trusted_schema
+            statement.
             </summary>
         </member>
         <member name="T:System.Data.SQLite.SQLiteTraceFlags">
@@ -2471,6 +2529,34 @@
             <param name="connectionString">
             The connection string to the database to be opened, used, and closed.  If
             this parameter is null, a temporary in-memory databse will be used.
+            </param>
+            <param name="args">
+            The SQL parameter values to be used when building the command object to be
+            executed, if any.
+            </param>
+            <returns>
+            The results of the query -OR- null if no results were produced from the
+            given execution type.
+            </returns>
+        </member>
+        <member name="M:System.Data.SQLite.SQLiteCommand.Execute(System.String,System.Data.SQLite.SQLiteExecuteType,System.Data.CommandBehavior,System.Data.SQLite.SQLiteConnection,System.Object[])">
+            <summary>
+            This method executes a query using the given execution type and command
+            behavior and returns the results.
+            </summary>
+            <param name="commandText">
+            The text of the command to be executed.
+            </param>
+            <param name="executeType">
+            The execution type for the command.  This is used to determine which method
+            of the command object to call, which then determines the type of results
+            returned, if any.
+            </param>
+            <param name="commandBehavior">
+            The command behavior flags for the command.
+            </param>
+            <param name="connection">
+            The connection used to create and execute the command.
             </param>
             <param name="args">
             The SQL parameter values to be used when building the command object to be
@@ -3884,11 +3970,6 @@
             The database filename minus path and extension
             </summary>
         </member>
-        <member name="F:System.Data.SQLite.SQLiteConnection._password">
-            <summary>
-            Temporary password storage, emptied after the database has been opened
-            </summary>
-        </member>
         <member name="F:System.Data.SQLite.SQLiteConnection._baseSchemaName">
             <summary>
             The "stub" (i.e. placeholder) base schema name to use when returning
@@ -4334,39 +4415,6 @@
             <returns>
             The list of key/value pairs corresponding to the parameters specified
             within the connection string.
-            </returns>
-        </member>
-        <member name="M:System.Data.SQLite.SQLiteConnection.EscapeForConnectionString(System.String,System.Boolean)">
-            <summary>
-            Attempts to escape the specified connection string property name or
-            value in a way that is compatible with the connection string parser.
-            </summary>
-            <param name="value">
-            The connection string property name or value to escape.
-            </param>
-            <param name="allowEquals">
-            Non-zero if the equals sign is permitted in the string.  If this is
-            zero and the string contains an equals sign, an exception will be
-            thrown.
-            </param>
-            <returns>
-            The original string, with all special characters escaped.  If the
-            original string contains equals signs, they will not be escaped.
-            Instead, they will be preserved verbatim.
-            </returns>
-        </member>
-        <member name="M:System.Data.SQLite.SQLiteConnection.BuildConnectionString(System.Collections.Generic.SortedList{System.String,System.String})">
-            <summary>
-            Builds a connection string from a list of key/value pairs.
-            </summary>
-            <param name="opts">
-            The list of key/value pairs corresponding to the parameters to be
-            specified within the connection string.
-            </param>
-            <returns>
-            The connection string.  Depending on how the connection string was
-            originally parsed, the returned connection string value may not be
-            usable in a subsequent call to the <see cref="M:System.Data.SQLite.SQLiteConnection.Open" /> method.
             </returns>
         </member>
         <member name="M:System.Data.SQLite.SQLiteConnection.Dispose">
@@ -5254,40 +5302,6 @@
         </member>
         <member name="M:System.Data.SQLite.SQLiteConnection.LogMessage(System.Int32,System.String)">
             Add a log message via the SQLite sqlite3_log interface.
-        </member>
-        <member name="M:System.Data.SQLite.SQLiteConnection.ChangePassword(System.String)">
-            <summary>
-            Change the password (or assign a password) to an open database.
-            </summary>
-            <remarks>
-            No readers or writers may be active for this process.  The database must already be open
-            and if it already was password protected, the existing password must already have been supplied.
-            </remarks>
-            <param name="newPassword">The new password to assign to the database</param>
-        </member>
-        <member name="M:System.Data.SQLite.SQLiteConnection.ChangePassword(System.Byte[])">
-            <summary>
-            Change the password (or assign a password) to an open database.
-            </summary>
-            <remarks>
-            No readers or writers may be active for this process.  The database must already be open
-            and if it already was password protected, the existing password must already have been supplied.
-            </remarks>
-            <param name="newPassword">The new password to assign to the database</param>
-        </member>
-        <member name="M:System.Data.SQLite.SQLiteConnection.SetPassword(System.String)">
-            <summary>
-            Sets the password for a password-protected database.  A password-protected database is
-            unusable for any operation until the password has been set.
-            </summary>
-            <param name="databasePassword">The password for the database</param>
-        </member>
-        <member name="M:System.Data.SQLite.SQLiteConnection.SetPassword(System.Byte[])">
-            <summary>
-            Sets the password for a password-protected database.  A password-protected database is
-            unusable for any operation until the password has been set.
-            </summary>
-            <param name="databasePassword">The password for the database</param>
         </member>
         <member name="M:System.Data.SQLite.SQLiteConnection.SetAvRetry(System.Int32@,System.Int32@)">
             <summary>
@@ -8770,6 +8784,11 @@
             An internal operation failed and it may succeed if retried.
             </summary>
         </member>
+        <member name="F:System.Data.SQLite.SQLiteErrorCode.Error_Snapshot">
+            <summary>
+            The specified snapshot has been overwritten by a checkpoint.
+            </summary>
+        </member>
         <member name="F:System.Data.SQLite.SQLiteErrorCode.IoErr_Read">
             <summary>
             A file read operation failed.
@@ -8925,6 +8944,11 @@
             An attempt to rollback a file system transaction failed.
             </summary>
         </member>
+        <member name="F:System.Data.SQLite.SQLiteErrorCode.IoErr_Data">
+            <summary>
+            Data read from the file system appears to be incorrect.
+            </summary>
+        </member>
         <member name="F:System.Data.SQLite.SQLiteErrorCode.Locked_SharedCache">
             <summary>
             A database table is locked in shared-cache mode.
@@ -8943,6 +8967,11 @@
         <member name="F:System.Data.SQLite.SQLiteErrorCode.Busy_Snapshot">
             <summary>
             A database file is locked due to snapshot semantics.
+            </summary>
+        </member>
+        <member name="F:System.Data.SQLite.SQLiteErrorCode.Busy_Timeout">
+            <summary>
+            An internal timeout was encountered while waiting for a database lock.
             </summary>
         </member>
         <member name="F:System.Data.SQLite.SQLiteErrorCode.CantOpen_NoTempDir">
@@ -8965,6 +8994,16 @@
             A database file cannot be opened because a path string conversion operation failed.
             </summary>
         </member>
+        <member name="F:System.Data.SQLite.SQLiteErrorCode.CantOpen_DirtyWal">
+            <summary>
+            No longer used.
+            </summary>
+        </member>
+        <member name="F:System.Data.SQLite.SQLiteErrorCode.CantOpen_SymLink">
+            <summary>
+            A database file is a symbolic link and cannot be opened.
+            </summary>
+        </member>
         <member name="F:System.Data.SQLite.SQLiteErrorCode.Corrupt_Vtab">
             <summary>
             A virtual table is malformed.
@@ -8973,6 +9012,11 @@
         <member name="F:System.Data.SQLite.SQLiteErrorCode.Corrupt_Sequence">
             <summary>
             A required sequence table is missing or corrupt.
+            </summary>
+        </member>
+        <member name="F:System.Data.SQLite.SQLiteErrorCode.Corrupt_Index">
+            <summary>
+            An index entry that should be present is missing.
             </summary>
         </member>
         <member name="F:System.Data.SQLite.SQLiteErrorCode.ReadOnly_Recovery">
@@ -9060,6 +9104,11 @@
             A ROWID constraint failed.
             </summary>
         </member>
+        <member name="F:System.Data.SQLite.SQLiteErrorCode.Constraint_Pinned">
+            <summary>
+            A database cursor is busy and cannot be moved.
+            </summary>
+        </member>
         <member name="F:System.Data.SQLite.SQLiteErrorCode.Notice_Recover_Wal">
             <summary>
             Frames were recovered from the WAL log file.
@@ -9084,6 +9133,11 @@
             <summary>
             Success.  Prevents the extension from unloading until the process
             terminates.
+            </summary>
+        </member>
+        <member name="F:System.Data.SQLite.SQLiteErrorCode.Ok_SymLink">
+            <summary>
+            Success.  The specified file name refers to a symbolic link.
             </summary>
         </member>
         <member name="T:System.Data.SQLite.SQLiteFactory">
@@ -9157,6 +9211,18 @@
             Creates and returns a new <see cref="T:System.Data.SQLite.SQLiteParameter" /> object.
             </summary>
             <returns>The new object.</returns>
+        </member>
+        <member name="M:System.Data.SQLite.SQLiteFactory.PreInitialize">
+            <summary>
+            This method is called to perform preliminary static initialization
+            necessary for this class.
+            </summary>
+        </member>
+        <member name="M:System.Data.SQLite.SQLiteFactory.InitializeDbProviderServices">
+            <summary>
+            This method is called to perform some of the static initialization
+            necessary for this class.
+            </summary>
         </member>
         <member name="M:System.Data.SQLite.SQLiteFactory.System#IServiceProvider#GetService(System.Type)">
             <summary>

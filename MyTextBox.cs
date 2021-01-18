@@ -37,16 +37,35 @@ namespace ALLinONE
             get => tb.TextLength;
         }
 
+        //Событие KeyDown для UserControl
+        public event KeyEventHandler KeyDownEvent;
+        //Событие Click для UserControl
+        public event EventHandler _ClickEvent;
+
         private void tb_TextChanged(object sender, EventArgs e)
         {
-            if (tb.TextLength > 0)
-                lbl.Visible = false;
-            else lbl.Visible = true;
+            //if (tb.TextLength > 0)
+            //    lbl.Visible = false;
+            //else lbl.Visible = true;
+            lbl.Visible = (tb.TextLength <= 0);
         }
 
         private void lbl_Click(object sender, EventArgs e)
         {
             tb.Focus();
+            _ClickEvent?.Invoke(sender, e);
+        }
+
+        private void tb_KeyDown(object sender, KeyEventArgs e)
+        {
+            KeyDownEvent?.Invoke(sender, e);
+            //if (KeyDownEvent != null)
+            //    KeyDownEvent(sender, e);
+        }
+
+        private void tb_Click(object sender, EventArgs e)
+        {
+            _ClickEvent?.Invoke(sender, e);
         }
     }
 }

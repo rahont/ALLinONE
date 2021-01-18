@@ -30,93 +30,102 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.btnPR1 = new System.Windows.Forms.Button();
-            this.btnPR2 = new System.Windows.Forms.Button();
-            this.btnPR3 = new System.Windows.Forms.Button();
-            this.btnPR4 = new System.Windows.Forms.Button();
-            this.btnPR5 = new System.Windows.Forms.Button();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.toDoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmrComm5555 = new System.Windows.Forms.Timer(this.components);
+            this.tmrServicePB = new System.Windows.Forms.Timer(this.components);
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.toolStripFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDB = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDBCheckCon = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripDBInvertCon = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripPR = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSrvc = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripPrint = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripRequests = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMakeRequest = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripReqOne = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripReqOS = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripDBList = new System.Windows.Forms.ToolStripMenuItem();
-            this.toDoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.remoteAccsessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panPR = new System.Windows.Forms.Panel();
+            this.toolStripExcel = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabControl = new System.Windows.Forms.CustomTabControl();
+            this.tabPageProfRab = new System.Windows.Forms.TabPage();
             this.lblPR = new System.Windows.Forms.Label();
-            this.btnPR23 = new System.Windows.Forms.Button();
+            this.btnPR1 = new System.Windows.Forms.Button();
+            this.btnPR4 = new System.Windows.Forms.Button();
             this.btnPRChange = new System.Windows.Forms.Button();
             this.btnPR26 = new System.Windows.Forms.Button();
+            this.btnPR2 = new System.Windows.Forms.Button();
             this.btnPR25 = new System.Windows.Forms.Button();
+            this.btnPR5 = new System.Windows.Forms.Button();
+            this.btnPR3 = new System.Windows.Forms.Button();
+            this.btnPR23 = new System.Windows.Forms.Button();
+            this.btnPR6 = new System.Windows.Forms.Button();
+            this.btnPR7 = new System.Windows.Forms.Button();
+            this.btnPR8 = new System.Windows.Forms.Button();
+            this.btnPR9 = new System.Windows.Forms.Button();
             this.btnPR24 = new System.Windows.Forms.Button();
+            this.btnPR10 = new System.Windows.Forms.Button();
             this.btnPR22 = new System.Windows.Forms.Button();
+            this.btnPR11 = new System.Windows.Forms.Button();
             this.btnPR21 = new System.Windows.Forms.Button();
+            this.btnPR12 = new System.Windows.Forms.Button();
             this.btnPR20 = new System.Windows.Forms.Button();
+            this.btnPR13 = new System.Windows.Forms.Button();
             this.btnPR19 = new System.Windows.Forms.Button();
+            this.btnPR14 = new System.Windows.Forms.Button();
             this.btnPR18 = new System.Windows.Forms.Button();
+            this.btnPR15 = new System.Windows.Forms.Button();
             this.btnPR17 = new System.Windows.Forms.Button();
             this.btnPR16 = new System.Windows.Forms.Button();
-            this.btnPR15 = new System.Windows.Forms.Button();
-            this.btnPR14 = new System.Windows.Forms.Button();
-            this.btnPR13 = new System.Windows.Forms.Button();
-            this.btnPR12 = new System.Windows.Forms.Button();
-            this.btnPR11 = new System.Windows.Forms.Button();
-            this.btnPR10 = new System.Windows.Forms.Button();
-            this.btnPR9 = new System.Windows.Forms.Button();
-            this.btnPR8 = new System.Windows.Forms.Button();
-            this.btnPR7 = new System.Windows.Forms.Button();
-            this.btnPR6 = new System.Windows.Forms.Button();
-            this.panSrvc = new System.Windows.Forms.Panel();
-            this.btnPingShow = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.tabPageService = new System.Windows.Forms.TabPage();
+            this.btnRefreshPing = new System.Windows.Forms.Button();
+            this.numPingTimeOut = new System.Windows.Forms.NumericUpDown();
+            this.numPingProgress = new System.Windows.Forms.NumericUpDown();
+            this.pbPingProgress = new System.Windows.Forms.ProgressBar();
+            this.lblPingTimeOut = new System.Windows.Forms.Label();
+            this.lblPingSuccess = new System.Windows.Forms.Label();
+            this.lbPingTimeOut = new System.Windows.Forms.ListBox();
+            this.lbPingSuccess = new System.Windows.Forms.ListBox();
+            this.btnSrvcChange = new System.Windows.Forms.Button();
             this.chckbServiceSorted = new System.Windows.Forms.CheckBox();
             this.lblShare = new System.Windows.Forms.Label();
             this.lblRDP = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnSrvcChange = new System.Windows.Forms.Button();
             this.lbShare = new System.Windows.Forms.ListBox();
             this.lbRDP = new System.Windows.Forms.ListBox();
-            this.panPrint = new System.Windows.Forms.Panel();
+            this.tabPagePrinters = new System.Windows.Forms.TabPage();
+            this.tbPrintInvNumber = new ALLinONE.MyTextBox();
+            this.tbPrintLocation = new ALLinONE.MyTextBox();
+            this.tbPrintNetName = new ALLinONE.MyTextBox();
+            this.tbPrintName = new ALLinONE.MyTextBox();
+            this.dgvPrinters = new System.Windows.Forms.DataGridView();
             this.btnPrintPrinting = new System.Windows.Forms.Button();
             this.btnPrintRemove = new System.Windows.Forms.Button();
-            this.lblPrintBuffer = new System.Windows.Forms.Label();
-            this.lblPrintInvNumber = new System.Windows.Forms.Label();
-            this.lblPrintLocation = new System.Windows.Forms.Label();
-            this.lblPrintNetName = new System.Windows.Forms.Label();
-            this.lblPrintName = new System.Windows.Forms.Label();
-            this.tbPrintInvNumber1 = new System.Windows.Forms.TextBox();
-            this.dgvPrinters = new System.Windows.Forms.DataGridView();
-            this.btnPrintAdd = new System.Windows.Forms.Button();
-            this.tbPrintLocation1 = new System.Windows.Forms.TextBox();
-            this.tbPrintNetName1 = new System.Windows.Forms.TextBox();
             this.tbPrintName1 = new System.Windows.Forms.TextBox();
-            this.panRequest = new System.Windows.Forms.Panel();
-            this.chckbMyRequest = new System.Windows.Forms.CheckBox();
-            this.chckbRemoveRequest = new System.Windows.Forms.CheckBox();
-            this.btnAddRequestBuffer = new System.Windows.Forms.Button();
-            this.lblQuantity = new System.Windows.Forms.Label();
+            this.lblPrintBuffer = new System.Windows.Forms.Label();
+            this.tbPrintNetName1 = new System.Windows.Forms.TextBox();
+            this.lblPrintInvNumber = new System.Windows.Forms.Label();
+            this.tbPrintLocation1 = new System.Windows.Forms.TextBox();
+            this.lblPrintLocation = new System.Windows.Forms.Label();
+            this.btnPrintAdd = new System.Windows.Forms.Button();
+            this.lblPrintNetName = new System.Windows.Forms.Label();
+            this.tbPrintInvNumber1 = new System.Windows.Forms.TextBox();
+            this.lblPrintName = new System.Windows.Forms.Label();
+            this.tabPageDBList = new System.Windows.Forms.TabPage();
             this.lblInfoRequest = new System.Windows.Forms.Label();
-            this.lblUserRequest = new System.Windows.Forms.Label();
-            this.btnRemoveRequest = new System.Windows.Forms.Button();
-            this.btnAddRequest = new System.Windows.Forms.Button();
-            this.tbAddRequest = new System.Windows.Forms.TextBox();
             this.dgvRequest = new System.Windows.Forms.DataGridView();
-            this.tmrComm5555 = new System.Windows.Forms.Timer(this.components);
-            this.panAddRequest = new System.Windows.Forms.Panel();
+            this.chckbMyRequest = new System.Windows.Forms.CheckBox();
+            this.tbAddRequest = new System.Windows.Forms.TextBox();
+            this.chckbRemoveRequest = new System.Windows.Forms.CheckBox();
+            this.btnAddRequest = new System.Windows.Forms.Button();
+            this.btnAddRequestBuffer = new System.Windows.Forms.Button();
+            this.btnRemoveRequest = new System.Windows.Forms.Button();
+            this.lblQuantity = new System.Windows.Forms.Label();
+            this.lblUserRequest = new System.Windows.Forms.Label();
+            this.tabPageAddRequest = new System.Windows.Forms.TabPage();
+            this.btnMassRequest = new System.Windows.Forms.Button();
+            this.tbAddFIORequest = new ALLinONE.MyTextBox();
+            this.tbAddProg = new ALLinONE.MyTextBox();
             this.btnCartPaper = new System.Windows.Forms.Button();
-            this.tbAddFIORequest = new System.Windows.Forms.TextBox();
             this.btnRemoveProg = new System.Windows.Forms.Button();
             this.btnAddProg = new System.Windows.Forms.Button();
-            this.tbAddProg = new System.Windows.Forms.TextBox();
             this.lblAddRequestDB = new System.Windows.Forms.Label();
             this.btnAddRequestDB = new System.Windows.Forms.Button();
             this.gbAddRequest = new System.Windows.Forms.GroupBox();
@@ -125,185 +134,32 @@
             this.rdbtnAddRequest2 = new System.Windows.Forms.RadioButton();
             this.rdbtnAddRequest1 = new System.Windows.Forms.RadioButton();
             this.lbProgList = new System.Windows.Forms.ListBox();
-            this.reOS = new ALLinONE.ReinstallOS();
-            this.toDoList = new ALLinONE.ToDoList();
-            this.rdP_Share = new ALLinONE.RDP_Share();
             this.menuStrip.SuspendLayout();
-            this.panPR.SuspendLayout();
-            this.panSrvc.SuspendLayout();
-            this.panPrint.SuspendLayout();
+            this.tabControl.SuspendLayout();
+            this.tabPageProfRab.SuspendLayout();
+            this.tabPageService.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numPingTimeOut)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPingProgress)).BeginInit();
+            this.tabPagePrinters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrinters)).BeginInit();
-            this.panRequest.SuspendLayout();
+            this.tabPageDBList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequest)).BeginInit();
-            this.panAddRequest.SuspendLayout();
+            this.tabPageAddRequest.SuspendLayout();
             this.gbAddRequest.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnPR1
-            // 
-            this.btnPR1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPR1.Location = new System.Drawing.Point(12, 34);
-            this.btnPR1.Name = "btnPR1";
-            this.btnPR1.Size = new System.Drawing.Size(118, 39);
-            this.btnPR1.TabIndex = 0;
-            this.btnPR1.Text = "DB Error";
-            this.btnPR1.UseVisualStyleBackColor = true;
-            this.btnPR1.Click += new System.EventHandler(this.BtnPR1_Click);
-            // 
-            // btnPR2
-            // 
-            this.btnPR2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPR2.Location = new System.Drawing.Point(136, 34);
-            this.btnPR2.Name = "btnPR2";
-            this.btnPR2.Size = new System.Drawing.Size(118, 39);
-            this.btnPR2.TabIndex = 1;
-            this.btnPR2.Text = "DB Error";
-            this.btnPR2.UseVisualStyleBackColor = true;
-            this.btnPR2.Click += new System.EventHandler(this.BtnPR1_Click);
-            // 
-            // btnPR3
-            // 
-            this.btnPR3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPR3.Location = new System.Drawing.Point(260, 34);
-            this.btnPR3.Name = "btnPR3";
-            this.btnPR3.Size = new System.Drawing.Size(118, 39);
-            this.btnPR3.TabIndex = 2;
-            this.btnPR3.Text = "DB Error";
-            this.btnPR3.UseVisualStyleBackColor = true;
-            this.btnPR3.Click += new System.EventHandler(this.BtnPR1_Click);
-            // 
-            // btnPR4
-            // 
-            this.btnPR4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPR4.Location = new System.Drawing.Point(384, 34);
-            this.btnPR4.Name = "btnPR4";
-            this.btnPR4.Size = new System.Drawing.Size(118, 39);
-            this.btnPR4.TabIndex = 3;
-            this.btnPR4.Text = "DB Error";
-            this.btnPR4.UseVisualStyleBackColor = true;
-            this.btnPR4.Click += new System.EventHandler(this.BtnPR1_Click);
-            // 
-            // btnPR5
-            // 
-            this.btnPR5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPR5.Location = new System.Drawing.Point(508, 34);
-            this.btnPR5.Name = "btnPR5";
-            this.btnPR5.Size = new System.Drawing.Size(118, 39);
-            this.btnPR5.TabIndex = 4;
-            this.btnPR5.Text = "DB Error";
-            this.btnPR5.UseVisualStyleBackColor = true;
-            this.btnPR5.Click += new System.EventHandler(this.BtnPR1_Click);
             // 
             // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripFile,
-            this.toolStripPR,
-            this.toolStripSrvc,
-            this.toolStripPrint,
-            this.toolStripRequests,
             this.toDoToolStripMenuItem,
-            this.remoteAccsessToolStripMenuItem});
+            this.remoteAccsessToolStripMenuItem,
+            this.toolStripExcel});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(636, 24);
+            this.menuStrip.Size = new System.Drawing.Size(634, 24);
             this.menuStrip.TabIndex = 7;
             this.menuStrip.Text = "menuStrip1";
-            // 
-            // toolStripFile
-            // 
-            this.toolStripFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSettings,
-            this.toolStripSeparator1,
-            this.toolStripExit});
-            this.toolStripFile.Name = "toolStripFile";
-            this.toolStripFile.Size = new System.Drawing.Size(48, 20);
-            this.toolStripFile.Text = "Файл";
-            // 
-            // toolStripSettings
-            // 
-            this.toolStripSettings.Name = "toolStripSettings";
-            this.toolStripSettings.Size = new System.Drawing.Size(134, 22);
-            this.toolStripSettings.Text = "Настройки";
-            this.toolStripSettings.Visible = false;
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(131, 6);
-            // 
-            // toolStripExit
-            // 
-            this.toolStripExit.Name = "toolStripExit";
-            this.toolStripExit.Size = new System.Drawing.Size(134, 22);
-            this.toolStripExit.Text = "Выход";
-            this.toolStripExit.Click += new System.EventHandler(this.toolStripExit_Click);
-            // 
-            // toolStripPR
-            // 
-            this.toolStripPR.Name = "toolStripPR";
-            this.toolStripPR.Size = new System.Drawing.Size(71, 20);
-            this.toolStripPR.Text = "ПрофРаб";
-            this.toolStripPR.Click += new System.EventHandler(this.ToolStripPR_Click);
-            // 
-            // toolStripSrvc
-            // 
-            this.toolStripSrvc.Name = "toolStripSrvc";
-            this.toolStripSrvc.Size = new System.Drawing.Size(59, 20);
-            this.toolStripSrvc.Text = "Сервис";
-            this.toolStripSrvc.Click += new System.EventHandler(this.ToolStripSrvc_Click);
-            // 
-            // toolStripPrint
-            // 
-            this.toolStripPrint.Name = "toolStripPrint";
-            this.toolStripPrint.Size = new System.Drawing.Size(76, 20);
-            this.toolStripPrint.Text = "Принтеры";
-            this.toolStripPrint.Click += new System.EventHandler(this.ToolStripPrint_Click);
-            // 
-            // toolStripRequests
-            // 
-            this.toolStripRequests.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMakeRequest,
-            this.toolStripSeparator2,
-            this.toolStripDBList});
-            this.toolStripRequests.Name = "toolStripRequests";
-            this.toolStripRequests.Size = new System.Drawing.Size(57, 20);
-            this.toolStripRequests.Text = "Заявки";
-            // 
-            // toolStripMakeRequest
-            // 
-            this.toolStripMakeRequest.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripReqOne,
-            this.toolStripReqOS});
-            this.toolStripMakeRequest.Name = "toolStripMakeRequest";
-            this.toolStripMakeRequest.Size = new System.Drawing.Size(148, 22);
-            this.toolStripMakeRequest.Text = "Создать";
-            // 
-            // toolStripReqOne
-            // 
-            this.toolStripReqOne.Name = "toolStripReqOne";
-            this.toolStripReqOne.Size = new System.Drawing.Size(177, 22);
-            this.toolStripReqOne.Text = "По одной";
-            this.toolStripReqOne.Click += new System.EventHandler(this.toolStripReqOne_Click);
-            // 
-            // toolStripReqOS
-            // 
-            this.toolStripReqOS.Name = "toolStripReqOS";
-            this.toolStripReqOS.Size = new System.Drawing.Size(177, 22);
-            this.toolStripReqOS.Text = "Переустановка ОС";
-            this.toolStripReqOS.Click += new System.EventHandler(this.toolStripReqOS_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(145, 6);
-            // 
-            // toolStripDBList
-            // 
-            this.toolStripDBList.Name = "toolStripDBList";
-            this.toolStripDBList.Size = new System.Drawing.Size(148, 22);
-            this.toolStripDBList.Text = "Список из БД";
-            this.toolStripDBList.Click += new System.EventHandler(this.ToolStripDBList_Click);
             // 
             // toDoToolStripMenuItem
             // 
@@ -311,52 +167,178 @@
             this.toDoToolStripMenuItem.Name = "toDoToolStripMenuItem";
             this.toDoToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.toDoToolStripMenuItem.Text = "ToDo";
-            this.toDoToolStripMenuItem.Click += new System.EventHandler(this.toDoToolStripMenuItem_Click);
+            this.toDoToolStripMenuItem.Visible = false;
+            // 
+            // tmrComm5555
+            // 
+            this.tmrComm5555.Interval = 5555;
+            this.tmrComm5555.Tick += new System.EventHandler(this.tmrRequest_Tick);
+            // 
+            // tmrServicePB
+            // 
+            this.tmrServicePB.Tick += new System.EventHandler(this.tmrServicePB_Tick);
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.DefaultExt = "xlsx";
+            this.saveFileDialog.FileName = "AiO";
+            this.saveFileDialog.Filter = "xlsx|*.xlsx|All Files|*.*";
+            // 
+            // toolStripFile
+            // 
+            this.toolStripFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripDB,
+            this.toolStripSettings,
+            this.toolStripSeparator1,
+            this.toolStripExit});
+            this.toolStripFile.Image = global::ALLinONE.Properties.Resources.down_arrow_icon_icons_com_64915;
+            this.toolStripFile.Name = "toolStripFile";
+            this.toolStripFile.Size = new System.Drawing.Size(64, 20);
+            this.toolStripFile.Text = "Файл";
+            // 
+            // toolStripDB
+            // 
+            this.toolStripDB.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripDBCheckCon,
+            this.toolStripSeparator3,
+            this.toolStripDBInvertCon});
+            this.toolStripDB.Image = global::ALLinONE.Properties.Resources.Data_settings_theapplication_3364;
+            this.toolStripDB.Name = "toolStripDB";
+            this.toolStripDB.Size = new System.Drawing.Size(144, 22);
+            this.toolStripDB.Text = "База Данных";
+            // 
+            // toolStripDBCheckCon
+            // 
+            this.toolStripDBCheckCon.Image = global::ALLinONE.Properties.Resources.dataencryption_application_dedatos_3363;
+            this.toolStripDBCheckCon.Name = "toolStripDBCheckCon";
+            this.toolStripDBCheckCon.Size = new System.Drawing.Size(237, 22);
+            this.toolStripDBCheckCon.Text = "Проверить подключение";
+            this.toolStripDBCheckCon.Click += new System.EventHandler(this.toolStripDBCheckCon_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(234, 6);
+            // 
+            // toolStripDBInvertCon
+            // 
+            this.toolStripDBInvertCon.Image = global::ALLinONE.Properties.Resources.databackup_theapplication_dedatos_3366;
+            this.toolStripDBInvertCon.Name = "toolStripDBInvertCon";
+            this.toolStripDBInvertCon.Size = new System.Drawing.Size(237, 22);
+            this.toolStripDBInvertCon.Text = "Инвертировать подключение";
+            this.toolStripDBInvertCon.Click += new System.EventHandler(this.toolStripDBInvertCon_Click);
+            // 
+            // toolStripSettings
+            // 
+            this.toolStripSettings.Image = global::ALLinONE.Properties.Resources._2849830_gear_interface_multimedia_options_setting_settings_107986;
+            this.toolStripSettings.Name = "toolStripSettings";
+            this.toolStripSettings.Size = new System.Drawing.Size(144, 22);
+            this.toolStripSettings.Text = "Настройки";
+            this.toolStripSettings.Visible = false;
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(141, 6);
+            // 
+            // toolStripExit
+            // 
+            this.toolStripExit.Image = global::ALLinONE.Properties.Resources.switch_power_on_off_icon_178313;
+            this.toolStripExit.Name = "toolStripExit";
+            this.toolStripExit.Size = new System.Drawing.Size(144, 22);
+            this.toolStripExit.Text = "Выход";
+            this.toolStripExit.Click += new System.EventHandler(this.toolStripExit_Click);
             // 
             // remoteAccsessToolStripMenuItem
             // 
             this.remoteAccsessToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.remoteAccsessToolStripMenuItem.Image = global::ALLinONE.Properties.Resources.wifi_signal_waves_icon_icons_com_72466;
             this.remoteAccsessToolStripMenuItem.Name = "remoteAccsessToolStripMenuItem";
-            this.remoteAccsessToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
+            this.remoteAccsessToolStripMenuItem.Size = new System.Drawing.Size(117, 20);
             this.remoteAccsessToolStripMenuItem.Text = "RemoteAccsess";
             this.remoteAccsessToolStripMenuItem.Click += new System.EventHandler(this.remoteAccsessToolStripMenuItem_Click);
             // 
-            // panPR
+            // toolStripExcel
             // 
-            this.panPR.Controls.Add(this.lblPR);
-            this.panPR.Controls.Add(this.btnPR23);
-            this.panPR.Controls.Add(this.btnPRChange);
-            this.panPR.Controls.Add(this.btnPR26);
-            this.panPR.Controls.Add(this.btnPR25);
-            this.panPR.Controls.Add(this.btnPR24);
-            this.panPR.Controls.Add(this.btnPR22);
-            this.panPR.Controls.Add(this.btnPR21);
-            this.panPR.Controls.Add(this.btnPR20);
-            this.panPR.Controls.Add(this.btnPR19);
-            this.panPR.Controls.Add(this.btnPR18);
-            this.panPR.Controls.Add(this.btnPR17);
-            this.panPR.Controls.Add(this.btnPR16);
-            this.panPR.Controls.Add(this.btnPR15);
-            this.panPR.Controls.Add(this.btnPR14);
-            this.panPR.Controls.Add(this.btnPR13);
-            this.panPR.Controls.Add(this.btnPR12);
-            this.panPR.Controls.Add(this.btnPR11);
-            this.panPR.Controls.Add(this.btnPR10);
-            this.panPR.Controls.Add(this.btnPR9);
-            this.panPR.Controls.Add(this.btnPR8);
-            this.panPR.Controls.Add(this.btnPR7);
-            this.panPR.Controls.Add(this.btnPR6);
-            this.panPR.Controls.Add(this.btnPR1);
-            this.panPR.Controls.Add(this.btnPR2);
-            this.panPR.Controls.Add(this.btnPR3);
-            this.panPR.Controls.Add(this.btnPR5);
-            this.panPR.Controls.Add(this.btnPR4);
-            this.panPR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panPR.Location = new System.Drawing.Point(0, 0);
-            this.panPR.Name = "panPR";
-            this.panPR.Size = new System.Drawing.Size(636, 649);
-            this.panPR.TabIndex = 8;
-            this.panPR.Visible = false;
+            this.toolStripExcel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripExcel.Image = global::ALLinONE.Properties.Resources.Excel_Mac_23559;
+            this.toolStripExcel.Name = "toolStripExcel";
+            this.toolStripExcel.Size = new System.Drawing.Size(62, 20);
+            this.toolStripExcel.Text = "Excel";
+            this.toolStripExcel.Click += new System.EventHandler(this.toolStripExcel_Click);
+            // 
+            // tabControl
+            // 
+            this.tabControl.Controls.Add(this.tabPageProfRab);
+            this.tabControl.Controls.Add(this.tabPageService);
+            this.tabControl.Controls.Add(this.tabPagePrinters);
+            this.tabControl.Controls.Add(this.tabPageDBList);
+            this.tabControl.Controls.Add(this.tabPageAddRequest);
+            this.tabControl.DisplayStyle = System.Windows.Forms.TabStyle.Angled;
+            // 
+            // 
+            // 
+            this.tabControl.DisplayStyleProvider.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.tabControl.DisplayStyleProvider.BorderColorHot = System.Drawing.SystemColors.ControlDark;
+            this.tabControl.DisplayStyleProvider.BorderColorSelected = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(157)))), ((int)(((byte)(185)))));
+            this.tabControl.DisplayStyleProvider.CloserColor = System.Drawing.Color.DarkGray;
+            this.tabControl.DisplayStyleProvider.FocusTrack = false;
+            this.tabControl.DisplayStyleProvider.HotTrack = true;
+            this.tabControl.DisplayStyleProvider.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.tabControl.DisplayStyleProvider.Opacity = 1F;
+            this.tabControl.DisplayStyleProvider.Overlap = 7;
+            this.tabControl.DisplayStyleProvider.Padding = new System.Drawing.Point(10, 3);
+            this.tabControl.DisplayStyleProvider.Radius = 10;
+            this.tabControl.DisplayStyleProvider.ShowTabCloser = false;
+            this.tabControl.DisplayStyleProvider.TextColor = System.Drawing.SystemColors.ControlText;
+            this.tabControl.DisplayStyleProvider.TextColorDisabled = System.Drawing.SystemColors.ControlDark;
+            this.tabControl.DisplayStyleProvider.TextColorSelected = System.Drawing.SystemColors.ControlText;
+            this.tabControl.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tabControl.HotTrack = true;
+            this.tabControl.Location = new System.Drawing.Point(0, 27);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(634, 624);
+            this.tabControl.TabIndex = 12;
+            this.tabControl.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControl_Selecting);
+            // 
+            // tabPageProfRab
+            // 
+            this.tabPageProfRab.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageProfRab.Controls.Add(this.lblPR);
+            this.tabPageProfRab.Controls.Add(this.btnPR1);
+            this.tabPageProfRab.Controls.Add(this.btnPR4);
+            this.tabPageProfRab.Controls.Add(this.btnPRChange);
+            this.tabPageProfRab.Controls.Add(this.btnPR26);
+            this.tabPageProfRab.Controls.Add(this.btnPR2);
+            this.tabPageProfRab.Controls.Add(this.btnPR25);
+            this.tabPageProfRab.Controls.Add(this.btnPR5);
+            this.tabPageProfRab.Controls.Add(this.btnPR3);
+            this.tabPageProfRab.Controls.Add(this.btnPR23);
+            this.tabPageProfRab.Controls.Add(this.btnPR6);
+            this.tabPageProfRab.Controls.Add(this.btnPR7);
+            this.tabPageProfRab.Controls.Add(this.btnPR8);
+            this.tabPageProfRab.Controls.Add(this.btnPR9);
+            this.tabPageProfRab.Controls.Add(this.btnPR24);
+            this.tabPageProfRab.Controls.Add(this.btnPR10);
+            this.tabPageProfRab.Controls.Add(this.btnPR22);
+            this.tabPageProfRab.Controls.Add(this.btnPR11);
+            this.tabPageProfRab.Controls.Add(this.btnPR21);
+            this.tabPageProfRab.Controls.Add(this.btnPR12);
+            this.tabPageProfRab.Controls.Add(this.btnPR20);
+            this.tabPageProfRab.Controls.Add(this.btnPR13);
+            this.tabPageProfRab.Controls.Add(this.btnPR19);
+            this.tabPageProfRab.Controls.Add(this.btnPR14);
+            this.tabPageProfRab.Controls.Add(this.btnPR18);
+            this.tabPageProfRab.Controls.Add(this.btnPR15);
+            this.tabPageProfRab.Controls.Add(this.btnPR17);
+            this.tabPageProfRab.Controls.Add(this.btnPR16);
+            this.tabPageProfRab.Location = new System.Drawing.Point(4, 23);
+            this.tabPageProfRab.Name = "tabPageProfRab";
+            this.tabPageProfRab.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageProfRab.Size = new System.Drawing.Size(626, 597);
+            this.tabPageProfRab.TabIndex = 0;
+            this.tabPageProfRab.Text = "ПрофРаботы";
             // 
             // lblPR
             // 
@@ -365,27 +347,38 @@
             this.lblPR.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblPR.Enabled = false;
             this.lblPR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblPR.Location = new System.Drawing.Point(0, 554);
+            this.lblPR.Location = new System.Drawing.Point(3, 485);
             this.lblPR.Name = "lblPR";
-            this.lblPR.Size = new System.Drawing.Size(636, 95);
+            this.lblPR.Size = new System.Drawing.Size(620, 109);
             this.lblPR.TabIndex = 27;
             this.lblPR.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnPR23
+            // btnPR1
             // 
-            this.btnPR23.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPR23.Location = new System.Drawing.Point(260, 214);
-            this.btnPR23.Name = "btnPR23";
-            this.btnPR23.Size = new System.Drawing.Size(118, 39);
-            this.btnPR23.TabIndex = 22;
-            this.btnPR23.Text = "DB Error";
-            this.btnPR23.UseVisualStyleBackColor = true;
-            this.btnPR23.Click += new System.EventHandler(this.BtnPR1_Click);
+            this.btnPR1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnPR1.Location = new System.Drawing.Point(6, 6);
+            this.btnPR1.Name = "btnPR1";
+            this.btnPR1.Size = new System.Drawing.Size(118, 39);
+            this.btnPR1.TabIndex = 0;
+            this.btnPR1.Text = "DB Error";
+            this.btnPR1.UseVisualStyleBackColor = true;
+            this.btnPR1.Click += new System.EventHandler(this.BtnPR1_Click);
+            // 
+            // btnPR4
+            // 
+            this.btnPR4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnPR4.Location = new System.Drawing.Point(378, 6);
+            this.btnPR4.Name = "btnPR4";
+            this.btnPR4.Size = new System.Drawing.Size(118, 39);
+            this.btnPR4.TabIndex = 3;
+            this.btnPR4.Text = "DB Error";
+            this.btnPR4.UseVisualStyleBackColor = true;
+            this.btnPR4.Click += new System.EventHandler(this.BtnPR1_Click);
             // 
             // btnPRChange
             // 
             this.btnPRChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPRChange.Location = new System.Drawing.Point(545, 495);
+            this.btnPRChange.Location = new System.Drawing.Point(539, 431);
             this.btnPRChange.Name = "btnPRChange";
             this.btnPRChange.Size = new System.Drawing.Size(81, 40);
             this.btnPRChange.TabIndex = 26;
@@ -397,7 +390,7 @@
             // btnPR26
             // 
             this.btnPR26.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPR26.Location = new System.Drawing.Point(136, 495);
+            this.btnPR26.Location = new System.Drawing.Point(130, 431);
             this.btnPR26.Name = "btnPR26";
             this.btnPR26.Size = new System.Drawing.Size(282, 40);
             this.btnPR26.TabIndex = 25;
@@ -405,10 +398,21 @@
             this.btnPR26.UseVisualStyleBackColor = true;
             this.btnPR26.Click += new System.EventHandler(this.BtnPR1_Click);
             // 
+            // btnPR2
+            // 
+            this.btnPR2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnPR2.Location = new System.Drawing.Point(130, 7);
+            this.btnPR2.Name = "btnPR2";
+            this.btnPR2.Size = new System.Drawing.Size(118, 39);
+            this.btnPR2.TabIndex = 1;
+            this.btnPR2.Text = "DB Error";
+            this.btnPR2.UseVisualStyleBackColor = true;
+            this.btnPR2.Click += new System.EventHandler(this.BtnPR1_Click);
+            // 
             // btnPR25
             // 
             this.btnPR25.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPR25.Location = new System.Drawing.Point(12, 495);
+            this.btnPR25.Location = new System.Drawing.Point(6, 431);
             this.btnPR25.Name = "btnPR25";
             this.btnPR25.Size = new System.Drawing.Size(107, 40);
             this.btnPR25.TabIndex = 24;
@@ -416,10 +420,87 @@
             this.btnPR25.UseVisualStyleBackColor = true;
             this.btnPR25.Click += new System.EventHandler(this.BtnPR1_Click);
             // 
+            // btnPR5
+            // 
+            this.btnPR5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnPR5.Location = new System.Drawing.Point(502, 6);
+            this.btnPR5.Name = "btnPR5";
+            this.btnPR5.Size = new System.Drawing.Size(118, 39);
+            this.btnPR5.TabIndex = 4;
+            this.btnPR5.Text = "DB Error";
+            this.btnPR5.UseVisualStyleBackColor = true;
+            this.btnPR5.Click += new System.EventHandler(this.BtnPR1_Click);
+            // 
+            // btnPR3
+            // 
+            this.btnPR3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnPR3.Location = new System.Drawing.Point(254, 6);
+            this.btnPR3.Name = "btnPR3";
+            this.btnPR3.Size = new System.Drawing.Size(118, 39);
+            this.btnPR3.TabIndex = 2;
+            this.btnPR3.Text = "DB Error";
+            this.btnPR3.UseVisualStyleBackColor = true;
+            this.btnPR3.Click += new System.EventHandler(this.BtnPR1_Click);
+            // 
+            // btnPR23
+            // 
+            this.btnPR23.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnPR23.Location = new System.Drawing.Point(254, 186);
+            this.btnPR23.Name = "btnPR23";
+            this.btnPR23.Size = new System.Drawing.Size(118, 39);
+            this.btnPR23.TabIndex = 22;
+            this.btnPR23.Text = "DB Error";
+            this.btnPR23.UseVisualStyleBackColor = true;
+            this.btnPR23.Click += new System.EventHandler(this.BtnPR1_Click);
+            // 
+            // btnPR6
+            // 
+            this.btnPR6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnPR6.Location = new System.Drawing.Point(6, 51);
+            this.btnPR6.Name = "btnPR6";
+            this.btnPR6.Size = new System.Drawing.Size(118, 39);
+            this.btnPR6.TabIndex = 5;
+            this.btnPR6.Text = "DB Error";
+            this.btnPR6.UseVisualStyleBackColor = true;
+            this.btnPR6.Click += new System.EventHandler(this.BtnPR1_Click);
+            // 
+            // btnPR7
+            // 
+            this.btnPR7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnPR7.Location = new System.Drawing.Point(130, 51);
+            this.btnPR7.Name = "btnPR7";
+            this.btnPR7.Size = new System.Drawing.Size(118, 39);
+            this.btnPR7.TabIndex = 6;
+            this.btnPR7.Text = "DB Error";
+            this.btnPR7.UseVisualStyleBackColor = true;
+            this.btnPR7.Click += new System.EventHandler(this.BtnPR1_Click);
+            // 
+            // btnPR8
+            // 
+            this.btnPR8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnPR8.Location = new System.Drawing.Point(254, 51);
+            this.btnPR8.Name = "btnPR8";
+            this.btnPR8.Size = new System.Drawing.Size(118, 39);
+            this.btnPR8.TabIndex = 7;
+            this.btnPR8.Text = "DB Error";
+            this.btnPR8.UseVisualStyleBackColor = true;
+            this.btnPR8.Click += new System.EventHandler(this.BtnPR1_Click);
+            // 
+            // btnPR9
+            // 
+            this.btnPR9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnPR9.Location = new System.Drawing.Point(378, 51);
+            this.btnPR9.Name = "btnPR9";
+            this.btnPR9.Size = new System.Drawing.Size(118, 39);
+            this.btnPR9.TabIndex = 8;
+            this.btnPR9.Text = "DB Error";
+            this.btnPR9.UseVisualStyleBackColor = true;
+            this.btnPR9.Click += new System.EventHandler(this.BtnPR1_Click);
+            // 
             // btnPR24
             // 
             this.btnPR24.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPR24.Location = new System.Drawing.Point(384, 214);
+            this.btnPR24.Location = new System.Drawing.Point(378, 186);
             this.btnPR24.Name = "btnPR24";
             this.btnPR24.Size = new System.Drawing.Size(118, 39);
             this.btnPR24.TabIndex = 23;
@@ -427,10 +508,21 @@
             this.btnPR24.UseVisualStyleBackColor = true;
             this.btnPR24.Click += new System.EventHandler(this.BtnPR1_Click);
             // 
+            // btnPR10
+            // 
+            this.btnPR10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnPR10.Location = new System.Drawing.Point(502, 51);
+            this.btnPR10.Name = "btnPR10";
+            this.btnPR10.Size = new System.Drawing.Size(118, 39);
+            this.btnPR10.TabIndex = 9;
+            this.btnPR10.Text = "DB Error";
+            this.btnPR10.UseVisualStyleBackColor = true;
+            this.btnPR10.Click += new System.EventHandler(this.BtnPR1_Click);
+            // 
             // btnPR22
             // 
             this.btnPR22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPR22.Location = new System.Drawing.Point(136, 214);
+            this.btnPR22.Location = new System.Drawing.Point(130, 186);
             this.btnPR22.Name = "btnPR22";
             this.btnPR22.Size = new System.Drawing.Size(118, 39);
             this.btnPR22.TabIndex = 21;
@@ -438,10 +530,21 @@
             this.btnPR22.UseVisualStyleBackColor = true;
             this.btnPR22.Click += new System.EventHandler(this.BtnPR1_Click);
             // 
+            // btnPR11
+            // 
+            this.btnPR11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnPR11.Location = new System.Drawing.Point(6, 96);
+            this.btnPR11.Name = "btnPR11";
+            this.btnPR11.Size = new System.Drawing.Size(118, 39);
+            this.btnPR11.TabIndex = 10;
+            this.btnPR11.Text = "DB Error";
+            this.btnPR11.UseVisualStyleBackColor = true;
+            this.btnPR11.Click += new System.EventHandler(this.BtnPR1_Click);
+            // 
             // btnPR21
             // 
             this.btnPR21.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPR21.Location = new System.Drawing.Point(12, 214);
+            this.btnPR21.Location = new System.Drawing.Point(6, 186);
             this.btnPR21.Name = "btnPR21";
             this.btnPR21.Size = new System.Drawing.Size(118, 39);
             this.btnPR21.TabIndex = 20;
@@ -449,10 +552,21 @@
             this.btnPR21.UseVisualStyleBackColor = true;
             this.btnPR21.Click += new System.EventHandler(this.BtnPR1_Click);
             // 
+            // btnPR12
+            // 
+            this.btnPR12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnPR12.Location = new System.Drawing.Point(130, 96);
+            this.btnPR12.Name = "btnPR12";
+            this.btnPR12.Size = new System.Drawing.Size(118, 39);
+            this.btnPR12.TabIndex = 11;
+            this.btnPR12.Text = "DB Error";
+            this.btnPR12.UseVisualStyleBackColor = true;
+            this.btnPR12.Click += new System.EventHandler(this.BtnPR1_Click);
+            // 
             // btnPR20
             // 
             this.btnPR20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPR20.Location = new System.Drawing.Point(508, 169);
+            this.btnPR20.Location = new System.Drawing.Point(502, 141);
             this.btnPR20.Name = "btnPR20";
             this.btnPR20.Size = new System.Drawing.Size(118, 39);
             this.btnPR20.TabIndex = 19;
@@ -460,10 +574,21 @@
             this.btnPR20.UseVisualStyleBackColor = true;
             this.btnPR20.Click += new System.EventHandler(this.BtnPR1_Click);
             // 
+            // btnPR13
+            // 
+            this.btnPR13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnPR13.Location = new System.Drawing.Point(254, 96);
+            this.btnPR13.Name = "btnPR13";
+            this.btnPR13.Size = new System.Drawing.Size(118, 39);
+            this.btnPR13.TabIndex = 12;
+            this.btnPR13.Text = "DB Error";
+            this.btnPR13.UseVisualStyleBackColor = true;
+            this.btnPR13.Click += new System.EventHandler(this.BtnPR1_Click);
+            // 
             // btnPR19
             // 
             this.btnPR19.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPR19.Location = new System.Drawing.Point(384, 169);
+            this.btnPR19.Location = new System.Drawing.Point(378, 141);
             this.btnPR19.Name = "btnPR19";
             this.btnPR19.Size = new System.Drawing.Size(118, 39);
             this.btnPR19.TabIndex = 18;
@@ -471,10 +596,21 @@
             this.btnPR19.UseVisualStyleBackColor = true;
             this.btnPR19.Click += new System.EventHandler(this.BtnPR1_Click);
             // 
+            // btnPR14
+            // 
+            this.btnPR14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnPR14.Location = new System.Drawing.Point(378, 96);
+            this.btnPR14.Name = "btnPR14";
+            this.btnPR14.Size = new System.Drawing.Size(118, 39);
+            this.btnPR14.TabIndex = 13;
+            this.btnPR14.Text = "DB Error";
+            this.btnPR14.UseVisualStyleBackColor = true;
+            this.btnPR14.Click += new System.EventHandler(this.BtnPR1_Click);
+            // 
             // btnPR18
             // 
             this.btnPR18.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPR18.Location = new System.Drawing.Point(260, 169);
+            this.btnPR18.Location = new System.Drawing.Point(254, 141);
             this.btnPR18.Name = "btnPR18";
             this.btnPR18.Size = new System.Drawing.Size(118, 39);
             this.btnPR18.TabIndex = 17;
@@ -482,10 +618,21 @@
             this.btnPR18.UseVisualStyleBackColor = true;
             this.btnPR18.Click += new System.EventHandler(this.BtnPR1_Click);
             // 
+            // btnPR15
+            // 
+            this.btnPR15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnPR15.Location = new System.Drawing.Point(502, 96);
+            this.btnPR15.Name = "btnPR15";
+            this.btnPR15.Size = new System.Drawing.Size(118, 39);
+            this.btnPR15.TabIndex = 14;
+            this.btnPR15.Text = "DB Error";
+            this.btnPR15.UseVisualStyleBackColor = true;
+            this.btnPR15.Click += new System.EventHandler(this.BtnPR1_Click);
+            // 
             // btnPR17
             // 
             this.btnPR17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPR17.Location = new System.Drawing.Point(136, 169);
+            this.btnPR17.Location = new System.Drawing.Point(130, 141);
             this.btnPR17.Name = "btnPR17";
             this.btnPR17.Size = new System.Drawing.Size(118, 39);
             this.btnPR17.TabIndex = 16;
@@ -496,7 +643,7 @@
             // btnPR16
             // 
             this.btnPR16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPR16.Location = new System.Drawing.Point(12, 169);
+            this.btnPR16.Location = new System.Drawing.Point(6, 141);
             this.btnPR16.Name = "btnPR16";
             this.btnPR16.Size = new System.Drawing.Size(118, 39);
             this.btnPR16.TabIndex = 15;
@@ -504,164 +651,154 @@
             this.btnPR16.UseVisualStyleBackColor = true;
             this.btnPR16.Click += new System.EventHandler(this.BtnPR1_Click);
             // 
-            // btnPR15
+            // tabPageService
             // 
-            this.btnPR15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPR15.Location = new System.Drawing.Point(508, 124);
-            this.btnPR15.Name = "btnPR15";
-            this.btnPR15.Size = new System.Drawing.Size(118, 39);
-            this.btnPR15.TabIndex = 14;
-            this.btnPR15.Text = "DB Error";
-            this.btnPR15.UseVisualStyleBackColor = true;
-            this.btnPR15.Click += new System.EventHandler(this.BtnPR1_Click);
+            this.tabPageService.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageService.Controls.Add(this.btnRefreshPing);
+            this.tabPageService.Controls.Add(this.numPingTimeOut);
+            this.tabPageService.Controls.Add(this.numPingProgress);
+            this.tabPageService.Controls.Add(this.pbPingProgress);
+            this.tabPageService.Controls.Add(this.lblPingTimeOut);
+            this.tabPageService.Controls.Add(this.lblPingSuccess);
+            this.tabPageService.Controls.Add(this.lbPingTimeOut);
+            this.tabPageService.Controls.Add(this.lbPingSuccess);
+            this.tabPageService.Controls.Add(this.btnSrvcChange);
+            this.tabPageService.Controls.Add(this.chckbServiceSorted);
+            this.tabPageService.Controls.Add(this.lblShare);
+            this.tabPageService.Controls.Add(this.lblRDP);
+            this.tabPageService.Controls.Add(this.lbShare);
+            this.tabPageService.Controls.Add(this.lbRDP);
+            this.tabPageService.Location = new System.Drawing.Point(4, 23);
+            this.tabPageService.Name = "tabPageService";
+            this.tabPageService.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageService.Size = new System.Drawing.Size(626, 597);
+            this.tabPageService.TabIndex = 1;
+            this.tabPageService.Text = "Сервис";
             // 
-            // btnPR14
+            // btnRefreshPing
             // 
-            this.btnPR14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPR14.Location = new System.Drawing.Point(384, 124);
-            this.btnPR14.Name = "btnPR14";
-            this.btnPR14.Size = new System.Drawing.Size(118, 39);
-            this.btnPR14.TabIndex = 13;
-            this.btnPR14.Text = "DB Error";
-            this.btnPR14.UseVisualStyleBackColor = true;
-            this.btnPR14.Click += new System.EventHandler(this.BtnPR1_Click);
+            this.btnRefreshPing.Location = new System.Drawing.Point(215, 548);
+            this.btnRefreshPing.Name = "btnRefreshPing";
+            this.btnRefreshPing.Size = new System.Drawing.Size(75, 20);
+            this.btnRefreshPing.TabIndex = 36;
+            this.btnRefreshPing.Text = "Обновить";
+            this.btnRefreshPing.UseVisualStyleBackColor = true;
+            this.btnRefreshPing.Click += new System.EventHandler(this.btnRefreshPing_Click);
             // 
-            // btnPR13
+            // numPingTimeOut
             // 
-            this.btnPR13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPR13.Location = new System.Drawing.Point(260, 124);
-            this.btnPR13.Name = "btnPR13";
-            this.btnPR13.Size = new System.Drawing.Size(118, 39);
-            this.btnPR13.TabIndex = 12;
-            this.btnPR13.Text = "DB Error";
-            this.btnPR13.UseVisualStyleBackColor = true;
-            this.btnPR13.Click += new System.EventHandler(this.BtnPR1_Click);
+            this.numPingTimeOut.Location = new System.Drawing.Point(155, 548);
+            this.numPingTimeOut.Maximum = new decimal(new int[] {
+            164,
+            0,
+            0,
+            0});
+            this.numPingTimeOut.Minimum = new decimal(new int[] {
+            32,
+            0,
+            0,
+            0});
+            this.numPingTimeOut.Name = "numPingTimeOut";
+            this.numPingTimeOut.Size = new System.Drawing.Size(39, 20);
+            this.numPingTimeOut.TabIndex = 35;
+            this.numPingTimeOut.Value = new decimal(new int[] {
+            64,
+            0,
+            0,
+            0});
             // 
-            // btnPR12
+            // numPingProgress
             // 
-            this.btnPR12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPR12.Location = new System.Drawing.Point(136, 124);
-            this.btnPR12.Name = "btnPR12";
-            this.btnPR12.Size = new System.Drawing.Size(118, 39);
-            this.btnPR12.TabIndex = 11;
-            this.btnPR12.Text = "DB Error";
-            this.btnPR12.UseVisualStyleBackColor = true;
-            this.btnPR12.Click += new System.EventHandler(this.BtnPR1_Click);
+            this.numPingProgress.Location = new System.Drawing.Point(109, 548);
+            this.numPingProgress.Maximum = new decimal(new int[] {
+            64,
+            0,
+            0,
+            0});
+            this.numPingProgress.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numPingProgress.Name = "numPingProgress";
+            this.numPingProgress.Size = new System.Drawing.Size(34, 20);
+            this.numPingProgress.TabIndex = 28;
+            this.numPingProgress.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            this.numPingProgress.ValueChanged += new System.EventHandler(this.numPingProgress_ValueChanged);
             // 
-            // btnPR11
+            // pbPingProgress
             // 
-            this.btnPR11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPR11.Location = new System.Drawing.Point(12, 124);
-            this.btnPR11.Name = "btnPR11";
-            this.btnPR11.Size = new System.Drawing.Size(118, 39);
-            this.btnPR11.TabIndex = 10;
-            this.btnPR11.Text = "DB Error";
-            this.btnPR11.UseVisualStyleBackColor = true;
-            this.btnPR11.Click += new System.EventHandler(this.BtnPR1_Click);
+            this.pbPingProgress.Location = new System.Drawing.Point(27, 574);
+            this.pbPingProgress.Maximum = 1000;
+            this.pbPingProgress.Name = "pbPingProgress";
+            this.pbPingProgress.Size = new System.Drawing.Size(242, 20);
+            this.pbPingProgress.TabIndex = 34;
             // 
-            // btnPR10
+            // lblPingTimeOut
             // 
-            this.btnPR10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPR10.Location = new System.Drawing.Point(508, 79);
-            this.btnPR10.Name = "btnPR10";
-            this.btnPR10.Size = new System.Drawing.Size(118, 39);
-            this.btnPR10.TabIndex = 9;
-            this.btnPR10.Text = "DB Error";
-            this.btnPR10.UseVisualStyleBackColor = true;
-            this.btnPR10.Click += new System.EventHandler(this.BtnPR1_Click);
+            this.lblPingTimeOut.AutoSize = true;
+            this.lblPingTimeOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblPingTimeOut.Location = new System.Drawing.Point(176, 339);
+            this.lblPingTimeOut.Name = "lblPingTimeOut";
+            this.lblPingTimeOut.Size = new System.Drawing.Size(92, 15);
+            this.lblPingTimeOut.TabIndex = 33;
+            this.lblPingTimeOut.Text = "Не доступны";
             // 
-            // btnPR9
+            // lblPingSuccess
             // 
-            this.btnPR9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPR9.Location = new System.Drawing.Point(384, 79);
-            this.btnPR9.Name = "btnPR9";
-            this.btnPR9.Size = new System.Drawing.Size(118, 39);
-            this.btnPR9.TabIndex = 8;
-            this.btnPR9.Text = "DB Error";
-            this.btnPR9.UseVisualStyleBackColor = true;
-            this.btnPR9.Click += new System.EventHandler(this.BtnPR1_Click);
+            this.lblPingSuccess.AutoSize = true;
+            this.lblPingSuccess.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblPingSuccess.Location = new System.Drawing.Point(38, 339);
+            this.lblPingSuccess.Name = "lblPingSuccess";
+            this.lblPingSuccess.Size = new System.Drawing.Size(72, 15);
+            this.lblPingSuccess.TabIndex = 32;
+            this.lblPingSuccess.Text = "Доступны";
             // 
-            // btnPR8
+            // lbPingTimeOut
             // 
-            this.btnPR8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPR8.Location = new System.Drawing.Point(260, 79);
-            this.btnPR8.Name = "btnPR8";
-            this.btnPR8.Size = new System.Drawing.Size(118, 39);
-            this.btnPR8.TabIndex = 7;
-            this.btnPR8.Text = "DB Error";
-            this.btnPR8.UseVisualStyleBackColor = true;
-            this.btnPR8.Click += new System.EventHandler(this.BtnPR1_Click);
+            this.lbPingTimeOut.FormattingEnabled = true;
+            this.lbPingTimeOut.Location = new System.Drawing.Point(155, 356);
+            this.lbPingTimeOut.Name = "lbPingTimeOut";
+            this.lbPingTimeOut.Size = new System.Drawing.Size(135, 186);
+            this.lbPingTimeOut.Sorted = true;
+            this.lbPingTimeOut.TabIndex = 27;
+            this.lbPingTimeOut.Leave += new System.EventHandler(this.lbRDP_Leave);
             // 
-            // btnPR7
+            // lbPingSuccess
             // 
-            this.btnPR7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPR7.Location = new System.Drawing.Point(136, 79);
-            this.btnPR7.Name = "btnPR7";
-            this.btnPR7.Size = new System.Drawing.Size(118, 39);
-            this.btnPR7.TabIndex = 6;
-            this.btnPR7.Text = "DB Error";
-            this.btnPR7.UseVisualStyleBackColor = true;
-            this.btnPR7.Click += new System.EventHandler(this.BtnPR1_Click);
+            this.lbPingSuccess.FormattingEnabled = true;
+            this.lbPingSuccess.Location = new System.Drawing.Point(8, 356);
+            this.lbPingSuccess.Name = "lbPingSuccess";
+            this.lbPingSuccess.Size = new System.Drawing.Size(135, 186);
+            this.lbPingSuccess.Sorted = true;
+            this.lbPingSuccess.TabIndex = 26;
+            this.lbPingSuccess.Leave += new System.EventHandler(this.lbRDP_Leave);
             // 
-            // btnPR6
+            // btnSrvcChange
             // 
-            this.btnPR6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPR6.Location = new System.Drawing.Point(12, 79);
-            this.btnPR6.Name = "btnPR6";
-            this.btnPR6.Size = new System.Drawing.Size(118, 39);
-            this.btnPR6.TabIndex = 5;
-            this.btnPR6.Text = "DB Error";
-            this.btnPR6.UseVisualStyleBackColor = true;
-            this.btnPR6.Click += new System.EventHandler(this.BtnPR1_Click);
-            // 
-            // panSrvc
-            // 
-            this.panSrvc.Controls.Add(this.btnPingShow);
-            this.panSrvc.Controls.Add(this.listBox1);
-            this.panSrvc.Controls.Add(this.chckbServiceSorted);
-            this.panSrvc.Controls.Add(this.lblShare);
-            this.panSrvc.Controls.Add(this.lblRDP);
-            this.panSrvc.Controls.Add(this.button1);
-            this.panSrvc.Controls.Add(this.btnSrvcChange);
-            this.panSrvc.Controls.Add(this.lbShare);
-            this.panSrvc.Controls.Add(this.lbRDP);
-            this.panSrvc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panSrvc.Location = new System.Drawing.Point(0, 0);
-            this.panSrvc.Name = "panSrvc";
-            this.panSrvc.Size = new System.Drawing.Size(636, 649);
-            this.panSrvc.TabIndex = 0;
-            this.panSrvc.Visible = false;
-            // 
-            // btnPingShow
-            // 
-            this.btnPingShow.Location = new System.Drawing.Point(12, 591);
-            this.btnPingShow.Name = "btnPingShow";
-            this.btnPingShow.Size = new System.Drawing.Size(87, 23);
-            this.btnPingShow.TabIndex = 7;
-            this.btnPingShow.Text = "Попингуем?";
-            this.btnPingShow.UseVisualStyleBackColor = true;
-            this.btnPingShow.Visible = false;
-            // 
-            // listBox1
-            // 
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 18;
-            this.listBox1.Location = new System.Drawing.Point(255, 52);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(38, 346);
-            this.listBox1.TabIndex = 6;
+            this.btnSrvcChange.Location = new System.Drawing.Point(505, 553);
+            this.btnSrvcChange.Name = "btnSrvcChange";
+            this.btnSrvcChange.Size = new System.Drawing.Size(113, 37);
+            this.btnSrvcChange.TabIndex = 29;
+            this.btnSrvcChange.TabStop = false;
+            this.btnSrvcChange.Text = "Может нам что-то поменять?";
+            this.btnSrvcChange.UseVisualStyleBackColor = true;
+            this.btnSrvcChange.Click += new System.EventHandler(this.btnSrvcChange_Click);
             // 
             // chckbServiceSorted
             // 
-            this.chckbServiceSorted.AutoSize = true;
             this.chckbServiceSorted.Checked = true;
             this.chckbServiceSorted.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chckbServiceSorted.Location = new System.Drawing.Point(212, 412);
+            this.chckbServiceSorted.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.chckbServiceSorted.Location = new System.Drawing.Point(255, 283);
             this.chckbServiceSorted.Name = "chckbServiceSorted";
-            this.chckbServiceSorted.Size = new System.Drawing.Size(141, 17);
-            this.chckbServiceSorted.TabIndex = 2;
-            this.chckbServiceSorted.Text = "Сортировать по имени";
+            this.chckbServiceSorted.Size = new System.Drawing.Size(53, 50);
+            this.chckbServiceSorted.TabIndex = 25;
+            this.chckbServiceSorted.Text = "Сорт. по имени";
             this.chckbServiceSorted.UseVisualStyleBackColor = true;
             this.chckbServiceSorted.CheckedChanged += new System.EventHandler(this.chckbServiceSorted_CheckedChanged);
             // 
@@ -669,165 +806,123 @@
             // 
             this.lblShare.AutoSize = true;
             this.lblShare.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblShare.Location = new System.Drawing.Point(439, 27);
+            this.lblShare.Location = new System.Drawing.Point(435, 4);
             this.lblShare.Name = "lblShare";
             this.lblShare.Size = new System.Drawing.Size(57, 20);
-            this.lblShare.TabIndex = 5;
+            this.lblShare.TabIndex = 31;
             this.lblShare.Text = "Share";
             // 
             // lblRDP
             // 
             this.lblRDP.AutoSize = true;
             this.lblRDP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblRDP.Location = new System.Drawing.Point(101, 27);
+            this.lblRDP.Location = new System.Drawing.Point(97, 4);
             this.lblRDP.Name = "lblRDP";
             this.lblRDP.Size = new System.Drawing.Size(46, 20);
-            this.lblRDP.TabIndex = 4;
+            this.lblRDP.TabIndex = 30;
             this.lblRDP.Text = "RDP";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(76, 441);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(71, 29);
-            this.button1.TabIndex = 3;
-            this.button1.TabStop = false;
-            this.button1.Text = "Ping_RDP";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
-            // 
-            // btnSrvcChange
-            // 
-            this.btnSrvcChange.Location = new System.Drawing.Point(520, 609);
-            this.btnSrvcChange.Name = "btnSrvcChange";
-            this.btnSrvcChange.Size = new System.Drawing.Size(113, 37);
-            this.btnSrvcChange.TabIndex = 3;
-            this.btnSrvcChange.TabStop = false;
-            this.btnSrvcChange.Text = "Может нам что-то поменять?";
-            this.btnSrvcChange.UseVisualStyleBackColor = true;
-            this.btnSrvcChange.Click += new System.EventHandler(this.BtnSrvcChange_Click);
             // 
             // lbShare
             // 
             this.lbShare.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbShare.FormattingEnabled = true;
             this.lbShare.ItemHeight = 18;
-            this.lbShare.Location = new System.Drawing.Point(306, 52);
+            this.lbShare.Location = new System.Drawing.Point(311, 26);
             this.lbShare.Name = "lbShare";
-            this.lbShare.Size = new System.Drawing.Size(318, 346);
+            this.lbShare.Size = new System.Drawing.Size(307, 310);
             this.lbShare.Sorted = true;
-            this.lbShare.TabIndex = 1;
-            this.lbShare.DoubleClick += new System.EventHandler(this.LbShare_DoubleClick);
-            this.lbShare.Leave += new System.EventHandler(this.LbShare_Leave);
+            this.lbShare.TabIndex = 24;
+            this.lbShare.DoubleClick += new System.EventHandler(this.lbShare_DoubleClick);
+            this.lbShare.Leave += new System.EventHandler(this.lbRDP_Leave);
             // 
             // lbRDP
             // 
             this.lbRDP.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbRDP.FormattingEnabled = true;
             this.lbRDP.ItemHeight = 18;
-            this.lbRDP.Location = new System.Drawing.Point(12, 52);
+            this.lbRDP.Location = new System.Drawing.Point(8, 26);
             this.lbRDP.Name = "lbRDP";
-            this.lbRDP.Size = new System.Drawing.Size(242, 346);
+            this.lbRDP.Size = new System.Drawing.Size(242, 310);
             this.lbRDP.Sorted = true;
-            this.lbRDP.TabIndex = 0;
-            this.lbRDP.DoubleClick += new System.EventHandler(this.LbRDP_DoubleClick);
-            this.lbRDP.Leave += new System.EventHandler(this.LbRDP_Leave);
+            this.lbRDP.TabIndex = 23;
+            this.lbRDP.DoubleClick += new System.EventHandler(this.lbRDP_DoubleClick);
+            this.lbRDP.Leave += new System.EventHandler(this.lbRDP_Leave);
             // 
-            // panPrint
+            // tabPagePrinters
             // 
-            this.panPrint.Controls.Add(this.btnPrintPrinting);
-            this.panPrint.Controls.Add(this.btnPrintRemove);
-            this.panPrint.Controls.Add(this.lblPrintBuffer);
-            this.panPrint.Controls.Add(this.lblPrintInvNumber);
-            this.panPrint.Controls.Add(this.lblPrintLocation);
-            this.panPrint.Controls.Add(this.lblPrintNetName);
-            this.panPrint.Controls.Add(this.lblPrintName);
-            this.panPrint.Controls.Add(this.tbPrintInvNumber1);
-            this.panPrint.Controls.Add(this.dgvPrinters);
-            this.panPrint.Controls.Add(this.btnPrintAdd);
-            this.panPrint.Controls.Add(this.tbPrintLocation1);
-            this.panPrint.Controls.Add(this.tbPrintNetName1);
-            this.panPrint.Controls.Add(this.tbPrintName1);
-            this.panPrint.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panPrint.Location = new System.Drawing.Point(0, 0);
-            this.panPrint.Name = "panPrint";
-            this.panPrint.Size = new System.Drawing.Size(636, 649);
-            this.panPrint.TabIndex = 0;
-            this.panPrint.Visible = false;
+            this.tabPagePrinters.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPagePrinters.Controls.Add(this.tbPrintInvNumber);
+            this.tabPagePrinters.Controls.Add(this.tbPrintLocation);
+            this.tabPagePrinters.Controls.Add(this.tbPrintNetName);
+            this.tabPagePrinters.Controls.Add(this.tbPrintName);
+            this.tabPagePrinters.Controls.Add(this.dgvPrinters);
+            this.tabPagePrinters.Controls.Add(this.btnPrintPrinting);
+            this.tabPagePrinters.Controls.Add(this.btnPrintRemove);
+            this.tabPagePrinters.Controls.Add(this.tbPrintName1);
+            this.tabPagePrinters.Controls.Add(this.lblPrintBuffer);
+            this.tabPagePrinters.Controls.Add(this.tbPrintNetName1);
+            this.tabPagePrinters.Controls.Add(this.lblPrintInvNumber);
+            this.tabPagePrinters.Controls.Add(this.tbPrintLocation1);
+            this.tabPagePrinters.Controls.Add(this.lblPrintLocation);
+            this.tabPagePrinters.Controls.Add(this.btnPrintAdd);
+            this.tabPagePrinters.Controls.Add(this.lblPrintNetName);
+            this.tabPagePrinters.Controls.Add(this.tbPrintInvNumber1);
+            this.tabPagePrinters.Controls.Add(this.lblPrintName);
+            this.tabPagePrinters.Location = new System.Drawing.Point(4, 23);
+            this.tabPagePrinters.Name = "tabPagePrinters";
+            this.tabPagePrinters.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPagePrinters.Size = new System.Drawing.Size(626, 597);
+            this.tabPagePrinters.TabIndex = 2;
+            this.tabPagePrinters.Text = "Принтеры";
             // 
-            // btnPrintPrinting
+            // tbPrintInvNumber
             // 
-            this.btnPrintPrinting.Location = new System.Drawing.Point(443, 541);
-            this.btnPrintPrinting.Name = "btnPrintPrinting";
-            this.btnPrintPrinting.Size = new System.Drawing.Size(183, 23);
-            this.btnPrintPrinting.TabIndex = 11;
-            this.btnPrintPrinting.Text = "Кривоватая, но все же печать";
-            this.btnPrintPrinting.UseVisualStyleBackColor = true;
-            this.btnPrintPrinting.Click += new System.EventHandler(this.btnPrintPrinting_Click);
+            this.tbPrintInvNumber.Location = new System.Drawing.Point(378, 568);
+            this.tbPrintInvNumber.MaximumSize = new System.Drawing.Size(1000, 20);
+            this.tbPrintInvNumber.MinimumSize = new System.Drawing.Size(1, 20);
+            this.tbPrintInvNumber.Name = "tbPrintInvNumber";
+            this.tbPrintInvNumber.Size = new System.Drawing.Size(100, 20);
+            this.tbPrintInvNumber.TabIndex = 15;
+            this.tbPrintInvNumber.TextMaxLength = 15;
+            this.tbPrintInvNumber.TextTitle = "Инвентарный";
+            this.tbPrintInvNumber.Visible = false;
             // 
-            // btnPrintRemove
+            // tbPrintLocation
             // 
-            this.btnPrintRemove.Location = new System.Drawing.Point(551, 613);
-            this.btnPrintRemove.Name = "btnPrintRemove";
-            this.btnPrintRemove.Size = new System.Drawing.Size(75, 23);
-            this.btnPrintRemove.TabIndex = 6;
-            this.btnPrintRemove.Text = "Удалить";
-            this.btnPrintRemove.UseVisualStyleBackColor = true;
-            this.btnPrintRemove.Click += new System.EventHandler(this.btnPrintRemove_Click);
+            this.tbPrintLocation.Location = new System.Drawing.Point(256, 568);
+            this.tbPrintLocation.MaximumSize = new System.Drawing.Size(1000, 20);
+            this.tbPrintLocation.MinimumSize = new System.Drawing.Size(1, 20);
+            this.tbPrintLocation.Name = "tbPrintLocation";
+            this.tbPrintLocation.Size = new System.Drawing.Size(100, 20);
+            this.tbPrintLocation.TabIndex = 14;
+            this.tbPrintLocation.TextMaxLength = 20;
+            this.tbPrintLocation.TextTitle = "Расположение";
+            this.tbPrintLocation.Visible = false;
             // 
-            // lblPrintBuffer
+            // tbPrintNetName
             // 
-            this.lblPrintBuffer.AutoSize = true;
-            this.lblPrintBuffer.Enabled = false;
-            this.lblPrintBuffer.Location = new System.Drawing.Point(108, 621);
-            this.lblPrintBuffer.Name = "lblPrintBuffer";
-            this.lblPrintBuffer.Size = new System.Drawing.Size(0, 13);
-            this.lblPrintBuffer.TabIndex = 10;
+            this.tbPrintNetName.Location = new System.Drawing.Point(131, 568);
+            this.tbPrintNetName.MaximumSize = new System.Drawing.Size(1000, 20);
+            this.tbPrintNetName.MinimumSize = new System.Drawing.Size(1, 20);
+            this.tbPrintNetName.Name = "tbPrintNetName";
+            this.tbPrintNetName.Size = new System.Drawing.Size(100, 20);
+            this.tbPrintNetName.TabIndex = 13;
+            this.tbPrintNetName.TextMaxLength = 50;
+            this.tbPrintNetName.TextTitle = "Сетевое имя";
+            this.tbPrintNetName.Visible = false;
             // 
-            // lblPrintInvNumber
+            // tbPrintName
             // 
-            this.lblPrintInvNumber.AutoSize = true;
-            this.lblPrintInvNumber.Location = new System.Drawing.Point(395, 568);
-            this.lblPrintInvNumber.Name = "lblPrintInvNumber";
-            this.lblPrintInvNumber.Size = new System.Drawing.Size(76, 13);
-            this.lblPrintInvNumber.TabIndex = 9;
-            this.lblPrintInvNumber.Text = "Инвентарный";
-            // 
-            // lblPrintLocation
-            // 
-            this.lblPrintLocation.AutoSize = true;
-            this.lblPrintLocation.Location = new System.Drawing.Point(271, 568);
-            this.lblPrintLocation.Name = "lblPrintLocation";
-            this.lblPrintLocation.Size = new System.Drawing.Size(82, 13);
-            this.lblPrintLocation.TabIndex = 8;
-            this.lblPrintLocation.Text = "Расположение";
-            // 
-            // lblPrintNetName
-            // 
-            this.lblPrintNetName.AutoSize = true;
-            this.lblPrintNetName.Location = new System.Drawing.Point(151, 568);
-            this.lblPrintNetName.Name = "lblPrintNetName";
-            this.lblPrintNetName.Size = new System.Drawing.Size(72, 13);
-            this.lblPrintNetName.TabIndex = 7;
-            this.lblPrintNetName.Text = "Сетевое имя";
-            // 
-            // lblPrintName
-            // 
-            this.lblPrintName.AutoSize = true;
-            this.lblPrintName.Location = new System.Drawing.Point(19, 568);
-            this.lblPrintName.Name = "lblPrintName";
-            this.lblPrintName.Size = new System.Drawing.Size(83, 13);
-            this.lblPrintName.TabIndex = 6;
-            this.lblPrintName.Text = "Наименование";
-            // 
-            // tbPrintInvNumber1
-            // 
-            this.tbPrintInvNumber1.Location = new System.Drawing.Point(384, 587);
-            this.tbPrintInvNumber1.MaxLength = 15;
-            this.tbPrintInvNumber1.Name = "tbPrintInvNumber1";
-            this.tbPrintInvNumber1.Size = new System.Drawing.Size(100, 20);
-            this.tbPrintInvNumber1.TabIndex = 4;
-            this.tbPrintInvNumber1.Click += new System.EventHandler(this.tbPrintName_Click);
+            this.tbPrintName.Location = new System.Drawing.Point(6, 568);
+            this.tbPrintName.MaximumSize = new System.Drawing.Size(1000, 20);
+            this.tbPrintName.MinimumSize = new System.Drawing.Size(1, 20);
+            this.tbPrintName.Name = "tbPrintName";
+            this.tbPrintName.Size = new System.Drawing.Size(100, 20);
+            this.tbPrintName.TabIndex = 12;
+            this.tbPrintName.TextMaxLength = 100;
+            this.tbPrintName.TextTitle = "Наименование";
+            this.tbPrintName.Visible = false;
+            this.tbPrintName._ClickEvent += new System.EventHandler(this.tbPrintName_Click);
             // 
             // dgvPrinters
             // 
@@ -837,20 +932,95 @@
             this.dgvPrinters.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvPrinters.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvPrinters.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPrinters.Location = new System.Drawing.Point(0, 24);
+            this.dgvPrinters.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgvPrinters.Location = new System.Drawing.Point(3, 3);
             this.dgvPrinters.MultiSelect = false;
             this.dgvPrinters.Name = "dgvPrinters";
             this.dgvPrinters.ReadOnly = true;
             this.dgvPrinters.RowHeadersVisible = false;
             this.dgvPrinters.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPrinters.Size = new System.Drawing.Size(636, 510);
+            this.dgvPrinters.Size = new System.Drawing.Size(620, 487);
             this.dgvPrinters.TabIndex = 0;
             this.dgvPrinters.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrinters_CellClick);
             this.dgvPrinters.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvPrinters_KeyDown);
             // 
+            // btnPrintPrinting
+            // 
+            this.btnPrintPrinting.Location = new System.Drawing.Point(437, 496);
+            this.btnPrintPrinting.Name = "btnPrintPrinting";
+            this.btnPrintPrinting.Size = new System.Drawing.Size(183, 23);
+            this.btnPrintPrinting.TabIndex = 11;
+            this.btnPrintPrinting.Text = "Кривоватая, но все же печать";
+            this.btnPrintPrinting.UseVisualStyleBackColor = true;
+            this.btnPrintPrinting.Click += new System.EventHandler(this.btnPrintPrinting_Click);
+            // 
+            // btnPrintRemove
+            // 
+            this.btnPrintRemove.Location = new System.Drawing.Point(545, 568);
+            this.btnPrintRemove.Name = "btnPrintRemove";
+            this.btnPrintRemove.Size = new System.Drawing.Size(75, 23);
+            this.btnPrintRemove.TabIndex = 6;
+            this.btnPrintRemove.Text = "Удалить";
+            this.btnPrintRemove.UseVisualStyleBackColor = true;
+            this.btnPrintRemove.Click += new System.EventHandler(this.btnPrintRemove_Click);
+            // 
+            // tbPrintName1
+            // 
+            this.tbPrintName1.Location = new System.Drawing.Point(6, 542);
+            this.tbPrintName1.MaxLength = 100;
+            this.tbPrintName1.Name = "tbPrintName1";
+            this.tbPrintName1.Size = new System.Drawing.Size(100, 20);
+            this.tbPrintName1.TabIndex = 1;
+            this.tbPrintName1.Click += new System.EventHandler(this.tbPrintName_Click);
+            // 
+            // lblPrintBuffer
+            // 
+            this.lblPrintBuffer.AutoSize = true;
+            this.lblPrintBuffer.Enabled = false;
+            this.lblPrintBuffer.Location = new System.Drawing.Point(3, 493);
+            this.lblPrintBuffer.Name = "lblPrintBuffer";
+            this.lblPrintBuffer.Size = new System.Drawing.Size(0, 13);
+            this.lblPrintBuffer.TabIndex = 10;
+            // 
+            // tbPrintNetName1
+            // 
+            this.tbPrintNetName1.Location = new System.Drawing.Point(131, 542);
+            this.tbPrintNetName1.MaxLength = 50;
+            this.tbPrintNetName1.Name = "tbPrintNetName1";
+            this.tbPrintNetName1.Size = new System.Drawing.Size(100, 20);
+            this.tbPrintNetName1.TabIndex = 2;
+            this.tbPrintNetName1.Click += new System.EventHandler(this.tbPrintName_Click);
+            // 
+            // lblPrintInvNumber
+            // 
+            this.lblPrintInvNumber.AutoSize = true;
+            this.lblPrintInvNumber.Location = new System.Drawing.Point(389, 523);
+            this.lblPrintInvNumber.Name = "lblPrintInvNumber";
+            this.lblPrintInvNumber.Size = new System.Drawing.Size(76, 13);
+            this.lblPrintInvNumber.TabIndex = 9;
+            this.lblPrintInvNumber.Text = "Инвентарный";
+            // 
+            // tbPrintLocation1
+            // 
+            this.tbPrintLocation1.Location = new System.Drawing.Point(256, 542);
+            this.tbPrintLocation1.MaxLength = 20;
+            this.tbPrintLocation1.Name = "tbPrintLocation1";
+            this.tbPrintLocation1.Size = new System.Drawing.Size(100, 20);
+            this.tbPrintLocation1.TabIndex = 3;
+            this.tbPrintLocation1.Click += new System.EventHandler(this.tbPrintName_Click);
+            // 
+            // lblPrintLocation
+            // 
+            this.lblPrintLocation.AutoSize = true;
+            this.lblPrintLocation.Location = new System.Drawing.Point(265, 523);
+            this.lblPrintLocation.Name = "lblPrintLocation";
+            this.lblPrintLocation.Size = new System.Drawing.Size(82, 13);
+            this.lblPrintLocation.TabIndex = 8;
+            this.lblPrintLocation.Text = "Расположение";
+            // 
             // btnPrintAdd
             // 
-            this.btnPrintAdd.Location = new System.Drawing.Point(551, 584);
+            this.btnPrintAdd.Location = new System.Drawing.Point(545, 539);
             this.btnPrintAdd.Name = "btnPrintAdd";
             this.btnPrintAdd.Size = new System.Drawing.Size(75, 23);
             this.btnPrintAdd.TabIndex = 5;
@@ -858,144 +1028,62 @@
             this.btnPrintAdd.UseVisualStyleBackColor = true;
             this.btnPrintAdd.Click += new System.EventHandler(this.btnPrintAdd_Click);
             // 
-            // tbPrintLocation1
+            // lblPrintNetName
             // 
-            this.tbPrintLocation1.Location = new System.Drawing.Point(262, 587);
-            this.tbPrintLocation1.MaxLength = 20;
-            this.tbPrintLocation1.Name = "tbPrintLocation1";
-            this.tbPrintLocation1.Size = new System.Drawing.Size(100, 20);
-            this.tbPrintLocation1.TabIndex = 3;
-            this.tbPrintLocation1.Click += new System.EventHandler(this.tbPrintName_Click);
+            this.lblPrintNetName.AutoSize = true;
+            this.lblPrintNetName.Location = new System.Drawing.Point(145, 523);
+            this.lblPrintNetName.Name = "lblPrintNetName";
+            this.lblPrintNetName.Size = new System.Drawing.Size(72, 13);
+            this.lblPrintNetName.TabIndex = 7;
+            this.lblPrintNetName.Text = "Сетевое имя";
             // 
-            // tbPrintNetName1
+            // tbPrintInvNumber1
             // 
-            this.tbPrintNetName1.Location = new System.Drawing.Point(137, 587);
-            this.tbPrintNetName1.MaxLength = 50;
-            this.tbPrintNetName1.Name = "tbPrintNetName1";
-            this.tbPrintNetName1.Size = new System.Drawing.Size(100, 20);
-            this.tbPrintNetName1.TabIndex = 2;
-            this.tbPrintNetName1.Click += new System.EventHandler(this.tbPrintName_Click);
+            this.tbPrintInvNumber1.Location = new System.Drawing.Point(378, 542);
+            this.tbPrintInvNumber1.MaxLength = 15;
+            this.tbPrintInvNumber1.Name = "tbPrintInvNumber1";
+            this.tbPrintInvNumber1.Size = new System.Drawing.Size(100, 20);
+            this.tbPrintInvNumber1.TabIndex = 4;
+            this.tbPrintInvNumber1.Click += new System.EventHandler(this.tbPrintName_Click);
             // 
-            // tbPrintName1
+            // lblPrintName
             // 
-            this.tbPrintName1.Location = new System.Drawing.Point(12, 587);
-            this.tbPrintName1.MaxLength = 100;
-            this.tbPrintName1.Name = "tbPrintName1";
-            this.tbPrintName1.Size = new System.Drawing.Size(100, 20);
-            this.tbPrintName1.TabIndex = 1;
-            this.tbPrintName1.Click += new System.EventHandler(this.tbPrintName_Click);
+            this.lblPrintName.AutoSize = true;
+            this.lblPrintName.Location = new System.Drawing.Point(13, 523);
+            this.lblPrintName.Name = "lblPrintName";
+            this.lblPrintName.Size = new System.Drawing.Size(83, 13);
+            this.lblPrintName.TabIndex = 6;
+            this.lblPrintName.Text = "Наименование";
             // 
-            // panRequest
+            // tabPageDBList
             // 
-            this.panRequest.Controls.Add(this.chckbMyRequest);
-            this.panRequest.Controls.Add(this.chckbRemoveRequest);
-            this.panRequest.Controls.Add(this.btnAddRequestBuffer);
-            this.panRequest.Controls.Add(this.lblQuantity);
-            this.panRequest.Controls.Add(this.lblInfoRequest);
-            this.panRequest.Controls.Add(this.lblUserRequest);
-            this.panRequest.Controls.Add(this.btnRemoveRequest);
-            this.panRequest.Controls.Add(this.btnAddRequest);
-            this.panRequest.Controls.Add(this.tbAddRequest);
-            this.panRequest.Controls.Add(this.dgvRequest);
-            this.panRequest.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panRequest.Location = new System.Drawing.Point(0, 0);
-            this.panRequest.Name = "panRequest";
-            this.panRequest.Size = new System.Drawing.Size(636, 649);
-            this.panRequest.TabIndex = 6;
-            this.panRequest.Visible = false;
-            // 
-            // chckbMyRequest
-            // 
-            this.chckbMyRequest.AutoSize = true;
-            this.chckbMyRequest.Checked = true;
-            this.chckbMyRequest.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chckbMyRequest.Location = new System.Drawing.Point(22, 501);
-            this.chckbMyRequest.Name = "chckbMyRequest";
-            this.chckbMyRequest.Size = new System.Drawing.Size(86, 17);
-            this.chckbMyRequest.TabIndex = 2;
-            this.chckbMyRequest.Text = "Только мои";
-            this.chckbMyRequest.UseVisualStyleBackColor = true;
-            this.chckbMyRequest.CheckedChanged += new System.EventHandler(this.chckbMyRequest_CheckedChanged);
-            // 
-            // chckbRemoveRequest
-            // 
-            this.chckbRemoveRequest.AutoSize = true;
-            this.chckbRemoveRequest.Checked = true;
-            this.chckbRemoveRequest.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chckbRemoveRequest.Location = new System.Drawing.Point(526, 562);
-            this.chckbRemoveRequest.Name = "chckbRemoveRequest";
-            this.chckbRemoveRequest.Size = new System.Drawing.Size(69, 17);
-            this.chckbRemoveRequest.TabIndex = 6;
-            this.chckbRemoveRequest.Text = "Удалять";
-            this.chckbRemoveRequest.UseVisualStyleBackColor = true;
-            // 
-            // btnAddRequestBuffer
-            // 
-            this.btnAddRequestBuffer.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAddRequestBuffer.Location = new System.Drawing.Point(508, 482);
-            this.btnAddRequestBuffer.Name = "btnAddRequestBuffer";
-            this.btnAddRequestBuffer.Size = new System.Drawing.Size(98, 78);
-            this.btnAddRequestBuffer.TabIndex = 5;
-            this.btnAddRequestBuffer.Text = "Закинуть в буфер";
-            this.btnAddRequestBuffer.UseVisualStyleBackColor = true;
-            this.btnAddRequestBuffer.Click += new System.EventHandler(this.btnAddRequestBuffer_Click);
-            // 
-            // lblQuantity
-            // 
-            this.lblQuantity.AutoSize = true;
-            this.lblQuantity.Location = new System.Drawing.Point(15, 482);
-            this.lblQuantity.Name = "lblQuantity";
-            this.lblQuantity.Size = new System.Drawing.Size(35, 13);
-            this.lblQuantity.TabIndex = 7;
-            this.lblQuantity.Text = "label1";
+            this.tabPageDBList.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageDBList.Controls.Add(this.lblInfoRequest);
+            this.tabPageDBList.Controls.Add(this.dgvRequest);
+            this.tabPageDBList.Controls.Add(this.chckbMyRequest);
+            this.tabPageDBList.Controls.Add(this.tbAddRequest);
+            this.tabPageDBList.Controls.Add(this.chckbRemoveRequest);
+            this.tabPageDBList.Controls.Add(this.btnAddRequest);
+            this.tabPageDBList.Controls.Add(this.btnAddRequestBuffer);
+            this.tabPageDBList.Controls.Add(this.btnRemoveRequest);
+            this.tabPageDBList.Controls.Add(this.lblQuantity);
+            this.tabPageDBList.Controls.Add(this.lblUserRequest);
+            this.tabPageDBList.Location = new System.Drawing.Point(4, 23);
+            this.tabPageDBList.Name = "tabPageDBList";
+            this.tabPageDBList.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageDBList.Size = new System.Drawing.Size(626, 597);
+            this.tabPageDBList.TabIndex = 3;
+            this.tabPageDBList.Text = "Список заявок";
             // 
             // lblInfoRequest
             // 
             this.lblInfoRequest.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblInfoRequest.Enabled = false;
-            this.lblInfoRequest.Location = new System.Drawing.Point(0, 584);
+            this.lblInfoRequest.Location = new System.Drawing.Point(3, 542);
             this.lblInfoRequest.Name = "lblInfoRequest";
-            this.lblInfoRequest.Size = new System.Drawing.Size(636, 65);
+            this.lblInfoRequest.Size = new System.Drawing.Size(620, 49);
             this.lblInfoRequest.TabIndex = 6;
             this.lblInfoRequest.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblUserRequest
-            // 
-            this.lblUserRequest.AutoSize = true;
-            this.lblUserRequest.Location = new System.Drawing.Point(12, 449);
-            this.lblUserRequest.Name = "lblUserRequest";
-            this.lblUserRequest.Size = new System.Drawing.Size(79, 13);
-            this.lblUserRequest.TabIndex = 5;
-            this.lblUserRequest.Text = "UserNameError";
-            // 
-            // btnRemoveRequest
-            // 
-            this.btnRemoveRequest.Location = new System.Drawing.Point(306, 501);
-            this.btnRemoveRequest.Name = "btnRemoveRequest";
-            this.btnRemoveRequest.Size = new System.Drawing.Size(75, 23);
-            this.btnRemoveRequest.TabIndex = 4;
-            this.btnRemoveRequest.Text = "Удалить";
-            this.btnRemoveRequest.UseVisualStyleBackColor = true;
-            this.btnRemoveRequest.Click += new System.EventHandler(this.btnRemoveRequest_Click);
-            // 
-            // btnAddRequest
-            // 
-            this.btnAddRequest.Location = new System.Drawing.Point(189, 502);
-            this.btnAddRequest.Name = "btnAddRequest";
-            this.btnAddRequest.Size = new System.Drawing.Size(75, 23);
-            this.btnAddRequest.TabIndex = 3;
-            this.btnAddRequest.Text = "Добавить";
-            this.btnAddRequest.UseVisualStyleBackColor = true;
-            this.btnAddRequest.Click += new System.EventHandler(this.btnAddRequest_Click);
-            // 
-            // tbAddRequest
-            // 
-            this.tbAddRequest.Location = new System.Drawing.Point(98, 446);
-            this.tbAddRequest.MaxLength = 300;
-            this.tbAddRequest.Name = "tbAddRequest";
-            this.tbAddRequest.Size = new System.Drawing.Size(517, 20);
-            this.tbAddRequest.TabIndex = 1;
-            this.tbAddRequest.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbAddRequest_KeyDown);
             // 
             // dgvRequest
             // 
@@ -1006,107 +1094,201 @@
             this.dgvRequest.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvRequest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRequest.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dgvRequest.Location = new System.Drawing.Point(0, 24);
+            this.dgvRequest.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgvRequest.Location = new System.Drawing.Point(3, 3);
             this.dgvRequest.MultiSelect = false;
             this.dgvRequest.Name = "dgvRequest";
             this.dgvRequest.ReadOnly = true;
             this.dgvRequest.RowHeadersVisible = false;
             this.dgvRequest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRequest.Size = new System.Drawing.Size(636, 405);
+            this.dgvRequest.Size = new System.Drawing.Size(620, 405);
             this.dgvRequest.TabIndex = 0;
             this.dgvRequest.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRequest_CellClick);
             this.dgvRequest.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRequest_CellDoubleClick);
             this.dgvRequest.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvRequest_KeyDown);
             // 
-            // tmrComm5555
+            // chckbMyRequest
             // 
-            this.tmrComm5555.Interval = 5555;
-            this.tmrComm5555.Tick += new System.EventHandler(this.tmrRequest_Tick);
+            this.chckbMyRequest.AutoSize = true;
+            this.chckbMyRequest.Checked = true;
+            this.chckbMyRequest.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chckbMyRequest.Location = new System.Drawing.Point(22, 464);
+            this.chckbMyRequest.Name = "chckbMyRequest";
+            this.chckbMyRequest.Size = new System.Drawing.Size(86, 17);
+            this.chckbMyRequest.TabIndex = 2;
+            this.chckbMyRequest.Text = "Только мои";
+            this.chckbMyRequest.UseVisualStyleBackColor = true;
+            this.chckbMyRequest.CheckedChanged += new System.EventHandler(this.chckbMyRequest_CheckedChanged);
             // 
-            // panAddRequest
+            // tbAddRequest
             // 
-            this.panAddRequest.Controls.Add(this.btnCartPaper);
-            this.panAddRequest.Controls.Add(this.tbAddFIORequest);
-            this.panAddRequest.Controls.Add(this.btnRemoveProg);
-            this.panAddRequest.Controls.Add(this.btnAddProg);
-            this.panAddRequest.Controls.Add(this.tbAddProg);
-            this.panAddRequest.Controls.Add(this.lblAddRequestDB);
-            this.panAddRequest.Controls.Add(this.btnAddRequestDB);
-            this.panAddRequest.Controls.Add(this.gbAddRequest);
-            this.panAddRequest.Controls.Add(this.lbProgList);
-            this.panAddRequest.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panAddRequest.Location = new System.Drawing.Point(0, 0);
-            this.panAddRequest.Name = "panAddRequest";
-            this.panAddRequest.Size = new System.Drawing.Size(636, 649);
-            this.panAddRequest.TabIndex = 8;
-            this.panAddRequest.Visible = false;
+            this.tbAddRequest.Location = new System.Drawing.Point(98, 409);
+            this.tbAddRequest.MaxLength = 300;
+            this.tbAddRequest.Name = "tbAddRequest";
+            this.tbAddRequest.Size = new System.Drawing.Size(517, 20);
+            this.tbAddRequest.TabIndex = 1;
+            this.tbAddRequest.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbAddRequest_KeyDown);
+            // 
+            // chckbRemoveRequest
+            // 
+            this.chckbRemoveRequest.AutoSize = true;
+            this.chckbRemoveRequest.Checked = true;
+            this.chckbRemoveRequest.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chckbRemoveRequest.Location = new System.Drawing.Point(526, 525);
+            this.chckbRemoveRequest.Name = "chckbRemoveRequest";
+            this.chckbRemoveRequest.Size = new System.Drawing.Size(69, 17);
+            this.chckbRemoveRequest.TabIndex = 6;
+            this.chckbRemoveRequest.Text = "Удалять";
+            this.chckbRemoveRequest.UseVisualStyleBackColor = true;
+            // 
+            // btnAddRequest
+            // 
+            this.btnAddRequest.Location = new System.Drawing.Point(391, 445);
+            this.btnAddRequest.Name = "btnAddRequest";
+            this.btnAddRequest.Size = new System.Drawing.Size(75, 23);
+            this.btnAddRequest.TabIndex = 3;
+            this.btnAddRequest.Text = "Добавить";
+            this.btnAddRequest.UseVisualStyleBackColor = true;
+            this.btnAddRequest.Click += new System.EventHandler(this.btnAddRequest_Click);
+            // 
+            // btnAddRequestBuffer
+            // 
+            this.btnAddRequestBuffer.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAddRequestBuffer.Location = new System.Drawing.Point(508, 445);
+            this.btnAddRequestBuffer.Name = "btnAddRequestBuffer";
+            this.btnAddRequestBuffer.Size = new System.Drawing.Size(98, 78);
+            this.btnAddRequestBuffer.TabIndex = 5;
+            this.btnAddRequestBuffer.Text = "Закинуть в буфер";
+            this.btnAddRequestBuffer.UseVisualStyleBackColor = true;
+            this.btnAddRequestBuffer.Click += new System.EventHandler(this.btnAddRequestBuffer_Click);
+            // 
+            // btnRemoveRequest
+            // 
+            this.btnRemoveRequest.Location = new System.Drawing.Point(391, 474);
+            this.btnRemoveRequest.Name = "btnRemoveRequest";
+            this.btnRemoveRequest.Size = new System.Drawing.Size(75, 23);
+            this.btnRemoveRequest.TabIndex = 4;
+            this.btnRemoveRequest.Text = "Удалить";
+            this.btnRemoveRequest.UseVisualStyleBackColor = true;
+            this.btnRemoveRequest.Click += new System.EventHandler(this.btnRemoveRequest_Click);
+            // 
+            // lblQuantity
+            // 
+            this.lblQuantity.AutoSize = true;
+            this.lblQuantity.Location = new System.Drawing.Point(15, 445);
+            this.lblQuantity.Name = "lblQuantity";
+            this.lblQuantity.Size = new System.Drawing.Size(100, 13);
+            this.lblQuantity.TabIndex = 7;
+            this.lblQuantity.Text = "NumberOfRequests";
+            // 
+            // lblUserRequest
+            // 
+            this.lblUserRequest.AutoSize = true;
+            this.lblUserRequest.Location = new System.Drawing.Point(12, 412);
+            this.lblUserRequest.Name = "lblUserRequest";
+            this.lblUserRequest.Size = new System.Drawing.Size(79, 13);
+            this.lblUserRequest.TabIndex = 5;
+            this.lblUserRequest.Text = "UserNameError";
+            // 
+            // tabPageAddRequest
+            // 
+            this.tabPageAddRequest.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageAddRequest.Controls.Add(this.btnMassRequest);
+            this.tabPageAddRequest.Controls.Add(this.tbAddFIORequest);
+            this.tabPageAddRequest.Controls.Add(this.tbAddProg);
+            this.tabPageAddRequest.Controls.Add(this.btnCartPaper);
+            this.tabPageAddRequest.Controls.Add(this.btnRemoveProg);
+            this.tabPageAddRequest.Controls.Add(this.btnAddProg);
+            this.tabPageAddRequest.Controls.Add(this.lblAddRequestDB);
+            this.tabPageAddRequest.Controls.Add(this.btnAddRequestDB);
+            this.tabPageAddRequest.Controls.Add(this.gbAddRequest);
+            this.tabPageAddRequest.Controls.Add(this.lbProgList);
+            this.tabPageAddRequest.Location = new System.Drawing.Point(4, 23);
+            this.tabPageAddRequest.Name = "tabPageAddRequest";
+            this.tabPageAddRequest.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAddRequest.Size = new System.Drawing.Size(626, 597);
+            this.tabPageAddRequest.TabIndex = 4;
+            this.tabPageAddRequest.Text = "Запись заявок";
+            // 
+            // btnMassRequest
+            // 
+            this.btnMassRequest.Location = new System.Drawing.Point(502, 360);
+            this.btnMassRequest.Name = "btnMassRequest";
+            this.btnMassRequest.Size = new System.Drawing.Size(107, 43);
+            this.btnMassRequest.TabIndex = 19;
+            this.btnMassRequest.Text = "Массовые заявки по ПК";
+            this.btnMassRequest.UseVisualStyleBackColor = true;
+            this.btnMassRequest.Click += new System.EventHandler(this.btnMassRequest_Click);
+            // 
+            // tbAddFIORequest
+            // 
+            this.tbAddFIORequest.Location = new System.Drawing.Point(309, 155);
+            this.tbAddFIORequest.MaximumSize = new System.Drawing.Size(1000, 20);
+            this.tbAddFIORequest.MinimumSize = new System.Drawing.Size(1, 20);
+            this.tbAddFIORequest.Name = "tbAddFIORequest";
+            this.tbAddFIORequest.Size = new System.Drawing.Size(205, 20);
+            this.tbAddFIORequest.TabIndex = 18;
+            this.tbAddFIORequest.TextMaxLength = 100;
+            this.tbAddFIORequest.TextTitle = "ФИО и любая другая инфа";
+            this.tbAddFIORequest.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbAddFIORequest_KeyDown);
+            // 
+            // tbAddProg
+            // 
+            this.tbAddProg.Location = new System.Drawing.Point(278, 542);
+            this.tbAddProg.MaximumSize = new System.Drawing.Size(1000, 20);
+            this.tbAddProg.MinimumSize = new System.Drawing.Size(1, 20);
+            this.tbAddProg.Name = "tbAddProg";
+            this.tbAddProg.Size = new System.Drawing.Size(269, 20);
+            this.tbAddProg.TabIndex = 17;
+            this.tbAddProg.TextMaxLength = 100;
+            this.tbAddProg.TextTitle = "Название ПО";
+            this.tbAddProg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbAddProg_KeyDown);
             // 
             // btnCartPaper
             // 
-            this.btnCartPaper.Location = new System.Drawing.Point(417, 368);
+            this.btnCartPaper.Location = new System.Drawing.Point(320, 360);
             this.btnCartPaper.Name = "btnCartPaper";
             this.btnCartPaper.Size = new System.Drawing.Size(86, 43);
-            this.btnCartPaper.TabIndex = 7;
+            this.btnCartPaper.TabIndex = 16;
             this.btnCartPaper.Text = "Картриджи и замятие";
             this.btnCartPaper.UseVisualStyleBackColor = true;
             this.btnCartPaper.Click += new System.EventHandler(this.btnCartPaper_Click);
             // 
-            // tbAddFIORequest
-            // 
-            this.tbAddFIORequest.ForeColor = System.Drawing.Color.Gray;
-            this.tbAddFIORequest.Location = new System.Drawing.Point(306, 155);
-            this.tbAddFIORequest.Name = "tbAddFIORequest";
-            this.tbAddFIORequest.Size = new System.Drawing.Size(205, 20);
-            this.tbAddFIORequest.TabIndex = 5;
-            this.tbAddFIORequest.Text = "ФИО и любая другая инфа";
-            this.tbAddFIORequest.Enter += new System.EventHandler(this.tbAddFIORequest_Enter);
-            this.tbAddFIORequest.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbAddFIORequest_KeyDown);
-            this.tbAddFIORequest.Leave += new System.EventHandler(this.tbAddFIORequest_Leave);
-            // 
             // btnRemoveProg
             // 
-            this.btnRemoveProg.Location = new System.Drawing.Point(209, 558);
+            this.btnRemoveProg.Location = new System.Drawing.Point(278, 568);
             this.btnRemoveProg.Name = "btnRemoveProg";
-            this.btnRemoveProg.Size = new System.Drawing.Size(75, 23);
-            this.btnRemoveProg.TabIndex = 1;
+            this.btnRemoveProg.Size = new System.Drawing.Size(75, 24);
+            this.btnRemoveProg.TabIndex = 9;
             this.btnRemoveProg.Text = "Удалить";
             this.btnRemoveProg.UseVisualStyleBackColor = true;
             this.btnRemoveProg.Click += new System.EventHandler(this.btnRemoveProg_Click);
             // 
             // btnAddProg
             // 
-            this.btnAddProg.Location = new System.Drawing.Point(15, 613);
+            this.btnAddProg.Location = new System.Drawing.Point(472, 568);
             this.btnAddProg.Name = "btnAddProg";
             this.btnAddProg.Size = new System.Drawing.Size(75, 23);
-            this.btnAddProg.TabIndex = 3;
+            this.btnAddProg.TabIndex = 11;
             this.btnAddProg.Text = "Добавить";
             this.btnAddProg.UseVisualStyleBackColor = true;
             this.btnAddProg.Click += new System.EventHandler(this.btnAddProg_Click);
             // 
-            // tbAddProg
-            // 
-            this.tbAddProg.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.tbAddProg.Location = new System.Drawing.Point(15, 587);
-            this.tbAddProg.Name = "tbAddProg";
-            this.tbAddProg.Size = new System.Drawing.Size(269, 20);
-            this.tbAddProg.TabIndex = 2;
-            this.tbAddProg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbAddProg_KeyDown);
-            // 
             // lblAddRequestDB
             // 
             this.lblAddRequestDB.Enabled = false;
-            this.lblAddRequestDB.Location = new System.Drawing.Point(314, 228);
+            this.lblAddRequestDB.Location = new System.Drawing.Point(317, 228);
             this.lblAddRequestDB.Name = "lblAddRequestDB";
             this.lblAddRequestDB.Size = new System.Drawing.Size(292, 120);
-            this.lblAddRequestDB.TabIndex = 4;
+            this.lblAddRequestDB.TabIndex = 12;
             this.lblAddRequestDB.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // btnAddRequestDB
             // 
-            this.btnAddRequestDB.Location = new System.Drawing.Point(409, 187);
+            this.btnAddRequestDB.Location = new System.Drawing.Point(412, 187);
             this.btnAddRequestDB.Name = "btnAddRequestDB";
             this.btnAddRequestDB.Size = new System.Drawing.Size(102, 26);
-            this.btnAddRequestDB.TabIndex = 6;
+            this.btnAddRequestDB.TabIndex = 15;
             this.btnAddRequestDB.Text = "Закинуть в БД";
             this.btnAddRequestDB.UseVisualStyleBackColor = true;
             this.btnAddRequestDB.Click += new System.EventHandler(this.btnAddRequestDB_Click);
@@ -1117,10 +1299,10 @@
             this.gbAddRequest.Controls.Add(this.rdbtnAddRequest4);
             this.gbAddRequest.Controls.Add(this.rdbtnAddRequest2);
             this.gbAddRequest.Controls.Add(this.rdbtnAddRequest1);
-            this.gbAddRequest.Location = new System.Drawing.Point(290, 28);
+            this.gbAddRequest.Location = new System.Drawing.Point(293, 28);
             this.gbAddRequest.Name = "gbAddRequest";
             this.gbAddRequest.Size = new System.Drawing.Size(180, 114);
-            this.gbAddRequest.TabIndex = 4;
+            this.gbAddRequest.TabIndex = 13;
             this.gbAddRequest.TabStop = false;
             this.gbAddRequest.Text = "Что будем делать?";
             // 
@@ -1172,57 +1354,27 @@
             // 
             // lbProgList
             // 
+            this.lbProgList.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbProgList.FormattingEnabled = true;
-            this.lbProgList.Location = new System.Drawing.Point(15, 28);
+            this.lbProgList.Location = new System.Drawing.Point(3, 3);
             this.lbProgList.Name = "lbProgList";
-            this.lbProgList.Size = new System.Drawing.Size(269, 524);
+            this.lbProgList.Size = new System.Drawing.Size(269, 588);
             this.lbProgList.Sorted = true;
-            this.lbProgList.TabIndex = 0;
+            this.lbProgList.TabIndex = 8;
             this.lbProgList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbProgList_KeyDown);
-            // 
-            // reOS
-            // 
-            this.reOS.Location = new System.Drawing.Point(0, 24);
-            this.reOS.Name = "reOS";
-            this.reOS.Size = new System.Drawing.Size(636, 625);
-            this.reOS.TabIndex = 8;
-            this.reOS.Visible = false;
-            this.reOS.VisibleChanged += new System.EventHandler(this.reOS_VisibleChanged);
-            // 
-            // toDoList
-            // 
-            this.toDoList.Location = new System.Drawing.Point(0, 24);
-            this.toDoList.Name = "toDoList";
-            this.toDoList.Size = new System.Drawing.Size(636, 625);
-            this.toDoList.TabIndex = 12;
-            this.toDoList.Visible = false;
-            // 
-            // rdP_Share
-            // 
-            this.rdP_Share.Location = new System.Drawing.Point(0, 27);
-            this.rdP_Share.Name = "rdP_Share";
-            this.rdP_Share.Size = new System.Drawing.Size(636, 620);
-            this.rdP_Share.TabIndex = 12;
-            this.rdP_Share.Visible = false;
+            this.lbProgList.Leave += new System.EventHandler(this.lbProgList_Leave);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(636, 649);
-            this.Controls.Add(this.rdP_Share);
+            this.ClientSize = new System.Drawing.Size(634, 651);
+            this.Controls.Add(this.tabControl);
             this.Controls.Add(this.menuStrip);
-            this.Controls.Add(this.panPrint);
-            this.Controls.Add(this.panAddRequest);
-            this.Controls.Add(this.panRequest);
-            this.Controls.Add(this.reOS);
-            this.Controls.Add(this.panSrvc);
-            this.Controls.Add(this.panPR);
-            this.Controls.Add(this.toDoList);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(652, 688);
-            this.MinimumSize = new System.Drawing.Size(652, 688);
+            this.MaximumSize = new System.Drawing.Size(650, 690);
+            this.MinimumSize = new System.Drawing.Size(650, 685);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "All in One";
@@ -1230,17 +1382,19 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
-            this.panPR.ResumeLayout(false);
-            this.panSrvc.ResumeLayout(false);
-            this.panSrvc.PerformLayout();
-            this.panPrint.ResumeLayout(false);
-            this.panPrint.PerformLayout();
+            this.tabControl.ResumeLayout(false);
+            this.tabPageProfRab.ResumeLayout(false);
+            this.tabPageService.ResumeLayout(false);
+            this.tabPageService.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numPingTimeOut)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPingProgress)).EndInit();
+            this.tabPagePrinters.ResumeLayout(false);
+            this.tabPagePrinters.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrinters)).EndInit();
-            this.panRequest.ResumeLayout(false);
-            this.panRequest.PerformLayout();
+            this.tabPageDBList.ResumeLayout(false);
+            this.tabPageDBList.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequest)).EndInit();
-            this.panAddRequest.ResumeLayout(false);
-            this.panAddRequest.PerformLayout();
+            this.tabPageAddRequest.ResumeLayout(false);
             this.gbAddRequest.ResumeLayout(false);
             this.gbAddRequest.PerformLayout();
             this.ResumeLayout(false);
@@ -1257,19 +1411,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripFile;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem toolStripSettings;
-        private System.Windows.Forms.ToolStripMenuItem toolStripPR;
-        private System.Windows.Forms.ToolStripMenuItem toolStripSrvc;
-        private System.Windows.Forms.ToolStripMenuItem toolStripPrint;
-        private System.Windows.Forms.ToolStripMenuItem toolStripRequests;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMakeRequest;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripDBList;
-        private System.Windows.Forms.ToolStripMenuItem toolStripReqOne;
-        private System.Windows.Forms.ToolStripMenuItem toolStripReqOS;
         private System.Windows.Forms.ToolStripMenuItem toolStripExit;
-        private System.Windows.Forms.Panel panPR;
-        private System.Windows.Forms.Panel panSrvc;
-        private System.Windows.Forms.Panel panPrint;
         private System.Windows.Forms.Button btnPR6;
         private System.Windows.Forms.Button btnPR18;
         private System.Windows.Forms.Button btnPR17;
@@ -1292,13 +1434,6 @@
         private System.Windows.Forms.Button btnPRChange;
         private System.Windows.Forms.Button btnPR23;
         private System.Windows.Forms.Label lblPR;
-        private System.Windows.Forms.ListBox lbShare;
-        private System.Windows.Forms.ListBox lbRDP;
-        private System.Windows.Forms.Button btnSrvcChange;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label lblShare;
-        private System.Windows.Forms.Label lblRDP;
-        private System.Windows.Forms.Panel panRequest;
         private System.Windows.Forms.DataGridView dgvRequest;
         private System.Windows.Forms.Button btnRemoveRequest;
         private System.Windows.Forms.Button btnAddRequest;
@@ -1307,25 +1442,10 @@
         private System.Windows.Forms.Label lblInfoRequest;
         private System.Windows.Forms.Timer tmrComm5555;
         private System.Windows.Forms.Label lblQuantity;
-        private System.Windows.Forms.Panel panAddRequest;
-        private System.Windows.Forms.GroupBox gbAddRequest;
-        private System.Windows.Forms.RadioButton rdbtnAddRequest3;
-        private System.Windows.Forms.RadioButton rdbtnAddRequest4;
-        private System.Windows.Forms.RadioButton rdbtnAddRequest2;
-        private System.Windows.Forms.RadioButton rdbtnAddRequest1;
-        private System.Windows.Forms.ListBox lbProgList;
-        private System.Windows.Forms.Label lblAddRequestDB;
-        private System.Windows.Forms.Button btnAddRequestDB;
-        private System.Windows.Forms.Button btnRemoveProg;
-        private System.Windows.Forms.Button btnAddProg;
-        private System.Windows.Forms.TextBox tbAddProg;
         private System.Windows.Forms.Button btnPrintAdd;
         private System.Windows.Forms.TextBox tbPrintLocation1;
         private System.Windows.Forms.TextBox tbPrintNetName1;
-        private System.Windows.Forms.TextBox tbPrintName1;
-        private System.Windows.Forms.TextBox tbAddFIORequest;
         private System.Windows.Forms.Button btnAddRequestBuffer;
-        private System.Windows.Forms.DataGridView dgvPrinters;
         private System.Windows.Forms.TextBox tbPrintInvNumber1;
         private System.Windows.Forms.CheckBox chckbRemoveRequest;
         private System.Windows.Forms.Label lblPrintInvNumber;
@@ -1334,19 +1454,59 @@
         private System.Windows.Forms.Label lblPrintName;
         private System.Windows.Forms.Label lblPrintBuffer;
         private System.Windows.Forms.CheckBox chckbMyRequest;
-        private System.Windows.Forms.CheckBox chckbServiceSorted;
         private System.Windows.Forms.Button btnPrintRemove;
         public System.Windows.Forms.Button btnPR1;
         public System.Windows.Forms.Button btnPR20;
-        private System.Windows.Forms.Button btnCartPaper;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button btnPingShow;
-        private ReinstallOS reOS;
         private System.Windows.Forms.Button btnPrintPrinting;
         private System.Windows.Forms.ToolStripMenuItem toDoToolStripMenuItem;
-        private ToDoList toDoList;
         private System.Windows.Forms.ToolStripMenuItem remoteAccsessToolStripMenuItem;
-        private RDP_Share rdP_Share;
+        public System.Windows.Forms.Timer tmrServicePB;
+        private System.Windows.Forms.ToolStripMenuItem toolStripDB;
+        private System.Windows.Forms.ToolStripMenuItem toolStripDBCheckCon;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripDBInvertCon;
+        private System.Windows.Forms.TabPage tabPageProfRab;
+        private System.Windows.Forms.TabPage tabPageService;
+        private System.Windows.Forms.TabPage tabPageDBList;
+        public System.Windows.Forms.NumericUpDown numPingTimeOut;
+        public System.Windows.Forms.NumericUpDown numPingProgress;
+        public System.Windows.Forms.ProgressBar pbPingProgress;
+        private System.Windows.Forms.Label lblPingTimeOut;
+        private System.Windows.Forms.Label lblPingSuccess;
+        public System.Windows.Forms.ListBox lbPingTimeOut;
+        public System.Windows.Forms.ListBox lbPingSuccess;
+        private System.Windows.Forms.Button btnSrvcChange;
+        private System.Windows.Forms.CheckBox chckbServiceSorted;
+        private System.Windows.Forms.Label lblShare;
+        private System.Windows.Forms.Label lblRDP;
+        public System.Windows.Forms.ListBox lbShare;
+        public System.Windows.Forms.ListBox lbRDP;
+        public System.Windows.Forms.Button btnRefreshPing;
+        public System.Windows.Forms.CustomTabControl tabControl;
+        private System.Windows.Forms.TabPage tabPageAddRequest;
+        private System.Windows.Forms.Button btnCartPaper;
+        private System.Windows.Forms.Button btnRemoveProg;
+        private System.Windows.Forms.Button btnAddProg;
+        private System.Windows.Forms.Label lblAddRequestDB;
+        private System.Windows.Forms.Button btnAddRequestDB;
+        private System.Windows.Forms.GroupBox gbAddRequest;
+        private System.Windows.Forms.RadioButton rdbtnAddRequest3;
+        private System.Windows.Forms.RadioButton rdbtnAddRequest4;
+        private System.Windows.Forms.RadioButton rdbtnAddRequest2;
+        private System.Windows.Forms.RadioButton rdbtnAddRequest1;
+        private System.Windows.Forms.ListBox lbProgList;
+        private MyTextBox tbAddProg;
+        private MyTextBox tbAddFIORequest;
+        private System.Windows.Forms.Button btnMassRequest;
+        public System.Windows.Forms.TextBox tbPrintName1;
+        public System.Windows.Forms.DataGridView dgvPrinters;
+        private System.Windows.Forms.ToolStripMenuItem toolStripExcel;
+        public System.Windows.Forms.TabPage tabPagePrinters;
+        private MyTextBox tbPrintInvNumber;
+        private MyTextBox tbPrintLocation;
+        private MyTextBox tbPrintNetName;
+        private MyTextBox tbPrintName;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }
 
