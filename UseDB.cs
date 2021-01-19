@@ -253,5 +253,24 @@ namespace ALLinONE
             comm.ExecuteNonQuery();
             connectDB.Close();
         }
+
+        public void CreateNewDB(string nameNewDB)
+        {
+            //connectDB.Open();
+            //SQLiteCommand comm = connectDB.CreateCommand(); //переменная БД
+
+            //comm.CommandText = "create table ProfRab(" +
+            //    "id int," +
+            //    "btn_name varchar(20) not null," +
+            //    "btn_title varchar(32) not null," +
+            //    "btn_value varchar(1024)," +
+            //    "primary key(id)," +
+            //    "auto_increment(id)" +
+            //    ")";
+
+
+            //comm.ExecuteNonQuery();
+            //connectDB.Close();
+        }
     }
 }

@@ -63,7 +63,7 @@ namespace ALLinONE
             // btnCreateDB
             // 
             this.btnCreateDB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCreateDB.Location = new System.Drawing.Point(232, 26);
+            this.btnCreateDB.Location = new System.Drawing.Point(226, 26);
             this.btnCreateDB.Name = "btnCreateDB";
             this.btnCreateDB.Size = new System.Drawing.Size(93, 45);
             this.btnCreateDB.TabIndex = 3;
@@ -73,7 +73,7 @@ namespace ALLinONE
             // 
             // btnAccept
             // 
-            this.btnAccept.Location = new System.Drawing.Point(0, 26);
+            this.btnAccept.Location = new System.Drawing.Point(6, 26);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(87, 45);
             this.btnAccept.TabIndex = 4;
@@ -102,7 +102,7 @@ namespace ALLinONE
             this.MinimumSize = new System.Drawing.Size(341, 115);
             this.Name = "CheckDBexist";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "CheckDBexist";
+            this.Text = "Проверка файла БД";
             this.ResumeLayout(false);
 
         }

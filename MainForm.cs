@@ -122,9 +122,11 @@ namespace ALLinONE
         #region Methods
         public void Refresh_btnPR()
         {
-            try
+            int count = usedb.SelectDB("ProfRab", "btn_name").Length;
+
+            for (int i = 1; i <= count; i++)
             {
-                for (int i = 1; i < 27; i++)
+                try
                 {
                     usedb.table = "ProfRab";
                     usedb.col1 = "btn_title";
@@ -133,12 +135,12 @@ namespace ALLinONE
                     var btn = GetControl(tabPageProfRab, "btnPR" + i);   //метод поиска контролов (записывем имя кнопки в переменную)
                     btn.Text = usedb.SelectDBLike(); ; //задаем Text кнопке
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Что-то пошло не так", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Что-то пошло не так", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            
         }
 
         private Control GetControl(Control control, string name)    //метод поиска контролов
