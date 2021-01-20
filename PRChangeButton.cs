@@ -14,6 +14,7 @@ namespace ALLinONE
     public partial class PRChangeButton : Form
     {
         public SQLiteConnection DB; //БД
+        readonly UseDB usedb = new UseDB();
 
         public PRChangeButton()
         {
@@ -26,13 +27,16 @@ namespace ALLinONE
         {
             lbList.Items.Clear();
 
-            SQLiteCommand comm = DB.CreateCommand(); //переменная БД
-            comm.CommandText = "select btn_title from ProfRab"; //код БД в переменную
-            SQLiteDataReader com = comm.ExecuteReader(); //результат кода в переменную
-            while (com.Read()) //цикл перебора результатов кода БД
-            {
-                lbList.Items.Add(com["btn_title"]); //запись столбца БД в listbox
-            }
+            //SQLiteCommand comm = DB.CreateCommand(); //переменная БД
+            //comm.CommandText = "select btn_title from ProfRab"; //код БД в переменную
+            //SQLiteDataReader com = comm.ExecuteReader(); //результат кода в переменную
+            //while (com.Read()) //цикл перебора результатов кода БД
+            //{
+            //    lbList.Items.Add(com["btn_title"]); //запись столбца БД в listbox
+            //}
+
+            foreach (var item in usedb.SelectDB("ProfRab", "btn_title"))
+                lbList.Items.Add(item);
         }
 
         private void LbList_SelectedIndexChanged(object sender, EventArgs e)
@@ -42,12 +46,16 @@ namespace ALLinONE
 
             string str = lbList.SelectedItem.ToString();
 
-            SQLiteCommand comm = DB.CreateCommand(); //переменная БД
-            comm.CommandText = "select btn_title from ProfRab where btn_title like '" + str + "'"; //код БД в переменную
-            tbName.Text = comm.ExecuteScalar().ToString(); //результат кода в textbox
+            //SQLiteCommand comm = DB.CreateCommand(); //переменная БД
+            //comm.CommandText = "select btn_title from ProfRab where btn_title like '" + str + "'"; //код БД в переменную
+            //tbName.Text = comm.ExecuteScalar().ToString(); //результат кода в textbox
 
-            comm.CommandText = "select btn_value from ProfRab where btn_title like '" + str + "'"; //код БД в переменную
-            tbValue.Text = comm.ExecuteScalar().ToString(); //результат кода в textbox
+            tbName.Text = usedb.SelectDBLike("ProfRab", "btn_title", "btn_title", str);
+
+            //comm.CommandText = "select btn_value from ProfRab where btn_title like '" + str + "'"; //код БД в переменную
+            //tbValue.Text = comm.ExecuteScalar().ToString(); //результат кода в textbox
+
+            tbValue.Text = usedb.SelectDBLike("ProfRab", "btn_value", "btn_title", str);
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -110,7 +118,7 @@ namespace ALLinONE
                 tmrComm3333.Enabled = true;
                 lblSave.Visible = true;
             }
-            else MessageBox.Show("Отчисти сначала свою голову, а потом попробуй снова...", "Ну и дурак...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else MessageBox.Show("Очисти сначала свою голову, а потом попробуй снова...", "Ну и дурак...", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void tmrComm3333_Tick(object sender, EventArgs e)

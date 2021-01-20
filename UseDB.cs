@@ -139,6 +139,30 @@ namespace ALLinONE
         }
 
         /// <summary>
+        /// select *COLUMN_1* from *TABLE* where *COLUMN_2* like *STRING*
+        /// returns *string*;
+        /// </summary>
+        public string SelectDBLike(string table, string col1, string col2, string str)
+        {
+            connectDB.Open();
+            string res = null;
+
+            try
+            {
+                SQLiteCommand comm = connectDB.CreateCommand(); //переменная БД
+                comm.CommandText = $"select {col1} from {table} where {col2} like '{str}'"; //код БД в переменную
+                res = comm.ExecuteScalar().ToString(); //результат кода в переменную
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Что-то пошло не так", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            connectDB.Close();
+            return res;
+        }
+
+        /// <summary>
         /// insert into *TABLE*(*COLUMN*) values(*STRING*)
         /// </summary>
         public void InsertDB()
@@ -256,21 +280,64 @@ namespace ALLinONE
 
         public void CreateNewDB(string nameNewDB)
         {
-            //connectDB.Open();
-            //SQLiteCommand comm = connectDB.CreateCommand(); //переменная БД
+            connectDB.Open();
+            SQLiteCommand comm = connectDB.CreateCommand();
+            //Создание всех таблиц
+            comm.CommandText = "create table ProfRab(" +
+                "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "[btn_name] VARCHAR(20) NOT NULL," +
+                "[btn_title] VARCHAR(32) NOT NULL," +
+                "[btn_value] VARCHAR(1024)" +
+                ");" +
+                "create table PingList(" +
+                "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "[Name] STRING(255) NOT NULL," +
+                "[Title] STRING(100) NOT NULL" +
+                ");" +
+                "create table ServiceRDP(" +
+                "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "[Name] STRING(100) NOT NULL," +
+                "[Title] STRING(50) NOT NULL" +
+                ");" +
+                "create table ServiceShare(" +
+                "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "[Name] STRING(255) NOT NULL," +
+                "[Title] STRING(50) NOT NULL" +
+                ");" +
+                "create table Printers(" +
+                "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "[Name] STRING(100) NOT NULL," +
+                "[NetName] STRING(50)," +
+                "[Location] STRING(20)," +
+                "[InvNumber] INTEGER(15)" +
+                ");" +
+                "create table ProgList(" +
+                "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "[Name] STRING(255) NOT NULL" +
+                ");" +
+                "create table ReinstallOS(" +
+                "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "[Name] STRING(255) NOT NULL" +
+                ");" +
+                "create table RequestList(" +
+                "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "[Value] STRING(300) NOT NULL," +
+                "[User] STRING(50) NOT NULL," +
+                "[DateCreate] STRING NOT NULL," +
+                "[DateUse] INTEGER(15)" +
+                ");";
+            comm.ExecuteNonQuery();
+            connectDB.Close();
 
-            //comm.CommandText = "create table ProfRab(" +
-            //    "id int," +
-            //    "btn_name varchar(20) not null," +
-            //    "btn_title varchar(32) not null," +
-            //    "btn_value varchar(1024)," +
-            //    "primary key(id)," +
-            //    "auto_increment(id)" +
-            //    ")";
+            //Заполняем Профы дефолтным значением (необходимо для кнопок)
+            MainForm mForm = new MainForm();
+            for (int i = 1; i < mForm.tabPageProfRab.Controls.Count - 1; i++)
+            {
+                InsertDB("ProfRab", "btn_name", "btn_title", "btn_value", "btnPR" + i, i.ToString(), "\\_(ツ)_/ -ать");
+            }
+            mForm.Close();
 
-
-            //comm.ExecuteNonQuery();
-            //connectDB.Close();
+            connectDB.Close();
         }
     }
 }

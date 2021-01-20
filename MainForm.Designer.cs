@@ -31,10 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.toDoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tmrComm5555 = new System.Windows.Forms.Timer(this.components);
-            this.tmrServicePB = new System.Windows.Forms.Timer(this.components);
-            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.toolStripFile = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDB = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDBCheckCon = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,8 +39,12 @@
             this.toolStripSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.toDoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.remoteAccsessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripExcel = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmrComm5555 = new System.Windows.Forms.Timer(this.components);
+            this.tmrServicePB = new System.Windows.Forms.Timer(this.components);
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.tabControl = new System.Windows.Forms.CustomTabControl();
             this.tabPageProfRab = new System.Windows.Forms.TabPage();
             this.lblPR = new System.Windows.Forms.Label();
@@ -161,29 +161,6 @@
             this.menuStrip.TabIndex = 7;
             this.menuStrip.Text = "menuStrip1";
             // 
-            // toDoToolStripMenuItem
-            // 
-            this.toDoToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toDoToolStripMenuItem.Name = "toDoToolStripMenuItem";
-            this.toDoToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
-            this.toDoToolStripMenuItem.Text = "ToDo";
-            this.toDoToolStripMenuItem.Visible = false;
-            // 
-            // tmrComm5555
-            // 
-            this.tmrComm5555.Interval = 5555;
-            this.tmrComm5555.Tick += new System.EventHandler(this.tmrRequest_Tick);
-            // 
-            // tmrServicePB
-            // 
-            this.tmrServicePB.Tick += new System.EventHandler(this.tmrServicePB_Tick);
-            // 
-            // saveFileDialog
-            // 
-            this.saveFileDialog.DefaultExt = "xlsx";
-            this.saveFileDialog.FileName = "AiO";
-            this.saveFileDialog.Filter = "xlsx|*.xlsx|All Files|*.*";
-            // 
             // toolStripFile
             // 
             this.toolStripFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -249,6 +226,14 @@
             this.toolStripExit.Text = "Выход";
             this.toolStripExit.Click += new System.EventHandler(this.toolStripExit_Click);
             // 
+            // toDoToolStripMenuItem
+            // 
+            this.toDoToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toDoToolStripMenuItem.Name = "toDoToolStripMenuItem";
+            this.toDoToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.toDoToolStripMenuItem.Text = "ToDo";
+            this.toDoToolStripMenuItem.Visible = false;
+            // 
             // remoteAccsessToolStripMenuItem
             // 
             this.remoteAccsessToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -266,6 +251,21 @@
             this.toolStripExcel.Size = new System.Drawing.Size(62, 20);
             this.toolStripExcel.Text = "Excel";
             this.toolStripExcel.Click += new System.EventHandler(this.toolStripExcel_Click);
+            // 
+            // tmrComm5555
+            // 
+            this.tmrComm5555.Interval = 5555;
+            this.tmrComm5555.Tick += new System.EventHandler(this.tmrRequest_Tick);
+            // 
+            // tmrServicePB
+            // 
+            this.tmrServicePB.Tick += new System.EventHandler(this.tmrServicePB_Tick);
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.DefaultExt = "xlsx";
+            this.saveFileDialog.FileName = "AiO";
+            this.saveFileDialog.Filter = "xlsx|*.xlsx|All Files|*.*";
             // 
             // tabControl
             // 
@@ -1465,7 +1465,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripDBCheckCon;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem toolStripDBInvertCon;
-        private System.Windows.Forms.TabPage tabPageProfRab;
         private System.Windows.Forms.TabPage tabPageService;
         private System.Windows.Forms.TabPage tabPageDBList;
         public System.Windows.Forms.NumericUpDown numPingTimeOut;
@@ -1507,6 +1506,7 @@
         private MyTextBox tbPrintNetName;
         private MyTextBox tbPrintName;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        public System.Windows.Forms.TabPage tabPageProfRab;
     }
 }
 
