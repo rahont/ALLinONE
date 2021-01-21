@@ -253,6 +253,20 @@ namespace ALLinONE
         }
 
         /// <summary>
+        /// update *TABLE* set *COLUMN_1*=*STRING_1* where *COLUMN_2* like *STRING_2*
+        /// </summary>
+        public void UpdateDB(string table, string col1, string col2, string str1, string str2)
+        {
+            connectDB.Open();
+            //MainForm mainForm = new MainForm();
+            //SQLiteCommand comm = mainForm.DB.CreateCommand(); //переменная БД
+            SQLiteCommand comm = connectDB.CreateCommand(); //переменная БД
+            comm.CommandText = "update '" + table + "' set '" + col1 + "'='" + str1 + "' where " + col2 + " like '" + str2 + "'"; //код БД в переменную
+            comm.ExecuteNonQuery();
+            connectDB.Close();
+        }
+
+        /// <summary>
         /// delete from *TABLE* where *COLUMN* like *STRING*
         /// </summary>
         public void DeleteDB()

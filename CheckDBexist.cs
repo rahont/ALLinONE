@@ -40,12 +40,11 @@ namespace ALLinONE
 
         private void btnCreateDB_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("Пока что не работаю", "Увы...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string nameDB = (tbPathFileDB.TextLength == 0) ? "Data_DB" : tbPathFileDB.Text;
 
-            DialogResult result = MessageBox.Show("Test", "Создаем?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Желаешь базу?\n" + nameDB, "Создаем?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                string nameDB = (tbPathFileDB.TextLength == 0) ? "Data_DB" : tbPathFileDB.Text;
                 registry.SetValue("PathDB", Environment.CurrentDirectory + "\\" + nameDB + ".db");
 
                 UseDB usedb = new UseDB();
@@ -56,8 +55,7 @@ namespace ALLinONE
 
                 Application.Restart();
             }
-            else MessageBox.Show("nooooo");
-
+            else MessageBox.Show("Базы, собирайтесь. Мы уходим!", ":P", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

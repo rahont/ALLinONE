@@ -269,8 +269,8 @@
             // 
             // tabControl
             // 
-            this.tabControl.Controls.Add(this.tabPageProfRab);
             this.tabControl.Controls.Add(this.tabPageService);
+            this.tabControl.Controls.Add(this.tabPageProfRab);
             this.tabControl.Controls.Add(this.tabPagePrinters);
             this.tabControl.Controls.Add(this.tabPageDBList);
             this.tabControl.Controls.Add(this.tabPageAddRequest);
@@ -1079,7 +1079,7 @@
             // 
             this.lblInfoRequest.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblInfoRequest.Enabled = false;
-            this.lblInfoRequest.Location = new System.Drawing.Point(3, 542);
+            this.lblInfoRequest.Location = new System.Drawing.Point(3, 545);
             this.lblInfoRequest.Name = "lblInfoRequest";
             this.lblInfoRequest.Size = new System.Drawing.Size(620, 49);
             this.lblInfoRequest.TabIndex = 6;
@@ -1358,7 +1358,7 @@
             this.lbProgList.FormattingEnabled = true;
             this.lbProgList.Location = new System.Drawing.Point(3, 3);
             this.lbProgList.Name = "lbProgList";
-            this.lbProgList.Size = new System.Drawing.Size(269, 588);
+            this.lbProgList.Size = new System.Drawing.Size(269, 591);
             this.lbProgList.Sorted = true;
             this.lbProgList.TabIndex = 8;
             this.lbProgList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbProgList_KeyDown);

@@ -44,15 +44,15 @@ namespace ALLinONE
             this.tbPathFileDB.MaximumSize = new System.Drawing.Size(1000, 20);
             this.tbPathFileDB.MinimumSize = new System.Drawing.Size(1, 20);
             this.tbPathFileDB.Name = "tbPathFileDB";
-            this.tbPathFileDB.Size = new System.Drawing.Size(325, 20);
+            this.tbPathFileDB.Size = new System.Drawing.Size(387, 20);
             this.tbPathFileDB.TabIndex = 1;
             this.tbPathFileDB.TextMaxLength = 1024;
-            this.tbPathFileDB.TextTitle = "Путь к БД";
+            this.tbPathFileDB.TextTitle = "Путь к БД/Имя новой БД";
             // 
             // btnSelect
             // 
             this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelect.Location = new System.Drawing.Point(263, 0);
+            this.btnSelect.Location = new System.Drawing.Point(325, 0);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(62, 20);
             this.btnSelect.TabIndex = 2;
@@ -63,7 +63,7 @@ namespace ALLinONE
             // btnCreateDB
             // 
             this.btnCreateDB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCreateDB.Location = new System.Drawing.Point(226, 26);
+            this.btnCreateDB.Location = new System.Drawing.Point(288, 26);
             this.btnCreateDB.Name = "btnCreateDB";
             this.btnCreateDB.Size = new System.Drawing.Size(93, 45);
             this.btnCreateDB.TabIndex = 3;
@@ -91,7 +91,7 @@ namespace ALLinONE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(325, 76);
+            this.ClientSize = new System.Drawing.Size(387, 76);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.btnCreateDB);
             this.Controls.Add(this.btnSelect);
@@ -99,7 +99,7 @@ namespace ALLinONE
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1078, 115);
-            this.MinimumSize = new System.Drawing.Size(341, 115);
+            this.MinimumSize = new System.Drawing.Size(403, 115);
             this.Name = "CheckDBexist";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Проверка файла БД";

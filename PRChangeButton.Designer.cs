@@ -92,7 +92,7 @@
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(100, 34);
             this.btnDel.TabIndex = 4;
-            this.btnDel.Text = "Отчистить";
+            this.btnDel.Text = "Очистить";
             this.btnDel.UseVisualStyleBackColor = true;
             this.btnDel.Click += new System.EventHandler(this.BtnDel_Click);
             // 
