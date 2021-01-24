@@ -38,15 +38,17 @@ namespace ALLinONE
             {
                 form.Close();
                 Text += $" ({Environment.UserName})   - v.2.12b";
-                LoadFormPosition();
-                Refresh_btnPR();
 
-                RefreshDBGrid();
-                RefreshDBPrinters();
+                LoadFormPosition();     //Загрузка координат формы
+                Refresh_btnPR();        //Загрузка описаний кнопок на вкладке Проф
+                RefreshDBGrid();        //Загрузка заявок
+                RefreshDBPrinters();    //Загрузка принтеров
+                RefreshLBRDP();         //Загрузка ListBox RDP на вкладке Сервис
+                RefreshLBShare();       //Загрузка ListBox Share на вкладке Сервис
 
-                //Установка времени для пинга и отключение таймера (включается при установки времени)
+                //Установка времени для пинга и максимального значения ProgressBar (вкладка Сервис)
                 numPingProgress.Value = Convert.ToDecimal(registry.GetValue("ProgressBarSec", 30));
-                tmrServicePB.Enabled = false;
+                pbPingProgress.Maximum = Convert.ToInt32(numPingProgress.Value) * 1000;
             }
             else
             {
@@ -55,7 +57,6 @@ namespace ALLinONE
                 if (result == DialogResult.Yes)
                 {
                     form.ShowDialog();
-                    form.Close();
                     Close();
                 }
                 else
@@ -98,9 +99,7 @@ namespace ALLinONE
 
         private void toolStripDBCheckCon_Click(object sender, EventArgs e)
         {
-            string str;
-            if (UseDB.connectDB.State.ToString() == "Open") str = "Подключение к БД установлено";
-            else str = "Подключение к БД отсутствует";
+            string str = (UseDB.connectDB.State.ToString() == "Open") ? "Подключение к БД установлено" : "Подключение к БД отсутствует";
             MessageBox.Show(str, "Статус подключение", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -321,8 +320,17 @@ namespace ALLinONE
 
         private void tmrServicePB_Tick(object sender, EventArgs e)
         {
-            
-            if (pbPingProgress.Value == pbPingProgress.Maximum) AiOMethods.LoadPingLB(pbPingProgress, lbPingSuccess, lbPingTimeOut, numPingTimeOut);
+            //if (pbPingProgress.Value == pbPingProgress.Maximum)
+            //{
+            //    pbPingProgress.Maximum += 1;
+            //    pbPingProgress.Value += 1;
+            //    pbPingProgress.Maximum = pbPingProgress.Value;
+            //}
+            //else
+            //    pbPingProgress.Value += 1;
+
+            Service srvc = new Service();
+            if (pbPingProgress.Value == pbPingProgress.Maximum) srvc.LoadLBPing(pbPingProgress, lbPingSuccess, lbPingTimeOut, numPingTimeOut);
             else pbPingProgress.Value += 100;
         }
         #endregion
@@ -513,14 +521,12 @@ namespace ALLinONE
         #endregion
 
 
-
-
         private void tmrRequest_Tick(object sender, EventArgs e)
         {
-            lblInfoRequest.Text = "";
-            lblAddRequestDB.Text = "";
-            lblPrintBuffer.Text = "";
-            lblPR.Text = "";
+            lblInfoRequest.Text = string.Empty;
+            lblAddRequestDB.Text = string.Empty;
+            lblPrintBuffer.Text = string.Empty;
+            lblPR.Text = string.Empty;
             tmrComm5555.Enabled = false;
         }
 
@@ -615,14 +621,7 @@ namespace ALLinONE
         private void tabControl_Selecting(object sender, TabControlCancelEventArgs e)
         {
             //Страница сервис
-            if (tabControl.SelectedTab == tabPageService)
-            {
-                pbPingProgress.Maximum = Convert.ToInt32(numPingProgress.Value) * 1000;
-                tmrServicePB.Enabled = true;
-                RefreshLBRDP();
-                RefreshLBShare();
-            }
-            else tmrServicePB.Enabled = false;
+            tmrServicePB.Enabled = (tabControl.SelectedTab == tabPageService);
 
             //Страница заявок
             if (tabControl.SelectedTab == tabPageDBList)
@@ -655,12 +654,8 @@ namespace ALLinONE
 
         private void btnRefreshPing_Click(object sender, EventArgs e)
         {
-            AiOMethods.LoadPingLB(pbPingProgress, lbPingSuccess, lbPingTimeOut, numPingTimeOut);
-        }
-
-        private void lbProgList_Leave(object sender, EventArgs e)
-        {
-            lbProgList.ClearSelected();
+            Service srvc = new Service();
+            srvc.LoadLBPing(pbPingProgress, lbPingSuccess, lbPingTimeOut, numPingTimeOut);
         }
 
         private void btnMassRequest_Click(object sender, EventArgs e)
@@ -699,6 +694,13 @@ namespace ALLinONE
                     }
                 }
             }
+        }
+
+        private void lblPingTimeRefresh_MouseHover(object sender, EventArgs e)
+        {
+            Label lbl = (sender as Label);
+            if (lbl == lblPingTimeRefresh) toolTip.Show("В секундах", lbl);
+            if (lbl == lblPingTimeTimeOut) toolTip.Show("В миллисекундах", lbl);
         }
     }
 }

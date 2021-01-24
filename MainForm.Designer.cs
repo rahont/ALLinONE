@@ -134,6 +134,9 @@
             this.rdbtnAddRequest2 = new System.Windows.Forms.RadioButton();
             this.rdbtnAddRequest1 = new System.Windows.Forms.RadioButton();
             this.lbProgList = new System.Windows.Forms.ListBox();
+            this.lblPingTimeRefresh = new System.Windows.Forms.Label();
+            this.lblPingTimeTimeOut = new System.Windows.Forms.Label();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageService.SuspendLayout();
@@ -259,6 +262,7 @@
             // 
             // tmrServicePB
             // 
+            this.tmrServicePB.Enabled = true;
             this.tmrServicePB.Tick += new System.EventHandler(this.tmrServicePB_Tick);
             // 
             // saveFileDialog
@@ -305,6 +309,8 @@
             // tabPageService
             // 
             this.tabPageService.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageService.Controls.Add(this.lblPingTimeTimeOut);
+            this.tabPageService.Controls.Add(this.lblPingTimeRefresh);
             this.tabPageService.Controls.Add(this.btnRefreshPing);
             this.tabPageService.Controls.Add(this.numPingTimeOut);
             this.tabPageService.Controls.Add(this.numPingProgress);
@@ -328,7 +334,7 @@
             // 
             // btnRefreshPing
             // 
-            this.btnRefreshPing.Location = new System.Drawing.Point(215, 548);
+            this.btnRefreshPing.Location = new System.Drawing.Point(275, 574);
             this.btnRefreshPing.Name = "btnRefreshPing";
             this.btnRefreshPing.Size = new System.Drawing.Size(75, 20);
             this.btnRefreshPing.TabIndex = 36;
@@ -384,7 +390,7 @@
             // pbPingProgress
             // 
             this.pbPingProgress.Location = new System.Drawing.Point(27, 574);
-            this.pbPingProgress.Maximum = 1000;
+            this.pbPingProgress.Maximum = 10000;
             this.pbPingProgress.Name = "pbPingProgress";
             this.pbPingProgress.Size = new System.Drawing.Size(242, 20);
             this.pbPingProgress.TabIndex = 34;
@@ -546,7 +552,7 @@
             this.lblPR.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblPR.Enabled = false;
             this.lblPR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblPR.Location = new System.Drawing.Point(3, 482);
+            this.lblPR.Location = new System.Drawing.Point(3, 485);
             this.lblPR.Name = "lblPR";
             this.lblPR.Size = new System.Drawing.Size(620, 109);
             this.lblPR.TabIndex = 27;
@@ -1081,7 +1087,7 @@
             // 
             this.lblInfoRequest.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblInfoRequest.Enabled = false;
-            this.lblInfoRequest.Location = new System.Drawing.Point(3, 542);
+            this.lblInfoRequest.Location = new System.Drawing.Point(3, 545);
             this.lblInfoRequest.Name = "lblInfoRequest";
             this.lblInfoRequest.Size = new System.Drawing.Size(620, 49);
             this.lblInfoRequest.TabIndex = 6;
@@ -1360,11 +1366,38 @@
             this.lbProgList.FormattingEnabled = true;
             this.lbProgList.Location = new System.Drawing.Point(3, 3);
             this.lbProgList.Name = "lbProgList";
-            this.lbProgList.Size = new System.Drawing.Size(269, 588);
+            this.lbProgList.Size = new System.Drawing.Size(269, 591);
             this.lbProgList.Sorted = true;
             this.lbProgList.TabIndex = 8;
             this.lbProgList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbProgList_KeyDown);
-            this.lbProgList.Leave += new System.EventHandler(this.lbProgList_Leave);
+            // 
+            // lblPingTimeRefresh
+            // 
+            this.lblPingTimeRefresh.AccessibleDescription = "";
+            this.lblPingTimeRefresh.AutoSize = true;
+            this.lblPingTimeRefresh.Location = new System.Drawing.Point(11, 550);
+            this.lblPingTimeRefresh.Name = "lblPingTimeRefresh";
+            this.lblPingTimeRefresh.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblPingTimeRefresh.Size = new System.Drawing.Size(97, 13);
+            this.lblPingTimeRefresh.TabIndex = 37;
+            this.lblPingTimeRefresh.Text = "Обновлять через:";
+            this.lblPingTimeRefresh.MouseHover += new System.EventHandler(this.lblPingTimeRefresh_MouseHover);
+            // 
+            // lblPingTimeTimeOut
+            // 
+            this.lblPingTimeTimeOut.AutoSize = true;
+            this.lblPingTimeTimeOut.Location = new System.Drawing.Point(197, 550);
+            this.lblPingTimeTimeOut.Name = "lblPingTimeTimeOut";
+            this.lblPingTimeTimeOut.Size = new System.Drawing.Size(88, 13);
+            this.lblPingTimeTimeOut.TabIndex = 38;
+            this.lblPingTimeTimeOut.Text = "Таймаут пакета";
+            this.lblPingTimeTimeOut.MouseHover += new System.EventHandler(this.lblPingTimeRefresh_MouseHover);
+            // 
+            // toolTip
+            // 
+            this.toolTip.AutoPopDelay = 5000;
+            this.toolTip.InitialDelay = 500;
+            this.toolTip.ReshowDelay = 100;
             // 
             // MainForm
             // 
@@ -1509,6 +1542,9 @@
         private MyTextBox tbPrintName;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         public System.Windows.Forms.TabPage tabPageProfRab;
+        private System.Windows.Forms.Label lblPingTimeTimeOut;
+        private System.Windows.Forms.Label lblPingTimeRefresh;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }
 

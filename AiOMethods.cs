@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,6 +14,9 @@ namespace ALLinONE
 {
     class AiOMethods
     {
+        static List<string> listName = new List<string>();
+        static List<string> listTitle = new List<string>();
+
         //Excel
         public static void SaveExcel(DataGridView dgv, string fullPath)
         {
@@ -96,25 +100,25 @@ namespace ALLinONE
 
         public static void LoadPingLB(ProgressBar pb, ListBox lbS, ListBox lbT, NumericUpDown num)
         {
-            Service srvc = new Service();
-            pb.Value = 0;
-            lbS.Items.Clear();
-            lbT.Items.Clear();
+            //Service srvc = new Service();
+            //pb.Value = 0;
+            //lbS.Items.Clear();
+            //lbT.Items.Clear();
 
-            srvc.LoadLBPing(num.Value, out string[] pingSuccess, out string[] pingFailure);
-            foreach (var item in pingSuccess)
-            {
-                if (item == null) continue;
-                else lbS.Items.Add(item);
-            }
+            //srvc.LoadLBPing(num.Value, out string[] pingSuccess, out string[] pingFailure);
+            //srvc.LoadLBPing(num.Value, lbS, lbT);
 
-            foreach (var item in pingFailure)
-            {
-                if (item == null) continue;
-                else lbT.Items.Add(item);
-            }
+            //foreach (var item in pingSuccess)
+            //{
+            //    if (item == null) continue;
+            //    else lbS.Items.Add(item);
+            //}
 
-            srvc.Close();
+            //foreach (var item in pingFailure)
+            //{
+            //    if (item == null) continue;
+            //    else lbT.Items.Add(item);
+            //}
         }
 
         public static void LoadFormPosition(out int x, out int y)

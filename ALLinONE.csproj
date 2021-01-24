@@ -15,9 +15,9 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>E:\PublishTest\</PublishUrl>
+    <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Unc</InstallFrom>
+    <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
@@ -25,10 +25,9 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>\\localhost\d%24\Projects\ALLinONE\</InstallUrl>
     <MinimumRequiredVersion>2.12.0.5</MinimumRequiredVersion>
-    <ApplicationRevision>4</ApplicationRevision>
-    <ApplicationVersion>2.12.0.%2a</ApplicationVersion>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -42,6 +41,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -146,9 +146,7 @@
     <Compile Include="RequestPrinters.Designer.cs">
       <DependentUpon>RequestPrinters.cs</DependentUpon>
     </Compile>
-    <Compile Include="Service.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Service.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="MyTextBox.cs">
       <SubType>UserControl</SubType>
@@ -239,7 +237,6 @@
     <EmbeddedResource Include="ToDoList.resx">
       <DependentUpon>ToDoList.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="ALLinONE_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
