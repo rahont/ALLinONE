@@ -12,8 +12,6 @@ namespace ALLinONE
 {
     public partial class MassRequest : Form
     {
-        UseDB usedb = new UseDB();
-
         public MassRequest()
         {
             InitializeComponent();
@@ -22,7 +20,7 @@ namespace ALLinONE
         private void RefreshListProg()
         {
             lbProgList.Items.Clear();
-            foreach (var item in usedb.SelectDB("ReinstallOS", "Prog"))
+            foreach (var item in UseDB.SelectDB("ReinstallOS", "Prog"))
                 lbProgList.Items.Add(item);
         }
 
@@ -34,7 +32,7 @@ namespace ALLinONE
             }
             else
             {
-                usedb.InsertDB("ReinstallOS", "Prog", tbAddProg.Text);
+                UseDB.InsertDB("ReinstallOS", "Prog", tbAddProg.Text);
                 RefreshListProg();
             }
         }
@@ -46,7 +44,7 @@ namespace ALLinONE
                 DialogResult result = MessageBox.Show("Удалить запись '" + lbProgList.SelectedItem + "'?", "Ты уверен?", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (result == DialogResult.Yes)
                 {
-                    usedb.DeleteDB("ReinstallOS", "Prog", lbProgList.SelectedItem.ToString());
+                    UseDB.DeleteDB("ReinstallOS", "Prog", lbProgList.SelectedItem.ToString());
                     RefreshListProg();
                 }
             }
@@ -92,8 +90,7 @@ namespace ALLinONE
                 {
                     string result = item.ToString() + ". " + tbFIO.Text;
 
-                    //UseDB usedb = new UseDB("RequestList", "Value", "User", "DateCreate", result, Environment.UserName, DateTime.Now.ToString());
-                    usedb.InsertDB("RequestList", "Value", "User", "DateCreate", result, Environment.UserName, DateTime.Now.ToString());
+                    UseDB.InsertDB("RequestList", "Value", "User", "DateCreate", result, Environment.UserName, DateTime.Now.ToString());
                 }
                 tbFIO.Text = "";
                 lblValue.Text = "Заявки (" + lbProgList.Items.Count + "шт.) улетели в БД";

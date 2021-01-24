@@ -13,8 +13,6 @@ namespace ALLinONE
 {
     public partial class PRChangeButton : Form
     {
-        readonly UseDB usedb = new UseDB();
-
         public PRChangeButton()
         {
             InitializeComponent();
@@ -24,7 +22,7 @@ namespace ALLinONE
         {
             lbList.Items.Clear();
 
-            foreach (var item in usedb.SelectDB("ProfRab", "btn_title"))
+            foreach (var item in UseDB.SelectDB("ProfRab", "btn_title"))
                 lbList.Items.Add(item);
         }
 
@@ -35,9 +33,9 @@ namespace ALLinONE
 
             string selectedItemLB = lbList.SelectedItem.ToString();
 
-            tbName.Text = usedb.SelectDBLike("ProfRab", "btn_title", "btn_title", selectedItemLB);
+            tbName.Text = UseDB.SelectDBLike("ProfRab", "btn_title", "btn_title", selectedItemLB);
 
-            tbValue.Text = usedb.SelectDBLike("ProfRab", "btn_value", "btn_title", selectedItemLB);
+            tbValue.Text = UseDB.SelectDBLike("ProfRab", "btn_value", "btn_title", selectedItemLB);
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -48,7 +46,7 @@ namespace ALLinONE
                 bool doubleCheckDB = false;
 
                 //Проверка на наличие строки в БД
-                foreach (var item in usedb.SelectDB("ProfRab", "btn_title"))
+                foreach (var item in UseDB.SelectDB("ProfRab", "btn_title"))
                     doubleCheckDB = (tbName.Text == item);
 
                 if (doubleCheckDB == true && tbName.Text != selectedItemLB)
@@ -58,8 +56,8 @@ namespace ALLinONE
                 }
                 else
                 {
-                    usedb.UpdateDB("ProfRab", "btn_title", "btn_title", tbName.Text, selectedItemLB);
-                    usedb.UpdateDB("ProfRab", "btn_value", "btn_title", tbValue.Text, tbName.Text);
+                    UseDB.UpdateDB("ProfRab", "btn_title", "btn_title", tbName.Text, selectedItemLB);
+                    UseDB.UpdateDB("ProfRab", "btn_value", "btn_title", tbValue.Text, tbName.Text);
 
                     tmrComm3333.Enabled = false;
                     tmrComm3333.Enabled = true;
@@ -79,13 +77,13 @@ namespace ALLinONE
 
                 string selectedItemLB = lbList.SelectedItem.ToString();
 
-                string id = usedb.SelectDBLike("ProfRab", "id", "btn_title", selectedItemLB);
+                string id = UseDB.SelectDBLike("ProfRab", "id", "btn_title", selectedItemLB);
 
-                string tmp = usedb.SelectDBLike("ProfRab", "btn_name", "btn_title", selectedItemLB);
+                string tmp = UseDB.SelectDBLike("ProfRab", "btn_name", "btn_title", selectedItemLB);
                 tmp = tmp.Replace("btnPR", "");
 
-                usedb.UpdateDB("ProfRab", "btn_title", "id", "Проф " + tmp, id);
-                usedb.UpdateDB("ProfRab", "btn_value", "id", "\\_(ツ)_/ -ать", id);
+                UseDB.UpdateDB("ProfRab", "btn_title", "id", "Проф " + tmp, id);
+                UseDB.UpdateDB("ProfRab", "btn_value", "id", "\\_(ツ)_/ -ать", id);
 
                 RefreshLBList();
                 lbList.SelectedItem = "Проф " + id;

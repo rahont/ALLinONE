@@ -88,8 +88,7 @@ namespace ALLinONE
         public static void RefreshProgList(ListBox lb)
         {
             lb.Items.Clear();
-            UseDB usedb = new UseDB();
-            foreach (var item in usedb.SelectDB("ProgList", "Name"))
+            foreach (var item in UseDB.SelectDB("ProgList", "Name"))
             {
                 lb.Items.Add(item);
             }
@@ -120,7 +119,7 @@ namespace ALLinONE
 
         public static void LoadFormPosition(out int x, out int y)
         {
-            RegistryKey formPos = Registry.CurrentUser.CreateSubKey("All in One");
+            RegistryKey formPos = Registry.CurrentUser.CreateSubKey("SOFTWARE\\All in One");
 
             x = Convert.ToInt32(formPos.GetValue("PositionX", 0));
             y = Convert.ToInt32(formPos.GetValue("PositionX", 0));
@@ -132,7 +131,7 @@ namespace ALLinONE
 
         public static void SaveFormPosition(int x, int y)
         {
-            RegistryKey formPos = Registry.CurrentUser.CreateSubKey("All in One");
+            RegistryKey formPos = Registry.CurrentUser.CreateSubKey("SOFTWARE\\All in One");
             formPos.SetValue("PositionX", x);
             formPos.SetValue("PositionY", y);
             formPos.Close();

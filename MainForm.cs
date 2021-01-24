@@ -18,9 +18,7 @@ namespace ALLinONE
 {
     public partial class MainForm : Form
     {
-        //public SQLiteConnection DB; //БД
         private string result3;
-        public UseDB usedb = new UseDB();
 
         #region Form
         public MainForm()
@@ -31,15 +29,15 @@ namespace ALLinONE
         public void Form1_Load(object sender, EventArgs e)
         {
             CheckDBexist form = new CheckDBexist();
-            RegistryKey registry = Registry.CurrentUser.CreateSubKey("All in One");
+            RegistryKey registry = Registry.CurrentUser.CreateSubKey("SOFTWARE\\All in One");
 
-            if (Registry.CurrentUser.OpenSubKey(@"All in One") == null) //проверяем наличие раздела в реестре. если отсутствует раздел, то создаем
-                registry.CreateSubKey("All in One");
+            if (Registry.CurrentUser.OpenSubKey("SOFTWARE\\All in One") == null) //проверяем наличие раздела в реестре. если отсутствует раздел, то создаем
+                registry.CreateSubKey("SOFTWARE\\All in One");
 
             if (File.Exists(registry.GetValue("PathDB", "Data_DB.db").ToString()))
             {
                 form.Close();
-                Text += $" ({Environment.UserName})   - v.2.11b";
+                Text += $" ({Environment.UserName})   - v.2.12b";
                 LoadFormPosition();
                 Refresh_btnPR();
 
@@ -66,25 +64,19 @@ namespace ALLinONE
                     Application.Exit();
                 }
             }
-            //if (File.Exists("Data_DB.db") == false)
-            //{
-            //    MessageBox.Show("Положи рядом с exe'шником файл БД с именем 'Data_DB.db' с правильными таблицами, иначе работать будешь без меня.", "Нам нужно поговорить...", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    Application.Exit();
-            //}
-
 
             registry.Close();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            usedb.connectDB.Close(); //закрыть БД
+            UseDB.connectDB.Close(); //закрыть БД
             AiOMethods.SaveFormPosition(Location.X, Location.Y);
         }
 
         private void LoadFormPosition()
         {
-            RegistryKey formPos = Registry.CurrentUser.CreateSubKey("All in One");
+            RegistryKey formPos = Registry.CurrentUser.CreateSubKey("SOFTWARE\\All in One");
             Location = new Point(Convert.ToInt32(formPos.GetValue("PositionX", Location.X)),
                 Convert.ToInt32(formPos.GetValue("PositionY", Location.Y)));   //загрузить позицию формы из реестра
             formPos.Close();
@@ -107,33 +99,29 @@ namespace ALLinONE
         private void toolStripDBCheckCon_Click(object sender, EventArgs e)
         {
             string str;
-            if (usedb.connectDB.State.ToString() == "Open") str = "Подключение к БД установлено";
+            if (UseDB.connectDB.State.ToString() == "Open") str = "Подключение к БД установлено";
             else str = "Подключение к БД отсутствует";
             MessageBox.Show(str, "Статус подключение", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void toolStripDBInvertCon_Click(object sender, EventArgs e)
         {
-            if (usedb.connectDB.State.ToString() == "Open") usedb.connectDB.Close();
-            else usedb.connectDB.Open();
+            if (UseDB.connectDB.State.ToString() == "Open") UseDB.connectDB.Close();
+            else UseDB.connectDB.Open();
         }
         #endregion
 
         #region Methods
         public void Refresh_btnPR()
         {
-            int count = usedb.SelectDB("ProfRab", "btn_name").Length;
+            int count = UseDB.SelectDB("ProfRab", "btn_name").Length;
 
             for (int i = 1; i <= count; i++)
             {
                 try
                 {
-                    usedb.table = "ProfRab";
-                    usedb.col1 = "btn_title";
-                    usedb.col2 = "btn_name";
-                    usedb.str1 = "btnPR" + i.ToString();
                     var btn = GetControl(tabPageProfRab, "btnPR" + i);   //метод поиска контролов (записывем имя кнопки в переменную)
-                    btn.Text = usedb.SelectDBLike(); ; //задаем Text кнопке
+                    btn.Text = UseDB.SelectDBLike("ProfRab", "btn_title", "btn_name", "btnPR" + i.ToString()) ; //задаем Text кнопке
                 }
                 catch (Exception ex)
                 {
@@ -158,23 +146,23 @@ namespace ALLinONE
 
         private void RefreshDBGrid()
         {
-            usedb.connectDB.Open();
+            UseDB.connectDB.Open();
 
             var sqlCommand = new SQLiteCommand();
             if (chckbMyRequest.Checked)
             {
-                sqlCommand = new SQLiteCommand("select * from RequestList where User like '" + Environment.UserName + "'", usedb.connectDB);
+                sqlCommand = new SQLiteCommand("select * from RequestList where User like '" + Environment.UserName + "'", UseDB.connectDB);
 
-                //usedb.table = "RequestList";
-                //usedb.col1 = "*";
-                //usedb.col2 = "User";
-                //usedb.str1 = Environment.UserName;
+                //UseDB.table = "RequestList";
+                //UseDB.col1 = "*";
+                //UseDB.col2 = "User";
+                //UseDB.str1 = Environment.UserName;
             }
             else
             {
-                sqlCommand = new SQLiteCommand("select * from RequestList", usedb.connectDB);
+                sqlCommand = new SQLiteCommand("select * from RequestList", UseDB.connectDB);
             }
-            //usedb.SelectDBLike();
+            //UseDB.SelectDBLike();
             sqlCommand.ExecuteNonQuery();
 
             var dataTable = new DataTable("RequestList");
@@ -184,7 +172,7 @@ namespace ALLinONE
             dgvRequest.DataSource = dataTable.DefaultView;
             sqlAdapter.Update(dataTable);
 
-            usedb.connectDB.Close();
+            UseDB.connectDB.Close();
 
             lblQuantity.Text = "Количество заявок: " + dgvRequest.Rows.Count.ToString();
 
@@ -206,8 +194,8 @@ namespace ALLinONE
 
         public void RefreshDBPrinters()
         {
-            usedb.connectDB.Open();
-            var sqlCommand = new SQLiteCommand("select * from Printers", usedb.connectDB);
+            UseDB.connectDB.Open();
+            var sqlCommand = new SQLiteCommand("select * from Printers", UseDB.connectDB);
             sqlCommand.ExecuteNonQuery();
 
             var dataTable = new DataTable("Printers");
@@ -217,7 +205,7 @@ namespace ALLinONE
             dgvPrinters.DataSource = dataTable.DefaultView;
             sqlAdapter.Update(dataTable);
 
-            usedb.connectDB.Close();
+            UseDB.connectDB.Close();
 
             dgvPrinters.Columns["id"].Visible = false;
             //Переименовка колонок в DataGridView
@@ -247,19 +235,12 @@ namespace ALLinONE
         #region ProfRab
         private void BtnPR1_Click(object sender, EventArgs e)
         {
-            //SQLiteCommand comm = DB.CreateCommand();
             string bName = (sender as Button).Name; //Получает имя нажатой кнопки
-            //comm.CommandText = "select btn_value from ProfRab where btn_name like '%" + bName + "%'";
-            usedb.table = "ProfRab";
-            usedb.col1 = "btn_value";
-            usedb.col2 = "btn_name";
-            usedb.str1 = bName;
-            string str = usedb.SelectDBLike();
+
+            string str = UseDB.SelectDBLike("ProfRab", "btn_value", "btn_name", bName);
             lblPR.Text = str;
             Clipboard.SetText(str);
 
-            //lblPR.Text = comm.ExecuteScalar().ToString();
-            //Clipboard.SetText(comm.ExecuteScalar().ToString());
             tmrComm5555.Enabled = false;
             tmrComm5555.Enabled = true;
         }
@@ -276,27 +257,13 @@ namespace ALLinONE
         private void lbRDP_DoubleClick(object sender, EventArgs e)
         {
             if (lbRDP.SelectedItem != null)
-            {
-                //UseDB useDB = new UseDB("ServiceRDP", "Name", "Title", lbRDP.SelectedItem.ToString());
-                usedb.table = "ServiceRDP";
-                usedb.col1 = "Name";
-                usedb.col2 = "Title";
-                usedb.str1 = lbRDP.SelectedItem.ToString();
-                Process.Start("mstsc", @"/admin /f /v:" + usedb.SelectDBLike());
-            }
+                Process.Start("mstsc", @"/admin /f /v:" + UseDB.SelectDBLike("ServiceRDP", "Name", "Title", lbRDP.SelectedItem.ToString()));
         }
 
         private void lbShare_DoubleClick(object sender, EventArgs e)
         {
             if (lbShare.SelectedItem != null)
-            {
-                //UseDB useDB = new UseDB("ServiceShare", "Name", "Title", lbShare.SelectedItem.ToString());
-                usedb.table = "ServiceShare";
-                usedb.col1 = "Name";
-                usedb.col2 = "Title";
-                usedb.str1 = lbShare.SelectedItem.ToString();
-                Process.Start("explorer", usedb.SelectDBLike());
-            }
+                Process.Start("explorer", UseDB.SelectDBLike("ServiceShare", "Name", "Title", lbShare.SelectedItem.ToString()));
         }
 
         private void lbRDP_Leave(object sender, EventArgs e)
@@ -335,10 +302,10 @@ namespace ALLinONE
             //Properties.Settings.Default.rdp_shareProgressBarSec = numPingProgress.Value;
             //Properties.Settings.Default.Save();
 
-            RegistryKey ProgressBarSec = Registry.CurrentUser.CreateSubKey("All in One");
+            RegistryKey ProgressBarSec = Registry.CurrentUser.CreateSubKey("SOFTWARE\\All in One");
 
-            if (Registry.CurrentUser.OpenSubKey(@"All in One") == null) //проверяем наличие раздела в реестре. если отсутствует раздел, то создаем
-                ProgressBarSec.CreateSubKey("All in One");
+            if (Registry.CurrentUser.OpenSubKey("SOFTWARE\\All in One") == null) //проверяем наличие раздела в реестре. если отсутствует раздел, то создаем
+                ProgressBarSec.CreateSubKey("SOFTWARE\\All in One");
 
             ProgressBarSec.SetValue("ProgressBarSec", numPingProgress.Value);
             ProgressBarSec.Close();
@@ -422,19 +389,7 @@ namespace ALLinONE
             }
             else
             {
-                //UseDB usedb = new UseDB("Printers", "Name", "NetName", "Location", "InvNumber", tbPrintName1.Text, tbPrintNetName1.Text, tbPrintLocation1.Text, tbPrintInvNumber1.Text);
-                usedb.table = "Printers";
-                usedb.col1 = "Name";
-                usedb.col2 = "NetName";
-                usedb.col3 = "Location";
-                usedb.col4 = "InvNumber";
-                usedb.str1 = tbPrintName1.Text;
-                usedb.str2 = tbPrintNetName1.Text;
-                usedb.str3 = tbPrintLocation1.Text;
-                usedb.str4 = tbPrintInvNumber1.Text;
-                usedb.numbCol = 4;
-
-                usedb.InsertDB();
+                UseDB.InsertDB("Printers", "Name", "NetName", "Location", "InvNumber", tbPrintName1.Text, tbPrintNetName1.Text, tbPrintLocation1.Text, tbPrintInvNumber1.Text);
                 RefreshDBPrinters();
                 ClearPrintTB();
             }
@@ -455,12 +410,7 @@ namespace ALLinONE
                     ("Удалить запись?\n\n" + strValue, "Ты уверен?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    //UseDB usedb = new UseDB("Printers", "Id", strId);
-                    usedb.table = "Printers";
-                    usedb.col1 = "Id";
-                    usedb.str1 = strId;
-                    usedb.numbCol = 1;
-                    usedb.DeleteDB();
+                    UseDB.DeleteDB("Printers", "Id", strId);
                     dgvPrinters.Rows.RemoveAt(dgvPrinters.CurrentRow.Index); //удаляет строку из DataGridView
                     ClearPrintTB();
                 }
@@ -497,16 +447,7 @@ namespace ALLinONE
             }
             else
             {
-                //UseDB usedb = new UseDB("RequestList", "Value", "User", "DateCreate", tbAddRequest.Text, Environment.UserName, DateTime.Now.ToString());
-                usedb.table = "RequestList";
-                usedb.col1 = "Value";
-                usedb.col2 = "User";
-                usedb.col3 = "DateCreate";
-                usedb.str1 = tbAddRequest.Text;
-                usedb.str2 = Environment.UserName;
-                usedb.str3 = DateTime.Now.ToString();
-                usedb.numbCol = 3;
-                usedb.InsertDB();
+                UseDB.InsertDB("RequestList", "Value", "User", "DateCreate", tbAddRequest.Text, Environment.UserName, DateTime.Now.ToString());
 
                 RefreshDBGrid();
                 tbAddRequest.Clear();
@@ -534,12 +475,7 @@ namespace ALLinONE
                     "Ты уверен?", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (result == DialogResult.Yes)
                 {
-                    //UseDB usedb = new UseDB("RequestList", "id", strId);
-                    usedb.table = "RequestList";
-                    usedb.col1 = "id";
-                    usedb.str1 = strId;
-                    usedb.numbCol = 1;
-                    usedb.DeleteDB();
+                    UseDB.DeleteDB("RequestList", "Id", strId);
                     dgvRequest.Rows.RemoveAt(dgvRequest.CurrentRow.Index); //удаляет строку из DataGridView
                     lblQuantity.Text = "Количество заявок: " + dgvRequest.Rows.Count.ToString(); // -1 заявка в lbl после удаления из dgv
                 }
@@ -556,25 +492,13 @@ namespace ALLinONE
                 lblInfoRequest.Text = "В буфер уехало:\n" + strRequest;
                 tmrComm5555.Enabled = true;
 
-                //UseDB usedb = new UseDB("RequestList", "Value", "DateUse", strRequest, DateTime.Now.ToString());
-                usedb.table = "RequestList";
-                usedb.col1 = "Value";
-                usedb.col2 = "DateUse";
-                usedb.str1 = strRequest;
-                usedb.str2 = DateTime.Now.ToString();
-                usedb.numbCol = 2;
-                usedb.UpdateDB();
+                UseDB.UpdateDB("RequestList", "Value", "DateUse", strRequest, DateTime.Now.ToString());
 
                 dgvRequest.SelectedCells[4].Value = DateTime.Now.ToString(); //запись даты в ячейку "DataUse"
 
                 if (chckbRemoveRequest.Checked)
                 {
-                    //usedb = new UseDB("RequestList", "Value", strRequest);
-                    usedb.table = "RequestList";
-                    usedb.col1 = "Value";
-                    usedb.str1 = strRequest;
-                    usedb.numbCol = 1;
-                    usedb.DeleteDB();
+                    UseDB.DeleteDB("RequestList", "Value", strRequest);
                     dgvRequest.Rows.RemoveAt(dgvRequest.CurrentRow.Index); //удаляет строку из DataGridView
                     lblQuantity.Text = "Количество заявок: " + dgvRequest.Rows.Count.ToString(); // -1 заявка в lbl после удаления из dgv
                 }
@@ -615,16 +539,7 @@ namespace ALLinONE
 
                 str += lbProgList.SelectedItem + ". " + tbAddFIORequest.Text;
 
-                //UseDB usedb = new UseDB("RequestList", "Value", "User", "DateCreate", str, Environment.UserName, DateTime.Now.ToString());
-                usedb.table = "RequestList";
-                usedb.col1 = "Value";
-                usedb.col2 = "User";
-                usedb.col3 = "DateCreate";
-                usedb.str1 = str;
-                usedb.str2 = Environment.UserName;
-                usedb.str3 = DateTime.Now.ToString();
-                usedb.numbCol = 3;
-                usedb.InsertDB();
+                UseDB.InsertDB("RequestList", "Value", "User", "DateCreate", str, Environment.UserName, DateTime.Now.ToString());
 
                 lblAddRequestDB.Text = "Улетело в БД:\n" + str;
                 tmrComm5555.Enabled = true;
@@ -640,12 +555,7 @@ namespace ALLinONE
             }
             else
             {
-                //UseDB usedb = new UseDB("ProgList", "Name", tbAddProg.Text);
-                usedb.table = "ProgList";
-                usedb.col1 = "Name";
-                usedb.str1 = tbAddProg.Text;
-                usedb.numbCol = 1;
-                usedb.InsertDB();
+                UseDB.InsertDB("ProgList", "Name", tbAddProg.Text);
                 lbProgList.Items.Add(tbAddProg.Text);
                 tbAddProg.Text = null;
             }
@@ -658,12 +568,7 @@ namespace ALLinONE
                 DialogResult result = MessageBox.Show("Удалить запись '" + lbProgList.SelectedItem + "'?", "Ты уверен?", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (result == DialogResult.Yes)
                 {
-                    //UseDB usedb = new UseDB("ProgList", "Name", lbProgList.SelectedItem.ToString());
-                    usedb.table = "ProgList";
-                    usedb.col1 = "Name";
-                    usedb.str1 = lbProgList.SelectedItem.ToString();
-                    usedb.numbCol = 1;
-                    usedb.DeleteDB();
+                    UseDB.DeleteDB("ProgList", "Name", lbProgList.SelectedItem.ToString());
                     lbProgList.Items.RemoveAt(lbProgList.SelectedIndex);
                 }
             }
@@ -737,14 +642,14 @@ namespace ALLinONE
         public void RefreshLBRDP()
         {
             lbRDP.Items.Clear();
-            foreach (var item in usedb.SelectDB("ServiceRDP", "Title"))
+            foreach (var item in UseDB.SelectDB("ServiceRDP", "Title"))
                 lbRDP.Items.Add(item);
         }
 
         public void RefreshLBShare()
         {
             lbShare.Items.Clear();
-            foreach (var item in usedb.SelectDB("ServiceShare", "Title"))
+            foreach (var item in UseDB.SelectDB("ServiceShare", "Title"))
                 lbShare.Items.Add(item);
         }
 

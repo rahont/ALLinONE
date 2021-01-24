@@ -13,8 +13,6 @@ namespace ALLinONE
 {
     public partial class SrvcChange : Form
     {
-        UseDB usedb = new UseDB();
-
         public SrvcChange()
         {
             InitializeComponent();
@@ -26,7 +24,7 @@ namespace ALLinONE
                 MessageBox.Show("Заполни все поля под колонкой RDP!", "Не заполнил!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
-                usedb.InsertDB("ServiceRDP", "Name", "Title", tbRDPName.Text, tbRDPTitle.Text);
+                UseDB.InsertDB("ServiceRDP", "Name", "Title", tbRDPName.Text, tbRDPTitle.Text);
 
                 tbRDPName.Text = null;
                 tbRDPTitle.Text = null;
@@ -48,7 +46,7 @@ namespace ALLinONE
                     if (checkSimb != @"\\") str = @"\\"; //проверяем первые 2 символа, если это не \\, то записать в переменную \\
                 }
 
-                usedb.InsertDB("ServiceShare", "Name", "Title", str + tbShareName.Text, tbShareTitle.Text);
+                UseDB.InsertDB("ServiceShare", "Name", "Title", str + tbShareName.Text, tbShareTitle.Text);
 
                 tbShareName.Text = null;
                 tbShareTitle.Text = null;
@@ -75,7 +73,7 @@ namespace ALLinONE
                 }
                 if (available == false)
                 {
-                    usedb.InsertDB("PingList", "Name", "Title", tbPingName.Text, tbPingTitle.Text);
+                    UseDB.InsertDB("PingList", "Name", "Title", tbPingName.Text, tbPingTitle.Text);
 
                     tbPingName.Text = null;
                     tbPingTitle.Text = null;
@@ -96,19 +94,19 @@ namespace ALLinONE
         {
             lbRDP.Items.Clear();
 
-            foreach (var item in usedb.SelectDB("ServiceRDP", "Title"))
+            foreach (var item in UseDB.SelectDB("ServiceRDP", "Title"))
             {
                 lbRDP.Items.Add(item);
             }
 
-            usedb.connectDB.Close();
+            UseDB.connectDB.Close();
         }
 
         private void RefreshLBShare()
         {
             lbShare.Items.Clear();
 
-            foreach (var item in usedb.SelectDB("ServiceShare", "Title"))
+            foreach (var item in UseDB.SelectDB("ServiceShare", "Title"))
             {
                 lbShare.Items.Add(item);
             }
@@ -118,7 +116,7 @@ namespace ALLinONE
         {
             lbPing.Items.Clear();
 
-            foreach (var item in usedb.SelectDB("PingList", "Title"))
+            foreach (var item in UseDB.SelectDB("PingList", "Title"))
             {
                 lbPing.Items.Add(item);
             }
@@ -131,7 +129,7 @@ namespace ALLinONE
                 DialogResult result = MessageBox.Show("Удалить запись '" + lbRDP.SelectedItem + "'?", "Ты уверен?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    usedb.DeleteDB("ServiceRDP", "Title", lbRDP.SelectedItem.ToString());
+                    UseDB.DeleteDB("ServiceRDP", "Title", lbRDP.SelectedItem.ToString());
 
                     RefreshLBRDP();
                 }
@@ -146,7 +144,7 @@ namespace ALLinONE
                 DialogResult result = MessageBox.Show("Удалить запись '" + lbShare.SelectedItem + "'?", "Ты уверен?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    usedb.DeleteDB("ServiceShare", "Title", lbShare.SelectedItem.ToString());
+                    UseDB.DeleteDB("ServiceShare", "Title", lbShare.SelectedItem.ToString());
 
                     RefreshLBShare();
                 }
@@ -193,7 +191,7 @@ namespace ALLinONE
                 DialogResult result = MessageBox.Show("Удалить запись '" + lbPing.SelectedItem + "'?", "Ты уверен?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    usedb.DeleteDB("PingList", "Title", lbPing.SelectedItem.ToString());
+                    UseDB.DeleteDB("PingList", "Title", lbPing.SelectedItem.ToString());
 
                     RefreshLBPing();
                 }

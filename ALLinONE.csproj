@@ -14,20 +14,23 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <PublishUrl>publish\</PublishUrl>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>E:\PublishTest\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <InstallUrl>\\localhost\d%24\Projects\ALLinONE\</InstallUrl>
+    <MinimumRequiredVersion>2.12.0.5</MinimumRequiredVersion>
+    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationVersion>2.12.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -53,6 +56,24 @@
     <ApplicationIcon>cave_man_emoticon_emoji_sticker_wave_icon_123503.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup />
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>044560CA3126D554DBE60B8B43C8547B6937E218</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>ALLinONE_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EPPlus, Version=4.5.3.3, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>packages\EPPlus.4.5.3.3\lib\net40\EPPlus.dll</HintPath>
@@ -218,7 +239,9 @@
     <EmbeddedResource Include="ToDoList.resx">
       <DependentUpon>ToDoList.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ALLinONE_TemporaryKey.pfx" />
     <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -235,23 +258,13 @@
   <ItemGroup>
     <Content Include="cave_man_emoticon_emoji_sticker_wave_icon_123503.ico" />
     <None Include="Resources\wifi-signal-waves_icon-icons.com_72466.png" />
-    <None Include="Resources\settings-remote_117550.png" />
     <None Include="Resources\2849830-gear-interface-multimedia-options-setting-settings_107986.png" />
     <None Include="Resources\dataencryption_application_dedatos_3363.png" />
     <None Include="Resources\databackup_theapplication_dedatos_3366.png" />
     <None Include="Resources\Data_settings_theapplication_3364.png" />
-    <None Include="Resources\simpleccsm_103799.png" />
-    <None Include="Resources\businessapplication_database_database_accepteitheracceptthedatabase_connect_connectdatabase_negocios_aplicacion_basededato_2310.png" />
-    <None Include="Resources\angle-arrow-down_icon-icons.com_73683.png" />
     <None Include="Resources\down-arrow_icon-icons.com_64915.png" />
-    <None Include="Resources\ic_file_download_128_28401.png" />
-    <None Include="Resources\-file-download_90117.png" />
-    <None Include="Resources\1904675-configuration-edit-gear-options-preferences-setting-settings_122525.png" />
-    <None Include="Resources\database_accept_12928.png" />
     <None Include="Resources\switch_power_on_off_icon_178313.png" />
-    <None Include="Resources\Excel2_35735.png" />
     <None Include="Resources\Excel_Mac_23559.png" />
-    <None Include="Resources\Excel_2013_23480.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.1">

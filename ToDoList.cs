@@ -13,9 +13,6 @@ namespace ALLinONE
 {
     public partial class ToDoList : UserControl
     {
-        //public SQLiteConnection DB;
-        UseDB usedb = new UseDB();
-
         public ToDoList()
         {
             InitializeComponent();
@@ -29,14 +26,7 @@ namespace ALLinONE
             }
             else
             {
-                //UseDB usedb = new UseDB("ToDo", "Value", "Date", tbValue.Text, DateTime.Now.ToString());
-                usedb.table = "ToDo";
-                usedb.col1 = "Value";
-                usedb.col2 = "Date";
-                usedb.str1 = tbValue.Text;
-                usedb.str2 = DateTime.Now.ToString();
-                usedb.numbCol = 2;
-                usedb.InsertDB();
+                UseDB.InsertDB("ToDo", "Value", "Date", tbValue.Text, DateTime.Now.ToString());
 
                 RefreshList();
                 tbValue.Clear();
@@ -47,7 +37,7 @@ namespace ALLinONE
         {
             MainForm mf = new MainForm();
 
-            var sqlCommand = new SQLiteCommand("select * from ToDo", usedb.connectDB);
+            var sqlCommand = new SQLiteCommand("select * from ToDo", UseDB.connectDB);
             sqlCommand.ExecuteNonQuery();
 
             var dataTable = new DataTable("ToDo");
@@ -98,11 +88,7 @@ namespace ALLinONE
                     "Ты уверен?", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (result == DialogResult.Yes)
                 {
-                    //UseDB usedb = new UseDB("ToDo", "id", strId);
-                    usedb.table = "ToDo";
-                    usedb.col1 = "id";
-                    usedb.str1 = strId;
-                    usedb.DeleteDB();
+                    UseDB.DeleteDB("ToDo", "id", strId);
                     dgvList.Rows.RemoveAt(dgvList.CurrentRow.Index); //удаляет строку из DataGridView
                     //lblQuantity.Text = "Количество заявок: " + dgvRequest.Rows.Count.ToString(); // -1 заявка в lbl после удаления из dgv
                 }

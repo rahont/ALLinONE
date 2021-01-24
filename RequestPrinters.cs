@@ -13,8 +13,6 @@ namespace ALLinONE
 {
     public partial class RequestPrinters : Form
     {
-        UseDB usedb = new UseDB();
-
         public RequestPrinters()
         {
             InitializeComponent();
@@ -28,16 +26,7 @@ namespace ALLinONE
 
                 string str = RequestString();
 
-                //UseDB usedb = new UseDB("RequestList", "Value", "User", "DateCreate", str, Environment.UserName, DateTime.Now.ToString());
-                usedb.table = "RequestList";
-                usedb.col1 = "Value";
-                usedb.col2 = "User";
-                usedb.col3 = "DateCreate";
-                usedb.str1 = str;
-                usedb.str2 = Environment.UserName;
-                usedb.str3 = DateTime.Now.ToString();
-                usedb.numbCol = 3;
-                usedb.InsertDB();
+                UseDB.InsertDB("RequestList", "Value", "User", "DateCreate", str, Environment.UserName, DateTime.Now.ToString());
 
                 lblRequestPrint.Text = "Улетело в БД: " + str;
                 tmrComm5555.Enabled = true;
@@ -75,9 +64,8 @@ namespace ALLinONE
 
         private void RefreshDBPrinters()
         {
-            MainForm mf = new MainForm();
-            usedb.connectDB.Open();
-            var sqlCommand = new SQLiteCommand("select * from Printers", usedb.connectDB);
+            UseDB.connectDB.Open();
+            var sqlCommand = new SQLiteCommand("select * from Printers", UseDB.connectDB);
             sqlCommand.ExecuteNonQuery();
 
             var dataTable = new DataTable("Printers");
@@ -87,7 +75,7 @@ namespace ALLinONE
             dgvRequestPrint.DataSource = dataTable.DefaultView;
             sqlAdapter.Update(dataTable);
 
-            usedb.connectDB.Close();
+            UseDB.connectDB.Close();
 
             dgvRequestPrint.Columns["id"].Visible = false;
             //Переименовка колонок в DataGridView

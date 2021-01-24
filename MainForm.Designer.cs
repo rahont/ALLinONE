@@ -46,6 +46,21 @@
             this.tmrServicePB = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.tabControl = new System.Windows.Forms.CustomTabControl();
+            this.tabPageService = new System.Windows.Forms.TabPage();
+            this.btnRefreshPing = new System.Windows.Forms.Button();
+            this.numPingTimeOut = new System.Windows.Forms.NumericUpDown();
+            this.numPingProgress = new System.Windows.Forms.NumericUpDown();
+            this.pbPingProgress = new System.Windows.Forms.ProgressBar();
+            this.lblPingTimeOut = new System.Windows.Forms.Label();
+            this.lblPingSuccess = new System.Windows.Forms.Label();
+            this.lbPingTimeOut = new System.Windows.Forms.ListBox();
+            this.lbPingSuccess = new System.Windows.Forms.ListBox();
+            this.btnSrvcChange = new System.Windows.Forms.Button();
+            this.chckbServiceSorted = new System.Windows.Forms.CheckBox();
+            this.lblShare = new System.Windows.Forms.Label();
+            this.lblRDP = new System.Windows.Forms.Label();
+            this.lbShare = new System.Windows.Forms.ListBox();
+            this.lbRDP = new System.Windows.Forms.ListBox();
             this.tabPageProfRab = new System.Windows.Forms.TabPage();
             this.lblPR = new System.Windows.Forms.Label();
             this.btnPR1 = new System.Windows.Forms.Button();
@@ -75,21 +90,6 @@
             this.btnPR15 = new System.Windows.Forms.Button();
             this.btnPR17 = new System.Windows.Forms.Button();
             this.btnPR16 = new System.Windows.Forms.Button();
-            this.tabPageService = new System.Windows.Forms.TabPage();
-            this.btnRefreshPing = new System.Windows.Forms.Button();
-            this.numPingTimeOut = new System.Windows.Forms.NumericUpDown();
-            this.numPingProgress = new System.Windows.Forms.NumericUpDown();
-            this.pbPingProgress = new System.Windows.Forms.ProgressBar();
-            this.lblPingTimeOut = new System.Windows.Forms.Label();
-            this.lblPingSuccess = new System.Windows.Forms.Label();
-            this.lbPingTimeOut = new System.Windows.Forms.ListBox();
-            this.lbPingSuccess = new System.Windows.Forms.ListBox();
-            this.btnSrvcChange = new System.Windows.Forms.Button();
-            this.chckbServiceSorted = new System.Windows.Forms.CheckBox();
-            this.lblShare = new System.Windows.Forms.Label();
-            this.lblRDP = new System.Windows.Forms.Label();
-            this.lbShare = new System.Windows.Forms.ListBox();
-            this.lbRDP = new System.Windows.Forms.ListBox();
             this.tabPagePrinters = new System.Windows.Forms.TabPage();
             this.tbPrintInvNumber = new ALLinONE.MyTextBox();
             this.tbPrintLocation = new ALLinONE.MyTextBox();
@@ -136,10 +136,10 @@
             this.lbProgList = new System.Windows.Forms.ListBox();
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
-            this.tabPageProfRab.SuspendLayout();
             this.tabPageService.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPingTimeOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPingProgress)).BeginInit();
+            this.tabPageProfRab.SuspendLayout();
             this.tabPagePrinters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrinters)).BeginInit();
             this.tabPageDBList.SuspendLayout();
@@ -302,6 +302,205 @@
             this.tabControl.TabIndex = 12;
             this.tabControl.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControl_Selecting);
             // 
+            // tabPageService
+            // 
+            this.tabPageService.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageService.Controls.Add(this.btnRefreshPing);
+            this.tabPageService.Controls.Add(this.numPingTimeOut);
+            this.tabPageService.Controls.Add(this.numPingProgress);
+            this.tabPageService.Controls.Add(this.pbPingProgress);
+            this.tabPageService.Controls.Add(this.lblPingTimeOut);
+            this.tabPageService.Controls.Add(this.lblPingSuccess);
+            this.tabPageService.Controls.Add(this.lbPingTimeOut);
+            this.tabPageService.Controls.Add(this.lbPingSuccess);
+            this.tabPageService.Controls.Add(this.btnSrvcChange);
+            this.tabPageService.Controls.Add(this.chckbServiceSorted);
+            this.tabPageService.Controls.Add(this.lblShare);
+            this.tabPageService.Controls.Add(this.lblRDP);
+            this.tabPageService.Controls.Add(this.lbShare);
+            this.tabPageService.Controls.Add(this.lbRDP);
+            this.tabPageService.Location = new System.Drawing.Point(4, 23);
+            this.tabPageService.Name = "tabPageService";
+            this.tabPageService.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageService.Size = new System.Drawing.Size(626, 597);
+            this.tabPageService.TabIndex = 1;
+            this.tabPageService.Text = "Сервис";
+            // 
+            // btnRefreshPing
+            // 
+            this.btnRefreshPing.Location = new System.Drawing.Point(215, 548);
+            this.btnRefreshPing.Name = "btnRefreshPing";
+            this.btnRefreshPing.Size = new System.Drawing.Size(75, 20);
+            this.btnRefreshPing.TabIndex = 36;
+            this.btnRefreshPing.Text = "Обновить";
+            this.btnRefreshPing.UseVisualStyleBackColor = true;
+            this.btnRefreshPing.Click += new System.EventHandler(this.btnRefreshPing_Click);
+            // 
+            // numPingTimeOut
+            // 
+            this.numPingTimeOut.Location = new System.Drawing.Point(155, 548);
+            this.numPingTimeOut.Maximum = new decimal(new int[] {
+            164,
+            0,
+            0,
+            0});
+            this.numPingTimeOut.Minimum = new decimal(new int[] {
+            32,
+            0,
+            0,
+            0});
+            this.numPingTimeOut.Name = "numPingTimeOut";
+            this.numPingTimeOut.Size = new System.Drawing.Size(39, 20);
+            this.numPingTimeOut.TabIndex = 35;
+            this.numPingTimeOut.Value = new decimal(new int[] {
+            64,
+            0,
+            0,
+            0});
+            // 
+            // numPingProgress
+            // 
+            this.numPingProgress.Location = new System.Drawing.Point(109, 548);
+            this.numPingProgress.Maximum = new decimal(new int[] {
+            64,
+            0,
+            0,
+            0});
+            this.numPingProgress.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numPingProgress.Name = "numPingProgress";
+            this.numPingProgress.Size = new System.Drawing.Size(34, 20);
+            this.numPingProgress.TabIndex = 28;
+            this.numPingProgress.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            this.numPingProgress.ValueChanged += new System.EventHandler(this.numPingProgress_ValueChanged);
+            // 
+            // pbPingProgress
+            // 
+            this.pbPingProgress.Location = new System.Drawing.Point(27, 574);
+            this.pbPingProgress.Maximum = 1000;
+            this.pbPingProgress.Name = "pbPingProgress";
+            this.pbPingProgress.Size = new System.Drawing.Size(242, 20);
+            this.pbPingProgress.TabIndex = 34;
+            // 
+            // lblPingTimeOut
+            // 
+            this.lblPingTimeOut.AutoSize = true;
+            this.lblPingTimeOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblPingTimeOut.Location = new System.Drawing.Point(176, 339);
+            this.lblPingTimeOut.Name = "lblPingTimeOut";
+            this.lblPingTimeOut.Size = new System.Drawing.Size(92, 15);
+            this.lblPingTimeOut.TabIndex = 33;
+            this.lblPingTimeOut.Text = "Не доступны";
+            // 
+            // lblPingSuccess
+            // 
+            this.lblPingSuccess.AutoSize = true;
+            this.lblPingSuccess.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblPingSuccess.Location = new System.Drawing.Point(38, 339);
+            this.lblPingSuccess.Name = "lblPingSuccess";
+            this.lblPingSuccess.Size = new System.Drawing.Size(72, 15);
+            this.lblPingSuccess.TabIndex = 32;
+            this.lblPingSuccess.Text = "Доступны";
+            // 
+            // lbPingTimeOut
+            // 
+            this.lbPingTimeOut.ForeColor = System.Drawing.Color.Maroon;
+            this.lbPingTimeOut.FormattingEnabled = true;
+            this.lbPingTimeOut.Location = new System.Drawing.Point(155, 356);
+            this.lbPingTimeOut.Name = "lbPingTimeOut";
+            this.lbPingTimeOut.Size = new System.Drawing.Size(135, 186);
+            this.lbPingTimeOut.Sorted = true;
+            this.lbPingTimeOut.TabIndex = 27;
+            this.lbPingTimeOut.Leave += new System.EventHandler(this.lbRDP_Leave);
+            // 
+            // lbPingSuccess
+            // 
+            this.lbPingSuccess.ForeColor = System.Drawing.Color.Green;
+            this.lbPingSuccess.FormattingEnabled = true;
+            this.lbPingSuccess.Location = new System.Drawing.Point(8, 356);
+            this.lbPingSuccess.Name = "lbPingSuccess";
+            this.lbPingSuccess.Size = new System.Drawing.Size(135, 186);
+            this.lbPingSuccess.Sorted = true;
+            this.lbPingSuccess.TabIndex = 26;
+            this.lbPingSuccess.Leave += new System.EventHandler(this.lbRDP_Leave);
+            // 
+            // btnSrvcChange
+            // 
+            this.btnSrvcChange.Location = new System.Drawing.Point(505, 553);
+            this.btnSrvcChange.Name = "btnSrvcChange";
+            this.btnSrvcChange.Size = new System.Drawing.Size(113, 37);
+            this.btnSrvcChange.TabIndex = 29;
+            this.btnSrvcChange.TabStop = false;
+            this.btnSrvcChange.Text = "Может нам что-то поменять?";
+            this.btnSrvcChange.UseVisualStyleBackColor = true;
+            this.btnSrvcChange.Click += new System.EventHandler(this.btnSrvcChange_Click);
+            // 
+            // chckbServiceSorted
+            // 
+            this.chckbServiceSorted.Checked = true;
+            this.chckbServiceSorted.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chckbServiceSorted.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.chckbServiceSorted.Location = new System.Drawing.Point(255, 283);
+            this.chckbServiceSorted.Name = "chckbServiceSorted";
+            this.chckbServiceSorted.Size = new System.Drawing.Size(53, 50);
+            this.chckbServiceSorted.TabIndex = 25;
+            this.chckbServiceSorted.Text = "Сорт. по имени";
+            this.chckbServiceSorted.UseVisualStyleBackColor = true;
+            this.chckbServiceSorted.CheckedChanged += new System.EventHandler(this.chckbServiceSorted_CheckedChanged);
+            // 
+            // lblShare
+            // 
+            this.lblShare.AutoSize = true;
+            this.lblShare.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblShare.Location = new System.Drawing.Point(435, 4);
+            this.lblShare.Name = "lblShare";
+            this.lblShare.Size = new System.Drawing.Size(57, 20);
+            this.lblShare.TabIndex = 31;
+            this.lblShare.Text = "Share";
+            // 
+            // lblRDP
+            // 
+            this.lblRDP.AutoSize = true;
+            this.lblRDP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblRDP.Location = new System.Drawing.Point(97, 4);
+            this.lblRDP.Name = "lblRDP";
+            this.lblRDP.Size = new System.Drawing.Size(46, 20);
+            this.lblRDP.TabIndex = 30;
+            this.lblRDP.Text = "RDP";
+            // 
+            // lbShare
+            // 
+            this.lbShare.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbShare.FormattingEnabled = true;
+            this.lbShare.ItemHeight = 18;
+            this.lbShare.Location = new System.Drawing.Point(311, 26);
+            this.lbShare.Name = "lbShare";
+            this.lbShare.Size = new System.Drawing.Size(307, 310);
+            this.lbShare.Sorted = true;
+            this.lbShare.TabIndex = 24;
+            this.lbShare.DoubleClick += new System.EventHandler(this.lbShare_DoubleClick);
+            this.lbShare.Leave += new System.EventHandler(this.lbRDP_Leave);
+            // 
+            // lbRDP
+            // 
+            this.lbRDP.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbRDP.FormattingEnabled = true;
+            this.lbRDP.ItemHeight = 18;
+            this.lbRDP.Location = new System.Drawing.Point(8, 26);
+            this.lbRDP.Name = "lbRDP";
+            this.lbRDP.Size = new System.Drawing.Size(242, 310);
+            this.lbRDP.Sorted = true;
+            this.lbRDP.TabIndex = 23;
+            this.lbRDP.DoubleClick += new System.EventHandler(this.lbRDP_DoubleClick);
+            this.lbRDP.Leave += new System.EventHandler(this.lbRDP_Leave);
+            // 
             // tabPageProfRab
             // 
             this.tabPageProfRab.BackColor = System.Drawing.SystemColors.Control;
@@ -347,7 +546,7 @@
             this.lblPR.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblPR.Enabled = false;
             this.lblPR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblPR.Location = new System.Drawing.Point(3, 485);
+            this.lblPR.Location = new System.Drawing.Point(3, 482);
             this.lblPR.Name = "lblPR";
             this.lblPR.Size = new System.Drawing.Size(620, 109);
             this.lblPR.TabIndex = 27;
@@ -651,203 +850,6 @@
             this.btnPR16.UseVisualStyleBackColor = true;
             this.btnPR16.Click += new System.EventHandler(this.BtnPR1_Click);
             // 
-            // tabPageService
-            // 
-            this.tabPageService.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPageService.Controls.Add(this.btnRefreshPing);
-            this.tabPageService.Controls.Add(this.numPingTimeOut);
-            this.tabPageService.Controls.Add(this.numPingProgress);
-            this.tabPageService.Controls.Add(this.pbPingProgress);
-            this.tabPageService.Controls.Add(this.lblPingTimeOut);
-            this.tabPageService.Controls.Add(this.lblPingSuccess);
-            this.tabPageService.Controls.Add(this.lbPingTimeOut);
-            this.tabPageService.Controls.Add(this.lbPingSuccess);
-            this.tabPageService.Controls.Add(this.btnSrvcChange);
-            this.tabPageService.Controls.Add(this.chckbServiceSorted);
-            this.tabPageService.Controls.Add(this.lblShare);
-            this.tabPageService.Controls.Add(this.lblRDP);
-            this.tabPageService.Controls.Add(this.lbShare);
-            this.tabPageService.Controls.Add(this.lbRDP);
-            this.tabPageService.Location = new System.Drawing.Point(4, 23);
-            this.tabPageService.Name = "tabPageService";
-            this.tabPageService.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageService.Size = new System.Drawing.Size(626, 597);
-            this.tabPageService.TabIndex = 1;
-            this.tabPageService.Text = "Сервис";
-            // 
-            // btnRefreshPing
-            // 
-            this.btnRefreshPing.Location = new System.Drawing.Point(215, 548);
-            this.btnRefreshPing.Name = "btnRefreshPing";
-            this.btnRefreshPing.Size = new System.Drawing.Size(75, 20);
-            this.btnRefreshPing.TabIndex = 36;
-            this.btnRefreshPing.Text = "Обновить";
-            this.btnRefreshPing.UseVisualStyleBackColor = true;
-            this.btnRefreshPing.Click += new System.EventHandler(this.btnRefreshPing_Click);
-            // 
-            // numPingTimeOut
-            // 
-            this.numPingTimeOut.Location = new System.Drawing.Point(155, 548);
-            this.numPingTimeOut.Maximum = new decimal(new int[] {
-            164,
-            0,
-            0,
-            0});
-            this.numPingTimeOut.Minimum = new decimal(new int[] {
-            32,
-            0,
-            0,
-            0});
-            this.numPingTimeOut.Name = "numPingTimeOut";
-            this.numPingTimeOut.Size = new System.Drawing.Size(39, 20);
-            this.numPingTimeOut.TabIndex = 35;
-            this.numPingTimeOut.Value = new decimal(new int[] {
-            64,
-            0,
-            0,
-            0});
-            // 
-            // numPingProgress
-            // 
-            this.numPingProgress.Location = new System.Drawing.Point(109, 548);
-            this.numPingProgress.Maximum = new decimal(new int[] {
-            64,
-            0,
-            0,
-            0});
-            this.numPingProgress.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numPingProgress.Name = "numPingProgress";
-            this.numPingProgress.Size = new System.Drawing.Size(34, 20);
-            this.numPingProgress.TabIndex = 28;
-            this.numPingProgress.Value = new decimal(new int[] {
-            30,
-            0,
-            0,
-            0});
-            this.numPingProgress.ValueChanged += new System.EventHandler(this.numPingProgress_ValueChanged);
-            // 
-            // pbPingProgress
-            // 
-            this.pbPingProgress.Location = new System.Drawing.Point(27, 574);
-            this.pbPingProgress.Maximum = 1000;
-            this.pbPingProgress.Name = "pbPingProgress";
-            this.pbPingProgress.Size = new System.Drawing.Size(242, 20);
-            this.pbPingProgress.TabIndex = 34;
-            // 
-            // lblPingTimeOut
-            // 
-            this.lblPingTimeOut.AutoSize = true;
-            this.lblPingTimeOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblPingTimeOut.Location = new System.Drawing.Point(176, 339);
-            this.lblPingTimeOut.Name = "lblPingTimeOut";
-            this.lblPingTimeOut.Size = new System.Drawing.Size(92, 15);
-            this.lblPingTimeOut.TabIndex = 33;
-            this.lblPingTimeOut.Text = "Не доступны";
-            // 
-            // lblPingSuccess
-            // 
-            this.lblPingSuccess.AutoSize = true;
-            this.lblPingSuccess.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblPingSuccess.Location = new System.Drawing.Point(38, 339);
-            this.lblPingSuccess.Name = "lblPingSuccess";
-            this.lblPingSuccess.Size = new System.Drawing.Size(72, 15);
-            this.lblPingSuccess.TabIndex = 32;
-            this.lblPingSuccess.Text = "Доступны";
-            // 
-            // lbPingTimeOut
-            // 
-            this.lbPingTimeOut.FormattingEnabled = true;
-            this.lbPingTimeOut.Location = new System.Drawing.Point(155, 356);
-            this.lbPingTimeOut.Name = "lbPingTimeOut";
-            this.lbPingTimeOut.Size = new System.Drawing.Size(135, 186);
-            this.lbPingTimeOut.Sorted = true;
-            this.lbPingTimeOut.TabIndex = 27;
-            this.lbPingTimeOut.Leave += new System.EventHandler(this.lbRDP_Leave);
-            // 
-            // lbPingSuccess
-            // 
-            this.lbPingSuccess.FormattingEnabled = true;
-            this.lbPingSuccess.Location = new System.Drawing.Point(8, 356);
-            this.lbPingSuccess.Name = "lbPingSuccess";
-            this.lbPingSuccess.Size = new System.Drawing.Size(135, 186);
-            this.lbPingSuccess.Sorted = true;
-            this.lbPingSuccess.TabIndex = 26;
-            this.lbPingSuccess.Leave += new System.EventHandler(this.lbRDP_Leave);
-            // 
-            // btnSrvcChange
-            // 
-            this.btnSrvcChange.Location = new System.Drawing.Point(505, 553);
-            this.btnSrvcChange.Name = "btnSrvcChange";
-            this.btnSrvcChange.Size = new System.Drawing.Size(113, 37);
-            this.btnSrvcChange.TabIndex = 29;
-            this.btnSrvcChange.TabStop = false;
-            this.btnSrvcChange.Text = "Может нам что-то поменять?";
-            this.btnSrvcChange.UseVisualStyleBackColor = true;
-            this.btnSrvcChange.Click += new System.EventHandler(this.btnSrvcChange_Click);
-            // 
-            // chckbServiceSorted
-            // 
-            this.chckbServiceSorted.Checked = true;
-            this.chckbServiceSorted.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chckbServiceSorted.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.chckbServiceSorted.Location = new System.Drawing.Point(255, 283);
-            this.chckbServiceSorted.Name = "chckbServiceSorted";
-            this.chckbServiceSorted.Size = new System.Drawing.Size(53, 50);
-            this.chckbServiceSorted.TabIndex = 25;
-            this.chckbServiceSorted.Text = "Сорт. по имени";
-            this.chckbServiceSorted.UseVisualStyleBackColor = true;
-            this.chckbServiceSorted.CheckedChanged += new System.EventHandler(this.chckbServiceSorted_CheckedChanged);
-            // 
-            // lblShare
-            // 
-            this.lblShare.AutoSize = true;
-            this.lblShare.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblShare.Location = new System.Drawing.Point(435, 4);
-            this.lblShare.Name = "lblShare";
-            this.lblShare.Size = new System.Drawing.Size(57, 20);
-            this.lblShare.TabIndex = 31;
-            this.lblShare.Text = "Share";
-            // 
-            // lblRDP
-            // 
-            this.lblRDP.AutoSize = true;
-            this.lblRDP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblRDP.Location = new System.Drawing.Point(97, 4);
-            this.lblRDP.Name = "lblRDP";
-            this.lblRDP.Size = new System.Drawing.Size(46, 20);
-            this.lblRDP.TabIndex = 30;
-            this.lblRDP.Text = "RDP";
-            // 
-            // lbShare
-            // 
-            this.lbShare.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbShare.FormattingEnabled = true;
-            this.lbShare.ItemHeight = 18;
-            this.lbShare.Location = new System.Drawing.Point(311, 26);
-            this.lbShare.Name = "lbShare";
-            this.lbShare.Size = new System.Drawing.Size(307, 310);
-            this.lbShare.Sorted = true;
-            this.lbShare.TabIndex = 24;
-            this.lbShare.DoubleClick += new System.EventHandler(this.lbShare_DoubleClick);
-            this.lbShare.Leave += new System.EventHandler(this.lbRDP_Leave);
-            // 
-            // lbRDP
-            // 
-            this.lbRDP.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbRDP.FormattingEnabled = true;
-            this.lbRDP.ItemHeight = 18;
-            this.lbRDP.Location = new System.Drawing.Point(8, 26);
-            this.lbRDP.Name = "lbRDP";
-            this.lbRDP.Size = new System.Drawing.Size(242, 310);
-            this.lbRDP.Sorted = true;
-            this.lbRDP.TabIndex = 23;
-            this.lbRDP.DoubleClick += new System.EventHandler(this.lbRDP_DoubleClick);
-            this.lbRDP.Leave += new System.EventHandler(this.lbRDP_Leave);
-            // 
             // tabPagePrinters
             // 
             this.tabPagePrinters.BackColor = System.Drawing.SystemColors.Control;
@@ -1079,7 +1081,7 @@
             // 
             this.lblInfoRequest.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblInfoRequest.Enabled = false;
-            this.lblInfoRequest.Location = new System.Drawing.Point(3, 545);
+            this.lblInfoRequest.Location = new System.Drawing.Point(3, 542);
             this.lblInfoRequest.Name = "lblInfoRequest";
             this.lblInfoRequest.Size = new System.Drawing.Size(620, 49);
             this.lblInfoRequest.TabIndex = 6;
@@ -1358,7 +1360,7 @@
             this.lbProgList.FormattingEnabled = true;
             this.lbProgList.Location = new System.Drawing.Point(3, 3);
             this.lbProgList.Name = "lbProgList";
-            this.lbProgList.Size = new System.Drawing.Size(269, 591);
+            this.lbProgList.Size = new System.Drawing.Size(269, 588);
             this.lbProgList.Sorted = true;
             this.lbProgList.TabIndex = 8;
             this.lbProgList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbProgList_KeyDown);
@@ -1383,11 +1385,11 @@
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.tabControl.ResumeLayout(false);
-            this.tabPageProfRab.ResumeLayout(false);
             this.tabPageService.ResumeLayout(false);
             this.tabPageService.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPingTimeOut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPingProgress)).EndInit();
+            this.tabPageProfRab.ResumeLayout(false);
             this.tabPagePrinters.ResumeLayout(false);
             this.tabPagePrinters.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrinters)).EndInit();

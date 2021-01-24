@@ -14,7 +14,7 @@ namespace ALLinONE
 {
     public partial class CheckDBexist : Form
     {
-        RegistryKey registry = Registry.CurrentUser.CreateSubKey("All in One");
+        RegistryKey registry = Registry.CurrentUser.CreateSubKey("SOFTWARE\\All in One");
 
         public CheckDBexist()
         {
@@ -47,8 +47,7 @@ namespace ALLinONE
             {
                 registry.SetValue("PathDB", Environment.CurrentDirectory + "\\" + nameDB + ".db");
 
-                UseDB usedb = new UseDB();
-                usedb.CreateNewDB(nameDB);
+                UseDB.CreateNewDB(nameDB);
 
                 MessageBox.Show($"Создана база данных по пути:\n{Environment.CurrentDirectory}\nИмя БД: {nameDB}.db",
                     "Создано!", MessageBoxButtons.OK, MessageBoxIcon.Information);

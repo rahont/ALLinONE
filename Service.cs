@@ -41,17 +41,14 @@ namespace ALLinONE
         }
         public void LoadListNameAndListTitle()
         {
-            foreach (var item in usedb.SelectDB("PingList", "Title"))
+            foreach (var item in UseDB.SelectDB("PingList", "Title"))
             {
                 listTitle.Add(item);
             }
 
             foreach (var item in listTitle)
             {
-                usedb = new UseDB("PingList", "Name", "Title", item);
-                listName.Add(usedb.SelectDBLike());
-
-                usedb = null;
+                listName.Add(UseDB.SelectDBLike("PingList", "Name", "Title", item));
             }
         }
     }
