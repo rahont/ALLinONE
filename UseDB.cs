@@ -152,48 +152,53 @@ namespace ALLinONE
             connectDB.Open();
             SQLiteCommand comm = connectDB.CreateCommand();
             //Создание всех таблиц
-            comm.CommandText = "create table ProfRab(" +
+            comm.CommandText = "create table ProfRab(" + //ProfRab
                 "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "[btn_name] VARCHAR(20) NOT NULL," +
                 "[btn_title] VARCHAR(32) NOT NULL," +
                 "[btn_value] VARCHAR(1024)" +
                 ");" +
-                "create table PingList(" +
+                "create table PingList(" + //PingList
                 "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "[Name] STRING(255) NOT NULL," +
                 "[Title] STRING(100) NOT NULL" +
                 ");" +
-                "create table ServiceRDP(" +
+                "create table ServiceRDP(" + //ServiceRDP
                 "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "[Name] STRING(100) NOT NULL," +
                 "[Title] STRING(50) NOT NULL" +
                 ");" +
-                "create table ServiceShare(" +
+                "create table ServiceShare(" + //ServiceShare
                 "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "[Name] STRING(255) NOT NULL," +
                 "[Title] STRING(50) NOT NULL" +
                 ");" +
-                "create table Printers(" +
+                "create table Printers(" + //Printers
                 "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "[Name] STRING(100) NOT NULL," +
                 "[NetName] STRING(50)," +
                 "[Location] STRING(20)," +
                 "[InvNumber] INTEGER(15)" +
                 ");" +
-                "create table ProgList(" +
+                "create table ProgList(" + //ProgList
                 "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "[Name] STRING(255) NOT NULL" +
                 ");" +
-                "create table ReinstallOS(" +
+                "create table ReinstallOS(" + //ReinstallOS
                 "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "[Name] STRING(255) NOT NULL" +
                 ");" +
-                "create table RequestList(" +
+                "create table RequestList(" + //RequestList
                 "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "[Value] STRING(300) NOT NULL," +
                 "[User] STRING(50) NOT NULL," +
                 "[DateCreate] STRING NOT NULL," +
                 "[DateUse] INTEGER(15)" +
+                ");" +
+                "create table ToDo(" + //ToDo
+                "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "[Value] TEXT(256) NOT NULL," +
+                "[Date] STRING NOT NULL" +
                 ");";
             comm.ExecuteNonQuery();
             connectDB.Close();
