@@ -47,6 +47,8 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.tabControl = new System.Windows.Forms.CustomTabControl();
             this.tabPageService = new System.Windows.Forms.TabPage();
+            this.lblPingTimeTimeOut = new System.Windows.Forms.Label();
+            this.lblPingTimeRefresh = new System.Windows.Forms.Label();
             this.btnRefreshPing = new System.Windows.Forms.Button();
             this.numPingTimeOut = new System.Windows.Forms.NumericUpDown();
             this.numPingProgress = new System.Windows.Forms.NumericUpDown();
@@ -134,8 +136,6 @@
             this.rdbtnAddRequest2 = new System.Windows.Forms.RadioButton();
             this.rdbtnAddRequest1 = new System.Windows.Forms.RadioButton();
             this.lbProgList = new System.Windows.Forms.ListBox();
-            this.lblPingTimeRefresh = new System.Windows.Forms.Label();
-            this.lblPingTimeTimeOut = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -235,7 +235,7 @@
             this.toDoToolStripMenuItem.Name = "toDoToolStripMenuItem";
             this.toDoToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.toDoToolStripMenuItem.Text = "ToDo";
-            this.toDoToolStripMenuItem.Visible = false;
+            this.toDoToolStripMenuItem.Click += new System.EventHandler(this.toDoToolStripMenuItem_Click);
             // 
             // remoteAccsessToolStripMenuItem
             // 
@@ -331,6 +331,28 @@
             this.tabPageService.Size = new System.Drawing.Size(626, 597);
             this.tabPageService.TabIndex = 1;
             this.tabPageService.Text = "Сервис";
+            // 
+            // lblPingTimeTimeOut
+            // 
+            this.lblPingTimeTimeOut.AutoSize = true;
+            this.lblPingTimeTimeOut.Location = new System.Drawing.Point(197, 550);
+            this.lblPingTimeTimeOut.Name = "lblPingTimeTimeOut";
+            this.lblPingTimeTimeOut.Size = new System.Drawing.Size(88, 13);
+            this.lblPingTimeTimeOut.TabIndex = 38;
+            this.lblPingTimeTimeOut.Text = "Таймаут пакета";
+            this.lblPingTimeTimeOut.MouseHover += new System.EventHandler(this.lblPingTimeRefresh_MouseHover);
+            // 
+            // lblPingTimeRefresh
+            // 
+            this.lblPingTimeRefresh.AccessibleDescription = "";
+            this.lblPingTimeRefresh.AutoSize = true;
+            this.lblPingTimeRefresh.Location = new System.Drawing.Point(11, 550);
+            this.lblPingTimeRefresh.Name = "lblPingTimeRefresh";
+            this.lblPingTimeRefresh.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblPingTimeRefresh.Size = new System.Drawing.Size(97, 13);
+            this.lblPingTimeRefresh.TabIndex = 37;
+            this.lblPingTimeRefresh.Text = "Обновлять через:";
+            this.lblPingTimeRefresh.MouseHover += new System.EventHandler(this.lblPingTimeRefresh_MouseHover);
             // 
             // btnRefreshPing
             // 
@@ -1370,28 +1392,6 @@
             this.lbProgList.Sorted = true;
             this.lbProgList.TabIndex = 8;
             this.lbProgList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbProgList_KeyDown);
-            // 
-            // lblPingTimeRefresh
-            // 
-            this.lblPingTimeRefresh.AccessibleDescription = "";
-            this.lblPingTimeRefresh.AutoSize = true;
-            this.lblPingTimeRefresh.Location = new System.Drawing.Point(11, 550);
-            this.lblPingTimeRefresh.Name = "lblPingTimeRefresh";
-            this.lblPingTimeRefresh.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblPingTimeRefresh.Size = new System.Drawing.Size(97, 13);
-            this.lblPingTimeRefresh.TabIndex = 37;
-            this.lblPingTimeRefresh.Text = "Обновлять через:";
-            this.lblPingTimeRefresh.MouseHover += new System.EventHandler(this.lblPingTimeRefresh_MouseHover);
-            // 
-            // lblPingTimeTimeOut
-            // 
-            this.lblPingTimeTimeOut.AutoSize = true;
-            this.lblPingTimeTimeOut.Location = new System.Drawing.Point(197, 550);
-            this.lblPingTimeTimeOut.Name = "lblPingTimeTimeOut";
-            this.lblPingTimeTimeOut.Size = new System.Drawing.Size(88, 13);
-            this.lblPingTimeTimeOut.TabIndex = 38;
-            this.lblPingTimeTimeOut.Text = "Таймаут пакета";
-            this.lblPingTimeTimeOut.MouseHover += new System.EventHandler(this.lblPingTimeRefresh_MouseHover);
             // 
             // toolTip
             // 

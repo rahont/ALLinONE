@@ -1,72 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SQLite;
 
 namespace ALLinONE
 {
-    public partial class ToDoList : UserControl
+    public partial class ToDoList : Form
     {
+        public static bool FormOpenClose { get; set; }
+
         public ToDoList()
         {
             InitializeComponent();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            if (tbValue.Text == "")
-            {
-                MessageBox.Show("Что будем добавлять?", "Не заполнил!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                UseDB.InsertDB("ToDo", "Value", "Date", tbValue.Text, DateTime.Now.ToString());
-
-                RefreshList();
-                tbValue.Clear();
-            }
-        }
-
-        private void RefreshList()
-        {
-            MainForm mf = new MainForm();
-
-            var sqlCommand = new SQLiteCommand("select * from ToDo", UseDB.connectDB);
-            sqlCommand.ExecuteNonQuery();
-
-            var dataTable = new DataTable("ToDo");
-            var sqlAdapter = new SQLiteDataAdapter(sqlCommand);
-            sqlAdapter.Fill(dataTable);
-
-            dgvList.DataSource = dataTable.DefaultView;
-            sqlAdapter.Update(dataTable);
-
-            //lblQuantity.Text = "Количество заявок: " + dgvRequest.Rows.Count.ToString();
-
-            dgvList.Columns["id"].Visible = false;
-            //Переименовка колонок в DataGridView
-            dgvList.Columns["Value"].HeaderText = "ТуДу";
-            dgvList.Columns["Date"].HeaderText = "Добавлена";
-
-            //Длина колонок в DataGridView
-            dgvList.Columns[1].Width = dgvList.Width - 110 - 20;
-            dgvList.Columns[2].Width = 110;
-
-            dgvList.ClearSelection();
-        }
-
         private void ToDoList_Load(object sender, EventArgs e)
         {
-            //DB = new SQLiteConnection("Data Source=Data_DB.db; Version=3"); //БД
-            //DB.Open();
+            FormOpenClose = true;
+            SetupDGV();
+            RefreshList();
+        }
 
-            //RefreshList();
+        private void ToDoList_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FormOpenClose = false;
+        }
+
+        private void dgvList_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Delete) //проверяем нажат ли Del,
+                btnRemove.PerformClick(); //если да, то жмем кнопку Удалить
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
@@ -95,16 +56,90 @@ namespace ALLinONE
             }
         }
 
-        private void tbValue_KeyDown(object sender, KeyEventArgs e)
+        private void tbValue_KeyDownEvent(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Enter) //проверяем нажат ли Enter,
                 btnAdd.PerformClick(); //если да, то жмем кнопку Добавить
         }
 
-        private void dgvList_KeyDown(object sender, KeyEventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (e.KeyData == Keys.Delete) //проверяем нажат ли Del,
-                btnRemove.PerformClick(); //если да, то жмем кнопку Добавить
+            if (tbValue.Text == string.Empty)
+            {
+                MessageBox.Show("Что будем добавлять?", "Не заполнил!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                string[] str = {null, tbValue.Text, DateTime.Now.ToString()};
+                UseDB.InsertDB("ToDo", "Value", "Date", str[1], str[2]);
+                //UseDB.InsertDB("ToDo", "Value", "Date", tbValue.Text, DateTime.Now.ToString());
+
+                dgvList.Rows.Add(str);
+                //RefreshList();
+                tbValue.Text = null;
+            }
+        }
+
+        private void SetupDGV()
+        {
+            //Создаем столбцы
+            dgvList.ColumnCount = 3;
+            dgvList.Columns[0].Name = "id";
+            dgvList.Columns[1].Name = "Value";
+            dgvList.Columns[2].Name = "Date";
+
+            //Переименовка столбцов
+            dgvList.Columns["Value"].HeaderText = "ТуДуШеЧКА";
+            dgvList.Columns["Date"].HeaderText = "Добавлена";
+
+            dgvList.Columns["id"].Visible = false;
+            //Длина столбцов
+            dgvList.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; //Автоподстройка длины столбца
+            dgvList.Columns[2].Width = 110;
+        }
+
+        private void RefreshList()
+        {
+            dgvList.Rows.Clear();
+
+            //Определяем количество строк в таблице
+            int tmp = 0;
+            foreach (var item in UseDB.SelectDB("ToDo", "id"))
+                tmp++;
+
+            //Проверка на наличие строк
+            if (tmp > 0)
+            {
+                //Создание необходимого количества строк в DataGridView
+                dgvList.Rows.Add(tmp);
+
+                //Заполняем DataGridView
+                for (int i = 0; i < 3; i++) //Столбцы
+                {
+                    //Массив столбца
+                    string[] str = UseDB.SelectDB("ToDo", dgvList.Columns[i].Name);
+
+                    for (int x = 0; x < tmp; x++) //Строки
+                        dgvList.Rows[x].Cells[dgvList.Columns[i].Name].Value = str[x]; //Заполнение ячеек
+                }
+            }
+            
+            dgvList.ClearSelection();
+        }
+
+        private void btnRefreshDGV_Click(object sender, EventArgs e)
+        {
+            RefreshList();
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            saveFileDialog.FileName = "ToDo_" + DateTime.Now.ToString().Replace(':', '-'); //Имя файла
+
+            if (dgvList.Rows.Count <= 0) //Проверка на наличие строк в DGV
+                MessageBox.Show("Выгружать нечего", "Пусто", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else if (saveFileDialog.ShowDialog() == DialogResult.OK) //Проверка на нажатие ОК
+                AiOMethods.SaveExcel(dgvList, saveFileDialog.FileName);
         }
     }
 }

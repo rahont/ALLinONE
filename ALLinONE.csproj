@@ -194,10 +194,16 @@
     </Compile>
     <Compile Include="TabControl\ThemedColors.cs" />
     <Compile Include="ToDoList.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="ToDoList.Designer.cs">
       <DependentUpon>ToDoList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToDoListUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ToDoListUC.Designer.cs">
+      <DependentUpon>ToDoListUC.cs</DependentUpon>
     </Compile>
     <Compile Include="UseDB.cs" />
     <EmbeddedResource Include="CheckDBexist.resx">
@@ -236,6 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ToDoList.resx">
       <DependentUpon>ToDoList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToDoListUC.resx">
+      <DependentUpon>ToDoListUC.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />

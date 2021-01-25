@@ -702,5 +702,14 @@ namespace ALLinONE
             if (lbl == lblPingTimeRefresh) toolTip.Show("В секундах", lbl);
             if (lbl == lblPingTimeTimeOut) toolTip.Show("В миллисекундах", lbl);
         }
+
+        private void toDoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ToDoList.FormOpenClose == false)
+            {
+                ToDoList tdl = new ToDoList();
+                tdl.ShowDialog();
+            }
+        }
     }
 }
