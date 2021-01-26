@@ -45,6 +45,7 @@
             this.tmrComm5555 = new System.Windows.Forms.Timer(this.components);
             this.tmrServicePB = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tabControl = new System.Windows.Forms.CustomTabControl();
             this.tabPageService = new System.Windows.Forms.TabPage();
             this.lblPingTimeTimeOut = new System.Windows.Forms.Label();
@@ -136,7 +137,6 @@
             this.rdbtnAddRequest2 = new System.Windows.Forms.RadioButton();
             this.rdbtnAddRequest1 = new System.Windows.Forms.RadioButton();
             this.lbProgList = new System.Windows.Forms.ListBox();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageService.SuspendLayout();
@@ -270,6 +270,12 @@
             this.saveFileDialog.DefaultExt = "xlsx";
             this.saveFileDialog.FileName = "AiO";
             this.saveFileDialog.Filter = "xlsx|*.xlsx|All Files|*.*";
+            // 
+            // toolTip
+            // 
+            this.toolTip.AutoPopDelay = 5000;
+            this.toolTip.InitialDelay = 500;
+            this.toolTip.ReshowDelay = 100;
             // 
             // tabControl
             // 
@@ -1392,12 +1398,6 @@
             this.lbProgList.Sorted = true;
             this.lbProgList.TabIndex = 8;
             this.lbProgList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbProgList_KeyDown);
-            // 
-            // toolTip
-            // 
-            this.toolTip.AutoPopDelay = 5000;
-            this.toolTip.InitialDelay = 500;
-            this.toolTip.ReshowDelay = 100;
             // 
             // MainForm
             // 

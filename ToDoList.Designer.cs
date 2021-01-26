@@ -43,7 +43,7 @@ namespace ALLinONE
             // btnAdd
             // 
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdd.Location = new System.Drawing.Point(410, 404);
+            this.btnAdd.Location = new System.Drawing.Point(508, 518);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 22);
             this.btnAdd.TabIndex = 9;
@@ -54,7 +54,7 @@ namespace ALLinONE
             // btnPrint
             // 
             this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrint.Location = new System.Drawing.Point(410, 376);
+            this.btnPrint.Location = new System.Drawing.Point(508, 490);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(75, 23);
             this.btnPrint.TabIndex = 7;
@@ -65,7 +65,7 @@ namespace ALLinONE
             // btnRemove
             // 
             this.btnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRemove.Location = new System.Drawing.Point(0, 376);
+            this.btnRemove.Location = new System.Drawing.Point(0, 490);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(144, 23);
             this.btnRemove.TabIndex = 6;
@@ -89,19 +89,21 @@ namespace ALLinONE
             this.dgvList.ReadOnly = true;
             this.dgvList.RowHeadersVisible = false;
             this.dgvList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvList.Size = new System.Drawing.Size(485, 370);
+            this.dgvList.Size = new System.Drawing.Size(583, 484);
             this.dgvList.TabIndex = 5;
+            this.dgvList.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvList_RowsAdded);
+            this.dgvList.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgvList_RowsRemoved);
             this.dgvList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvList_KeyDown);
             // 
             // tbValue
             // 
             this.tbValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbValue.Location = new System.Drawing.Point(0, 405);
+            this.tbValue.Location = new System.Drawing.Point(0, 519);
             this.tbValue.MaximumSize = new System.Drawing.Size(1000, 20);
             this.tbValue.MinimumSize = new System.Drawing.Size(1, 20);
             this.tbValue.Name = "tbValue";
-            this.tbValue.Size = new System.Drawing.Size(398, 20);
+            this.tbValue.Size = new System.Drawing.Size(496, 20);
             this.tbValue.TabIndex = 10;
             this.tbValue.TextMaxLength = 1024;
             this.tbValue.TextTitle = "Напиши тут что-то что-ли";
@@ -109,7 +111,8 @@ namespace ALLinONE
             // 
             // btnRefreshDGV
             // 
-            this.btnRefreshDGV.Location = new System.Drawing.Point(240, 376);
+            this.btnRefreshDGV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefreshDGV.Location = new System.Drawing.Point(338, 490);
             this.btnRefreshDGV.Name = "btnRefreshDGV";
             this.btnRefreshDGV.Size = new System.Drawing.Size(75, 23);
             this.btnRefreshDGV.TabIndex = 11;
@@ -127,14 +130,13 @@ namespace ALLinONE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(485, 425);
+            this.ClientSize = new System.Drawing.Size(583, 539);
             this.Controls.Add(this.btnRefreshDGV);
             this.Controls.Add(this.tbValue);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.dgvList);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1094, 815);

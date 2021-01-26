@@ -4,12 +4,13 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ALLinONE
 {
-    class Service
+    class Service : Form
     {
         List<string> listName = new List<string>();
         List<string> listTitle = new List<string>();

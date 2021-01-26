@@ -141,5 +141,15 @@ namespace ALLinONE
             else if (saveFileDialog.ShowDialog() == DialogResult.OK) //Проверка на нажатие ОК
                 AiOMethods.SaveExcel(dgvList, saveFileDialog.FileName);
         }
+
+        private void dgvList_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            Text = $"Задачи: {dgvList.Rows.Count}шт.";
+        }
+
+        private void dgvList_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            Text = $"Задачи: {dgvList.Rows.Count}шт.";
+        }
     }
 }

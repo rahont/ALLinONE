@@ -41,7 +41,7 @@ namespace ALLinONE
 
                 LoadFormPosition();     //Загрузка координат формы
                 Refresh_btnPR();        //Загрузка описаний кнопок на вкладке Проф
-                RefreshDBGrid();        //Загрузка заявок
+                //RefreshDBGrid();        //Загрузка заявок
                 RefreshDBPrinters();    //Загрузка принтеров
                 RefreshLBRDP();         //Загрузка ListBox RDP на вкладке Сервис
                 RefreshLBShare();       //Загрузка ListBox Share на вкладке Сервис
@@ -626,7 +626,7 @@ namespace ALLinONE
             //Страница заявок
             if (tabControl.SelectedTab == tabPageDBList)
             {
-                //RefreshDBGrid();
+                RefreshDBGrid();
                 lblUserRequest.Text = Environment.UserName;
                 dgvRequest.ClearSelection();
             }
