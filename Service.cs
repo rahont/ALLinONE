@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
@@ -80,6 +81,41 @@ namespace ALLinONE
             foreach (var item in listTitle)
             {
                 listName.Add(UseDB.SelectDBLike("PingList", "Name", "Title", item));
+            }
+        }
+
+        public static void StartMSTSC(string adress, string login = null, string pass = null)
+        {
+            try
+            {
+                Process rdpProcess = new Process();
+                rdpProcess.StartInfo.FileName = Environment.ExpandEnvironmentVariables(@"%SystemRoot%\system32\cmdkey.exe");
+                rdpProcess.StartInfo.Arguments = $"/generic:{adress} /user:{login} /pass:{pass}";
+                rdpProcess.Start();
+
+                rdpProcess.StartInfo.FileName = Environment.ExpandEnvironmentVariables(@"%SystemRoot%\system32\mstsc.exe");
+                rdpProcess.StartInfo.Arguments = "/v " + adress; // ip or name of computer to connect
+                rdpProcess.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public static void StartCyclePing(string adress)
+        {
+            try
+            {
+                Process pingProcess = new Process();
+                pingProcess.StartInfo.FileName = Environment.ExpandEnvironmentVariables(@"%SystemRoot%\system32\ping.exe");
+                pingProcess.StartInfo.Arguments = "-t " + adress; // ip or name of computer to connect
+                //pingProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+                pingProcess.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

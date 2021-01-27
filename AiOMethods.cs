@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace ALLinONE
 {
-    class AiOMethods
+    static class AiOMethods
     {
         static List<string> listName = new List<string>();
         static List<string> listTitle = new List<string>();

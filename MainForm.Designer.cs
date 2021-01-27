@@ -48,6 +48,13 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tabControl = new System.Windows.Forms.CustomTabControl();
             this.tabPageService = new System.Windows.Forms.TabPage();
+            this.btnCyclePingStart = new System.Windows.Forms.Button();
+            this.tbCyclePingAdress = new ALLinONE.MyTextBox();
+            this.lblMSTSC = new System.Windows.Forms.Label();
+            this.btnMSTSCstart = new System.Windows.Forms.Button();
+            this.tbMSTSCadress = new ALLinONE.MyTextBox();
+            this.tbMSTSCpass = new ALLinONE.MyTextBox();
+            this.tbMSTSClogin = new ALLinONE.MyTextBox();
             this.lblPingTimeTimeOut = new System.Windows.Forms.Label();
             this.lblPingTimeRefresh = new System.Windows.Forms.Label();
             this.btnRefreshPing = new System.Windows.Forms.Button();
@@ -315,6 +322,13 @@
             // tabPageService
             // 
             this.tabPageService.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageService.Controls.Add(this.btnCyclePingStart);
+            this.tabPageService.Controls.Add(this.tbCyclePingAdress);
+            this.tabPageService.Controls.Add(this.lblMSTSC);
+            this.tabPageService.Controls.Add(this.btnMSTSCstart);
+            this.tabPageService.Controls.Add(this.tbMSTSCadress);
+            this.tabPageService.Controls.Add(this.tbMSTSCpass);
+            this.tabPageService.Controls.Add(this.tbMSTSClogin);
             this.tabPageService.Controls.Add(this.lblPingTimeTimeOut);
             this.tabPageService.Controls.Add(this.lblPingTimeRefresh);
             this.tabPageService.Controls.Add(this.btnRefreshPing);
@@ -337,6 +351,86 @@
             this.tabPageService.Size = new System.Drawing.Size(626, 597);
             this.tabPageService.TabIndex = 1;
             this.tabPageService.Text = "Сервис";
+            // 
+            // btnCyclePingStart
+            // 
+            this.btnCyclePingStart.Location = new System.Drawing.Point(521, 451);
+            this.btnCyclePingStart.Name = "btnCyclePingStart";
+            this.btnCyclePingStart.Size = new System.Drawing.Size(95, 22);
+            this.btnCyclePingStart.TabIndex = 45;
+            this.btnCyclePingStart.Text = "start";
+            this.btnCyclePingStart.UseVisualStyleBackColor = true;
+            this.btnCyclePingStart.Click += new System.EventHandler(this.btnCyclePingStart_Click);
+            // 
+            // tbCyclePingAdress
+            // 
+            this.tbCyclePingAdress.Location = new System.Drawing.Point(325, 452);
+            this.tbCyclePingAdress.MaximumSize = new System.Drawing.Size(1000, 20);
+            this.tbCyclePingAdress.MinimumSize = new System.Drawing.Size(1, 20);
+            this.tbCyclePingAdress.Name = "tbCyclePingAdress";
+            this.tbCyclePingAdress.PasswordChar = '\0';
+            this.tbCyclePingAdress.Size = new System.Drawing.Size(190, 20);
+            this.tbCyclePingAdress.TabIndex = 44;
+            this.tbCyclePingAdress.TextMaxLength = 1024;
+            this.tbCyclePingAdress.TextTitle = "CyclePing";
+            // 
+            // lblMSTSC
+            // 
+            this.lblMSTSC.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblMSTSC.Location = new System.Drawing.Point(309, 356);
+            this.lblMSTSC.Name = "lblMSTSC";
+            this.lblMSTSC.Size = new System.Drawing.Size(10, 45);
+            this.lblMSTSC.TabIndex = 43;
+            this.lblMSTSC.Text = "MSTSC";
+            // 
+            // btnMSTSCstart
+            // 
+            this.btnMSTSCstart.Location = new System.Drawing.Point(521, 355);
+            this.btnMSTSCstart.Name = "btnMSTSCstart";
+            this.btnMSTSCstart.Size = new System.Drawing.Size(95, 47);
+            this.btnMSTSCstart.TabIndex = 42;
+            this.btnMSTSCstart.Text = "start";
+            this.btnMSTSCstart.UseVisualStyleBackColor = true;
+            this.btnMSTSCstart.Click += new System.EventHandler(this.btnMSTSCstart_Click);
+            // 
+            // tbMSTSCadress
+            // 
+            this.tbMSTSCadress.Location = new System.Drawing.Point(325, 381);
+            this.tbMSTSCadress.MaximumSize = new System.Drawing.Size(1000, 20);
+            this.tbMSTSCadress.MinimumSize = new System.Drawing.Size(1, 20);
+            this.tbMSTSCadress.Name = "tbMSTSCadress";
+            this.tbMSTSCadress.PasswordChar = '\0';
+            this.tbMSTSCadress.Size = new System.Drawing.Size(190, 20);
+            this.tbMSTSCadress.TabIndex = 41;
+            this.tbMSTSCadress.TextMaxLength = 1024;
+            this.tbMSTSCadress.TextTitle = "adress";
+            this.tbMSTSCadress.KeyDownEvent += new System.Windows.Forms.KeyEventHandler(this.tbMSTSCadress_KeyDownEvent);
+            // 
+            // tbMSTSCpass
+            // 
+            this.tbMSTSCpass.Location = new System.Drawing.Point(429, 356);
+            this.tbMSTSCpass.MaximumSize = new System.Drawing.Size(1000, 20);
+            this.tbMSTSCpass.MinimumSize = new System.Drawing.Size(1, 20);
+            this.tbMSTSCpass.Name = "tbMSTSCpass";
+            this.tbMSTSCpass.PasswordChar = '*';
+            this.tbMSTSCpass.Size = new System.Drawing.Size(86, 20);
+            this.tbMSTSCpass.TabIndex = 40;
+            this.tbMSTSCpass.TextMaxLength = 1024;
+            this.tbMSTSCpass.TextTitle = "pass (optional)";
+            this.tbMSTSCpass.KeyDownEvent += new System.Windows.Forms.KeyEventHandler(this.tbMSTSCadress_KeyDownEvent);
+            // 
+            // tbMSTSClogin
+            // 
+            this.tbMSTSClogin.Location = new System.Drawing.Point(325, 356);
+            this.tbMSTSClogin.MaximumSize = new System.Drawing.Size(1000, 20);
+            this.tbMSTSClogin.MinimumSize = new System.Drawing.Size(1, 20);
+            this.tbMSTSClogin.Name = "tbMSTSClogin";
+            this.tbMSTSClogin.PasswordChar = '\0';
+            this.tbMSTSClogin.Size = new System.Drawing.Size(98, 20);
+            this.tbMSTSClogin.TabIndex = 39;
+            this.tbMSTSClogin.TextMaxLength = 1024;
+            this.tbMSTSClogin.TextTitle = "login (optional)";
+            this.tbMSTSClogin.KeyDownEvent += new System.Windows.Forms.KeyEventHandler(this.tbMSTSCadress_KeyDownEvent);
             // 
             // lblPingTimeTimeOut
             // 
@@ -917,6 +1011,7 @@
             this.tbPrintInvNumber.MaximumSize = new System.Drawing.Size(1000, 20);
             this.tbPrintInvNumber.MinimumSize = new System.Drawing.Size(1, 20);
             this.tbPrintInvNumber.Name = "tbPrintInvNumber";
+            this.tbPrintInvNumber.PasswordChar = '\0';
             this.tbPrintInvNumber.Size = new System.Drawing.Size(100, 20);
             this.tbPrintInvNumber.TabIndex = 15;
             this.tbPrintInvNumber.TextMaxLength = 15;
@@ -929,6 +1024,7 @@
             this.tbPrintLocation.MaximumSize = new System.Drawing.Size(1000, 20);
             this.tbPrintLocation.MinimumSize = new System.Drawing.Size(1, 20);
             this.tbPrintLocation.Name = "tbPrintLocation";
+            this.tbPrintLocation.PasswordChar = '\0';
             this.tbPrintLocation.Size = new System.Drawing.Size(100, 20);
             this.tbPrintLocation.TabIndex = 14;
             this.tbPrintLocation.TextMaxLength = 20;
@@ -941,6 +1037,7 @@
             this.tbPrintNetName.MaximumSize = new System.Drawing.Size(1000, 20);
             this.tbPrintNetName.MinimumSize = new System.Drawing.Size(1, 20);
             this.tbPrintNetName.Name = "tbPrintNetName";
+            this.tbPrintNetName.PasswordChar = '\0';
             this.tbPrintNetName.Size = new System.Drawing.Size(100, 20);
             this.tbPrintNetName.TabIndex = 13;
             this.tbPrintNetName.TextMaxLength = 50;
@@ -953,6 +1050,7 @@
             this.tbPrintName.MaximumSize = new System.Drawing.Size(1000, 20);
             this.tbPrintName.MinimumSize = new System.Drawing.Size(1, 20);
             this.tbPrintName.Name = "tbPrintName";
+            this.tbPrintName.PasswordChar = '\0';
             this.tbPrintName.Size = new System.Drawing.Size(100, 20);
             this.tbPrintName.TabIndex = 12;
             this.tbPrintName.TextMaxLength = 100;
@@ -1262,6 +1360,7 @@
             this.tbAddFIORequest.MaximumSize = new System.Drawing.Size(1000, 20);
             this.tbAddFIORequest.MinimumSize = new System.Drawing.Size(1, 20);
             this.tbAddFIORequest.Name = "tbAddFIORequest";
+            this.tbAddFIORequest.PasswordChar = '\0';
             this.tbAddFIORequest.Size = new System.Drawing.Size(205, 20);
             this.tbAddFIORequest.TabIndex = 18;
             this.tbAddFIORequest.TextMaxLength = 100;
@@ -1274,6 +1373,7 @@
             this.tbAddProg.MaximumSize = new System.Drawing.Size(1000, 20);
             this.tbAddProg.MinimumSize = new System.Drawing.Size(1, 20);
             this.tbAddProg.Name = "tbAddProg";
+            this.tbAddProg.PasswordChar = '\0';
             this.tbAddProg.Size = new System.Drawing.Size(269, 20);
             this.tbAddProg.TabIndex = 17;
             this.tbAddProg.TextMaxLength = 100;
@@ -1545,6 +1645,13 @@
         private System.Windows.Forms.Label lblPingTimeTimeOut;
         private System.Windows.Forms.Label lblPingTimeRefresh;
         private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.Button btnMSTSCstart;
+        private MyTextBox tbMSTSCadress;
+        private MyTextBox tbMSTSCpass;
+        private MyTextBox tbMSTSClogin;
+        private System.Windows.Forms.Label lblMSTSC;
+        private MyTextBox tbCyclePingAdress;
+        private System.Windows.Forms.Button btnCyclePingStart;
     }
 }
 

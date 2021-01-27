@@ -37,7 +37,7 @@ namespace ALLinONE
             if (File.Exists(registry.GetValue("PathDB", "Data_DB.db").ToString()))
             {
                 form.Close();
-                Text += $" ({Environment.UserName})   - v.2.12b";
+                Text += $" ({Environment.UserName})   - v.2.12.1";
 
                 LoadFormPosition();     //Загрузка координат формы
                 Refresh_btnPR();        //Загрузка описаний кнопок на вкладке Проф
@@ -710,6 +710,23 @@ namespace ALLinONE
                 ToDoList tdl = new ToDoList();
                 tdl.ShowDialog();
             }
+        }
+
+        private void btnMSTSCstart_Click(object sender, EventArgs e)
+        {
+            if (tbMSTSCadress.Text != string.Empty)
+                Service.StartMSTSC(tbMSTSCadress.Text, tbMSTSClogin.Text, tbMSTSCpass.Text);
+        }
+
+        private void tbMSTSCadress_KeyDownEvent(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+                btnMSTSCstart.PerformClick();
+        }
+
+        private void btnCyclePingStart_Click(object sender, EventArgs e)
+        {
+            Service.StartCyclePing(tbCyclePingAdress.Text);
         }
     }
 }

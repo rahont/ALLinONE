@@ -37,6 +37,12 @@ namespace ALLinONE
             get => tb.TextLength;
         }
 
+        public char PasswordChar 
+        {
+            get => tb.PasswordChar;
+            set { tb.PasswordChar = value; }
+        }
+
         //Событие KeyDown для UserControl
         public event KeyEventHandler KeyDownEvent;
         //Событие Click для UserControl
