@@ -48,6 +48,8 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tabControl = new System.Windows.Forms.CustomTabControl();
             this.tabPageService = new System.Windows.Forms.TabPage();
+            this.btnCyclePingStop = new System.Windows.Forms.Button();
+            this.lbCyclePing = new System.Windows.Forms.ListBox();
             this.btnCyclePingStart = new System.Windows.Forms.Button();
             this.tbCyclePingAdress = new ALLinONE.MyTextBox();
             this.lblMSTSC = new System.Windows.Forms.Label();
@@ -322,6 +324,8 @@
             // tabPageService
             // 
             this.tabPageService.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageService.Controls.Add(this.btnCyclePingStop);
+            this.tabPageService.Controls.Add(this.lbCyclePing);
             this.tabPageService.Controls.Add(this.btnCyclePingStart);
             this.tabPageService.Controls.Add(this.tbCyclePingAdress);
             this.tabPageService.Controls.Add(this.lblMSTSC);
@@ -352,11 +356,31 @@
             this.tabPageService.TabIndex = 1;
             this.tabPageService.Text = "Сервис";
             // 
+            // btnCyclePingStop
+            // 
+            this.btnCyclePingStop.Location = new System.Drawing.Point(574, 424);
+            this.btnCyclePingStop.Name = "btnCyclePingStop";
+            this.btnCyclePingStop.Size = new System.Drawing.Size(42, 21);
+            this.btnCyclePingStop.TabIndex = 47;
+            this.btnCyclePingStop.Text = "stop";
+            this.btnCyclePingStop.UseVisualStyleBackColor = true;
+            this.btnCyclePingStop.Click += new System.EventHandler(this.btnCyclePingStop_Click);
+            // 
+            // lbCyclePing
+            // 
+            this.lbCyclePing.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.lbCyclePing.FormattingEnabled = true;
+            this.lbCyclePing.Location = new System.Drawing.Point(325, 451);
+            this.lbCyclePing.Name = "lbCyclePing";
+            this.lbCyclePing.Size = new System.Drawing.Size(291, 95);
+            this.lbCyclePing.TabIndex = 46;
+            this.lbCyclePing.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lbCyclePing_DrawItem);
+            // 
             // btnCyclePingStart
             // 
-            this.btnCyclePingStart.Location = new System.Drawing.Point(521, 451);
+            this.btnCyclePingStart.Location = new System.Drawing.Point(521, 424);
             this.btnCyclePingStart.Name = "btnCyclePingStart";
-            this.btnCyclePingStart.Size = new System.Drawing.Size(95, 22);
+            this.btnCyclePingStart.Size = new System.Drawing.Size(39, 22);
             this.btnCyclePingStart.TabIndex = 45;
             this.btnCyclePingStart.Text = "start";
             this.btnCyclePingStart.UseVisualStyleBackColor = true;
@@ -364,7 +388,7 @@
             // 
             // tbCyclePingAdress
             // 
-            this.tbCyclePingAdress.Location = new System.Drawing.Point(325, 452);
+            this.tbCyclePingAdress.Location = new System.Drawing.Point(325, 425);
             this.tbCyclePingAdress.MaximumSize = new System.Drawing.Size(1000, 20);
             this.tbCyclePingAdress.MinimumSize = new System.Drawing.Size(1, 20);
             this.tbCyclePingAdress.Name = "tbCyclePingAdress";
@@ -373,6 +397,7 @@
             this.tbCyclePingAdress.TabIndex = 44;
             this.tbCyclePingAdress.TextMaxLength = 1024;
             this.tbCyclePingAdress.TextTitle = "CyclePing";
+            this.tbCyclePingAdress.KeyDownEvent += new System.Windows.Forms.KeyEventHandler(this.tbCyclePingAdress_KeyDownEvent);
             // 
             // lblMSTSC
             // 
@@ -405,6 +430,7 @@
             this.tbMSTSCadress.TextMaxLength = 1024;
             this.tbMSTSCadress.TextTitle = "adress";
             this.tbMSTSCadress.KeyDownEvent += new System.Windows.Forms.KeyEventHandler(this.tbMSTSCadress_KeyDownEvent);
+            this.tbMSTSCadress._TextChanged += new System.EventHandler(this.tbMSTSCadress__TextChanged);
             // 
             // tbMSTSCpass
             // 
@@ -674,7 +700,7 @@
             this.lblPR.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblPR.Enabled = false;
             this.lblPR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblPR.Location = new System.Drawing.Point(3, 485);
+            this.lblPR.Location = new System.Drawing.Point(3, 482);
             this.lblPR.Name = "lblPR";
             this.lblPR.Size = new System.Drawing.Size(620, 109);
             this.lblPR.TabIndex = 27;
@@ -1213,7 +1239,7 @@
             // 
             this.lblInfoRequest.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblInfoRequest.Enabled = false;
-            this.lblInfoRequest.Location = new System.Drawing.Point(3, 545);
+            this.lblInfoRequest.Location = new System.Drawing.Point(3, 542);
             this.lblInfoRequest.Name = "lblInfoRequest";
             this.lblInfoRequest.Size = new System.Drawing.Size(620, 49);
             this.lblInfoRequest.TabIndex = 6;
@@ -1494,7 +1520,7 @@
             this.lbProgList.FormattingEnabled = true;
             this.lbProgList.Location = new System.Drawing.Point(3, 3);
             this.lbProgList.Name = "lbProgList";
-            this.lbProgList.Size = new System.Drawing.Size(269, 591);
+            this.lbProgList.Size = new System.Drawing.Size(269, 588);
             this.lbProgList.Sorted = true;
             this.lbProgList.TabIndex = 8;
             this.lbProgList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbProgList_KeyDown);
@@ -1652,6 +1678,8 @@
         private System.Windows.Forms.Label lblMSTSC;
         private MyTextBox tbCyclePingAdress;
         private System.Windows.Forms.Button btnCyclePingStart;
+        private System.Windows.Forms.ListBox lbCyclePing;
+        public System.Windows.Forms.Button btnCyclePingStop;
     }
 }
 

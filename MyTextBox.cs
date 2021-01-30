@@ -43,17 +43,27 @@ namespace ALLinONE
             set { tb.PasswordChar = value; }
         }
 
+        //public string NameMTB
+        //{
+        //    get => tb.Name;
+        //    set
+        //    {
+        //        tb.Name = value;
+        //    }
+        //}
+
+        public string Name { get; set; }
+
         //Событие KeyDown для UserControl
         public event KeyEventHandler KeyDownEvent;
         //Событие Click для UserControl
         public event EventHandler _ClickEvent;
+        public event EventHandler _TextChanged;
 
         private void tb_TextChanged(object sender, EventArgs e)
         {
-            //if (tb.TextLength > 0)
-            //    lbl.Visible = false;
-            //else lbl.Visible = true;
             lbl.Visible = (tb.TextLength <= 0);
+            _TextChanged?.Invoke(sender, e);
         }
 
         private void lbl_Click(object sender, EventArgs e)

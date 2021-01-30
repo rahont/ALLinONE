@@ -37,7 +37,7 @@ namespace ALLinONE
             if (File.Exists(registry.GetValue("PathDB", "Data_DB.db").ToString()))
             {
                 form.Close();
-                Text += $" ({Environment.UserName})   - v.2.12.1";
+                Text += $" ({Environment.UserName})   - v.2.12.2";
 
                 LoadFormPosition();     //Загрузка координат формы
                 Refresh_btnPR();        //Загрузка описаний кнопок на вкладке Проф
@@ -726,7 +726,47 @@ namespace ALLinONE
 
         private void btnCyclePingStart_Click(object sender, EventArgs e)
         {
-            Service.StartCyclePing(tbCyclePingAdress.Text);
+            lbCyclePing.Items.Clear();
+            Service.StartCyclePing(tbCyclePingAdress.Text, lbCyclePing);
+        }
+
+        public void btnCyclePingStop_Click(object sender, EventArgs e)
+        {
+            Service.CyclePingStop = true;
+        }
+
+        private void tbMSTSCadress__TextChanged(object sender, EventArgs e)
+        {
+            RegistryKey service = Registry.CurrentUser.CreateSubKey("SOFTWARE\\All in One\\Service");
+
+            var mtb = sender as MyTextBox;
+
+            if (mtb.Name == "tbMSTSCadress")
+            {
+                MessageBox.Show("Test");
+                service.SetValue("Adress", mtb?.Text);
+            }
+            if (mtb.Name == "tbMSTSClogin") service.SetValue("Login", mtb?.Text);
+
+            service.Close();
+        }
+
+        private void lbCyclePing_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            Brush myBrush;
+
+            if (lbCyclePing.Items.Count > 0)
+            {
+                myBrush = (lbCyclePing.Items[e.Index].ToString().Contains("Не доступен")) ? Brushes.DarkRed : Brushes.DarkGreen;
+                //myBrush = (lbCyclePing.Items[e.Index].ToString().Contains(": ") == false) ? Brushes.Black : myBrush;
+                e.Graphics.DrawString(lbCyclePing.Items[e.Index].ToString(),
+                e.Font, myBrush, e.Bounds);
+            }
+        }
+
+        private void tbCyclePingAdress_KeyDownEvent(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter) btnCyclePingStart.PerformClick();
         }
     }
 }

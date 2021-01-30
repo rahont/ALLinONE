@@ -17,6 +17,7 @@ namespace ALLinONE
         List<string> listTitle = new List<string>();
         Ping ping = new Ping();
         PingReply pingReply;
+        public static bool CyclePingStop { get; set; }
 
         //public void LoadLBPing(decimal numPingTimeOutValue, out string[] resSucc, out string[] resFail)
         //{
@@ -103,19 +104,63 @@ namespace ALLinONE
             }
         }
 
-        public static void StartCyclePing(string adress)
+        //public static void StartCyclePing(string adress)
+        //{
+        //    try
+        //    {
+        //        Process pingProcess = new Process();
+        //        pingProcess.StartInfo.FileName = Environment.ExpandEnvironmentVariables(@"%SystemRoot%\system32\ping.exe");
+        //        pingProcess.StartInfo.Arguments = "-t " + adress; // ip or name of computer to connect
+        //        //pingProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+        //        pingProcess.Start();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
+
+        public async static void StartCyclePing(string adress, ListBox lb)
         {
+            Ping ping = new Ping();
+            PingReply pingReply;
+            adress = adress.Replace(',', '.'); //Меняем *запятую* на *точку*
+            string echo;
+            string tmp;
             try
             {
-                Process pingProcess = new Process();
-                pingProcess.StartInfo.FileName = Environment.ExpandEnvironmentVariables(@"%SystemRoot%\system32\ping.exe");
-                pingProcess.StartInfo.Arguments = "-t " + adress; // ip or name of computer to connect
-                //pingProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
-                pingProcess.Start();
+                while (true)
+                {
+                    await Task.Run(async () =>
+                    {
+                        await Task.Delay(1000);
+                    });
+                    
+                    pingReply = await ping.SendPingAsync(adress, 128);
+
+                    //Присвоить IP в скобках, если адрес = DNS имя
+                    tmp = (adress == pingReply.Address.ToString()) ? string.Empty : " ("+pingReply.Address.ToString()+")";
+
+                    //Проверяем доступность адреса
+                    echo = (pingReply.Status.ToString() == "Success") ?
+                        adress + tmp + $": {pingReply.RoundtripTime}мс" : adress + ": Не доступен";
+                        //Собираем строку для последующего вывода       : //Если адрес не доступен
+
+                    Action action = () => lb.Items.Add(echo);
+                    action?.Invoke();
+                    lb.TopIndex = lb.Items.Count - 1;
+
+
+                    if (CyclePingStop) //Если поле true, то остановить пинг
+                    {
+                        CyclePingStop = false;
+                        break;
+                    }
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Накосячил", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
