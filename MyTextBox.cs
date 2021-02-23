@@ -52,7 +52,7 @@ namespace ALLinONE
         //    }
         //}
 
-        public string Name { get; set; }
+        //new public string Name { get; set; }
 
         //Событие KeyDown для UserControl
         public event KeyEventHandler KeyDownEvent;
@@ -74,7 +74,7 @@ namespace ALLinONE
 
         private void tb_KeyDown(object sender, KeyEventArgs e)
         {
-            KeyDownEvent?.Invoke(sender, e);
+            KeyDownEvent?.Invoke(this, e);
             //if (KeyDownEvent != null)
             //    KeyDownEvent(sender, e);
         }

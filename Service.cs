@@ -152,10 +152,7 @@ namespace ALLinONE
 
 
                     if (CyclePingStop) //Если поле true, то остановить пинг
-                    {
-                        CyclePingStop = false;
                         break;
-                    }
                 }
             }
             catch (Exception ex)

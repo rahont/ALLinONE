@@ -430,7 +430,7 @@
             this.tbMSTSCadress.TextMaxLength = 1024;
             this.tbMSTSCadress.TextTitle = "adress";
             this.tbMSTSCadress.KeyDownEvent += new System.Windows.Forms.KeyEventHandler(this.tbMSTSCadress_KeyDownEvent);
-            this.tbMSTSCadress._TextChanged += new System.EventHandler(this.tbMSTSCadress__TextChanged);
+            this.tbMSTSCadress._TextChanged += new System.EventHandler(this.tbMSTSCadress_TextChanged);
             // 
             // tbMSTSCpass
             // 
@@ -461,7 +461,7 @@
             // lblPingTimeTimeOut
             // 
             this.lblPingTimeTimeOut.AutoSize = true;
-            this.lblPingTimeTimeOut.Location = new System.Drawing.Point(197, 550);
+            this.lblPingTimeTimeOut.Location = new System.Drawing.Point(198, 550);
             this.lblPingTimeTimeOut.Name = "lblPingTimeTimeOut";
             this.lblPingTimeTimeOut.Size = new System.Drawing.Size(88, 13);
             this.lblPingTimeTimeOut.TabIndex = 38;
@@ -475,9 +475,9 @@
             this.lblPingTimeRefresh.Location = new System.Drawing.Point(11, 550);
             this.lblPingTimeRefresh.Name = "lblPingTimeRefresh";
             this.lblPingTimeRefresh.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblPingTimeRefresh.Size = new System.Drawing.Size(97, 13);
+            this.lblPingTimeRefresh.Size = new System.Drawing.Size(94, 13);
             this.lblPingTimeRefresh.TabIndex = 37;
-            this.lblPingTimeRefresh.Text = "Обновлять через:";
+            this.lblPingTimeRefresh.Text = "Обновлять через";
             this.lblPingTimeRefresh.MouseHover += new System.EventHandler(this.lblPingTimeRefresh_MouseHover);
             // 
             // btnRefreshPing

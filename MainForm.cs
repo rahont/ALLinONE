@@ -727,28 +727,31 @@ namespace ALLinONE
         private void btnCyclePingStart_Click(object sender, EventArgs e)
         {
             lbCyclePing.Items.Clear();
+            Service.CyclePingStop = false;
             Service.StartCyclePing(tbCyclePingAdress.Text, lbCyclePing);
         }
 
         public void btnCyclePingStop_Click(object sender, EventArgs e)
         {
             Service.CyclePingStop = true;
+
+            string s = btnMSTSCstart.Name;
         }
 
-        private void tbMSTSCadress__TextChanged(object sender, EventArgs e)
+        private void tbMSTSCadress_TextChanged(object sender, EventArgs e)
         {
-            RegistryKey service = Registry.CurrentUser.CreateSubKey("SOFTWARE\\All in One\\Service");
+            //RegistryKey service = Registry.CurrentUser.CreateSubKey("SOFTWARE\\All in One\\Service");
 
-            var mtb = sender as MyTextBox;
+            //var mtb = sender as MyTextBox;
 
-            if (mtb.Name == "tbMSTSCadress")
-            {
-                MessageBox.Show("Test");
-                service.SetValue("Adress", mtb?.Text);
-            }
-            if (mtb.Name == "tbMSTSClogin") service.SetValue("Login", mtb?.Text);
+            //if (mtb.Name == "tbMSTSCadress")
+            //{
+            //    MessageBox.Show("Test");
+            //    service.SetValue("Adress", mtb?.Text);
+            //}
+            //if (mtb.Name == "tbMSTSClogin") service.SetValue("Login", mtb?.Text);
 
-            service.Close();
+            //service.Close();
         }
 
         private void lbCyclePing_DrawItem(object sender, DrawItemEventArgs e)
@@ -758,9 +761,7 @@ namespace ALLinONE
             if (lbCyclePing.Items.Count > 0)
             {
                 myBrush = (lbCyclePing.Items[e.Index].ToString().Contains("Не доступен")) ? Brushes.DarkRed : Brushes.DarkGreen;
-                //myBrush = (lbCyclePing.Items[e.Index].ToString().Contains(": ") == false) ? Brushes.Black : myBrush;
-                e.Graphics.DrawString(lbCyclePing.Items[e.Index].ToString(),
-                e.Font, myBrush, e.Bounds);
+                e.Graphics.DrawString(lbCyclePing.Items[e.Index].ToString(), e.Font, myBrush, e.Bounds);
             }
         }
 
@@ -768,5 +769,6 @@ namespace ALLinONE
         {
             if (e.KeyData == Keys.Enter) btnCyclePingStart.PerformClick();
         }
+
     }
 }
