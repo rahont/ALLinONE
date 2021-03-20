@@ -314,7 +314,7 @@
             this.tabControl.DisplayStyleProvider.TextColorSelected = System.Drawing.SystemColors.ControlText;
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tabControl.HotTrack = true;
-            this.tabControl.Location = new System.Drawing.Point(0, 27);
+            this.tabControl.Location = new System.Drawing.Point(0, 22);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(634, 624);
@@ -700,7 +700,7 @@
             this.lblPR.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblPR.Enabled = false;
             this.lblPR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblPR.Location = new System.Drawing.Point(3, 482);
+            this.lblPR.Location = new System.Drawing.Point(3, 485);
             this.lblPR.Name = "lblPR";
             this.lblPR.Size = new System.Drawing.Size(620, 109);
             this.lblPR.TabIndex = 27;
@@ -1239,7 +1239,7 @@
             // 
             this.lblInfoRequest.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblInfoRequest.Enabled = false;
-            this.lblInfoRequest.Location = new System.Drawing.Point(3, 542);
+            this.lblInfoRequest.Location = new System.Drawing.Point(3, 545);
             this.lblInfoRequest.Name = "lblInfoRequest";
             this.lblInfoRequest.Size = new System.Drawing.Size(620, 49);
             this.lblInfoRequest.TabIndex = 6;
@@ -1520,7 +1520,7 @@
             this.lbProgList.FormattingEnabled = true;
             this.lbProgList.Location = new System.Drawing.Point(3, 3);
             this.lbProgList.Name = "lbProgList";
-            this.lbProgList.Size = new System.Drawing.Size(269, 588);
+            this.lbProgList.Size = new System.Drawing.Size(269, 591);
             this.lbProgList.Sorted = true;
             this.lbProgList.TabIndex = 8;
             this.lbProgList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbProgList_KeyDown);
@@ -1529,12 +1529,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(634, 651);
+            this.ClientSize = new System.Drawing.Size(634, 646);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.menuStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(650, 690);
+            this.MaximumSize = new System.Drawing.Size(650, 685);
             this.MinimumSize = new System.Drawing.Size(650, 685);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
