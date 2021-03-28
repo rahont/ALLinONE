@@ -146,6 +146,7 @@
             this.rdbtnAddRequest2 = new System.Windows.Forms.RadioButton();
             this.rdbtnAddRequest1 = new System.Windows.Forms.RadioButton();
             this.lbProgList = new System.Windows.Forms.ListBox();
+            this.btnPrintChange = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageService.SuspendLayout();
@@ -1007,6 +1008,7 @@
             // tabPagePrinters
             // 
             this.tabPagePrinters.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPagePrinters.Controls.Add(this.btnPrintChange);
             this.tabPagePrinters.Controls.Add(this.tbPrintInvNumber);
             this.tabPagePrinters.Controls.Add(this.tbPrintLocation);
             this.tabPagePrinters.Controls.Add(this.tbPrintNetName);
@@ -1106,7 +1108,7 @@
             // 
             // btnPrintPrinting
             // 
-            this.btnPrintPrinting.Location = new System.Drawing.Point(437, 496);
+            this.btnPrintPrinting.Location = new System.Drawing.Point(9, 496);
             this.btnPrintPrinting.Name = "btnPrintPrinting";
             this.btnPrintPrinting.Size = new System.Drawing.Size(183, 23);
             this.btnPrintPrinting.TabIndex = 11;
@@ -1180,7 +1182,7 @@
             // 
             // btnPrintAdd
             // 
-            this.btnPrintAdd.Location = new System.Drawing.Point(545, 539);
+            this.btnPrintAdd.Location = new System.Drawing.Point(545, 510);
             this.btnPrintAdd.Name = "btnPrintAdd";
             this.btnPrintAdd.Size = new System.Drawing.Size(75, 23);
             this.btnPrintAdd.TabIndex = 5;
@@ -1525,6 +1527,16 @@
             this.lbProgList.TabIndex = 8;
             this.lbProgList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbProgList_KeyDown);
             // 
+            // btnPrintChange
+            // 
+            this.btnPrintChange.Location = new System.Drawing.Point(545, 539);
+            this.btnPrintChange.Name = "btnPrintChange";
+            this.btnPrintChange.Size = new System.Drawing.Size(75, 23);
+            this.btnPrintChange.TabIndex = 16;
+            this.btnPrintChange.Text = "Изменить";
+            this.btnPrintChange.UseVisualStyleBackColor = true;
+            this.btnPrintChange.Click += new System.EventHandler(this.btnPrintChange_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1680,6 +1692,7 @@
         private System.Windows.Forms.Button btnCyclePingStart;
         private System.Windows.Forms.ListBox lbCyclePing;
         public System.Windows.Forms.Button btnCyclePingStop;
+        private System.Windows.Forms.Button btnPrintChange;
     }
 }
 

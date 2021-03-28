@@ -770,5 +770,20 @@ namespace ALLinONE
             if (e.KeyData == Keys.Enter) btnCyclePingStart.PerformClick();
         }
 
+        private void btnPrintChange_Click(object sender, EventArgs e)
+        {
+            if (tbPrintName1.TextLength > 0)
+            {
+                UseDB.UpdateDB("Printers", "Name", "id", tbPrintName1.Text, dgvPrinters.SelectedCells[0].Value.ToString());
+                UseDB.UpdateDB("Printers", "NetName", "id", tbPrintNetName1.Text, dgvPrinters.SelectedCells[0].Value.ToString());
+                UseDB.UpdateDB("Printers", "Location", "id", tbPrintLocation1.Text, dgvPrinters.SelectedCells[0].Value.ToString());
+                UseDB.UpdateDB("Printers", "InvNumber", "id", tbPrintInvNumber1.Text, dgvPrinters.SelectedCells[0].Value.ToString());
+
+                dgvPrinters.SelectedCells[1].Value = tbPrintName1.Text;
+                dgvPrinters.SelectedCells[2].Value = tbPrintNetName1.Text;
+                dgvPrinters.SelectedCells[3].Value = tbPrintLocation1.Text;
+                dgvPrinters.SelectedCells[4].Value = tbPrintInvNumber1.Text;
+            }
+        }
     }
 }
