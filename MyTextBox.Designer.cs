@@ -38,7 +38,7 @@
             this.tb.Location = new System.Drawing.Point(0, 0);
             this.tb.MaxLength = 1024;
             this.tb.Name = "tb";
-            this.tb.Size = new System.Drawing.Size(100, 20);
+            this.tb.Size = new System.Drawing.Size(58, 20);
             this.tb.TabIndex = 0;
             this.tb.Click += new System.EventHandler(this.tb_Click);
             this.tb.TextChanged += new System.EventHandler(this.tb_TextChanged);
@@ -64,10 +64,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lbl);
             this.Controls.Add(this.tb);
-            this.MaximumSize = new System.Drawing.Size(1000, 20);
+            this.MaximumSize = new System.Drawing.Size(0, 20);
             this.MinimumSize = new System.Drawing.Size(1, 20);
             this.Name = "MyTextBox";
-            this.Size = new System.Drawing.Size(100, 20);
+            this.Size = new System.Drawing.Size(58, 20);
             this.ResumeLayout(false);
             this.PerformLayout();
 

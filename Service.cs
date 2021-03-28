@@ -19,31 +19,6 @@ namespace ALLinONE
         PingReply pingReply;
         public static bool CyclePingStop { get; set; }
 
-        //public void LoadLBPing(decimal numPingTimeOutValue, out string[] resSucc, out string[] resFail)
-        //{
-        //    LoadListNameAndListTitle();
-
-        //    resSucc = new string[listName.Count];
-        //    resFail = new string[listName.Count];
-
-        //    foreach (var item in listTitle)
-        //    {
-        //        try
-        //        {
-        //            pingReply = ping.Send(listName[listTitle.IndexOf(item)], Convert.ToInt32(numPingTimeOutValue));
-
-        //            if (pingReply.Status.ToString() == "Success")
-        //                resSucc[listTitle.IndexOf(item)] = item + ": " + pingReply.RoundtripTime.ToString();
-        //            else
-        //                resFail[listTitle.IndexOf(item)] = item;
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            resFail[listTitle.IndexOf(item)] = ex.Message;
-        //        }
-        //    }
-        //}
-
         public async void LoadLBPing(ProgressBar pb, ListBox lbS, ListBox lbT, NumericUpDown num)
         {
             LoadListNameAndListTitle();
@@ -103,22 +78,6 @@ namespace ALLinONE
                 MessageBox.Show(ex.Message);
             }
         }
-
-        //public static void StartCyclePing(string adress)
-        //{
-        //    try
-        //    {
-        //        Process pingProcess = new Process();
-        //        pingProcess.StartInfo.FileName = Environment.ExpandEnvironmentVariables(@"%SystemRoot%\system32\ping.exe");
-        //        pingProcess.StartInfo.Arguments = "-t " + adress; // ip or name of computer to connect
-        //        //pingProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
-        //        pingProcess.Start();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
 
         public async static void StartCyclePing(string adress, ListBox lb)
         {
