@@ -37,7 +37,7 @@ namespace ALLinONE
             if (File.Exists(registry.GetValue("PathDB", "Data_DB.db").ToString()))
             {
                 form.Close();
-                Text += $" ({Environment.UserName})   - v.2.12.2";
+                Text += $" ({Environment.UserName})   - v.2.12.3";
 
                 LoadFormPosition();     //Загрузка координат формы
                 Refresh_btnPR();        //Загрузка описаний кнопок на вкладке Проф
@@ -77,10 +77,16 @@ namespace ALLinONE
 
         private void LoadFormPosition()
         {
+            int screenWidth = Screen.PrimaryScreen.Bounds.Size.Width;
+            int screenHeight = Screen.PrimaryScreen.Bounds.Size.Height;
+            
             RegistryKey formPos = Registry.CurrentUser.CreateSubKey("SOFTWARE\\All in One");
             Location = new Point(Convert.ToInt32(formPos.GetValue("PositionX", Location.X)),
                 Convert.ToInt32(formPos.GetValue("PositionY", Location.Y)));   //загрузить позицию формы из реестра
             formPos.Close();
+
+            if ((Location.X < -500) || (Location.X > screenWidth) || (Location.Y < -500) || (Location.Y > screenHeight))
+                Location = new Point(100, 100);
         }
         #endregion
 
@@ -787,6 +793,11 @@ namespace ALLinONE
                 dgvPrinters.SelectedCells[3].Value = tbPrintLocation1.Text;
                 dgvPrinters.SelectedCells[4].Value = tbPrintInvNumber1.Text;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(Screen.PrimaryScreen.Bounds.Size.Width.ToString());
         }
     }
 }

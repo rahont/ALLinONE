@@ -147,6 +147,7 @@
             this.rdbtnAddRequest2 = new System.Windows.Forms.RadioButton();
             this.rdbtnAddRequest1 = new System.Windows.Forms.RadioButton();
             this.lbProgList = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageService.SuspendLayout();
@@ -325,6 +326,7 @@
             // tabPageService
             // 
             this.tabPageService.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageService.Controls.Add(this.button1);
             this.tabPageService.Controls.Add(this.btnCyclePingStop);
             this.tabPageService.Controls.Add(this.lbCyclePing);
             this.tabPageService.Controls.Add(this.btnCyclePingStart);
@@ -1539,6 +1541,16 @@
             this.lbProgList.TabIndex = 8;
             this.lbProgList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbProgList_KeyDown);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(383, 564);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 48;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1695,6 +1707,7 @@
         private System.Windows.Forms.ListBox lbCyclePing;
         public System.Windows.Forms.Button btnCyclePingStop;
         private System.Windows.Forms.Button btnPrintChange;
+        private System.Windows.Forms.Button button1;
     }
 }
 
