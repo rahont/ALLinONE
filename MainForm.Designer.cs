@@ -103,6 +103,7 @@
             this.btnPR17 = new System.Windows.Forms.Button();
             this.btnPR16 = new System.Windows.Forms.Button();
             this.tabPagePrinters = new System.Windows.Forms.TabPage();
+            this.btnPrintChange = new System.Windows.Forms.Button();
             this.tbPrintInvNumber = new ALLinONE.MyTextBox();
             this.tbPrintLocation = new ALLinONE.MyTextBox();
             this.tbPrintNetName = new ALLinONE.MyTextBox();
@@ -146,7 +147,6 @@
             this.rdbtnAddRequest2 = new System.Windows.Forms.RadioButton();
             this.rdbtnAddRequest1 = new System.Windows.Forms.RadioButton();
             this.lbProgList = new System.Windows.Forms.ListBox();
-            this.btnPrintChange = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageService.SuspendLayout();
@@ -363,7 +363,7 @@
             this.btnCyclePingStop.Name = "btnCyclePingStop";
             this.btnCyclePingStop.Size = new System.Drawing.Size(42, 21);
             this.btnCyclePingStop.TabIndex = 47;
-            this.btnCyclePingStop.Text = "stop";
+            this.btnCyclePingStop.Text = "Стоп";
             this.btnCyclePingStop.UseVisualStyleBackColor = true;
             this.btnCyclePingStop.Click += new System.EventHandler(this.btnCyclePingStop_Click);
             // 
@@ -381,9 +381,9 @@
             // 
             this.btnCyclePingStart.Location = new System.Drawing.Point(521, 424);
             this.btnCyclePingStart.Name = "btnCyclePingStart";
-            this.btnCyclePingStart.Size = new System.Drawing.Size(39, 22);
+            this.btnCyclePingStart.Size = new System.Drawing.Size(44, 22);
             this.btnCyclePingStart.TabIndex = 45;
-            this.btnCyclePingStart.Text = "start";
+            this.btnCyclePingStart.Text = "Старт";
             this.btnCyclePingStart.UseVisualStyleBackColor = true;
             this.btnCyclePingStart.Click += new System.EventHandler(this.btnCyclePingStart_Click);
             // 
@@ -397,7 +397,7 @@
             this.tbCyclePingAdress.Size = new System.Drawing.Size(190, 20);
             this.tbCyclePingAdress.TabIndex = 44;
             this.tbCyclePingAdress.TextMaxLength = 1024;
-            this.tbCyclePingAdress.TextTitle = "CyclePing";
+            this.tbCyclePingAdress.TextTitle = "IP-адрес или DNS-имя";
             this.tbCyclePingAdress.KeyDownEvent += new System.Windows.Forms.KeyEventHandler(this.tbCyclePingAdress_KeyDownEvent);
             // 
             // lblMSTSC
@@ -411,11 +411,11 @@
             // 
             // btnMSTSCstart
             // 
-            this.btnMSTSCstart.Location = new System.Drawing.Point(521, 355);
+            this.btnMSTSCstart.Location = new System.Drawing.Point(548, 355);
             this.btnMSTSCstart.Name = "btnMSTSCstart";
-            this.btnMSTSCstart.Size = new System.Drawing.Size(95, 47);
+            this.btnMSTSCstart.Size = new System.Drawing.Size(68, 47);
             this.btnMSTSCstart.TabIndex = 42;
-            this.btnMSTSCstart.Text = "start";
+            this.btnMSTSCstart.Text = "Запустить RDP";
             this.btnMSTSCstart.UseVisualStyleBackColor = true;
             this.btnMSTSCstart.Click += new System.EventHandler(this.btnMSTSCstart_Click);
             // 
@@ -426,24 +426,24 @@
             this.tbMSTSCadress.MinimumSize = new System.Drawing.Size(1, 20);
             this.tbMSTSCadress.Name = "tbMSTSCadress";
             this.tbMSTSCadress.PasswordChar = '\0';
-            this.tbMSTSCadress.Size = new System.Drawing.Size(190, 20);
+            this.tbMSTSCadress.Size = new System.Drawing.Size(217, 20);
             this.tbMSTSCadress.TabIndex = 41;
             this.tbMSTSCadress.TextMaxLength = 1024;
-            this.tbMSTSCadress.TextTitle = "adress";
+            this.tbMSTSCadress.TextTitle = "IP-адрес или DNS-имя";
             this.tbMSTSCadress.KeyDownEvent += new System.Windows.Forms.KeyEventHandler(this.tbMSTSCadress_KeyDownEvent);
             this.tbMSTSCadress._TextChanged += new System.EventHandler(this.tbMSTSCadress_TextChanged);
             // 
             // tbMSTSCpass
             // 
-            this.tbMSTSCpass.Location = new System.Drawing.Point(429, 356);
+            this.tbMSTSCpass.Location = new System.Drawing.Point(455, 356);
             this.tbMSTSCpass.MaximumSize = new System.Drawing.Size(1000, 20);
             this.tbMSTSCpass.MinimumSize = new System.Drawing.Size(1, 20);
             this.tbMSTSCpass.Name = "tbMSTSCpass";
             this.tbMSTSCpass.PasswordChar = '*';
-            this.tbMSTSCpass.Size = new System.Drawing.Size(86, 20);
+            this.tbMSTSCpass.Size = new System.Drawing.Size(87, 20);
             this.tbMSTSCpass.TabIndex = 40;
             this.tbMSTSCpass.TextMaxLength = 1024;
-            this.tbMSTSCpass.TextTitle = "pass (optional)";
+            this.tbMSTSCpass.TextTitle = "Пароль (опц.)";
             this.tbMSTSCpass.KeyDownEvent += new System.Windows.Forms.KeyEventHandler(this.tbMSTSCadress_KeyDownEvent);
             // 
             // tbMSTSClogin
@@ -453,10 +453,10 @@
             this.tbMSTSClogin.MinimumSize = new System.Drawing.Size(1, 20);
             this.tbMSTSClogin.Name = "tbMSTSClogin";
             this.tbMSTSClogin.PasswordChar = '\0';
-            this.tbMSTSClogin.Size = new System.Drawing.Size(98, 20);
+            this.tbMSTSClogin.Size = new System.Drawing.Size(124, 20);
             this.tbMSTSClogin.TabIndex = 39;
             this.tbMSTSClogin.TextMaxLength = 1024;
-            this.tbMSTSClogin.TextTitle = "login (optional)";
+            this.tbMSTSClogin.TextTitle = "Логин (опционально)";
             this.tbMSTSClogin.KeyDownEvent += new System.Windows.Forms.KeyEventHandler(this.tbMSTSCadress_KeyDownEvent);
             // 
             // lblPingTimeTimeOut
@@ -1033,6 +1033,16 @@
             this.tabPagePrinters.TabIndex = 2;
             this.tabPagePrinters.Text = "Принтеры";
             // 
+            // btnPrintChange
+            // 
+            this.btnPrintChange.Location = new System.Drawing.Point(545, 539);
+            this.btnPrintChange.Name = "btnPrintChange";
+            this.btnPrintChange.Size = new System.Drawing.Size(75, 23);
+            this.btnPrintChange.TabIndex = 5;
+            this.btnPrintChange.Text = "Изменить";
+            this.btnPrintChange.UseVisualStyleBackColor = true;
+            this.btnPrintChange.Click += new System.EventHandler(this.btnPrintChange_Click);
+            // 
             // tbPrintInvNumber
             // 
             this.tbPrintInvNumber.Location = new System.Drawing.Point(378, 568);
@@ -1103,6 +1113,7 @@
             this.dgvPrinters.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPrinters.Size = new System.Drawing.Size(620, 487);
             this.dgvPrinters.TabIndex = 0;
+            this.dgvPrinters.TabStop = false;
             this.dgvPrinters.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrinters_CellClick);
             this.dgvPrinters.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvPrinters_KeyDown);
             // 
@@ -1112,6 +1123,7 @@
             this.btnPrintPrinting.Name = "btnPrintPrinting";
             this.btnPrintPrinting.Size = new System.Drawing.Size(183, 23);
             this.btnPrintPrinting.TabIndex = 11;
+            this.btnPrintPrinting.TabStop = false;
             this.btnPrintPrinting.Text = "Кривоватая, но все же печать";
             this.btnPrintPrinting.UseVisualStyleBackColor = true;
             this.btnPrintPrinting.Click += new System.EventHandler(this.btnPrintPrinting_Click);
@@ -1132,7 +1144,7 @@
             this.tbPrintName1.MaxLength = 100;
             this.tbPrintName1.Name = "tbPrintName1";
             this.tbPrintName1.Size = new System.Drawing.Size(100, 20);
-            this.tbPrintName1.TabIndex = 1;
+            this.tbPrintName1.TabIndex = 0;
             this.tbPrintName1.Click += new System.EventHandler(this.tbPrintName_Click);
             // 
             // lblPrintBuffer
@@ -1150,7 +1162,7 @@
             this.tbPrintNetName1.MaxLength = 50;
             this.tbPrintNetName1.Name = "tbPrintNetName1";
             this.tbPrintNetName1.Size = new System.Drawing.Size(100, 20);
-            this.tbPrintNetName1.TabIndex = 2;
+            this.tbPrintNetName1.TabIndex = 1;
             this.tbPrintNetName1.Click += new System.EventHandler(this.tbPrintName_Click);
             // 
             // lblPrintInvNumber
@@ -1168,7 +1180,7 @@
             this.tbPrintLocation1.MaxLength = 20;
             this.tbPrintLocation1.Name = "tbPrintLocation1";
             this.tbPrintLocation1.Size = new System.Drawing.Size(100, 20);
-            this.tbPrintLocation1.TabIndex = 3;
+            this.tbPrintLocation1.TabIndex = 2;
             this.tbPrintLocation1.Click += new System.EventHandler(this.tbPrintName_Click);
             // 
             // lblPrintLocation
@@ -1185,7 +1197,7 @@
             this.btnPrintAdd.Location = new System.Drawing.Point(545, 510);
             this.btnPrintAdd.Name = "btnPrintAdd";
             this.btnPrintAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnPrintAdd.TabIndex = 5;
+            this.btnPrintAdd.TabIndex = 4;
             this.btnPrintAdd.Text = "Добавить";
             this.btnPrintAdd.UseVisualStyleBackColor = true;
             this.btnPrintAdd.Click += new System.EventHandler(this.btnPrintAdd_Click);
@@ -1205,7 +1217,7 @@
             this.tbPrintInvNumber1.MaxLength = 15;
             this.tbPrintInvNumber1.Name = "tbPrintInvNumber1";
             this.tbPrintInvNumber1.Size = new System.Drawing.Size(100, 20);
-            this.tbPrintInvNumber1.TabIndex = 4;
+            this.tbPrintInvNumber1.TabIndex = 3;
             this.tbPrintInvNumber1.Click += new System.EventHandler(this.tbPrintName_Click);
             // 
             // lblPrintName
@@ -1526,16 +1538,6 @@
             this.lbProgList.Sorted = true;
             this.lbProgList.TabIndex = 8;
             this.lbProgList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbProgList_KeyDown);
-            // 
-            // btnPrintChange
-            // 
-            this.btnPrintChange.Location = new System.Drawing.Point(545, 539);
-            this.btnPrintChange.Name = "btnPrintChange";
-            this.btnPrintChange.Size = new System.Drawing.Size(75, 23);
-            this.btnPrintChange.TabIndex = 16;
-            this.btnPrintChange.Text = "Изменить";
-            this.btnPrintChange.UseVisualStyleBackColor = true;
-            this.btnPrintChange.Click += new System.EventHandler(this.btnPrintChange_Click);
             // 
             // MainForm
             // 

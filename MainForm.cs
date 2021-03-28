@@ -729,13 +729,16 @@ namespace ALLinONE
             lbCyclePing.Items.Clear();
             Service.CyclePingStop = false;
             Service.StartCyclePing(tbCyclePingAdress.Text, lbCyclePing);
+            btnCyclePingStart.Enabled = false;
         }
 
-        public void btnCyclePingStop_Click(object sender, EventArgs e)
+        public async void btnCyclePingStop_Click(object sender, EventArgs e)
         {
             Service.CyclePingStop = true;
 
-            string s = btnMSTSCstart.Name;
+            await Task.Delay(1333);
+            btnCyclePingStart.Enabled = true;
+            //string s = btnMSTSCstart.Name;
         }
 
         private void tbMSTSCadress_TextChanged(object sender, EventArgs e)

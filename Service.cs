@@ -83,6 +83,7 @@ namespace ALLinONE
         {
             Ping ping = new Ping();
             PingReply pingReply;
+            
             adress = adress.Replace(',', '.'); //Меняем *запятую* на *точку*
             string echo;
             string tmp;
