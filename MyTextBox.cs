@@ -83,5 +83,10 @@ namespace ALLinONE
         {
             _ClickEvent?.Invoke(sender, e);
         }
+
+        public void Clear()
+        {
+            tb.Text = string.Empty;
+        }
     }
 }

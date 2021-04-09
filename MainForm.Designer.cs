@@ -48,6 +48,7 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tabControl = new System.Windows.Forms.CustomTabControl();
             this.tabPageService = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnCyclePingStop = new System.Windows.Forms.Button();
             this.lbCyclePing = new System.Windows.Forms.ListBox();
             this.btnCyclePingStart = new System.Windows.Forms.Button();
@@ -122,10 +123,10 @@
             this.tbPrintInvNumber1 = new System.Windows.Forms.TextBox();
             this.lblPrintName = new System.Windows.Forms.Label();
             this.tabPageDBList = new System.Windows.Forms.TabPage();
+            this.btnClearAllRequest = new System.Windows.Forms.Button();
             this.lblInfoRequest = new System.Windows.Forms.Label();
             this.dgvRequest = new System.Windows.Forms.DataGridView();
             this.chckbMyRequest = new System.Windows.Forms.CheckBox();
-            this.tbAddRequest = new System.Windows.Forms.TextBox();
             this.chckbRemoveRequest = new System.Windows.Forms.CheckBox();
             this.btnAddRequest = new System.Windows.Forms.Button();
             this.btnAddRequestBuffer = new System.Windows.Forms.Button();
@@ -147,7 +148,7 @@
             this.rdbtnAddRequest2 = new System.Windows.Forms.RadioButton();
             this.rdbtnAddRequest1 = new System.Windows.Forms.RadioButton();
             this.lbProgList = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tbAddRequest = new ALLinONE.MyTextBox();
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageService.SuspendLayout();
@@ -358,6 +359,16 @@
             this.tabPageService.Size = new System.Drawing.Size(626, 597);
             this.tabPageService.TabIndex = 1;
             this.tabPageService.Text = "Сервис";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(383, 564);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 48;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnCyclePingStop
             // 
@@ -1234,10 +1245,11 @@
             // tabPageDBList
             // 
             this.tabPageDBList.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageDBList.Controls.Add(this.tbAddRequest);
+            this.tabPageDBList.Controls.Add(this.btnClearAllRequest);
             this.tabPageDBList.Controls.Add(this.lblInfoRequest);
             this.tabPageDBList.Controls.Add(this.dgvRequest);
             this.tabPageDBList.Controls.Add(this.chckbMyRequest);
-            this.tabPageDBList.Controls.Add(this.tbAddRequest);
             this.tabPageDBList.Controls.Add(this.chckbRemoveRequest);
             this.tabPageDBList.Controls.Add(this.btnAddRequest);
             this.tabPageDBList.Controls.Add(this.btnAddRequestBuffer);
@@ -1251,13 +1263,23 @@
             this.tabPageDBList.TabIndex = 3;
             this.tabPageDBList.Text = "Список заявок";
             // 
+            // btnClearAllRequest
+            // 
+            this.btnClearAllRequest.Location = new System.Drawing.Point(540, 510);
+            this.btnClearAllRequest.Name = "btnClearAllRequest";
+            this.btnClearAllRequest.Size = new System.Drawing.Size(75, 49);
+            this.btnClearAllRequest.TabIndex = 7;
+            this.btnClearAllRequest.Text = "Очистить список заявок";
+            this.btnClearAllRequest.UseVisualStyleBackColor = true;
+            this.btnClearAllRequest.Click += new System.EventHandler(this.btnClearAllRequest_Click);
+            // 
             // lblInfoRequest
             // 
             this.lblInfoRequest.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblInfoRequest.Enabled = false;
-            this.lblInfoRequest.Location = new System.Drawing.Point(3, 545);
+            this.lblInfoRequest.Location = new System.Drawing.Point(3, 566);
             this.lblInfoRequest.Name = "lblInfoRequest";
-            this.lblInfoRequest.Size = new System.Drawing.Size(620, 49);
+            this.lblInfoRequest.Size = new System.Drawing.Size(620, 28);
             this.lblInfoRequest.TabIndex = 6;
             this.lblInfoRequest.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -1288,29 +1310,20 @@
             this.chckbMyRequest.AutoSize = true;
             this.chckbMyRequest.Checked = true;
             this.chckbMyRequest.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chckbMyRequest.Location = new System.Drawing.Point(22, 464);
+            this.chckbMyRequest.Location = new System.Drawing.Point(11, 527);
             this.chckbMyRequest.Name = "chckbMyRequest";
             this.chckbMyRequest.Size = new System.Drawing.Size(86, 17);
-            this.chckbMyRequest.TabIndex = 2;
+            this.chckbMyRequest.TabIndex = 4;
             this.chckbMyRequest.Text = "Только мои";
             this.chckbMyRequest.UseVisualStyleBackColor = true;
             this.chckbMyRequest.CheckedChanged += new System.EventHandler(this.chckbMyRequest_CheckedChanged);
-            // 
-            // tbAddRequest
-            // 
-            this.tbAddRequest.Location = new System.Drawing.Point(98, 409);
-            this.tbAddRequest.MaxLength = 300;
-            this.tbAddRequest.Name = "tbAddRequest";
-            this.tbAddRequest.Size = new System.Drawing.Size(517, 20);
-            this.tbAddRequest.TabIndex = 1;
-            this.tbAddRequest.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbAddRequest_KeyDown);
             // 
             // chckbRemoveRequest
             // 
             this.chckbRemoveRequest.AutoSize = true;
             this.chckbRemoveRequest.Checked = true;
             this.chckbRemoveRequest.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chckbRemoveRequest.Location = new System.Drawing.Point(526, 525);
+            this.chckbRemoveRequest.Location = new System.Drawing.Point(550, 487);
             this.chckbRemoveRequest.Name = "chckbRemoveRequest";
             this.chckbRemoveRequest.Size = new System.Drawing.Size(69, 17);
             this.chckbRemoveRequest.TabIndex = 6;
@@ -1319,20 +1332,19 @@
             // 
             // btnAddRequest
             // 
-            this.btnAddRequest.Location = new System.Drawing.Point(391, 445);
+            this.btnAddRequest.Location = new System.Drawing.Point(218, 440);
             this.btnAddRequest.Name = "btnAddRequest";
             this.btnAddRequest.Size = new System.Drawing.Size(75, 23);
-            this.btnAddRequest.TabIndex = 3;
+            this.btnAddRequest.TabIndex = 2;
             this.btnAddRequest.Text = "Добавить";
             this.btnAddRequest.UseVisualStyleBackColor = true;
             this.btnAddRequest.Click += new System.EventHandler(this.btnAddRequest_Click);
             // 
             // btnAddRequestBuffer
             // 
-            this.btnAddRequestBuffer.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAddRequestBuffer.Location = new System.Drawing.Point(508, 445);
+            this.btnAddRequestBuffer.Location = new System.Drawing.Point(550, 445);
             this.btnAddRequestBuffer.Name = "btnAddRequestBuffer";
-            this.btnAddRequestBuffer.Size = new System.Drawing.Size(98, 78);
+            this.btnAddRequestBuffer.Size = new System.Drawing.Size(65, 36);
             this.btnAddRequestBuffer.TabIndex = 5;
             this.btnAddRequestBuffer.Text = "Закинуть в буфер";
             this.btnAddRequestBuffer.UseVisualStyleBackColor = true;
@@ -1340,10 +1352,10 @@
             // 
             // btnRemoveRequest
             // 
-            this.btnRemoveRequest.Location = new System.Drawing.Point(391, 474);
+            this.btnRemoveRequest.Location = new System.Drawing.Point(299, 440);
             this.btnRemoveRequest.Name = "btnRemoveRequest";
             this.btnRemoveRequest.Size = new System.Drawing.Size(75, 23);
-            this.btnRemoveRequest.TabIndex = 4;
+            this.btnRemoveRequest.TabIndex = 3;
             this.btnRemoveRequest.Text = "Удалить";
             this.btnRemoveRequest.UseVisualStyleBackColor = true;
             this.btnRemoveRequest.Click += new System.EventHandler(this.btnRemoveRequest_Click);
@@ -1351,7 +1363,7 @@
             // lblQuantity
             // 
             this.lblQuantity.AutoSize = true;
-            this.lblQuantity.Location = new System.Drawing.Point(15, 445);
+            this.lblQuantity.Location = new System.Drawing.Point(8, 509);
             this.lblQuantity.Name = "lblQuantity";
             this.lblQuantity.Size = new System.Drawing.Size(100, 13);
             this.lblQuantity.TabIndex = 7;
@@ -1360,7 +1372,7 @@
             // lblUserRequest
             // 
             this.lblUserRequest.AutoSize = true;
-            this.lblUserRequest.Location = new System.Drawing.Point(12, 412);
+            this.lblUserRequest.Location = new System.Drawing.Point(8, 487);
             this.lblUserRequest.Name = "lblUserRequest";
             this.lblUserRequest.Size = new System.Drawing.Size(79, 13);
             this.lblUserRequest.TabIndex = 5;
@@ -1541,15 +1553,18 @@
             this.lbProgList.TabIndex = 8;
             this.lbProgList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbProgList_KeyDown);
             // 
-            // button1
+            // tbAddRequest
             // 
-            this.button1.Location = new System.Drawing.Point(383, 564);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 48;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.tbAddRequest.Location = new System.Drawing.Point(3, 414);
+            this.tbAddRequest.MaximumSize = new System.Drawing.Size(10000, 20);
+            this.tbAddRequest.MinimumSize = new System.Drawing.Size(1, 20);
+            this.tbAddRequest.Name = "tbAddRequest";
+            this.tbAddRequest.PasswordChar = '\0';
+            this.tbAddRequest.Size = new System.Drawing.Size(620, 20);
+            this.tbAddRequest.TabIndex = 1;
+            this.tbAddRequest.TextMaxLength = 1024;
+            this.tbAddRequest.TextTitle = "Тут можно добавлять заявки в список";
+            this.tbAddRequest.KeyDownEvent += new System.Windows.Forms.KeyEventHandler(this.tbAddRequest_KeyDownEvent);
             // 
             // MainForm
             // 
@@ -1624,7 +1639,6 @@
         private System.Windows.Forms.DataGridView dgvRequest;
         private System.Windows.Forms.Button btnRemoveRequest;
         private System.Windows.Forms.Button btnAddRequest;
-        private System.Windows.Forms.TextBox tbAddRequest;
         private System.Windows.Forms.Label lblUserRequest;
         private System.Windows.Forms.Label lblInfoRequest;
         private System.Windows.Forms.Timer tmrComm5555;
@@ -1708,6 +1722,8 @@
         public System.Windows.Forms.Button btnCyclePingStop;
         private System.Windows.Forms.Button btnPrintChange;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnClearAllRequest;
+        private MyTextBox tbAddRequest;
     }
 }
 

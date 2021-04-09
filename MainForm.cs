@@ -799,5 +799,36 @@ namespace ALLinONE
         {
             MessageBox.Show(Screen.PrimaryScreen.Bounds.Size.Width.ToString());
         }
+
+        private void btnClearAllRequest_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show
+                    ("Почистить весь список с заявками?",
+                    "Ты уверен?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                //Проверяем наличие строк в Заявках
+                if (dgvRequest.Rows.Count > 0)
+                {
+                    //Перебираем все строки в Заявках
+                    while (dgvRequest.Rows.Count > 0)
+                    {
+                        UseDB.DeleteDB("RequestList", "Id", dgvRequest[0, 0].Value.ToString());
+                        dgvRequest.Rows.RemoveAt(0);
+                    }
+
+                    lblQuantity.Text = "0";
+                }
+                else
+                    MessageBox.Show("Там и так все пусто. Если мы будем тереть дальше, то протрем дырень...",
+                    "А зачем?", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void tbAddRequest_KeyDownEvent(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) btnAddRequest.PerformClick();
+        }
     }
 }
