@@ -28,7 +28,7 @@ namespace ALLinONE
             //excelPackage.Workbook.Properties.Subject = "EPPlus demo export data";
             excelPackage.Workbook.Properties.Created = DateTime.Now;
             //Create the WorkSheet
-            ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Sheet_Name");
+            ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Sheet");
 
             int tmp = 1;
             for (int i = 0; i < dgv.Rows.Count; i++)    //Строки
@@ -63,30 +63,6 @@ namespace ALLinONE
             {
                 MessageBox.Show(ex.Message +"\n\n"+ ex.InnerException.InnerException.Message, "Что случилось?", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
-            ///////////////////////////////////////////////////////////////////////////////////////////////////
-            ////Opening an existing Excel file
-            //FileInfo fi = new FileInfo(@"D:\File.xlsx");
-            //ExcelPackage excelPackage = new ExcelPackage(fi);
-
-            //    //Get a WorkSheet by index. Note that EPPlus indexes are base 1, not base 0!
-            //    ExcelWorksheet firstWorksheet = excelPackage.Workbook.Worksheets[1];
-
-            //    //Get a WorkSheet by name. If the worksheet doesn't exist, throw an exeption
-            //    ExcelWorksheet namedWorksheet = excelPackage.Workbook.Worksheets["SomeWorksheet"];
-
-            //    //If you don't know if a worksheet exists, you could use LINQ,
-            //    //So it doesn't throw an exception, but return null in case it doesn't find it
-            //    ExcelWorksheet anotherWorksheet =
-            //        excelPackage.Workbook.Worksheets.FirstOrDefault(x => x.Name == "SomeWorksheet");
-
-            //    //Get the content from cells A1 and B1 as string, in two different notations
-            //    string valA1 = firstWorksheet.Cells["A1"].Value.ToString();
-            //    string valB1 = firstWorksheet.Cells[1, 2].Value.ToString();
-
-            //    //Save your file
-            //    excelPackage.Save();
         }
 
         public static void RefreshProgList(ListBox lb)

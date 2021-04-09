@@ -673,28 +673,26 @@ namespace ALLinONE
 
         private void toolStripExcel_Click(object sender, EventArgs e)
         {
-            //Поиск DataGridView
             foreach (Control c in tabControl.SelectedTab.Controls)
-            {
+            {   //Поиск DataGridView
                 if (c is DataGridView)
                 {
-                    saveFileDialog.FileName = Text.Replace(" ", null);
+                    DataGridView dgv = null;
+                    if (c == dgvPrinters)
+                    {
+                        dgv = dgvPrinters;
+                        saveFileDialog.FileName = "Список принтеров " + DateTime.Today.ToShortDateString();
+                    }
+                    if (c == dgvRequest)
+                    {
+                        dgv = dgvRequest;
+                        saveFileDialog.FileName = "Список заявок " + DateTime.Today.ToShortDateString();
+                    }
+
+                    //Сохранение файла
                     if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {
-                        DataGridView dgv = null;
-                        if (c == dgvPrinters)
-                        {
-                            dgv = dgvPrinters;
-                            goto fin;
-                        }
-                        if (c == dgvRequest)
-                        {
-                            dgv = dgvRequest;
-                            goto fin;
-                        }
-
                         if (dgv == null) break;
-                        fin:
                         AiOMethods.SaveExcel(dgv, saveFileDialog.FileName);
                         break;
                     }
