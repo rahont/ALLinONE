@@ -274,7 +274,6 @@
             // 
             // tmrServicePB
             // 
-            this.tmrServicePB.Enabled = true;
             this.tmrServicePB.Tick += new System.EventHandler(this.tmrServicePB_Tick);
             // 
             // saveFileDialog

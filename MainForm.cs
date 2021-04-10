@@ -49,6 +49,8 @@ namespace ALLinONE
                 //Установка времени для пинга и максимального значения ProgressBar (вкладка Сервис)
                 numPingProgress.Value = Convert.ToDecimal(registry.GetValue("ProgressBarSec", 30));
                 pbPingProgress.Maximum = Convert.ToInt32(numPingProgress.Value) * 1000;
+
+                tmrServicePB.Enabled = true;
             }
             else
             {
