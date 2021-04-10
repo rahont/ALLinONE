@@ -77,15 +77,23 @@ namespace ALLinONE
 
         private void LoadFormPosition()
         {
-            int screenWidth = Screen.PrimaryScreen.Bounds.Size.Width;
-            int screenHeight = Screen.PrimaryScreen.Bounds.Size.Height;
+            int allScreenWidth = 0;
+            int allScreenHeight = 0;
+
+            for (int i = 0; i < Screen.AllScreens.Length; i++)
+            {
+                allScreenWidth += Screen.AllScreens[i].Bounds.Width;
+
+                if (Screen.AllScreens[i].Bounds.Height > allScreenHeight)
+                    allScreenHeight = Screen.AllScreens[i].Bounds.Height;
+            }
             
             RegistryKey formPos = Registry.CurrentUser.CreateSubKey("SOFTWARE\\All in One");
             Location = new Point(Convert.ToInt32(formPos.GetValue("PositionX", Location.X)),
                 Convert.ToInt32(formPos.GetValue("PositionY", Location.Y)));   //загрузить позицию формы из реестра
             formPos.Close();
 
-            if ((Location.X < -500) || (Location.X > screenWidth) || (Location.Y < -500) || (Location.Y > screenHeight))
+            if ((Location.X < -500) || (Location.X > allScreenWidth) || (Location.Y < -500) || (Location.Y > allScreenHeight))
                 Location = new Point(100, 100);
         }
         #endregion
@@ -795,7 +803,8 @@ namespace ALLinONE
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Screen.PrimaryScreen.Bounds.Size.Width.ToString());
+            
+            MessageBox.Show(Screen.AllScreens[0].Bounds.ToString());
         }
 
         private void btnClearAllRequest_Click(object sender, EventArgs e)
