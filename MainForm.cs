@@ -674,7 +674,7 @@ namespace ALLinONE
         private void toolStripExcel_Click(object sender, EventArgs e)
         {
             foreach (Control c in tabControl.SelectedTab.Controls)
-            {   //Поиск DataGridView
+            {   //Поиск DataGridView на открытой вкладке
                 if (c is DataGridView)
                 {
                     DataGridView dgv = null;

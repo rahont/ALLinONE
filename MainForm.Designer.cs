@@ -123,6 +123,7 @@
             this.tbPrintInvNumber1 = new System.Windows.Forms.TextBox();
             this.lblPrintName = new System.Windows.Forms.Label();
             this.tabPageDBList = new System.Windows.Forms.TabPage();
+            this.tbAddRequest = new ALLinONE.MyTextBox();
             this.btnClearAllRequest = new System.Windows.Forms.Button();
             this.lblInfoRequest = new System.Windows.Forms.Label();
             this.dgvRequest = new System.Windows.Forms.DataGridView();
@@ -148,7 +149,6 @@
             this.rdbtnAddRequest2 = new System.Windows.Forms.RadioButton();
             this.rdbtnAddRequest1 = new System.Windows.Forms.RadioButton();
             this.lbProgList = new System.Windows.Forms.ListBox();
-            this.tbAddRequest = new ALLinONE.MyTextBox();
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageService.SuspendLayout();
@@ -321,7 +321,7 @@
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(634, 624);
-            this.tabControl.TabIndex = 12;
+            this.tabControl.TabIndex = 0;
             this.tabControl.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControl_Selecting);
             // 
             // tabPageService
@@ -366,6 +366,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 48;
+            this.button1.TabStop = false;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -375,7 +376,7 @@
             this.btnCyclePingStop.Location = new System.Drawing.Point(574, 424);
             this.btnCyclePingStop.Name = "btnCyclePingStop";
             this.btnCyclePingStop.Size = new System.Drawing.Size(42, 21);
-            this.btnCyclePingStop.TabIndex = 47;
+            this.btnCyclePingStop.TabIndex = 14;
             this.btnCyclePingStop.Text = "Стоп";
             this.btnCyclePingStop.UseVisualStyleBackColor = true;
             this.btnCyclePingStop.Click += new System.EventHandler(this.btnCyclePingStop_Click);
@@ -387,7 +388,8 @@
             this.lbCyclePing.Location = new System.Drawing.Point(325, 451);
             this.lbCyclePing.Name = "lbCyclePing";
             this.lbCyclePing.Size = new System.Drawing.Size(291, 95);
-            this.lbCyclePing.TabIndex = 46;
+            this.lbCyclePing.TabIndex = 15;
+            this.lbCyclePing.TabStop = false;
             this.lbCyclePing.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lbCyclePing_DrawItem);
             // 
             // btnCyclePingStart
@@ -395,7 +397,7 @@
             this.btnCyclePingStart.Location = new System.Drawing.Point(521, 424);
             this.btnCyclePingStart.Name = "btnCyclePingStart";
             this.btnCyclePingStart.Size = new System.Drawing.Size(44, 22);
-            this.btnCyclePingStart.TabIndex = 45;
+            this.btnCyclePingStart.TabIndex = 13;
             this.btnCyclePingStart.Text = "Старт";
             this.btnCyclePingStart.UseVisualStyleBackColor = true;
             this.btnCyclePingStart.Click += new System.EventHandler(this.btnCyclePingStart_Click);
@@ -408,7 +410,7 @@
             this.tbCyclePingAdress.Name = "tbCyclePingAdress";
             this.tbCyclePingAdress.PasswordChar = '\0';
             this.tbCyclePingAdress.Size = new System.Drawing.Size(190, 20);
-            this.tbCyclePingAdress.TabIndex = 44;
+            this.tbCyclePingAdress.TabIndex = 12;
             this.tbCyclePingAdress.TextMaxLength = 1024;
             this.tbCyclePingAdress.TextTitle = "IP-адрес или DNS-имя";
             this.tbCyclePingAdress.KeyDownEvent += new System.Windows.Forms.KeyEventHandler(this.tbCyclePingAdress_KeyDownEvent);
@@ -427,7 +429,7 @@
             this.btnMSTSCstart.Location = new System.Drawing.Point(548, 355);
             this.btnMSTSCstart.Name = "btnMSTSCstart";
             this.btnMSTSCstart.Size = new System.Drawing.Size(68, 47);
-            this.btnMSTSCstart.TabIndex = 42;
+            this.btnMSTSCstart.TabIndex = 11;
             this.btnMSTSCstart.Text = "Запустить RDP";
             this.btnMSTSCstart.UseVisualStyleBackColor = true;
             this.btnMSTSCstart.Click += new System.EventHandler(this.btnMSTSCstart_Click);
@@ -440,7 +442,7 @@
             this.tbMSTSCadress.Name = "tbMSTSCadress";
             this.tbMSTSCadress.PasswordChar = '\0';
             this.tbMSTSCadress.Size = new System.Drawing.Size(217, 20);
-            this.tbMSTSCadress.TabIndex = 41;
+            this.tbMSTSCadress.TabIndex = 10;
             this.tbMSTSCadress.TextMaxLength = 1024;
             this.tbMSTSCadress.TextTitle = "IP-адрес или DNS-имя";
             this.tbMSTSCadress.KeyDownEvent += new System.Windows.Forms.KeyEventHandler(this.tbMSTSCadress_KeyDownEvent);
@@ -454,7 +456,7 @@
             this.tbMSTSCpass.Name = "tbMSTSCpass";
             this.tbMSTSCpass.PasswordChar = '*';
             this.tbMSTSCpass.Size = new System.Drawing.Size(87, 20);
-            this.tbMSTSCpass.TabIndex = 40;
+            this.tbMSTSCpass.TabIndex = 9;
             this.tbMSTSCpass.TextMaxLength = 1024;
             this.tbMSTSCpass.TextTitle = "Пароль (опц.)";
             this.tbMSTSCpass.KeyDownEvent += new System.Windows.Forms.KeyEventHandler(this.tbMSTSCadress_KeyDownEvent);
@@ -467,7 +469,7 @@
             this.tbMSTSClogin.Name = "tbMSTSClogin";
             this.tbMSTSClogin.PasswordChar = '\0';
             this.tbMSTSClogin.Size = new System.Drawing.Size(124, 20);
-            this.tbMSTSClogin.TabIndex = 39;
+            this.tbMSTSClogin.TabIndex = 8;
             this.tbMSTSClogin.TextMaxLength = 1024;
             this.tbMSTSClogin.TextTitle = "Логин (опционально)";
             this.tbMSTSClogin.KeyDownEvent += new System.Windows.Forms.KeyEventHandler(this.tbMSTSCadress_KeyDownEvent);
@@ -499,7 +501,7 @@
             this.btnRefreshPing.Location = new System.Drawing.Point(275, 574);
             this.btnRefreshPing.Name = "btnRefreshPing";
             this.btnRefreshPing.Size = new System.Drawing.Size(75, 20);
-            this.btnRefreshPing.TabIndex = 36;
+            this.btnRefreshPing.TabIndex = 7;
             this.btnRefreshPing.Text = "Обновить";
             this.btnRefreshPing.UseVisualStyleBackColor = true;
             this.btnRefreshPing.Click += new System.EventHandler(this.btnRefreshPing_Click);
@@ -519,7 +521,7 @@
             0});
             this.numPingTimeOut.Name = "numPingTimeOut";
             this.numPingTimeOut.Size = new System.Drawing.Size(39, 20);
-            this.numPingTimeOut.TabIndex = 35;
+            this.numPingTimeOut.TabIndex = 6;
             this.numPingTimeOut.Value = new decimal(new int[] {
             64,
             0,
@@ -541,7 +543,7 @@
             0});
             this.numPingProgress.Name = "numPingProgress";
             this.numPingProgress.Size = new System.Drawing.Size(34, 20);
-            this.numPingProgress.TabIndex = 28;
+            this.numPingProgress.TabIndex = 5;
             this.numPingProgress.Value = new decimal(new int[] {
             30,
             0,
@@ -585,7 +587,7 @@
             this.lbPingTimeOut.Name = "lbPingTimeOut";
             this.lbPingTimeOut.Size = new System.Drawing.Size(135, 186);
             this.lbPingTimeOut.Sorted = true;
-            this.lbPingTimeOut.TabIndex = 27;
+            this.lbPingTimeOut.TabIndex = 4;
             this.lbPingTimeOut.Leave += new System.EventHandler(this.lbRDP_Leave);
             // 
             // lbPingSuccess
@@ -596,7 +598,7 @@
             this.lbPingSuccess.Name = "lbPingSuccess";
             this.lbPingSuccess.Size = new System.Drawing.Size(135, 186);
             this.lbPingSuccess.Sorted = true;
-            this.lbPingSuccess.TabIndex = 26;
+            this.lbPingSuccess.TabIndex = 3;
             this.lbPingSuccess.Leave += new System.EventHandler(this.lbRDP_Leave);
             // 
             // btnSrvcChange
@@ -604,8 +606,7 @@
             this.btnSrvcChange.Location = new System.Drawing.Point(505, 553);
             this.btnSrvcChange.Name = "btnSrvcChange";
             this.btnSrvcChange.Size = new System.Drawing.Size(113, 37);
-            this.btnSrvcChange.TabIndex = 29;
-            this.btnSrvcChange.TabStop = false;
+            this.btnSrvcChange.TabIndex = 16;
             this.btnSrvcChange.Text = "Может нам что-то поменять?";
             this.btnSrvcChange.UseVisualStyleBackColor = true;
             this.btnSrvcChange.Click += new System.EventHandler(this.btnSrvcChange_Click);
@@ -615,10 +616,10 @@
             this.chckbServiceSorted.Checked = true;
             this.chckbServiceSorted.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chckbServiceSorted.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.chckbServiceSorted.Location = new System.Drawing.Point(255, 283);
+            this.chckbServiceSorted.Location = new System.Drawing.Point(253, 283);
             this.chckbServiceSorted.Name = "chckbServiceSorted";
-            this.chckbServiceSorted.Size = new System.Drawing.Size(53, 50);
-            this.chckbServiceSorted.TabIndex = 25;
+            this.chckbServiceSorted.Size = new System.Drawing.Size(58, 50);
+            this.chckbServiceSorted.TabIndex = 2;
             this.chckbServiceSorted.Text = "Сорт. по имени";
             this.chckbServiceSorted.UseVisualStyleBackColor = true;
             this.chckbServiceSorted.CheckedChanged += new System.EventHandler(this.chckbServiceSorted_CheckedChanged);
@@ -652,7 +653,7 @@
             this.lbShare.Name = "lbShare";
             this.lbShare.Size = new System.Drawing.Size(307, 310);
             this.lbShare.Sorted = true;
-            this.lbShare.TabIndex = 24;
+            this.lbShare.TabIndex = 1;
             this.lbShare.DoubleClick += new System.EventHandler(this.lbShare_DoubleClick);
             this.lbShare.Leave += new System.EventHandler(this.lbRDP_Leave);
             // 
@@ -665,7 +666,7 @@
             this.lbRDP.Name = "lbRDP";
             this.lbRDP.Size = new System.Drawing.Size(242, 310);
             this.lbRDP.Sorted = true;
-            this.lbRDP.TabIndex = 23;
+            this.lbRDP.TabIndex = 0;
             this.lbRDP.DoubleClick += new System.EventHandler(this.lbRDP_DoubleClick);
             this.lbRDP.Leave += new System.EventHandler(this.lbRDP_Leave);
             // 
@@ -1263,6 +1264,19 @@
             this.tabPageDBList.TabIndex = 3;
             this.tabPageDBList.Text = "Список заявок";
             // 
+            // tbAddRequest
+            // 
+            this.tbAddRequest.Location = new System.Drawing.Point(3, 414);
+            this.tbAddRequest.MaximumSize = new System.Drawing.Size(10000, 20);
+            this.tbAddRequest.MinimumSize = new System.Drawing.Size(1, 20);
+            this.tbAddRequest.Name = "tbAddRequest";
+            this.tbAddRequest.PasswordChar = '\0';
+            this.tbAddRequest.Size = new System.Drawing.Size(620, 20);
+            this.tbAddRequest.TabIndex = 1;
+            this.tbAddRequest.TextMaxLength = 1024;
+            this.tbAddRequest.TextTitle = "Тут можно добавлять заявки в список";
+            this.tbAddRequest.KeyDownEvent += new System.Windows.Forms.KeyEventHandler(this.tbAddRequest_KeyDownEvent);
+            // 
             // btnClearAllRequest
             // 
             this.btnClearAllRequest.Location = new System.Drawing.Point(540, 510);
@@ -1552,19 +1566,6 @@
             this.lbProgList.Sorted = true;
             this.lbProgList.TabIndex = 8;
             this.lbProgList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbProgList_KeyDown);
-            // 
-            // tbAddRequest
-            // 
-            this.tbAddRequest.Location = new System.Drawing.Point(3, 414);
-            this.tbAddRequest.MaximumSize = new System.Drawing.Size(10000, 20);
-            this.tbAddRequest.MinimumSize = new System.Drawing.Size(1, 20);
-            this.tbAddRequest.Name = "tbAddRequest";
-            this.tbAddRequest.PasswordChar = '\0';
-            this.tbAddRequest.Size = new System.Drawing.Size(620, 20);
-            this.tbAddRequest.TabIndex = 1;
-            this.tbAddRequest.TextMaxLength = 1024;
-            this.tbAddRequest.TextTitle = "Тут можно добавлять заявки в список";
-            this.tbAddRequest.KeyDownEvent += new System.Windows.Forms.KeyEventHandler(this.tbAddRequest_KeyDownEvent);
             // 
             // MainForm
             // 
