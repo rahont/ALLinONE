@@ -80,10 +80,13 @@ namespace ALLinONE
             int allScreenWidth = 0;
             int allScreenHeight = 0;
 
+            //Перебор всех мониторов
             for (int i = 0; i < Screen.AllScreens.Length; i++)
             {
+                // + width монитора
                 allScreenWidth += Screen.AllScreens[i].Bounds.Width;
 
+                //Если height монитора > переменной, то присвоить
                 if (Screen.AllScreens[i].Bounds.Height > allScreenHeight)
                     allScreenHeight = Screen.AllScreens[i].Bounds.Height;
             }
