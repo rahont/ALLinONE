@@ -42,7 +42,7 @@ namespace ALLinONE
                 }
                 catch (Exception ex)
                 {
-                    lbT.Items.Add(ex.Message);
+                    lbT.Items.Add(item + ": " + ex.InnerException.Message);
                 }
             }
         }
@@ -117,7 +117,8 @@ namespace ALLinONE
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Накосячил", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show(ex.InnerException.Message, "Накосячил", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lb.Items.Add(ex.InnerException.Message);
             }
         }
     }

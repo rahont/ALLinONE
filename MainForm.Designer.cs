@@ -1108,7 +1108,6 @@
             this.tbPrintName.TextMaxLength = 100;
             this.tbPrintName.TextTitle = "Наименование";
             this.tbPrintName.Visible = false;
-            this.tbPrintName._ClickEvent += new System.EventHandler(this.tbPrintName_Click);
             // 
             // dgvPrinters
             // 
@@ -1133,13 +1132,14 @@
             // 
             // btnPrintPrinting
             // 
-            this.btnPrintPrinting.Location = new System.Drawing.Point(9, 496);
+            this.btnPrintPrinting.Location = new System.Drawing.Point(353, 497);
             this.btnPrintPrinting.Name = "btnPrintPrinting";
             this.btnPrintPrinting.Size = new System.Drawing.Size(183, 23);
             this.btnPrintPrinting.TabIndex = 11;
             this.btnPrintPrinting.TabStop = false;
             this.btnPrintPrinting.Text = "Кривоватая, но все же печать";
             this.btnPrintPrinting.UseVisualStyleBackColor = true;
+            this.btnPrintPrinting.Visible = false;
             this.btnPrintPrinting.Click += new System.EventHandler(this.btnPrintPrinting_Click);
             // 
             // btnPrintRemove

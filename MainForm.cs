@@ -755,7 +755,6 @@ namespace ALLinONE
 
             await Task.Delay(1333);
             btnCyclePingStart.Enabled = true;
-            //string s = btnMSTSCstart.Name;
         }
 
         private void tbMSTSCadress_TextChanged(object sender, EventArgs e)
@@ -841,6 +840,11 @@ namespace ALLinONE
         private void tbAddRequest_KeyDownEvent(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter) btnAddRequest.PerformClick();
+        }
+
+        private void myTextBox1__ClickEvent(object sender, EventArgs e)
+        {
+            MessageBox.Show("Test");
         }
     }
 }
