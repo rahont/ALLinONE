@@ -37,7 +37,7 @@ namespace ALLinONE
             if (File.Exists(registry.GetValue("PathDB", "Data_DB.db").ToString()))
             {
                 form.Close();
-                Text += $" ({Environment.UserName})   - v.2.12.3";
+                Text += $" ({Environment.UserName})   - v.2.12.4";
 
                 LoadFormPosition();     //Загрузка координат формы
                 Refresh_btnPR();        //Загрузка описаний кнопок на вкладке Проф
@@ -195,6 +195,7 @@ namespace ALLinONE
             lblQuantity.Text = "Количество заявок: " + dgvRequest.Rows.Count.ToString();
 
             dgvRequest.Columns["id"].Visible = false;
+            dgvRequest.Columns["DateUse"].Visible = false;
             //Переименовка колонок в DataGridView
             dgvRequest.Columns["Value"].HeaderText = "Заявки";
             dgvRequest.Columns["User"].HeaderText = "Пользователь";

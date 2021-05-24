@@ -35,6 +35,7 @@ namespace ALLinONE
             {
                 for (int j = 1; j < dgv.ColumnCount; j++)   //Столбцы
                 {
+                    //Добавляем префикс в первую ячейку строки в заявках
                     string prefix = ((dgv.Name == "dgvRequest") && (j == 1)) ? "(г.Саров) " : string.Empty;
 
                     //Сохранение ячейки в файле
