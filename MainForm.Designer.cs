@@ -150,6 +150,7 @@
             this.rdbtnAddRequest2 = new System.Windows.Forms.RadioButton();
             this.rdbtnAddRequest1 = new System.Windows.Forms.RadioButton();
             this.lbProgList = new System.Windows.Forms.ListBox();
+            this.chkbPrefixShow = new System.Windows.Forms.CheckBox();
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageService.SuspendLayout();
@@ -716,7 +717,7 @@
             this.lblPR.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblPR.Enabled = false;
             this.lblPR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblPR.Location = new System.Drawing.Point(3, 482);
+            this.lblPR.Location = new System.Drawing.Point(3, 485);
             this.lblPR.Name = "lblPR";
             this.lblPR.Size = new System.Drawing.Size(620, 109);
             this.lblPR.TabIndex = 27;
@@ -1247,6 +1248,7 @@
             // tabPageDBList
             // 
             this.tabPageDBList.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageDBList.Controls.Add(this.chkbPrefixShow);
             this.tabPageDBList.Controls.Add(this.tbPrefixRequest);
             this.tabPageDBList.Controls.Add(this.tbAddRequest);
             this.tabPageDBList.Controls.Add(this.btnClearAllRequest);
@@ -1577,10 +1579,21 @@
             this.lbProgList.FormattingEnabled = true;
             this.lbProgList.Location = new System.Drawing.Point(3, 3);
             this.lbProgList.Name = "lbProgList";
-            this.lbProgList.Size = new System.Drawing.Size(269, 588);
+            this.lbProgList.Size = new System.Drawing.Size(269, 591);
             this.lbProgList.Sorted = true;
             this.lbProgList.TabIndex = 8;
             this.lbProgList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbProgList_KeyDown);
+            // 
+            // chkbPrefixShow
+            // 
+            this.chkbPrefixShow.AutoSize = true;
+            this.chkbPrefixShow.Location = new System.Drawing.Point(3, 440);
+            this.chkbPrefixShow.Name = "chkbPrefixShow";
+            this.chkbPrefixShow.Size = new System.Drawing.Size(130, 17);
+            this.chkbPrefixShow.TabIndex = 8;
+            this.chkbPrefixShow.Text = "Показать префиксы";
+            this.chkbPrefixShow.UseVisualStyleBackColor = true;
+            this.chkbPrefixShow.CheckedChanged += new System.EventHandler(this.chkbPrefixShow_CheckedChanged);
             // 
             // MainForm
             // 
@@ -1741,6 +1754,7 @@
         private System.Windows.Forms.Button btnClearAllRequest;
         private MyTextBox tbAddRequest;
         private MyTextBox tbPrefixRequest;
+        private System.Windows.Forms.CheckBox chkbPrefixShow;
     }
 }
 

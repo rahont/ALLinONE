@@ -544,6 +544,11 @@ namespace ALLinONE
             Properties.Settings.Default.prefixRequest = tbPrefixRequest.Text;
             Properties.Settings.Default.Save();
         }
+
+        private void chkbPrefixShow_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvRequest.Columns["Prefix"].Visible = (chkbPrefixShow.Checked);
+        }
         #endregion
 
 
