@@ -8,5 +8,8 @@
     <Setting Name="remaccBtnQuestion" Type="System.String" Scope="User">
       <Value Profile="(Default)">Тут может использоваться PsExec. Нужно указать к нему путь.</Value>
     </Setting>
+    <Setting Name="prefixRequest" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

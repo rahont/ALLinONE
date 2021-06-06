@@ -195,17 +195,16 @@ namespace ALLinONE
             lblQuantity.Text = "Количество заявок: " + dgvRequest.Rows.Count.ToString();
 
             dgvRequest.Columns["id"].Visible = false;
-            dgvRequest.Columns["DateUse"].Visible = false;
+            dgvRequest.Columns["Prefix"].Visible = false;
             //Переименовка колонок в DataGridView
+            dgvRequest.Columns["Prefix"].HeaderText = "Префикс";
             dgvRequest.Columns["Value"].HeaderText = "Заявки";
             dgvRequest.Columns["User"].HeaderText = "Пользователь";
             dgvRequest.Columns["DateCreate"].HeaderText = "Добавлена";
-            dgvRequest.Columns["DateUse"].HeaderText = "Использована";
 
             //Длина колонок в DataGridView
-            dgvRequest.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; //Автоподстройка длины столбца
-            dgvRequest.Columns[2].Width = 100;
-            dgvRequest.Columns[3].Width = 111;
+            dgvRequest.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; //Автоподстройка длины столбца
+            dgvRequest.Columns[3].Width = 100;
             dgvRequest.Columns[4].Width = 111;
 
             dgvRequest.ClearSelection();
@@ -475,7 +474,7 @@ namespace ALLinONE
             }
             else
             {
-                UseDB.InsertDB("RequestList", "Value", "User", "DateCreate", tbAddRequest.Text, Environment.UserName, DateTime.Now.ToString());
+                UseDB.InsertDB("RequestList", "Prefix", "Value", "User", "DateCreate", tbPrefixRequest.Text, tbAddRequest.Text, Environment.UserName, DateTime.Now.ToString());
 
                 RefreshDBGrid();
                 tbAddRequest.Clear();
@@ -537,6 +536,13 @@ namespace ALLinONE
         {
             if (e.KeyData == Keys.Enter) //проверяем нажат ли Enter,
                 btnAddRequest.PerformClick(); //если да, то жмем кнопку Добавить
+        }
+
+        //Сохраняем префикс в заявках
+        private void tbPrefixRequest__TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.prefixRequest = tbPrefixRequest.Text;
+            Properties.Settings.Default.Save();
         }
         #endregion
 
@@ -646,9 +652,10 @@ namespace ALLinONE
             //Страница заявок
             if (tabControl.SelectedTab == tabPageDBList)
             {
-                RefreshDBGrid();
-                lblUserRequest.Text = Environment.UserName;
-                dgvRequest.ClearSelection();
+                RefreshDBGrid(); //Метод обновления dgv в заявках
+                lblUserRequest.Text = Environment.UserName; //Устанавливаем имя пользователя
+                dgvRequest.ClearSelection(); //Снимаем выделение из dgv
+                tbPrefixRequest.Text = Properties.Settings.Default.prefixRequest; //Ставим префикс
             }
 
             //Страница принтеров

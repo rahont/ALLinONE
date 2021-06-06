@@ -123,6 +123,7 @@
             this.tbPrintInvNumber1 = new System.Windows.Forms.TextBox();
             this.lblPrintName = new System.Windows.Forms.Label();
             this.tabPageDBList = new System.Windows.Forms.TabPage();
+            this.tbPrefixRequest = new ALLinONE.MyTextBox();
             this.tbAddRequest = new ALLinONE.MyTextBox();
             this.btnClearAllRequest = new System.Windows.Forms.Button();
             this.lblInfoRequest = new System.Windows.Forms.Label();
@@ -196,7 +197,7 @@
             this.toolStripDBInvertCon});
             this.toolStripDB.Image = global::ALLinONE.Properties.Resources.Data_settings_theapplication_3364;
             this.toolStripDB.Name = "toolStripDB";
-            this.toolStripDB.Size = new System.Drawing.Size(144, 22);
+            this.toolStripDB.Size = new System.Drawing.Size(143, 22);
             this.toolStripDB.Text = "База Данных";
             // 
             // toolStripDBCheckCon
@@ -224,20 +225,20 @@
             // 
             this.toolStripSettings.Image = global::ALLinONE.Properties.Resources._2849830_gear_interface_multimedia_options_setting_settings_107986;
             this.toolStripSettings.Name = "toolStripSettings";
-            this.toolStripSettings.Size = new System.Drawing.Size(144, 22);
+            this.toolStripSettings.Size = new System.Drawing.Size(143, 22);
             this.toolStripSettings.Text = "Настройки";
             this.toolStripSettings.Visible = false;
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(141, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(140, 6);
             // 
             // toolStripExit
             // 
             this.toolStripExit.Image = global::ALLinONE.Properties.Resources.switch_power_on_off_icon_178313;
             this.toolStripExit.Name = "toolStripExit";
-            this.toolStripExit.Size = new System.Drawing.Size(144, 22);
+            this.toolStripExit.Size = new System.Drawing.Size(143, 22);
             this.toolStripExit.Text = "Выход";
             this.toolStripExit.Click += new System.EventHandler(this.toolStripExit_Click);
             // 
@@ -245,7 +246,7 @@
             // 
             this.toDoToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toDoToolStripMenuItem.Name = "toDoToolStripMenuItem";
-            this.toDoToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.toDoToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.toDoToolStripMenuItem.Text = "ToDo";
             this.toDoToolStripMenuItem.Click += new System.EventHandler(this.toDoToolStripMenuItem_Click);
             // 
@@ -263,7 +264,7 @@
             this.toolStripExcel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripExcel.Image = global::ALLinONE.Properties.Resources.Excel_Mac_23559;
             this.toolStripExcel.Name = "toolStripExcel";
-            this.toolStripExcel.Size = new System.Drawing.Size(62, 20);
+            this.toolStripExcel.Size = new System.Drawing.Size(61, 20);
             this.toolStripExcel.Text = "Excel";
             this.toolStripExcel.Click += new System.EventHandler(this.toolStripExcel_Click);
             // 
@@ -316,7 +317,7 @@
             this.tabControl.DisplayStyleProvider.TextColorSelected = System.Drawing.SystemColors.ControlText;
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tabControl.HotTrack = true;
-            this.tabControl.Location = new System.Drawing.Point(0, 22);
+            this.tabControl.Location = new System.Drawing.Point(0, 23);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(634, 624);
@@ -715,7 +716,7 @@
             this.lblPR.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblPR.Enabled = false;
             this.lblPR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblPR.Location = new System.Drawing.Point(3, 485);
+            this.lblPR.Location = new System.Drawing.Point(3, 482);
             this.lblPR.Name = "lblPR";
             this.lblPR.Size = new System.Drawing.Size(620, 109);
             this.lblPR.TabIndex = 27;
@@ -1246,6 +1247,7 @@
             // tabPageDBList
             // 
             this.tabPageDBList.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageDBList.Controls.Add(this.tbPrefixRequest);
             this.tabPageDBList.Controls.Add(this.tbAddRequest);
             this.tabPageDBList.Controls.Add(this.btnClearAllRequest);
             this.tabPageDBList.Controls.Add(this.lblInfoRequest);
@@ -1264,14 +1266,27 @@
             this.tabPageDBList.TabIndex = 3;
             this.tabPageDBList.Text = "Список заявок";
             // 
+            // tbPrefixRequest
+            // 
+            this.tbPrefixRequest.Location = new System.Drawing.Point(3, 414);
+            this.tbPrefixRequest.MaximumSize = new System.Drawing.Size(10000, 20);
+            this.tbPrefixRequest.MinimumSize = new System.Drawing.Size(1, 20);
+            this.tbPrefixRequest.Name = "tbPrefixRequest";
+            this.tbPrefixRequest.PasswordChar = '\0';
+            this.tbPrefixRequest.Size = new System.Drawing.Size(100, 20);
+            this.tbPrefixRequest.TabIndex = 8;
+            this.tbPrefixRequest.TextMaxLength = 1024;
+            this.tbPrefixRequest.TextTitle = "Префикс";
+            this.tbPrefixRequest._TextChanged += new System.EventHandler(this.tbPrefixRequest__TextChanged);
+            // 
             // tbAddRequest
             // 
-            this.tbAddRequest.Location = new System.Drawing.Point(3, 414);
+            this.tbAddRequest.Location = new System.Drawing.Point(109, 414);
             this.tbAddRequest.MaximumSize = new System.Drawing.Size(10000, 20);
             this.tbAddRequest.MinimumSize = new System.Drawing.Size(1, 20);
             this.tbAddRequest.Name = "tbAddRequest";
             this.tbAddRequest.PasswordChar = '\0';
-            this.tbAddRequest.Size = new System.Drawing.Size(620, 20);
+            this.tbAddRequest.Size = new System.Drawing.Size(514, 20);
             this.tbAddRequest.TabIndex = 1;
             this.tbAddRequest.TextMaxLength = 1024;
             this.tbAddRequest.TextTitle = "Тут можно добавлять заявки в список";
@@ -1562,7 +1577,7 @@
             this.lbProgList.FormattingEnabled = true;
             this.lbProgList.Location = new System.Drawing.Point(3, 3);
             this.lbProgList.Name = "lbProgList";
-            this.lbProgList.Size = new System.Drawing.Size(269, 591);
+            this.lbProgList.Size = new System.Drawing.Size(269, 588);
             this.lbProgList.Sorted = true;
             this.lbProgList.TabIndex = 8;
             this.lbProgList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbProgList_KeyDown);
@@ -1571,7 +1586,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(634, 646);
+            this.ClientSize = new System.Drawing.Size(634, 647);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.menuStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1725,6 +1740,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnClearAllRequest;
         private MyTextBox tbAddRequest;
+        private MyTextBox tbPrefixRequest;
     }
 }
 

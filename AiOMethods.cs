@@ -35,26 +35,22 @@ namespace ALLinONE
             {
                 for (int j = 1; j < dgv.ColumnCount; j++)   //Столбцы
                 {
-                    //Добавляем префикс в первую ячейку строки в заявках
-                    string prefix = ((dgv.Name == "dgvRequest") && (j == 1)) ? "(г.Саров) " : string.Empty;
-
+                    //Добавляем префикс в ячейку с заявками
+                    string prefix = ((dgv.Name == "dgvRequest") && (j == 2)) ?
+                        (dgv.Rows[i].Cells[1].Value).ToString() + " " : string.Empty;
                     //Сохранение ячейки в файле
                     worksheet.Cells[i + 1, j].Value = prefix + dgv.Rows[i].Cells[j].Value;
-
-                    //Корректировка для списка заявок (убираем выделение последнего столбца)
-                    if ((dgv.Name != "dgvRequest") || (j != dgv.ColumnCount - 1))
-                    {
-                        //worksheet.Cells[i + 1, j].Style.Border.Top.Style = ExcelBorderStyle.Thin;
-                        //worksheet.Cells[i + 1, j].Style.Border.Right.Style = ExcelBorderStyle.Thin;
-                        //worksheet.Cells[i + 1, j].Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
-                        //worksheet.Cells[i + 1, j].Style.Border.Left.Style = ExcelBorderStyle.Thin;
-                        worksheet.Cells[i + 1, j].Style.Border.BorderAround(ExcelBorderStyle.Thin);
-                    }
+                    //Границы для ячеек
+                    worksheet.Cells[i + 1, j].Style.Border.BorderAround(ExcelBorderStyle.Thin);
 
                     tmp = j;
                 }
             }
 
+            //Удаляем первый стобец из списка заявок, т.к. он пустой
+            if (dgv.Name == "dgvRequest") worksheet.DeleteColumn(1);
+
+            //Выравнимаем ширину ячеек
             for (int i = 1; i <= tmp; i++)
                 worksheet.Column(i).AutoFit();
 

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SQLite;
 using System.Windows.Forms;
 using Microsoft.Win32;
@@ -190,10 +186,10 @@ namespace ALLinONE
                 ");" +
                 "create table RequestList(" + //RequestList
                 "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "[Prefix] STRING(100)," +
                 "[Value] STRING(300) NOT NULL," +
                 "[User] STRING(50) NOT NULL," +
-                "[DateCreate] STRING NOT NULL," +
-                "[DateUse] INTEGER(15)" +
+                "[DateCreate] STRING NOT NULL" +
                 ");" +
                 "create table ToDo(" + //ToDo
                 "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
