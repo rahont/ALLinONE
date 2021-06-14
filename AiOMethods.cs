@@ -39,7 +39,7 @@ namespace ALLinONE
                     string prefix = ((dgv.Name == "dgvRequest") && (j == 2)) ?
                         (dgv.Rows[i].Cells[1].Value).ToString() + " " : string.Empty;
                     //Сохранение ячейки в файле
-                    worksheet.Cells[i + 1, j].Value = prefix + dgv.Rows[i].Cells[j].Value;
+                    worksheet.Cells[i + 1, j].Value = (prefix + dgv.Rows[i].Cells[j].Value).Trim();
                     //Границы для ячеек
                     worksheet.Cells[i + 1, j].Style.Border.BorderAround(ExcelBorderStyle.Thin);
 
