@@ -123,6 +123,7 @@
             this.tbPrintInvNumber1 = new System.Windows.Forms.TextBox();
             this.lblPrintName = new System.Windows.Forms.Label();
             this.tabPageDBList = new System.Windows.Forms.TabPage();
+            this.chkbPrefixShow = new System.Windows.Forms.CheckBox();
             this.tbPrefixRequest = new ALLinONE.MyTextBox();
             this.tbAddRequest = new ALLinONE.MyTextBox();
             this.btnClearAllRequest = new System.Windows.Forms.Button();
@@ -150,7 +151,6 @@
             this.rdbtnAddRequest2 = new System.Windows.Forms.RadioButton();
             this.rdbtnAddRequest1 = new System.Windows.Forms.RadioButton();
             this.lbProgList = new System.Windows.Forms.ListBox();
-            this.chkbPrefixShow = new System.Windows.Forms.CheckBox();
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageService.SuspendLayout();
@@ -198,7 +198,7 @@
             this.toolStripDBInvertCon});
             this.toolStripDB.Image = global::ALLinONE.Properties.Resources.Data_settings_theapplication_3364;
             this.toolStripDB.Name = "toolStripDB";
-            this.toolStripDB.Size = new System.Drawing.Size(143, 22);
+            this.toolStripDB.Size = new System.Drawing.Size(144, 22);
             this.toolStripDB.Text = "База Данных";
             // 
             // toolStripDBCheckCon
@@ -226,20 +226,20 @@
             // 
             this.toolStripSettings.Image = global::ALLinONE.Properties.Resources._2849830_gear_interface_multimedia_options_setting_settings_107986;
             this.toolStripSettings.Name = "toolStripSettings";
-            this.toolStripSettings.Size = new System.Drawing.Size(143, 22);
+            this.toolStripSettings.Size = new System.Drawing.Size(144, 22);
             this.toolStripSettings.Text = "Настройки";
             this.toolStripSettings.Visible = false;
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(140, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(141, 6);
             // 
             // toolStripExit
             // 
             this.toolStripExit.Image = global::ALLinONE.Properties.Resources.switch_power_on_off_icon_178313;
             this.toolStripExit.Name = "toolStripExit";
-            this.toolStripExit.Size = new System.Drawing.Size(143, 22);
+            this.toolStripExit.Size = new System.Drawing.Size(144, 22);
             this.toolStripExit.Text = "Выход";
             this.toolStripExit.Click += new System.EventHandler(this.toolStripExit_Click);
             // 
@@ -247,7 +247,7 @@
             // 
             this.toDoToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toDoToolStripMenuItem.Name = "toDoToolStripMenuItem";
-            this.toDoToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.toDoToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.toDoToolStripMenuItem.Text = "ToDo";
             this.toDoToolStripMenuItem.Click += new System.EventHandler(this.toDoToolStripMenuItem_Click);
             // 
@@ -265,7 +265,7 @@
             this.toolStripExcel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripExcel.Image = global::ALLinONE.Properties.Resources.Excel_Mac_23559;
             this.toolStripExcel.Name = "toolStripExcel";
-            this.toolStripExcel.Size = new System.Drawing.Size(61, 20);
+            this.toolStripExcel.Size = new System.Drawing.Size(62, 20);
             this.toolStripExcel.Text = "Excel";
             this.toolStripExcel.Click += new System.EventHandler(this.toolStripExcel_Click);
             // 
@@ -318,7 +318,7 @@
             this.tabControl.DisplayStyleProvider.TextColorSelected = System.Drawing.SystemColors.ControlText;
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tabControl.HotTrack = true;
-            this.tabControl.Location = new System.Drawing.Point(0, 23);
+            this.tabControl.Location = new System.Drawing.Point(0, 22);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(634, 624);
@@ -1268,6 +1268,17 @@
             this.tabPageDBList.TabIndex = 3;
             this.tabPageDBList.Text = "Список заявок";
             // 
+            // chkbPrefixShow
+            // 
+            this.chkbPrefixShow.AutoSize = true;
+            this.chkbPrefixShow.Location = new System.Drawing.Point(3, 440);
+            this.chkbPrefixShow.Name = "chkbPrefixShow";
+            this.chkbPrefixShow.Size = new System.Drawing.Size(130, 17);
+            this.chkbPrefixShow.TabIndex = 8;
+            this.chkbPrefixShow.Text = "Показать префиксы";
+            this.chkbPrefixShow.UseVisualStyleBackColor = true;
+            this.chkbPrefixShow.CheckedChanged += new System.EventHandler(this.chkbPrefixShow_CheckedChanged);
+            // 
             // tbPrefixRequest
             // 
             this.tbPrefixRequest.Location = new System.Drawing.Point(3, 414);
@@ -1584,22 +1595,11 @@
             this.lbProgList.TabIndex = 8;
             this.lbProgList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbProgList_KeyDown);
             // 
-            // chkbPrefixShow
-            // 
-            this.chkbPrefixShow.AutoSize = true;
-            this.chkbPrefixShow.Location = new System.Drawing.Point(3, 440);
-            this.chkbPrefixShow.Name = "chkbPrefixShow";
-            this.chkbPrefixShow.Size = new System.Drawing.Size(130, 17);
-            this.chkbPrefixShow.TabIndex = 8;
-            this.chkbPrefixShow.Text = "Показать префиксы";
-            this.chkbPrefixShow.UseVisualStyleBackColor = true;
-            this.chkbPrefixShow.CheckedChanged += new System.EventHandler(this.chkbPrefixShow_CheckedChanged);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(634, 647);
+            this.ClientSize = new System.Drawing.Size(634, 646);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.menuStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

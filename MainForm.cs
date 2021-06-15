@@ -449,8 +449,9 @@ namespace ALLinONE
         #region Request
         private void dgvRequest_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-                tbAddRequest.Text = dgvRequest.SelectedCells[1].Value.ToString();
+            //if (e.RowIndex >= 0)
+            //    tbAddRequest.Text = dgvRequest.SelectedCells[2].Value.ToString();
+            tbAddRequest.Text = e.RowIndex >= 0 ? dgvRequest.SelectedCells[2].Value.ToString() : string.Empty;
         }
 
         private void dgvRequest_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -531,12 +532,6 @@ namespace ALLinONE
                     lblQuantity.Text = "Количество заявок: " + dgvRequest.Rows.Count.ToString(); // -1 заявка в lbl после удаления из dgv
                 }
             }
-        }
-
-        private void tbAddRequest_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyData == Keys.Enter) //проверяем нажат ли Enter,
-                btnAddRequest.PerformClick(); //если да, то жмем кнопку Добавить
         }
 
         //Сохраняем префикс в заявках
