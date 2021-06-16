@@ -107,6 +107,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="AiOMethods.cs" />
     <Compile Include="CheckDBexist.cs">
       <SubType>Form</SubType>
@@ -208,6 +214,9 @@
       <DependentUpon>ToDoListUC.cs</DependentUpon>
     </Compile>
     <Compile Include="UseDB.cs" />
+    <EmbeddedResource Include="AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CheckDBexist.resx">
       <DependentUpon>CheckDBexist.cs</DependentUpon>
     </EmbeddedResource>

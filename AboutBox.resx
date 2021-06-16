@@ -117,32 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="switch_power_on_off_icon_178313" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\switch_power_on_off_icon_178313.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Excel_Mac_23559" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Excel_Mac_23559.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="dataencryption_application_dedatos_3363" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dataencryption_application_dedatos_3363.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="wifi-signal-waves_icon-icons.com_72466" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\wifi-signal-waves_icon-icons.com_72466.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="down-arrow_icon-icons.com_64915" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\down-arrow_icon-icons.com_64915.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Data_settings_theapplication_3364" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Data_settings_theapplication_3364.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="databackup_theapplication_dedatos_3366" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\databackup_theapplication_dedatos_3366.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="2849830-gear-interface-multimedia-options-setting-settings_107986" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\2849830-gear-interface-multimedia-options-setting-settings_107986.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cave_man_emoticon_emoji_sticker_wave_icon_123503" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\cave_man_emoticon_emoji_sticker_wave_icon_123503.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>

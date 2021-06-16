@@ -151,6 +151,7 @@
             this.rdbtnAddRequest2 = new System.Windows.Forms.RadioButton();
             this.rdbtnAddRequest1 = new System.Windows.Forms.RadioButton();
             this.lbProgList = new System.Windows.Forms.ListBox();
+            this.toolStripAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageService.SuspendLayout();
@@ -183,6 +184,7 @@
             this.toolStripFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripDB,
             this.toolStripSettings,
+            this.toolStripAbout,
             this.toolStripSeparator1,
             this.toolStripExit});
             this.toolStripFile.Image = global::ALLinONE.Properties.Resources.down_arrow_icon_icons_com_64915;
@@ -198,7 +200,7 @@
             this.toolStripDBInvertCon});
             this.toolStripDB.Image = global::ALLinONE.Properties.Resources.Data_settings_theapplication_3364;
             this.toolStripDB.Name = "toolStripDB";
-            this.toolStripDB.Size = new System.Drawing.Size(144, 22);
+            this.toolStripDB.Size = new System.Drawing.Size(180, 22);
             this.toolStripDB.Text = "База Данных";
             // 
             // toolStripDBCheckCon
@@ -226,20 +228,20 @@
             // 
             this.toolStripSettings.Image = global::ALLinONE.Properties.Resources._2849830_gear_interface_multimedia_options_setting_settings_107986;
             this.toolStripSettings.Name = "toolStripSettings";
-            this.toolStripSettings.Size = new System.Drawing.Size(144, 22);
+            this.toolStripSettings.Size = new System.Drawing.Size(180, 22);
             this.toolStripSettings.Text = "Настройки";
             this.toolStripSettings.Visible = false;
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(141, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // toolStripExit
             // 
             this.toolStripExit.Image = global::ALLinONE.Properties.Resources.switch_power_on_off_icon_178313;
             this.toolStripExit.Name = "toolStripExit";
-            this.toolStripExit.Size = new System.Drawing.Size(144, 22);
+            this.toolStripExit.Size = new System.Drawing.Size(180, 22);
             this.toolStripExit.Text = "Выход";
             this.toolStripExit.Click += new System.EventHandler(this.toolStripExit_Click);
             // 
@@ -1595,6 +1597,13 @@
             this.lbProgList.TabIndex = 8;
             this.lbProgList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbProgList_KeyDown);
             // 
+            // toolStripAbout
+            // 
+            this.toolStripAbout.Name = "toolStripAbout";
+            this.toolStripAbout.Size = new System.Drawing.Size(180, 22);
+            this.toolStripAbout.Text = "О программе";
+            this.toolStripAbout.Click += new System.EventHandler(this.toolStripAbout_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1755,6 +1764,7 @@
         private MyTextBox tbAddRequest;
         private MyTextBox tbPrefixRequest;
         private System.Windows.Forms.CheckBox chkbPrefixShow;
+        private System.Windows.Forms.ToolStripMenuItem toolStripAbout;
     }
 }
 

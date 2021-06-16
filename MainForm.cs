@@ -38,7 +38,7 @@ namespace ALLinONE
             if (File.Exists(registry.GetValue("PathDB", "Data_DB.db").ToString()))
             {
                 form.Close();
-                Text += $" ({Environment.UserName})   - v.{versionAiO}";
+                Text += $" ({Environment.UserName})   - v.2.12";
 
                 LoadFormPosition();     //Загрузка координат формы
                 Refresh_btnPR();        //Загрузка описаний кнопок на вкладке Проф
@@ -127,6 +127,12 @@ namespace ALLinONE
         {
             if (UseDB.connectDB.State.ToString() == "Open") UseDB.connectDB.Close();
             else UseDB.connectDB.Open();
+        }
+
+        private void toolStripAbout_Click(object sender, EventArgs e)
+        {
+            AboutBox ab = new AboutBox();
+            ab.ShowDialog();
         }
         #endregion
 

@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // связанных со сборкой.
-[assembly: AssemblyTitle("ALLinONE")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("AiO")]
+[assembly: AssemblyDescription("Everything will be cool!")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ALLinONE")]
-[assembly: AssemblyCopyright("Copyright ©  2018-2021")]
+[assembly: AssemblyCompany("Artemka by FKU Sarov")]
+[assembly: AssemblyProduct("ALL in ONE")]
+[assembly: AssemblyCopyright("Copyright © 2018-2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -33,4 +33,4 @@ using System.Runtime.InteropServices;
 // используя "*", как показано ниже:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("2.12.*")]
-[assembly: AssemblyFileVersion("2.12.0.0")]
+[assembly: AssemblyFileVersion("2.12")]
