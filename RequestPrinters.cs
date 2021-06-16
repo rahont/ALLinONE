@@ -26,7 +26,7 @@ namespace ALLinONE
 
                 string str = RequestString();
 
-                UseDB.InsertDB("RequestList", "Value", "User", "DateCreate", str, Environment.UserName, DateTime.Now.ToString());
+                UseDB.InsertDB("RequestList", "Prefix", "Value", "User", "DateCreate", Properties.Settings.Default.prefixRequest, str, Environment.UserName, DateTime.Now.ToString());
 
                 lblRequestPrint.Text = "Улетело в БД: " + str;
                 tmrComm5555.Enabled = true;

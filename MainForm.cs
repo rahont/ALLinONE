@@ -196,7 +196,7 @@ namespace ALLinONE
             lblQuantity.Text = "Количество заявок: " + dgvRequest.Rows.Count.ToString();
 
             dgvRequest.Columns["id"].Visible = false;
-            dgvRequest.Columns["Prefix"].Visible = false;
+            dgvRequest.Columns["Prefix"].Visible = chkbPrefixShow.Checked;
             //Переименовка колонок в DataGridView
             dgvRequest.Columns["Prefix"].HeaderText = "Префикс";
             dgvRequest.Columns["Value"].HeaderText = "Заявки";
@@ -572,7 +572,7 @@ namespace ALLinONE
 
                 str += lbProgList.SelectedItem + ". " + tbAddFIORequest.Text;
 
-                UseDB.InsertDB("RequestList", "Value", "User", "DateCreate", str, Environment.UserName, DateTime.Now.ToString());
+                UseDB.InsertDB("RequestList", "Prefix", "Value", "User", "DateCreate", Properties.Settings.Default.prefixRequest, str, Environment.UserName, DateTime.Now.ToString());
 
                 lblAddRequestDB.Text = "Улетело в БД:\n" + str;
                 tmrComm5555.Enabled = true;
