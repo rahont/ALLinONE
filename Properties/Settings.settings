@@ -11,5 +11,11 @@
     <Setting Name="prefixRequest" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="timeClean" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">5555</Value>
+    </Setting>
+    <Setting Name="startTab" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

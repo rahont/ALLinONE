@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("AiO")]
 [assembly: AssemblyDescription("Everything will be cool!")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Artemka by FKU Sarov")]
+[assembly: AssemblyCompany("by Artemka FKU Sarov")]
 [assembly: AssemblyProduct("ALL in ONE")]
 [assembly: AssemblyCopyright("Copyright © 2018-2021")]
 [assembly: AssemblyTrademark("")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // Можно задать все значения или принять номера сборки и редакции по умолчанию 
 // используя "*", как показано ниже:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.12.*")]
-[assembly: AssemblyFileVersion("2.12")]
+[assembly: AssemblyVersion("3.0.*")]
+[assembly: AssemblyFileVersion("3.0")]

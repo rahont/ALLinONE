@@ -24,10 +24,7 @@ namespace ALLinONE
         private void btnSelect_Click(object sender, EventArgs e)
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
                 tbPathFileDB.Text = openFileDialog.FileName;
-                registry.SetValue("PathDB", openFileDialog.FileName);
-            }
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
@@ -49,12 +46,30 @@ namespace ALLinONE
 
                 UseDB.CreateNewDB(nameDB);
 
-                MessageBox.Show($"Создана база данных по пути:\n{Environment.CurrentDirectory}\nИмя БД: {nameDB}.db",
+                if (File.Exists(registry.GetValue("PathDB", "Data_DB").ToString()))
+                {
+                    MessageBox.Show($"Создана база данных по пути:\n{Environment.CurrentDirectory}\nИмя БД: {nameDB}.db",
                     "Создано!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                Application.Restart();
+                    Application.Restart();
+                }
+                else
+                {
+                    MessageBox.Show($"База данных \"{nameDB}.db\" не создана.\n Возможно указано недопустимое имя файла.",
+                    "Не создано!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else MessageBox.Show("Базы, собирайтесь. Мы уходим!", ":P", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void tbPathFileDB__TextChanged(object sender, EventArgs e)
+        {
+            if (File.Exists(tbPathFileDB.Text))
+            {
+                registry.SetValue("PathDB", tbPathFileDB.Text);
+                btnAccept.Enabled = true;
+            }
+            else btnAccept.Enabled = false;
         }
     }
 }

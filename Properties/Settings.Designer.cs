@@ -58,5 +58,29 @@ namespace ALLinONE.Properties {
                 this["prefixRequest"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5555")]
+        public int timeClean {
+            get {
+                return ((int)(this["timeClean"]));
+            }
+            set {
+                this["timeClean"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string startTab {
+            get {
+                return ((string)(this["startTab"]));
+            }
+            set {
+                this["startTab"] = value;
+            }
+        }
     }
 }

@@ -133,6 +133,26 @@ namespace ALLinONE.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap refresh_arrow_icon_131504 {
+            get {
+                object obj = ResourceManager.GetObject("refresh_arrow_icon_131504", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap refresh_page_arrow_button_icon_icons_com_53909 {
+            get {
+                object obj = ResourceManager.GetObject("refresh-page-arrow-button_icon-icons.com_53909", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap switch_power_on_off_icon_178313 {
             get {
                 object obj = ResourceManager.GetObject("switch_power_on_off_icon_178313", resourceCulture);

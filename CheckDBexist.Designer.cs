@@ -30,24 +30,12 @@ namespace ALLinONE
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CheckDBexist));
-            this.tbPathFileDB = new ALLinONE.MyTextBox();
             this.btnSelect = new System.Windows.Forms.Button();
             this.btnCreateDB = new System.Windows.Forms.Button();
             this.btnAccept = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.tbPathFileDB = new ALLinONE.MyTextBox();
             this.SuspendLayout();
-            // 
-            // tbPathFileDB
-            // 
-            this.tbPathFileDB.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbPathFileDB.Location = new System.Drawing.Point(0, 0);
-            this.tbPathFileDB.MaximumSize = new System.Drawing.Size(1000, 20);
-            this.tbPathFileDB.MinimumSize = new System.Drawing.Size(1, 20);
-            this.tbPathFileDB.Name = "tbPathFileDB";
-            this.tbPathFileDB.Size = new System.Drawing.Size(387, 20);
-            this.tbPathFileDB.TabIndex = 1;
-            this.tbPathFileDB.TextMaxLength = 1024;
-            this.tbPathFileDB.TextTitle = "Путь к БД/Имя новой БД";
             // 
             // btnSelect
             // 
@@ -63,7 +51,7 @@ namespace ALLinONE
             // btnCreateDB
             // 
             this.btnCreateDB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCreateDB.Location = new System.Drawing.Point(288, 26);
+            this.btnCreateDB.Location = new System.Drawing.Point(0, 26);
             this.btnCreateDB.Name = "btnCreateDB";
             this.btnCreateDB.Size = new System.Drawing.Size(93, 45);
             this.btnCreateDB.TabIndex = 3;
@@ -73,7 +61,8 @@ namespace ALLinONE
             // 
             // btnAccept
             // 
-            this.btnAccept.Location = new System.Drawing.Point(6, 26);
+            this.btnAccept.Enabled = false;
+            this.btnAccept.Location = new System.Drawing.Point(300, 26);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(87, 45);
             this.btnAccept.TabIndex = 4;
@@ -86,6 +75,19 @@ namespace ALLinONE
             this.openFileDialog.FileName = ".db";
             this.openFileDialog.Filter = "File DB|*.db|All Files|*.*";
             this.openFileDialog.Title = "Выбери файл БД";
+            // 
+            // tbPathFileDB
+            // 
+            this.tbPathFileDB.Location = new System.Drawing.Point(0, 0);
+            this.tbPathFileDB.MaximumSize = new System.Drawing.Size(1000, 20);
+            this.tbPathFileDB.MinimumSize = new System.Drawing.Size(1, 20);
+            this.tbPathFileDB.Name = "tbPathFileDB";
+            this.tbPathFileDB.PasswordChar = '\0';
+            this.tbPathFileDB.Size = new System.Drawing.Size(325, 20);
+            this.tbPathFileDB.TabIndex = 1;
+            this.tbPathFileDB.TextMaxLength = 1024;
+            this.tbPathFileDB.TextTitle = "Путь к БД/Имя новой БД";
+            this.tbPathFileDB._TextChanged += new System.EventHandler(this.tbPathFileDB__TextChanged);
             // 
             // CheckDBexist
             // 

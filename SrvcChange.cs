@@ -154,34 +154,9 @@ namespace ALLinONE
 
         private void SrvcChange_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //MainForm main = this.Owner as MainForm;
-            MainForm main = new MainForm();
-            //if (main != null)
-            //{
-                main.RefreshLBRDP();
-                main.RefreshLBShare();
-            //}
-        }
-
-        private void tbRDPName_Click(object sender, EventArgs e)
-        {
-            //TextBox tb = (TextBox)sender;
-            //if (tb.Text == "Адрес" || tb.Text == "Наименование")
-            //{
-            //    tb.Text = "";
-            //    tb.ForeColor = Color.Black;
-            //}
-        }
-
-        private void tbRDPName_Leave(object sender, EventArgs e)
-        {
-            //TextBox tb = (TextBox)sender;
-            //if (tb.Text == "")
-            //{ 
-            //    if (tb.Name.Contains("Name")) tb.Text = "Адрес";    //ищем в имени tb "Name", если находим, то вписываем "Адрес"
-            //    else tb.Text = "Наименование";  //если не находим, то вписываем другой вариант
-            //    tb.ForeColor = Color.Gray;
-            //}
+            //MainForm main = new MainForm();
+            //main.RefreshLBRDP();
+            //main.RefreshLBShare();
         }
 
         private void btnPingRmv_Click(object sender, EventArgs e)

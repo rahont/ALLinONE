@@ -28,14 +28,18 @@ namespace ALLinONE
 
         private void LbList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            tbName.Enabled = true;
-            tbValue.Enabled = true;
+            if (lbList.SelectedIndex >= 0)
+            {
+                tbName.Enabled = true;
+                tbValue.Enabled = true;
 
-            string selectedItemLB = lbList.SelectedItem.ToString();
+                string selectedItemLB = lbList.SelectedItem.ToString();
 
-            tbName.Text = UseDB.SelectDBLike("ProfRab", "btn_title", "btn_title", selectedItemLB);
+                tbName.Text = UseDB.SelectDBLike("ProfRab", "btn_title", "btn_title", selectedItemLB);
 
-            tbValue.Text = UseDB.SelectDBLike("ProfRab", "btn_value", "btn_title", selectedItemLB);
+                tbValue.Text = UseDB.SelectDBLike("ProfRab", "btn_value", "btn_title", selectedItemLB);
+            }
+            
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -108,8 +112,8 @@ namespace ALLinONE
 
         private void PRChangeButton_FormClosing(object sender, FormClosingEventArgs e)
         {
-            MainForm main = this.Owner as MainForm;
-            if (main != null) main.Refresh_btnPR();
+            //MainForm main = this.Owner as MainForm;
+            //if (main != null) main.Refresh_btnPR();
         }
     }
 }

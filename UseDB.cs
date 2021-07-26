@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Data.SQLite;
 using System.Windows.Forms;
 using Microsoft.Win32;
@@ -33,6 +34,26 @@ namespace ALLinONE
             while (data.Read())
                 result[tmp++] = data[column].ToString();
             data.Close();
+
+            connectDB.Close();
+            return result;
+        }
+
+        /// <summary>
+        /// select * from *TABLE*
+        /// </summary>
+        public static DataView SelectAllDB(string table)
+        {
+            connectDB.Open();
+
+            SQLiteCommand comm = connectDB.CreateCommand(); //переменная БД
+            comm.CommandText = $"select * from {table}"; //код БД в переменную
+
+            var dataTable = new DataTable(table);
+            var sqlAdapter = new SQLiteDataAdapter(comm);
+            sqlAdapter.Fill(dataTable);
+
+            var result = dataTable.DefaultView;
 
             connectDB.Close();
             return result;
@@ -145,69 +166,77 @@ namespace ALLinONE
 
         public static void CreateNewDB(string nameNewDB)
         {
-            connectDB.Open();
-            SQLiteCommand comm = connectDB.CreateCommand();
-            //Создание всех таблиц
-            comm.CommandText = "create table ProfRab(" + //ProfRab
-                "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "[btn_name] VARCHAR(20) NOT NULL," +
-                "[btn_title] VARCHAR(32) NOT NULL," +
-                "[btn_value] VARCHAR(1024)" +
-                ");" +
-                "create table PingList(" + //PingList
-                "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "[Name] STRING(255) NOT NULL," +
-                "[Title] STRING(100) NOT NULL" +
-                ");" +
-                "create table ServiceRDP(" + //ServiceRDP
-                "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "[Name] STRING(100) NOT NULL," +
-                "[Title] STRING(50) NOT NULL" +
-                ");" +
-                "create table ServiceShare(" + //ServiceShare
-                "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "[Name] STRING(255) NOT NULL," +
-                "[Title] STRING(50) NOT NULL" +
-                ");" +
-                "create table Printers(" + //Printers
-                "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "[Name] STRING(100) NOT NULL," +
-                "[NetName] STRING(50)," +
-                "[Location] STRING(20)," +
-                "[InvNumber] INTEGER(15)" +
-                ");" +
-                "create table ProgList(" + //ProgList
-                "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "[Name] STRING(255) NOT NULL" +
-                ");" +
-                "create table ReinstallOS(" + //ReinstallOS
-                "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "[Name] STRING(255) NOT NULL" +
-                ");" +
-                "create table RequestList(" + //RequestList
-                "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "[Prefix] STRING(100)," +
-                "[Value] STRING(300) NOT NULL," +
-                "[User] STRING(50) NOT NULL," +
-                "[DateCreate] STRING NOT NULL" +
-                ");" +
-                "create table ToDo(" + //ToDo
-                "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "[Value] TEXT(256) NOT NULL," +
-                "[Date] STRING NOT NULL" +
-                ");";
-            comm.ExecuteNonQuery();
-            connectDB.Close();
-
-            //Заполняем Профы дефолтным значением (необходимо для кнопок)
-            MainForm mForm = new MainForm();
-            for (int i = 1; i < mForm.tabPageProfRab.Controls.Count - 1; i++)
+            try
             {
-                InsertDB("ProfRab", "btn_name", "btn_title", "btn_value", "btnPR" + i, i.ToString(), "\\_(ツ)_/ -ать");
-            }
-            mForm.Close();
+                connectDB.Open();
 
-            connectDB.Close();
+                SQLiteCommand comm = connectDB.CreateCommand();
+                //Создание всех таблиц
+                comm.CommandText = "create table ProfRab(" + //ProfRab
+                    "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "[btn_name] VARCHAR(20) NOT NULL," +
+                    "[btn_title] VARCHAR(32) NOT NULL," +
+                    "[btn_value] VARCHAR(1024)" +
+                    ");" +
+                    "create table PingList(" + //PingList
+                    "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "[Name] STRING(255) NOT NULL," +
+                    "[Title] STRING(100) NOT NULL" +
+                    ");" +
+                    "create table ServiceRDP(" + //ServiceRDP
+                    "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "[Name] STRING(100) NOT NULL," +
+                    "[Title] STRING(50) NOT NULL" +
+                    ");" +
+                    "create table ServiceShare(" + //ServiceShare
+                    "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "[Name] STRING(255) NOT NULL," +
+                    "[Title] STRING(50) NOT NULL" +
+                    ");" +
+                    "create table Printers(" + //Printers
+                    "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "[Name] STRING(100) NOT NULL," +
+                    "[NetName] STRING(50)," +
+                    "[Location] STRING(20)," +
+                    "[InvNumber] INTEGER(15)" +
+                    ");" +
+                    "create table ProgList(" + //ProgList
+                    "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "[Name] STRING(255) NOT NULL" +
+                    ");" +
+                    "create table ReinstallOS(" + //ReinstallOS
+                    "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "[Name] STRING(255) NOT NULL" +
+                    ");" +
+                    "create table RequestList(" + //RequestList
+                    "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "[Prefix] STRING(100)," +
+                    "[Value] STRING(300) NOT NULL," +
+                    "[User] STRING(50) NOT NULL," +
+                    "[DateCreate] STRING NOT NULL" +
+                    ");" +
+                    "create table ToDo(" + //ToDo
+                    "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "[Value] TEXT(256) NOT NULL," +
+                    "[Date] STRING NOT NULL" +
+                    ");";
+                comm.ExecuteNonQuery();
+                connectDB.Close();
+
+                //Заполняем Профы дефолтным значением (необходимо для кнопок)
+                //MainForm mForm = new MainForm();
+                //for (int i = 1; i < mForm.tabPageProfRab.Controls.Count - 1; i++)
+                //{
+                //    InsertDB("ProfRab", "btn_name", "btn_title", "btn_value", "btnPR" + i, i.ToString(), "\\_(ツ)_/ -ать");
+                //}
+                //mForm.Close();
+
+                connectDB.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
