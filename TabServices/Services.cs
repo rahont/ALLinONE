@@ -172,7 +172,15 @@ namespace ALLinONE.TabServices
 
         private void button1_Click(object sender, EventArgs e)
         {
-            button1.Text = pbPingProgress.Maximum.ToString();
+            //button1.Text = pbPingProgress.Maximum.ToString();
+
+            Form fm = FindForm();
+
+            string xy = fm.Location.X.ToString() + " " + fm.Location.Y.ToString()+"\r\n";
+            MessageBox.Show(xy + Screen.FromControl(fm).ToString());
+            
+            
+            
         }
     }
 }

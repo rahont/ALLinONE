@@ -37,7 +37,7 @@ namespace ALLinONE
                 form.Close();
                 Text += $" ({Environment.UserName})   - v.3.0 alfa";
 
-                LoadFormPosition();     //Загрузка координат формы
+                LoadFormPosition2();     //Загрузка координат формы
 
                 FormCreate formCreate = new FormCreate(pnlTabs);
             }
@@ -87,8 +87,34 @@ namespace ALLinONE
                 Convert.ToInt32(formPos.GetValue("PositionY", Location.Y)));   //загрузить позицию формы из реестра
             formPos.Close();
 
+            
+
             if ((Location.X < -500) || (Location.X > allScreenWidth) || (Location.Y < -500) || (Location.Y > allScreenHeight))
                 Location = new Point(100, 100);
+        }
+
+        private void LoadFormPosition2()
+        {
+            RegistryKey formPos = Registry.CurrentUser.CreateSubKey("SOFTWARE\\All in One");
+            Location = new Point(Convert.ToInt32(formPos.GetValue("PositionX", Location.X)),
+                Convert.ToInt32(formPos.GetValue("PositionY", Location.Y)));   //загрузить позицию формы из реестра
+            formPos.Close();
+
+            var WidthScreenLocationForm = 
+                Screen.GetWorkingArea(Location).X == 0 ? Screen.GetBounds(Location).Width : Screen.GetWorkingArea(Location).X;
+            var HeightScreenLocationForm = Screen.GetWorkingArea(Location).Height;
+
+            //Если Location формы на дисплее с отрицательной рабочей областью
+            if (WidthScreenLocationForm < 0)
+            {
+                if ((Location.X < WidthScreenLocationForm) || (Location.X > 0) || (Location.Y > HeightScreenLocationForm) || (Location.Y < 0))
+                    Location = new Point(100, 100);
+            }
+            else
+            {
+                if ((Location.X < -100) || (Location.X > WidthScreenLocationForm) || (Location.Y > HeightScreenLocationForm) || (Location.Y < 0))
+                    Location = new Point(100, 100);
+            }
         }
         #endregion
 
