@@ -36,6 +36,7 @@ namespace ALLinONE.TabAddRequests
             this.lblAddRequestDB = new System.Windows.Forms.Label();
             this.btnAddRequestDB = new System.Windows.Forms.Button();
             this.gbAddRequest = new System.Windows.Forms.GroupBox();
+            this.rdbtnAddRequest5 = new System.Windows.Forms.RadioButton();
             this.rdbtnAddRequest3 = new System.Windows.Forms.RadioButton();
             this.rdbtnAddRequest4 = new System.Windows.Forms.RadioButton();
             this.rdbtnAddRequest2 = new System.Windows.Forms.RadioButton();
@@ -43,7 +44,6 @@ namespace ALLinONE.TabAddRequests
             this.lbProgList = new System.Windows.Forms.ListBox();
             this.tbAddFIORequest = new ALLinONE.MyTextBox();
             this.tbAddProg = new ALLinONE.MyTextBox();
-            this.rdbtnAddRequest5 = new System.Windows.Forms.RadioButton();
             this.gbAddRequest.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -128,6 +128,16 @@ namespace ALLinONE.TabAddRequests
             this.gbAddRequest.TabStop = false;
             this.gbAddRequest.Text = "Что будем делать?";
             // 
+            // rdbtnAddRequest5
+            // 
+            this.rdbtnAddRequest5.AutoSize = true;
+            this.rdbtnAddRequest5.Location = new System.Drawing.Point(126, 19);
+            this.rdbtnAddRequest5.Name = "rdbtnAddRequest5";
+            this.rdbtnAddRequest5.Size = new System.Drawing.Size(68, 17);
+            this.rdbtnAddRequest5.TabIndex = 5;
+            this.rdbtnAddRequest5.Text = "Удалить";
+            this.rdbtnAddRequest5.UseVisualStyleBackColor = true;
+            // 
             // rdbtnAddRequest3
             // 
             this.rdbtnAddRequest3.AutoSize = true;
@@ -189,7 +199,6 @@ namespace ALLinONE.TabAddRequests
             this.tbAddFIORequest.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbAddFIORequest.Location = new System.Drawing.Point(302, 161);
-            this.tbAddFIORequest.MaximumSize = new System.Drawing.Size(1000, 20);
             this.tbAddFIORequest.MinimumSize = new System.Drawing.Size(1, 20);
             this.tbAddFIORequest.Name = "tbAddFIORequest";
             this.tbAddFIORequest.PasswordChar = '\0';
@@ -204,7 +213,6 @@ namespace ALLinONE.TabAddRequests
             this.tbAddProg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbAddProg.Location = new System.Drawing.Point(287, 429);
-            this.tbAddProg.MaximumSize = new System.Drawing.Size(1000, 20);
             this.tbAddProg.MinimumSize = new System.Drawing.Size(1, 20);
             this.tbAddProg.Name = "tbAddProg";
             this.tbAddProg.PasswordChar = '\0';
@@ -213,16 +221,6 @@ namespace ALLinONE.TabAddRequests
             this.tbAddProg.TextMaxLength = 100;
             this.tbAddProg.TextTitle = "Название ПО";
             this.tbAddProg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbAddProg_KeyDown);
-            // 
-            // rdbtnAddRequest5
-            // 
-            this.rdbtnAddRequest5.AutoSize = true;
-            this.rdbtnAddRequest5.Location = new System.Drawing.Point(126, 19);
-            this.rdbtnAddRequest5.Name = "rdbtnAddRequest5";
-            this.rdbtnAddRequest5.Size = new System.Drawing.Size(68, 17);
-            this.rdbtnAddRequest5.TabIndex = 5;
-            this.rdbtnAddRequest5.Text = "Удалить";
-            this.rdbtnAddRequest5.UseVisualStyleBackColor = true;
             // 
             // AddRequests
             // 

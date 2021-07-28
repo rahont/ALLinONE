@@ -14,9 +14,6 @@ namespace ALLinONE
 {
     static class AiOMethods
     {
-        static List<string> listName = new List<string>();
-        static List<string> listTitle = new List<string>();
-
         //Excel
         public static void SaveExcel(DataGridView dgv, string fullPath)
         {
@@ -75,29 +72,6 @@ namespace ALLinONE
             }
         }
 
-        public static void LoadPingLB(ProgressBar pb, ListBox lbS, ListBox lbT, NumericUpDown num)
-        {
-            //Service srvc = new Service();
-            //pb.Value = 0;
-            //lbS.Items.Clear();
-            //lbT.Items.Clear();
-
-            //srvc.LoadLBPing(num.Value, out string[] pingSuccess, out string[] pingFailure);
-            //srvc.LoadLBPing(num.Value, lbS, lbT);
-
-            //foreach (var item in pingSuccess)
-            //{
-            //    if (item == null) continue;
-            //    else lbS.Items.Add(item);
-            //}
-
-            //foreach (var item in pingFailure)
-            //{
-            //    if (item == null) continue;
-            //    else lbT.Items.Add(item);
-            //}
-        }
-
         public static void LoadFormPosition(out int x, out int y)
         {
             RegistryKey formPos = Registry.CurrentUser.CreateSubKey("SOFTWARE\\All in One");
@@ -118,27 +92,39 @@ namespace ALLinONE
             formPos.Close();
         }
 
-        public static string AiOVersion()
+        /// <summary>
+        /// Возвращает номер версии приложения
+        /// </summary>
+        /// <param name="amount"></param>
+        /// <returns>1: Major, 2: Major + Minor, 3: Major + Minor + Build, 4: Major + Minor + Build + Revision</returns>
+        public static string AiOVersion(short amount = 2)
         {
-            string versionAiO = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            string result = null;
-            bool skip = true;
+            //Присваиваем Major
+            string result = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.Major.ToString();
 
-            foreach (var item in versionAiO)
+            if (amount < 1)
+                result = ".!. :P";
+            else
             {
-                if (item == '.')
+                if (amount > 1)
                 {
-                    if (skip)
-                    {
-                        result += item;
-                        skip = false;
-                        continue;
-                    }
-                    else break;
-                }
-                else result += item;
-            }
+                    //Присваиваем Minor
+                    result += "." + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.Minor.ToString();
 
+                    if (amount > 2)
+                    {
+                        //Присваиваем Build
+                        result += "." + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.Build.ToString();
+
+                        if (amount > 3)
+                        {
+                            //Присваиваем Revision
+                            result += "." + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.Revision.ToString();
+                        }
+                    }
+                }
+            }
+            
             return result;
         }
     }

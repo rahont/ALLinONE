@@ -400,11 +400,10 @@ namespace ALLinONE.TabServices
             this.tbCyclePingAdress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbCyclePingAdress.Location = new System.Drawing.Point(3, 3);
-            this.tbCyclePingAdress.MaximumSize = new System.Drawing.Size(1000, 20);
             this.tbCyclePingAdress.MinimumSize = new System.Drawing.Size(1, 20);
             this.tbCyclePingAdress.Name = "tbCyclePingAdress";
             this.tbCyclePingAdress.PasswordChar = '\0';
-            this.tbCyclePingAdress.Size = new System.Drawing.Size(142, 20);
+            this.tbCyclePingAdress.Size = new System.Drawing.Size(141, 20);
             this.tbCyclePingAdress.TabIndex = 61;
             this.tbCyclePingAdress.TextMaxLength = 1024;
             this.tbCyclePingAdress.TextTitle = "IP-адрес или DNS-имя";
@@ -414,7 +413,6 @@ namespace ALLinONE.TabServices
             // 
             this.tbMSTSClogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tbMSTSClogin.Location = new System.Drawing.Point(3, 3);
-            this.tbMSTSClogin.MaximumSize = new System.Drawing.Size(1000, 20);
             this.tbMSTSClogin.MinimumSize = new System.Drawing.Size(1, 20);
             this.tbMSTSClogin.Name = "tbMSTSClogin";
             this.tbMSTSClogin.PasswordChar = '\0';
@@ -442,7 +440,6 @@ namespace ALLinONE.TabServices
             // 
             this.tbMSTSCadress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tbMSTSCadress.Location = new System.Drawing.Point(3, 28);
-            this.tbMSTSCadress.MaximumSize = new System.Drawing.Size(1000, 20);
             this.tbMSTSCadress.MinimumSize = new System.Drawing.Size(1, 20);
             this.tbMSTSCadress.Name = "tbMSTSCadress";
             this.tbMSTSCadress.PasswordChar = '\0';

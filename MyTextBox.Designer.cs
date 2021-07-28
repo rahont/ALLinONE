@@ -64,7 +64,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lbl);
             this.Controls.Add(this.tb);
-            this.MaximumSize = new System.Drawing.Size(10000, 20);
             this.MinimumSize = new System.Drawing.Size(1, 20);
             this.Name = "MyTextBox";
             this.Size = new System.Drawing.Size(100, 20);
