@@ -55,11 +55,11 @@ namespace ALLinONE.TabServices
             this.pnlMSTSC = new System.Windows.Forms.Panel();
             this.pnlCyclePing = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tbCyclePingAdress = new ALLinONE.MyTextBox();
             this.tbMSTSClogin = new ALLinONE.MyTextBox();
             this.tbMSTSCpass = new ALLinONE.MyTextBox();
             this.tbMSTSCadress = new ALLinONE.MyTextBox();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numPingTimeOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPingProgress)).BeginInit();
             this.pnlShareRDP.SuspendLayout();
@@ -88,7 +88,7 @@ namespace ALLinONE.TabServices
             this.lbCyclePing.FormattingEnabled = true;
             this.lbCyclePing.Location = new System.Drawing.Point(3, 29);
             this.lbCyclePing.Name = "lbCyclePing";
-            this.lbCyclePing.Size = new System.Drawing.Size(242, 147);
+            this.lbCyclePing.Size = new System.Drawing.Size(242, 121);
             this.lbCyclePing.TabIndex = 64;
             this.lbCyclePing.TabStop = false;
             this.lbCyclePing.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lbCyclePing_DrawItem);
@@ -293,7 +293,7 @@ namespace ALLinONE.TabServices
             this.lbRDP.ItemHeight = 18;
             this.lbRDP.Location = new System.Drawing.Point(3, 26);
             this.lbRDP.Name = "lbRDP";
-            this.lbRDP.Size = new System.Drawing.Size(239, 166);
+            this.lbRDP.Size = new System.Drawing.Size(254, 166);
             this.lbRDP.Sorted = true;
             this.lbRDP.TabIndex = 49;
             this.lbRDP.DoubleClick += new System.EventHandler(this.lbRDP_DoubleClick);
@@ -304,7 +304,6 @@ namespace ALLinONE.TabServices
             this.pnlShareRDP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlShareRDP.Controls.Add(this.chckbServiceSorted);
             this.pnlShareRDP.Controls.Add(this.lbRDP);
             this.pnlShareRDP.Controls.Add(this.lblRDP);
             this.pnlShareRDP.Controls.Add(this.lbShare);
@@ -316,14 +315,16 @@ namespace ALLinONE.TabServices
             // 
             // chckbServiceSorted
             // 
+            this.chckbServiceSorted.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chckbServiceSorted.AutoSize = true;
             this.chckbServiceSorted.Checked = true;
             this.chckbServiceSorted.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chckbServiceSorted.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.chckbServiceSorted.Location = new System.Drawing.Point(246, 27);
+            this.chckbServiceSorted.Location = new System.Drawing.Point(297, 201);
             this.chckbServiceSorted.Name = "chckbServiceSorted";
-            this.chckbServiceSorted.Size = new System.Drawing.Size(15, 14);
+            this.chckbServiceSorted.Size = new System.Drawing.Size(91, 17);
             this.chckbServiceSorted.TabIndex = 79;
+            this.chckbServiceSorted.Text = "Сортировать";
+            this.toolTip.SetToolTip(this.chckbServiceSorted, "Сортировать по имени боксы с RDP и шарой");
             this.chckbServiceSorted.UseVisualStyleBackColor = true;
             this.chckbServiceSorted.CheckedChanged += new System.EventHandler(this.chckbServiceSorted_CheckedChanged);
             // 
@@ -365,7 +366,7 @@ namespace ALLinONE.TabServices
             this.pnlMSTSC.Controls.Add(this.tbMSTSCpass);
             this.pnlMSTSC.Controls.Add(this.tbMSTSCadress);
             this.pnlMSTSC.Controls.Add(this.btnMSTSCstart);
-            this.pnlMSTSC.Location = new System.Drawing.Point(294, 201);
+            this.pnlMSTSC.Location = new System.Drawing.Point(294, 220);
             this.pnlMSTSC.Name = "pnlMSTSC";
             this.pnlMSTSC.Size = new System.Drawing.Size(248, 51);
             this.pnlMSTSC.TabIndex = 77;
@@ -378,9 +379,9 @@ namespace ALLinONE.TabServices
             this.pnlCyclePing.Controls.Add(this.btnCyclePingStart);
             this.pnlCyclePing.Controls.Add(this.lbCyclePing);
             this.pnlCyclePing.Controls.Add(this.btnCyclePingStop);
-            this.pnlCyclePing.Location = new System.Drawing.Point(294, 258);
+            this.pnlCyclePing.Location = new System.Drawing.Point(294, 284);
             this.pnlCyclePing.Name = "pnlCyclePing";
-            this.pnlCyclePing.Size = new System.Drawing.Size(248, 181);
+            this.pnlCyclePing.Size = new System.Drawing.Size(248, 156);
             this.pnlCyclePing.TabIndex = 78;
             // 
             // button1
@@ -453,6 +454,7 @@ namespace ALLinONE.TabServices
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.chckbServiceSorted);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pnlCyclePing);
             this.Controls.Add(this.pnlMSTSC);
@@ -473,6 +475,7 @@ namespace ALLinONE.TabServices
             this.pnlMSTSC.ResumeLayout(false);
             this.pnlCyclePing.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

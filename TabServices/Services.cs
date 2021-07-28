@@ -100,6 +100,7 @@ namespace ALLinONE.TabServices
         {
             lbCyclePing.Items.Clear();
             MethodsServices.CyclePingStop = false;
+            tbCyclePingAdress.Text = tbCyclePingAdress.Text.Replace(',', '.'); //Меняем *запятую* на *точку*
             MethodsServices.StartCyclePing(tbCyclePingAdress.Text, lbCyclePing);
             btnCyclePingStart.Enabled = false;
         }
