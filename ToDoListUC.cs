@@ -35,19 +35,8 @@ namespace ALLinONE
 
         private void RefreshList()
         {
-            MainForm mf = new MainForm();
-
-            var sqlCommand = new SQLiteCommand("select * from ToDo", UseDB.connectDB);
-            sqlCommand.ExecuteNonQuery();
-
-            var dataTable = new DataTable("ToDo");
-            var sqlAdapter = new SQLiteDataAdapter(sqlCommand);
-            sqlAdapter.Fill(dataTable);
-
-            dgvList.DataSource = dataTable.DefaultView;
-            sqlAdapter.Update(dataTable);
-
-            //lblQuantity.Text = "Количество заявок: " + dgvRequest.Rows.Count.ToString();
+            //Заполняем dgv
+            dgvList.DataSource = UseDB.SelectAllDB("RequestList");
 
             dgvList.Columns["id"].Visible = false;
             //Переименовка колонок в DataGridView
@@ -55,18 +44,10 @@ namespace ALLinONE
             dgvList.Columns["Date"].HeaderText = "Добавлена";
 
             //Длина колонок в DataGridView
-            dgvList.Columns[1].Width = dgvList.Width - 110 - 20;
+            dgvList.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; //Автоподстройка длины столбца
             dgvList.Columns[2].Width = 110;
 
             dgvList.ClearSelection();
-        }
-
-        private void ToDoList_Load(object sender, EventArgs e)
-        {
-            //DB = new SQLiteConnection("Data Source=Data_DB.db; Version=3"); //БД
-            //DB.Open();
-
-            //RefreshList();
         }
 
         private void btnRemove_Click(object sender, EventArgs e)

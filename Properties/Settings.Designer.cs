@@ -61,18 +61,6 @@ namespace ALLinONE.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("5555")]
-        public int timeClean {
-            get {
-                return ((int)(this["timeClean"]));
-            }
-            set {
-                this["timeClean"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string startTab {
             get {
@@ -80,6 +68,18 @@ namespace ALLinONE.Properties {
             }
             set {
                 this["startTab"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5555")]
+        public int timeClean {
+            get {
+                return ((int)(this["timeClean"]));
+            }
+            set {
+                this["timeClean"] = value;
             }
         }
     }

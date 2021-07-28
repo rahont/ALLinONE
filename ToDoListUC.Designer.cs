@@ -98,7 +98,7 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // ToDoList
+            // ToDoListUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -107,9 +107,8 @@
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.dgvList);
-            this.Name = "ToDoList";
+            this.Name = "ToDoListUC";
             this.Size = new System.Drawing.Size(485, 430);
-            this.Load += new System.EventHandler(this.ToDoList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

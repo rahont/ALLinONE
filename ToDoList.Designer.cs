@@ -103,6 +103,7 @@ namespace ALLinONE
             this.tbValue.MaximumSize = new System.Drawing.Size(1000, 20);
             this.tbValue.MinimumSize = new System.Drawing.Size(1, 20);
             this.tbValue.Name = "tbValue";
+            this.tbValue.PasswordChar = '\0';
             this.tbValue.Size = new System.Drawing.Size(496, 20);
             this.tbValue.TabIndex = 10;
             this.tbValue.TextMaxLength = 1024;
