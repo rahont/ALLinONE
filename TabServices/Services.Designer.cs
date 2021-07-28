@@ -52,12 +52,12 @@ namespace ALLinONE.TabServices
             this.pnlPing = new System.Windows.Forms.Panel();
             this.btnRefreshPing = new System.Windows.Forms.Button();
             this.pnlMSTSC = new System.Windows.Forms.Panel();
+            this.pnlCyclePing = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.tbCyclePingAdress = new ALLinONE.MyTextBox();
             this.tbMSTSClogin = new ALLinONE.MyTextBox();
             this.tbMSTSCpass = new ALLinONE.MyTextBox();
             this.tbMSTSCadress = new ALLinONE.MyTextBox();
-            this.pnlCyclePing = new System.Windows.Forms.Panel();
-            this.tbCyclePingAdress = new ALLinONE.MyTextBox();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numPingTimeOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPingProgress)).BeginInit();
             this.pnlShareRDP.SuspendLayout();
@@ -362,6 +362,46 @@ namespace ALLinONE.TabServices
             this.pnlMSTSC.Size = new System.Drawing.Size(248, 51);
             this.pnlMSTSC.TabIndex = 77;
             // 
+            // pnlCyclePing
+            // 
+            this.pnlCyclePing.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlCyclePing.Controls.Add(this.tbCyclePingAdress);
+            this.pnlCyclePing.Controls.Add(this.btnCyclePingStart);
+            this.pnlCyclePing.Controls.Add(this.lbCyclePing);
+            this.pnlCyclePing.Controls.Add(this.btnCyclePingStop);
+            this.pnlCyclePing.Location = new System.Drawing.Point(294, 258);
+            this.pnlCyclePing.Name = "pnlCyclePing";
+            this.pnlCyclePing.Size = new System.Drawing.Size(248, 181);
+            this.pnlCyclePing.TabIndex = 78;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(329, 456);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 79;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // tbCyclePingAdress
+            // 
+            this.tbCyclePingAdress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbCyclePingAdress.Location = new System.Drawing.Point(3, 3);
+            this.tbCyclePingAdress.MaximumSize = new System.Drawing.Size(1000, 20);
+            this.tbCyclePingAdress.MinimumSize = new System.Drawing.Size(1, 20);
+            this.tbCyclePingAdress.Name = "tbCyclePingAdress";
+            this.tbCyclePingAdress.PasswordChar = '\0';
+            this.tbCyclePingAdress.Size = new System.Drawing.Size(142, 20);
+            this.tbCyclePingAdress.TabIndex = 61;
+            this.tbCyclePingAdress.TextMaxLength = 1024;
+            this.tbCyclePingAdress.TextTitle = "IP-адрес или DNS-имя";
+            this.tbCyclePingAdress.KeyDownEvent += new System.Windows.Forms.KeyEventHandler(this.tbCyclePingAdress_KeyDownEvent);
+            // 
             // tbMSTSClogin
             // 
             this.tbMSTSClogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -403,46 +443,6 @@ namespace ALLinONE.TabServices
             this.tbMSTSCadress.TextMaxLength = 1024;
             this.tbMSTSCadress.TextTitle = "IP-адрес или DNS-имя";
             this.tbMSTSCadress.KeyDownEvent += new System.Windows.Forms.KeyEventHandler(this.tbMSTSCadress_KeyDownEvent);
-            // 
-            // pnlCyclePing
-            // 
-            this.pnlCyclePing.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlCyclePing.Controls.Add(this.tbCyclePingAdress);
-            this.pnlCyclePing.Controls.Add(this.btnCyclePingStart);
-            this.pnlCyclePing.Controls.Add(this.lbCyclePing);
-            this.pnlCyclePing.Controls.Add(this.btnCyclePingStop);
-            this.pnlCyclePing.Location = new System.Drawing.Point(294, 258);
-            this.pnlCyclePing.Name = "pnlCyclePing";
-            this.pnlCyclePing.Size = new System.Drawing.Size(248, 181);
-            this.pnlCyclePing.TabIndex = 78;
-            // 
-            // tbCyclePingAdress
-            // 
-            this.tbCyclePingAdress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbCyclePingAdress.Location = new System.Drawing.Point(3, 3);
-            this.tbCyclePingAdress.MaximumSize = new System.Drawing.Size(1000, 20);
-            this.tbCyclePingAdress.MinimumSize = new System.Drawing.Size(1, 20);
-            this.tbCyclePingAdress.Name = "tbCyclePingAdress";
-            this.tbCyclePingAdress.PasswordChar = '\0';
-            this.tbCyclePingAdress.Size = new System.Drawing.Size(142, 20);
-            this.tbCyclePingAdress.TabIndex = 61;
-            this.tbCyclePingAdress.TextMaxLength = 1024;
-            this.tbCyclePingAdress.TextTitle = "IP-адрес или DNS-имя";
-            this.tbCyclePingAdress.KeyDownEvent += new System.Windows.Forms.KeyEventHandler(this.tbCyclePingAdress_KeyDownEvent);
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(329, 456);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 79;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Services
             // 

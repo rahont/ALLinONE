@@ -43,6 +43,7 @@ namespace ALLinONE.TabAddRequests
             this.lbProgList = new System.Windows.Forms.ListBox();
             this.tbAddFIORequest = new ALLinONE.MyTextBox();
             this.tbAddProg = new ALLinONE.MyTextBox();
+            this.rdbtnAddRequest5 = new System.Windows.Forms.RadioButton();
             this.gbAddRequest.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,58 +116,55 @@ namespace ALLinONE.TabAddRequests
             // 
             // gbAddRequest
             // 
+            this.gbAddRequest.Controls.Add(this.rdbtnAddRequest5);
             this.gbAddRequest.Controls.Add(this.rdbtnAddRequest3);
             this.gbAddRequest.Controls.Add(this.rdbtnAddRequest4);
             this.gbAddRequest.Controls.Add(this.rdbtnAddRequest2);
             this.gbAddRequest.Controls.Add(this.rdbtnAddRequest1);
             this.gbAddRequest.Location = new System.Drawing.Point(302, 28);
             this.gbAddRequest.Name = "gbAddRequest";
-            this.gbAddRequest.Size = new System.Drawing.Size(180, 114);
+            this.gbAddRequest.Size = new System.Drawing.Size(223, 114);
             this.gbAddRequest.TabIndex = 24;
             this.gbAddRequest.TabStop = false;
             this.gbAddRequest.Text = "Что будем делать?";
             // 
             // rdbtnAddRequest3
             // 
-            this.rdbtnAddRequest3.Appearance = System.Windows.Forms.Appearance.Button;
             this.rdbtnAddRequest3.AutoSize = true;
-            this.rdbtnAddRequest3.Location = new System.Drawing.Point(17, 65);
+            this.rdbtnAddRequest3.Location = new System.Drawing.Point(8, 65);
             this.rdbtnAddRequest3.Name = "rdbtnAddRequest3";
-            this.rdbtnAddRequest3.Size = new System.Drawing.Size(66, 23);
+            this.rdbtnAddRequest3.Size = new System.Drawing.Size(74, 17);
             this.rdbtnAddRequest3.TabIndex = 3;
             this.rdbtnAddRequest3.Text = "Обновить";
             this.rdbtnAddRequest3.UseVisualStyleBackColor = true;
             // 
             // rdbtnAddRequest4
             // 
-            this.rdbtnAddRequest4.Appearance = System.Windows.Forms.Appearance.Button;
             this.rdbtnAddRequest4.AutoSize = true;
-            this.rdbtnAddRequest4.Location = new System.Drawing.Point(17, 88);
+            this.rdbtnAddRequest4.Location = new System.Drawing.Point(8, 88);
             this.rdbtnAddRequest4.Name = "rdbtnAddRequest4";
-            this.rdbtnAddRequest4.Size = new System.Drawing.Size(71, 23);
+            this.rdbtnAddRequest4.Size = new System.Drawing.Size(79, 17);
             this.rdbtnAddRequest4.TabIndex = 4;
             this.rdbtnAddRequest4.Text = "Настроить";
             this.rdbtnAddRequest4.UseVisualStyleBackColor = true;
             // 
             // rdbtnAddRequest2
             // 
-            this.rdbtnAddRequest2.Appearance = System.Windows.Forms.Appearance.Button;
             this.rdbtnAddRequest2.AutoSize = true;
-            this.rdbtnAddRequest2.Location = new System.Drawing.Point(17, 42);
+            this.rdbtnAddRequest2.Location = new System.Drawing.Point(8, 42);
             this.rdbtnAddRequest2.Name = "rdbtnAddRequest2";
-            this.rdbtnAddRequest2.Size = new System.Drawing.Size(100, 23);
+            this.rdbtnAddRequest2.Size = new System.Drawing.Size(108, 17);
             this.rdbtnAddRequest2.TabIndex = 2;
             this.rdbtnAddRequest2.Text = "Переустановить";
             this.rdbtnAddRequest2.UseVisualStyleBackColor = true;
             // 
             // rdbtnAddRequest1
             // 
-            this.rdbtnAddRequest1.Appearance = System.Windows.Forms.Appearance.Button;
             this.rdbtnAddRequest1.AutoSize = true;
             this.rdbtnAddRequest1.Checked = true;
-            this.rdbtnAddRequest1.Location = new System.Drawing.Point(17, 19);
+            this.rdbtnAddRequest1.Location = new System.Drawing.Point(8, 19);
             this.rdbtnAddRequest1.Name = "rdbtnAddRequest1";
-            this.rdbtnAddRequest1.Size = new System.Drawing.Size(77, 23);
+            this.rdbtnAddRequest1.Size = new System.Drawing.Size(85, 17);
             this.rdbtnAddRequest1.TabIndex = 1;
             this.rdbtnAddRequest1.TabStop = true;
             this.rdbtnAddRequest1.Text = "Установить";
@@ -216,6 +214,16 @@ namespace ALLinONE.TabAddRequests
             this.tbAddProg.TextTitle = "Название ПО";
             this.tbAddProg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbAddProg_KeyDown);
             // 
+            // rdbtnAddRequest5
+            // 
+            this.rdbtnAddRequest5.AutoSize = true;
+            this.rdbtnAddRequest5.Location = new System.Drawing.Point(126, 19);
+            this.rdbtnAddRequest5.Name = "rdbtnAddRequest5";
+            this.rdbtnAddRequest5.Size = new System.Drawing.Size(68, 17);
+            this.rdbtnAddRequest5.TabIndex = 5;
+            this.rdbtnAddRequest5.Text = "Удалить";
+            this.rdbtnAddRequest5.UseVisualStyleBackColor = true;
+            // 
             // AddRequests
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,5 +264,6 @@ namespace ALLinONE.TabAddRequests
         private System.Windows.Forms.RadioButton rdbtnAddRequest2;
         private System.Windows.Forms.RadioButton rdbtnAddRequest1;
         private System.Windows.Forms.ListBox lbProgList;
+        private System.Windows.Forms.RadioButton rdbtnAddRequest5;
     }
 }

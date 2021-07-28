@@ -83,6 +83,7 @@ namespace ALLinONE.TabAddRequests
                 if (rdbtnAddRequest2.Checked) str = "Переустановить ";
                 if (rdbtnAddRequest3.Checked) str = "Обновить ";
                 if (rdbtnAddRequest4.Checked) str = "Настроить ";
+                if (rdbtnAddRequest5.Checked) str = "Удалить ";
 
                 str += lbProgList.SelectedItem + ". " + tbAddFIORequest.Text;
 
