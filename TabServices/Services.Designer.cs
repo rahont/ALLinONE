@@ -29,6 +29,7 @@ namespace ALLinONE.TabServices
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnCyclePingStop = new System.Windows.Forms.Button();
             this.lbCyclePing = new System.Windows.Forms.ListBox();
             this.btnCyclePingStart = new System.Windows.Forms.Button();
@@ -58,6 +59,7 @@ namespace ALLinONE.TabServices
             this.tbMSTSClogin = new ALLinONE.MyTextBox();
             this.tbMSTSCpass = new ALLinONE.MyTextBox();
             this.tbMSTSCadress = new ALLinONE.MyTextBox();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numPingTimeOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPingProgress)).BeginInit();
             this.pnlShareRDP.SuspendLayout();
@@ -122,6 +124,7 @@ namespace ALLinONE.TabServices
             this.lblPingTimeTimeOut.Size = new System.Drawing.Size(88, 13);
             this.lblPingTimeTimeOut.TabIndex = 72;
             this.lblPingTimeTimeOut.Text = "Таймаут пакета";
+            this.toolTip.SetToolTip(this.lblPingTimeTimeOut, "В милисекундах");
             // 
             // lblPingTimeRefresh
             // 
@@ -133,6 +136,7 @@ namespace ALLinONE.TabServices
             this.lblPingTimeRefresh.Size = new System.Drawing.Size(94, 13);
             this.lblPingTimeRefresh.TabIndex = 71;
             this.lblPingTimeRefresh.Text = "Обновлять через";
+            this.toolTip.SetToolTip(this.lblPingTimeRefresh, "В секундах");
             // 
             // numPingTimeOut
             // 
@@ -150,6 +154,7 @@ namespace ALLinONE.TabServices
             this.numPingTimeOut.Name = "numPingTimeOut";
             this.numPingTimeOut.Size = new System.Drawing.Size(39, 20);
             this.numPingTimeOut.TabIndex = 55;
+            this.toolTip.SetToolTip(this.numPingTimeOut, "В милисекундах");
             this.numPingTimeOut.Value = new decimal(new int[] {
             64,
             0,
@@ -172,6 +177,7 @@ namespace ALLinONE.TabServices
             this.numPingProgress.Name = "numPingProgress";
             this.numPingProgress.Size = new System.Drawing.Size(34, 20);
             this.numPingProgress.TabIndex = 54;
+            this.toolTip.SetToolTip(this.numPingProgress, "В секундах");
             this.numPingProgress.Value = new decimal(new int[] {
             30,
             0,
@@ -237,6 +243,7 @@ namespace ALLinONE.TabServices
             this.btnSrvcChange.Size = new System.Drawing.Size(113, 37);
             this.btnSrvcChange.TabIndex = 65;
             this.btnSrvcChange.Text = "Может нам что-то поменять?";
+            this.toolTip.SetToolTip(this.btnSrvcChange, "Здесь можно добавить или удалить адреса");
             this.btnSrvcChange.UseVisualStyleBackColor = true;
             this.btnSrvcChange.Click += new System.EventHandler(this.btnSrvcChange_Click);
             // 
@@ -346,6 +353,7 @@ namespace ALLinONE.TabServices
             this.btnRefreshPing.Name = "btnRefreshPing";
             this.btnRefreshPing.Size = new System.Drawing.Size(22, 22);
             this.btnRefreshPing.TabIndex = 56;
+            this.toolTip.SetToolTip(this.btnRefreshPing, "Ручной запуск пинга");
             this.btnRefreshPing.UseVisualStyleBackColor = true;
             this.btnRefreshPing.Click += new System.EventHandler(this.btnRefreshPing_Click);
             // 
@@ -501,5 +509,6 @@ namespace ALLinONE.TabServices
         private System.Windows.Forms.Panel pnlCyclePing;
         private System.Windows.Forms.CheckBox chckbServiceSorted;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }

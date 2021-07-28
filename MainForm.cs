@@ -18,8 +18,6 @@ namespace ALLinONE
 {
     public partial class MainForm : Form
     {
-        private string versionAiO = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-
         #region Form
         public MainForm()
         {
@@ -35,7 +33,7 @@ namespace ALLinONE
             if (File.Exists(registry.GetValue("PathDB", "Data_DB.db").ToString()))
             {
                 form.Close();
-                Text += $" ({Environment.UserName})   - v.3.0 alfa";
+                Text += $" ({Environment.UserName})   - v.{AiOMethods.AiOVersion()}.alfa";
 
                 LoadFormPosition2();     //Загрузка координат формы
 
@@ -150,42 +148,6 @@ namespace ALLinONE
         }
         #endregion
 
-        private void toolStripExcel_Click(object sender, EventArgs e)
-        {
-            //foreach (Control c in tabControl.SelectedTab.Controls)
-            //{   //Поиск DataGridView на открытой вкладке
-            //    if (c is DataGridView)
-            //    {
-            //        DataGridView dgv = null;
-            //        if (c == dgvPrinters)
-            //        {
-            //            dgv = dgvPrinters;
-            //            saveFileDialog.FileName = "Список принтеров " + DateTime.Today.ToShortDateString();
-            //        }
-            //        if (c == dgvRequest)
-            //        {
-            //            dgv = dgvRequest;
-            //            saveFileDialog.FileName = "Список заявок " + DateTime.Today.ToShortDateString();
-            //        }
-
-            //        //Сохранение файла
-            //        if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            //        {
-            //            if (dgv == null) break;
-            //            AiOMethods.SaveExcel(dgv, saveFileDialog.FileName);
-            //            break;
-            //        }
-            //    }
-            //}
-        }
-
-        /*private void lblPingTimeRefresh_MouseHover(object sender, EventArgs e)
-        {
-            Label lbl = (sender as Label);
-            if (lbl == lblPingTimeRefresh) toolTip.Show("В секундах", lbl);
-            if (lbl == lblPingTimeTimeOut) toolTip.Show("В миллисекундах", lbl);
-        }*/
-
         private void toDoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (ToDoList.FormOpenClose == false)
@@ -216,6 +178,11 @@ namespace ALLinONE
                 }
                 else item.Visible = false;
             }
+        }
+
+        private void toolStripTabs_MouseMove(object sender, MouseEventArgs e)
+        {
+            toolStripTabs.ShowDropDown();
         }
     }
 }

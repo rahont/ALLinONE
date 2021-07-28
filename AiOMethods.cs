@@ -117,5 +117,29 @@ namespace ALLinONE
             formPos.SetValue("PositionY", y);
             formPos.Close();
         }
+
+        public static string AiOVersion()
+        {
+            string versionAiO = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            string result = null;
+            bool skip = true;
+
+            foreach (var item in versionAiO)
+            {
+                if (item == '.')
+                {
+                    if (skip)
+                    {
+                        result += item;
+                        skip = false;
+                        continue;
+                    }
+                    else break;
+                }
+                else result += item;
+            }
+
+            return result;
+        }
     }
 }
