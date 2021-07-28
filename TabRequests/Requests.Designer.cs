@@ -190,7 +190,6 @@ namespace ALLinONE.TabRequests
             // 
             this.tbPrefixRequest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.tbPrefixRequest.Location = new System.Drawing.Point(0, 296);
-            this.tbPrefixRequest.MaximumSize = new System.Drawing.Size(10000, 20);
             this.tbPrefixRequest.MinimumSize = new System.Drawing.Size(1, 20);
             this.tbPrefixRequest.Name = "tbPrefixRequest";
             this.tbPrefixRequest.PasswordChar = '\0';
@@ -205,7 +204,6 @@ namespace ALLinONE.TabRequests
             this.tbAddRequest.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbAddRequest.Location = new System.Drawing.Point(106, 296);
-            this.tbAddRequest.MaximumSize = new System.Drawing.Size(10000, 20);
             this.tbAddRequest.MinimumSize = new System.Drawing.Size(1, 20);
             this.tbAddRequest.Name = "tbAddRequest";
             this.tbAddRequest.PasswordChar = '\0';

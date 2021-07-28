@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -38,8 +39,8 @@ namespace ALLinONE.TabRequests
 
         private void tbPrefixRequest__TextChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.prefixRequest = tbPrefixRequest.Text;
-            Properties.Settings.Default.Save();
+            //Сохраняем префикс в реестре
+            AiOMethods.SaveInRegistry("Prefix", tbPrefixRequest.Text);
         }
 
         private void tbAddRequest_KeyDownEvent(object sender, KeyEventArgs e)
@@ -155,7 +156,8 @@ namespace ALLinONE.TabRequests
             MethodsRequests mr = new MethodsRequests();
             mr.RefreshRequestsList(dgvRequest, lblQuantity, chkbPrefixShow);
 
-            tbPrefixRequest.Text = Properties.Settings.Default.prefixRequest;
+            //Загружаем префикс из реестра
+            tbPrefixRequest.Text = AiOMethods.LoadFromRegistry("Prefix", "").ToString();
         }
 
         private void btnSaveToExcel_Click(object sender, EventArgs e)

@@ -72,18 +72,6 @@ namespace ALLinONE
             }
         }
 
-        public static void LoadFormPosition(out int x, out int y)
-        {
-            RegistryKey formPos = Registry.CurrentUser.CreateSubKey("SOFTWARE\\All in One");
-
-            x = Convert.ToInt32(formPos.GetValue("PositionX", 0));
-            y = Convert.ToInt32(formPos.GetValue("PositionX", 0));
-
-            //Location = new Point(Convert.ToInt32(formPos.GetValue("PositionX", Location.X)),
-            //    Convert.ToInt32(formPos.GetValue("PositionY", Location.Y)));   //загрузить позицию формы из реестра
-            formPos.Close();
-        }
-
         public static void SaveFormPosition(int x, int y)
         {
             RegistryKey formPos = Registry.CurrentUser.CreateSubKey("SOFTWARE\\All in One");
@@ -125,6 +113,38 @@ namespace ALLinONE
                 }
             }
             
+            return result;
+        }
+
+        /// <summary>
+        /// Сохраняет запись в реестре
+        /// </summary>
+        /// <param name="path">Путь (по умолчанию HKCU\SOFTWARE\All in One)</param>
+        /// <param name="key">Ключ, которому будем устанавливать значение</param>
+        /// <param name="value">Значение, которое устанавливаем</param>
+        public static void SaveInRegistry(string key, object value, string path = "SOFTWARE\\All in One")
+        {
+            RegistryKey registry = Registry.CurrentUser.CreateSubKey(path);
+            registry.SetValue(key, value);
+            registry.Close();
+        }
+
+        /// <summary>
+        /// Загружает запись из реестра
+        /// </summary>
+        /// <param name="path">Путь (по умолчанию HKCU\SOFTWARE\All in One)</param>
+        /// <param name="key">Ключ, из которого будем забирать значение</param>
+        /// <param name="defaultValue">Значение по умолчанию, если ключ пуст</param>
+        /// <returns></returns>
+        public static object LoadFromRegistry(string key, object defaultValue, string path = "SOFTWARE\\All in One")
+        {
+            object result;
+
+            RegistryKey registry = Registry.CurrentUser.CreateSubKey(path);
+
+            result = (Registry.CurrentUser.OpenSubKey(path) != null) ?
+                registry.GetValue(key, defaultValue) : "Ошибка в реестре";
+
             return result;
         }
     }

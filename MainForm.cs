@@ -28,14 +28,12 @@ namespace ALLinONE
         {
             CheckDBexist form = new CheckDBexist();
             
-            RegistryKey registry = Registry.CurrentUser.CreateSubKey("SOFTWARE\\All in One");
-
-            if (File.Exists(registry.GetValue("PathDB", "Data_DB.db").ToString()))
+            if (File.Exists(AiOMethods.LoadFromRegistry("PathDB", "Data_DB.db").ToString()))
             {
                 form.Close();
                 Text += $" ({Environment.UserName})   - v.{AiOMethods.AiOVersion()}.alfa";
 
-                LoadFormPosition2();     //Загрузка координат формы
+                LoadFormPosition(); //Загрузка координат формы
 
                 FormCreate formCreate = new FormCreate(pnlTabs);
             }
@@ -55,7 +53,7 @@ namespace ALLinONE
                 }
             }
 
-            registry.Close();
+            //registry.Close();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -64,39 +62,44 @@ namespace ALLinONE
             AiOMethods.SaveFormPosition(Location.X, Location.Y);
         }
 
+        //private void LoadFormPosition()
+        //{
+        //    int allScreenWidth = 0;
+        //    int allScreenHeight = 0;
+
+        //    //Перебор всех мониторов
+        //    for (int i = 0; i < Screen.AllScreens.Length; i++)
+        //    {
+        //        // + width монитора
+        //        allScreenWidth += Screen.AllScreens[i].Bounds.Width;
+
+        //        //Если height монитора > переменной, то присвоить
+        //        if (Screen.AllScreens[i].Bounds.Height > allScreenHeight)
+        //            allScreenHeight = Screen.AllScreens[i].Bounds.Height;
+        //    }
+            
+        //    RegistryKey formPos = Registry.CurrentUser.CreateSubKey("SOFTWARE\\All in One");
+        //    Location = new Point(Convert.ToInt32(formPos.GetValue("PositionX", Location.X)),
+        //        Convert.ToInt32(formPos.GetValue("PositionY", Location.Y)));   //загрузить позицию формы из реестра
+        //    formPos.Close();
+
+            
+
+        //    if ((Location.X < -500) || (Location.X > allScreenWidth) || (Location.Y < -500) || (Location.Y > allScreenHeight))
+        //        Location = new Point(100, 100);
+        //}
+
         private void LoadFormPosition()
         {
-            int allScreenWidth = 0;
-            int allScreenHeight = 0;
 
-            //Перебор всех мониторов
-            for (int i = 0; i < Screen.AllScreens.Length; i++)
-            {
-                // + width монитора
-                allScreenWidth += Screen.AllScreens[i].Bounds.Width;
+            //RegistryKey formPos = Registry.CurrentUser.CreateSubKey("SOFTWARE\\All in One");
+            //Location = new Point(Convert.ToInt32(formPos.GetValue("PositionX", Location.X)),
+            //    Convert.ToInt32(formPos.GetValue("PositionY", Location.Y)));   //загрузить позицию формы из реестра
+            //formPos.Close();
 
-                //Если height монитора > переменной, то присвоить
-                if (Screen.AllScreens[i].Bounds.Height > allScreenHeight)
-                    allScreenHeight = Screen.AllScreens[i].Bounds.Height;
-            }
-            
-            RegistryKey formPos = Registry.CurrentUser.CreateSubKey("SOFTWARE\\All in One");
-            Location = new Point(Convert.ToInt32(formPos.GetValue("PositionX", Location.X)),
-                Convert.ToInt32(formPos.GetValue("PositionY", Location.Y)));   //загрузить позицию формы из реестра
-            formPos.Close();
-
-            
-
-            if ((Location.X < -500) || (Location.X > allScreenWidth) || (Location.Y < -500) || (Location.Y > allScreenHeight))
-                Location = new Point(100, 100);
-        }
-
-        private void LoadFormPosition2()
-        {
-            RegistryKey formPos = Registry.CurrentUser.CreateSubKey("SOFTWARE\\All in One");
-            Location = new Point(Convert.ToInt32(formPos.GetValue("PositionX", Location.X)),
-                Convert.ToInt32(formPos.GetValue("PositionY", Location.Y)));   //загрузить позицию формы из реестра
-            formPos.Close();
+            //Загрузить позицию формы из реестра
+            Location = new Point(Convert.ToInt32(AiOMethods.LoadFromRegistry("PositionX", Location.X)),
+                Convert.ToInt32(AiOMethods.LoadFromRegistry("PositionY", Location.Y)));
 
             var WidthScreenLocationForm = 
                 Screen.GetWorkingArea(Location).X == 0 ? Screen.GetBounds(Location).Width : Screen.GetWorkingArea(Location).X;

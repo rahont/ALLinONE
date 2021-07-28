@@ -64,18 +64,10 @@ namespace ALLinONE.TabServices
 
         private void numPingProgress_ValueChanged(object sender, EventArgs e)
         {
-            //tmrServicePB.Enabled = false;
             pbPingProgress.Value = 0;
             pbPingProgress.Maximum = Convert.ToInt32(numPingProgress.Value) * 1000;
-            //tmrServicePB.Enabled = true;
 
-            RegistryKey ProgressBarSec = Registry.CurrentUser.CreateSubKey("SOFTWARE\\All in One");
-
-            if (Registry.CurrentUser.OpenSubKey("SOFTWARE\\All in One") == null) //проверяем наличие раздела в реестре. если отсутствует раздел, то создаем
-                ProgressBarSec.CreateSubKey("SOFTWARE\\All in One");
-
-            ProgressBarSec.SetValue("ProgressBarSec", numPingProgress.Value);
-            ProgressBarSec.Close();
+            AiOMethods.SaveInRegistry("ProgressBarSec", numPingProgress.Value);
         }
 
         private void btnRefreshPing_Click(object sender, EventArgs e)
@@ -156,14 +148,8 @@ namespace ALLinONE.TabServices
 
         private void Services_Load(object sender, EventArgs e)
         {
-            RegistryKey registry = Registry.CurrentUser.CreateSubKey("SOFTWARE\\All in One");
-
-            if (Registry.CurrentUser.OpenSubKey("SOFTWARE\\All in One") != null)
-            {
-                //Установка времени для пинга и максимального значения ProgressBar
-                numPingProgress.Value = Convert.ToDecimal(registry.GetValue("ProgressBarSec", 30));
-                pbPingProgress.Maximum = Convert.ToInt32(numPingProgress.Value) * 1000;
-            }
+            numPingProgress.Value = Convert.ToDecimal(AiOMethods.LoadFromRegistry("ProgressBarSec", 30));
+            pbPingProgress.Maximum = Convert.ToInt32(numPingProgress.Value) * 1000;
 
             MethodsServices ms = new MethodsServices();
             ms.RefreshLBRDPShare(lbRDP, "ServiceRDP");
@@ -178,9 +164,6 @@ namespace ALLinONE.TabServices
 
             string xy = fm.Location.X.ToString() + " " + fm.Location.Y.ToString()+"\r\n";
             MessageBox.Show(xy + Screen.FromControl(fm).ToString());
-            
-            
-            
         }
     }
 }
