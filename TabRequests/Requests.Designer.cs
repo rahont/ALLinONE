@@ -234,6 +234,7 @@ namespace ALLinONE.TabRequests
             this.Name = "Requests";
             this.Size = new System.Drawing.Size(545, 489);
             this.Load += new System.EventHandler(this.Requests_Load);
+            this.VisibleChanged += new System.EventHandler(this.Requests_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequest)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

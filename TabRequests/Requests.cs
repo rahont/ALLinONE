@@ -78,9 +78,10 @@ namespace ALLinONE.TabRequests
             else
             {
                 string strId = dgvRequest.SelectedCells[0].Value.ToString();
-                string strValue = dgvRequest.SelectedCells[1].Value.ToString();
-                string strUser = dgvRequest.SelectedCells[2].Value.ToString();
-                string strDate = dgvRequest.SelectedCells[3].Value.ToString();
+                string strPrefix = dgvRequest.SelectedCells[1].Value.ToString();
+                string strValue = dgvRequest.SelectedCells[2].Value.ToString();
+                string strUser = dgvRequest.SelectedCells[3].Value.ToString();
+                string strDate = dgvRequest.SelectedCells[4].Value.ToString();
 
                 DialogResult result = MessageBox.Show
                     ("Удалить запись?\n\n" +
@@ -152,9 +153,9 @@ namespace ALLinONE.TabRequests
             //Прячем бордер лейбла, иначе выглядит не оч.
             lblInfoRequest.BorderStyle = BorderStyle.None;
 
-            //Заполняем dgv
-            MethodsRequests mr = new MethodsRequests();
-            mr.RefreshRequestsList(dgvRequest, lblQuantity, chkbPrefixShow);
+            ////Заполняем dgv
+            //MethodsRequests mr = new MethodsRequests();
+            //mr.RefreshRequestsList(dgvRequest, lblQuantity, chkbPrefixShow);
 
             //Загружаем префикс из реестра
             tbPrefixRequest.Text = AiOMethods.LoadFromRegistry("Prefix", "").ToString();
@@ -169,6 +170,13 @@ namespace ALLinONE.TabRequests
             {
                 AiOMethods.SaveExcel(dgvRequest, saveFileDialog.FileName);
             }
+        }
+
+        private void Requests_VisibleChanged(object sender, EventArgs e)
+        {
+            //Заполняем dgv
+            MethodsRequests mr = new MethodsRequests();
+            mr.RefreshRequestsList(dgvRequest, lblQuantity, chkbPrefixShow);
         }
     }
 }
