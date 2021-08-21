@@ -73,9 +73,9 @@ namespace ALLinONE.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cave_man_emoticon_emoji_sticker_wave_icon_123503 {
+        internal static System.Drawing.Bitmap AppIcon {
             get {
-                object obj = ResourceManager.GetObject("cave_man_emoticon_emoji_sticker_wave_icon_123503", resourceCulture);
+                object obj = ResourceManager.GetObject("AppIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

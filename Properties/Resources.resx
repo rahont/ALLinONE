@@ -127,11 +127,17 @@
   <data name="wifi-signal-waves_icon-icons.com_72466" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wifi-signal-waves_icon-icons.com_72466.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="refresh-page-arrow-button_icon-icons.com_53909" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\refresh-page-arrow-button_icon-icons.com_53909.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AppIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\AppIcon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Data_settings_theapplication_3364" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Data_settings_theapplication_3364.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cave_man_emoticon_emoji_sticker_wave_icon_123503" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\cave_man_emoticon_emoji_sticker_wave_icon_123503.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="refresh_arrow_icon_131504" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\refresh_arrow_icon_131504.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="down-arrow_icon-icons.com_64915" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\down-arrow_icon-icons.com_64915.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,10 +151,7 @@
   <data name="2849830-gear-interface-multimedia-options-setting-settings_107986" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\2849830-gear-interface-multimedia-options-setting-settings_107986.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="refresh_arrow_icon_131504" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\refresh_arrow_icon_131504.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="refresh-page-arrow-button_icon-icons.com_53909" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\refresh-page-arrow-button_icon-icons.com_53909.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AppIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\AppIcon.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

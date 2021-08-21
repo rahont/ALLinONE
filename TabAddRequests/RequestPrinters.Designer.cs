@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RequestPrinters));
             this.dgvRequestPrint = new System.Windows.Forms.DataGridView();
             this.btnAddRequestPrint = new System.Windows.Forms.Button();
             this.lblRequestPrint = new System.Windows.Forms.Label();
-            this.tmrComm5555 = new System.Windows.Forms.Timer(this.components);
             this.rdbtnReplace = new System.Windows.Forms.RadioButton();
             this.rdbtnPaper = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -88,11 +86,6 @@
             this.lblRequestPrint.Size = new System.Drawing.Size(545, 19);
             this.lblRequestPrint.TabIndex = 2;
             this.lblRequestPrint.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tmrComm5555
-            // 
-            this.tmrComm5555.Interval = 5555;
-            this.tmrComm5555.Tick += new System.EventHandler(this.tmrComm5555_Tick);
             // 
             // rdbtnReplace
             // 
@@ -227,7 +220,6 @@
         private System.Windows.Forms.DataGridView dgvRequestPrint;
         private System.Windows.Forms.Button btnAddRequestPrint;
         private System.Windows.Forms.Label lblRequestPrint;
-        private System.Windows.Forms.Timer tmrComm5555;
         private System.Windows.Forms.RadioButton rdbtnReplace;
         private System.Windows.Forms.RadioButton rdbtnPaper;
         private System.Windows.Forms.GroupBox groupBox1;

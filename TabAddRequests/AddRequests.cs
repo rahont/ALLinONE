@@ -84,10 +84,11 @@ namespace ALLinONE.TabAddRequests
                 if (rdbtnAddRequest3.Checked) str = "Обновить ";
                 if (rdbtnAddRequest4.Checked) str = "Настроить ";
                 if (rdbtnAddRequest5.Checked) str = "Удалить ";
+                if (rdbtnAddRequest6.Checked) str = "Добавить ";
 
                 str += lbProgList.SelectedItem + ". " + tbAddFIORequest.Text;
 
-                UseDB.InsertDB("RequestList", "Prefix", "Value", "User", "DateCreate", Properties.Settings.Default.prefixRequest, str, Environment.UserName, DateTime.Now.ToString());
+                UseDB.InsertDB("RequestList", "Prefix", "Value", "User", "DateCreate", AiOMethods.LoadFromRegistry("Prefix", "").ToString(), str, Environment.UserName, DateTime.Now.ToString());
 
                 lblAddRequestDB.Text = "Улетело в БД:\n" + str;
                 

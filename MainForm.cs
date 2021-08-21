@@ -31,7 +31,7 @@ namespace ALLinONE
             if (File.Exists(AiOMethods.LoadFromRegistry("PathDB", "Data_DB.db").ToString()))
             {
                 form.Close();
-                Text += $" ({Environment.UserName})   - v.{AiOMethods.AiOVersion()}.alfa";
+                Text += $" ({Environment.UserName})   - v.{AiOMethods.AiOVersion()}";
 
                 LoadFormPosition(); //Загрузка координат формы
 

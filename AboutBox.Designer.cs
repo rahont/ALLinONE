@@ -68,7 +68,7 @@ namespace ALLinONE
             // logoPictureBox
             // 
             this.logoPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.logoPictureBox.Image = global::ALLinONE.Properties.Resources.cave_man_emoticon_emoji_sticker_wave_icon_123503;
+            this.logoPictureBox.Image = global::ALLinONE.Properties.Resources.AppIcon;
             this.logoPictureBox.Location = new System.Drawing.Point(3, 3);
             this.logoPictureBox.Name = "logoPictureBox";
             this.tableLayoutPanel.SetRowSpan(this.logoPictureBox, 6);

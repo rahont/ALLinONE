@@ -22,22 +22,21 @@ namespace ALLinONE
         {
             if (dgvRequestPrint.SelectedRows.Count > 0)
             {
-                tmrComm5555.Enabled = false;
-
                 string str = RequestString();
 
-                UseDB.InsertDB("RequestList", "Prefix", "Value", "User", "DateCreate", Properties.Settings.Default.prefixRequest, str, Environment.UserName, DateTime.Now.ToString());
+                UseDB.InsertDB("RequestList", "Prefix", "Value", "User", "DateCreate", AiOMethods.LoadFromRegistry("Prefix", "").ToString(), str, Environment.UserName, DateTime.Now.ToString());
 
                 lblRequestPrint.Text = "Улетело в БД: " + str;
-                tmrComm5555.Enabled = true;
+
+                ClearLbl();
             }
             else MessageBox.Show("Что забыл?", "Атата...", MessageBoxButtons.OK, MessageBoxIcon.Question);
         }
 
-        private void tmrComm5555_Tick(object sender, EventArgs e)
+        private async void ClearLbl()
         {
+            await Task.Delay(Properties.Settings.Default.timeClean);
             lblRequestPrint.Text = "";
-            tmrComm5555.Enabled = false;
         }
 
         private string RequestString()

@@ -50,18 +50,6 @@ namespace ALLinONE.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string prefixRequest {
-            get {
-                return ((string)(this["prefixRequest"]));
-            }
-            set {
-                this["prefixRequest"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string startTab {
             get {
                 return ((string)(this["startTab"]));

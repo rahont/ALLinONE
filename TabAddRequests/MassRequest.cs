@@ -90,7 +90,7 @@ namespace ALLinONE
                 {
                     string result = item.ToString() + ". " + tbFIO.Text;
 
-                    UseDB.InsertDB("RequestList", "Prefix", "Value", "User", "DateCreate", Properties.Settings.Default.prefixRequest, result, Environment.UserName, DateTime.Now.ToString());
+                    UseDB.InsertDB("RequestList", "Prefix", "Value", "User", "DateCreate", AiOMethods.LoadFromRegistry("Prefix", "").ToString(), result, Environment.UserName, DateTime.Now.ToString());
                 }
                 tbFIO.Text = "";
                 lblValue.Text = "Заявки (" + lbProgList.Items.Count + "шт.) улетели в БД";

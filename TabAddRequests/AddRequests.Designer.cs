@@ -29,6 +29,7 @@ namespace ALLinONE.TabAddRequests
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnMassRequest = new System.Windows.Forms.Button();
             this.btnCartPaper = new System.Windows.Forms.Button();
             this.btnRemoveProg = new System.Windows.Forms.Button();
@@ -42,8 +43,10 @@ namespace ALLinONE.TabAddRequests
             this.rdbtnAddRequest2 = new System.Windows.Forms.RadioButton();
             this.rdbtnAddRequest1 = new System.Windows.Forms.RadioButton();
             this.lbProgList = new System.Windows.Forms.ListBox();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tbAddFIORequest = new ALLinONE.MyTextBox();
             this.tbAddProg = new ALLinONE.MyTextBox();
+            this.rdbtnAddRequest6 = new System.Windows.Forms.RadioButton();
             this.gbAddRequest.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -116,6 +119,7 @@ namespace ALLinONE.TabAddRequests
             // 
             // gbAddRequest
             // 
+            this.gbAddRequest.Controls.Add(this.rdbtnAddRequest6);
             this.gbAddRequest.Controls.Add(this.rdbtnAddRequest5);
             this.gbAddRequest.Controls.Add(this.rdbtnAddRequest3);
             this.gbAddRequest.Controls.Add(this.rdbtnAddRequest4);
@@ -206,6 +210,7 @@ namespace ALLinONE.TabAddRequests
             this.tbAddFIORequest.TabIndex = 28;
             this.tbAddFIORequest.TextMaxLength = 100;
             this.tbAddFIORequest.TextTitle = "ФИО и любая другая инфа";
+            this.toolTip.SetToolTip(this.tbAddFIORequest, "Информация будет указана после *точки*");
             this.tbAddFIORequest.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbAddFIORequest_KeyDown);
             // 
             // tbAddProg
@@ -221,6 +226,16 @@ namespace ALLinONE.TabAddRequests
             this.tbAddProg.TextMaxLength = 100;
             this.tbAddProg.TextTitle = "Название ПО";
             this.tbAddProg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbAddProg_KeyDown);
+            // 
+            // rdbtnAddRequest6
+            // 
+            this.rdbtnAddRequest6.AutoSize = true;
+            this.rdbtnAddRequest6.Location = new System.Drawing.Point(126, 42);
+            this.rdbtnAddRequest6.Name = "rdbtnAddRequest6";
+            this.rdbtnAddRequest6.Size = new System.Drawing.Size(75, 17);
+            this.rdbtnAddRequest6.TabIndex = 6;
+            this.rdbtnAddRequest6.Text = "Добавить";
+            this.rdbtnAddRequest6.UseVisualStyleBackColor = true;
             // 
             // AddRequests
             // 
@@ -263,5 +278,7 @@ namespace ALLinONE.TabAddRequests
         private System.Windows.Forms.RadioButton rdbtnAddRequest1;
         private System.Windows.Forms.ListBox lbProgList;
         private System.Windows.Forms.RadioButton rdbtnAddRequest5;
+        private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.RadioButton rdbtnAddRequest6;
     }
 }

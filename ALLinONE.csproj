@@ -53,7 +53,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>cave_man_emoticon_emoji_sticker_wave_icon_123503.ico</ApplicationIcon>
+    <ApplicationIcon>AppIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
@@ -127,33 +127,33 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MassRequest.cs">
+    <Compile Include="TabAddRequests\MassRequest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MassRequest.Designer.cs">
+    <Compile Include="TabAddRequests\MassRequest.Designer.cs">
       <DependentUpon>MassRequest.cs</DependentUpon>
     </Compile>
-    <Compile Include="PRChangeButton.cs">
+    <Compile Include="TabProfRab\PRChangeButton.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PRChangeButton.Designer.cs">
+    <Compile Include="TabProfRab\PRChangeButton.Designer.cs">
       <DependentUpon>PRChangeButton.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RemoteAccsess.cs">
+    <Compile Include="Other\RemoteAccsess.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RemoteAccsess.Designer.cs">
+    <Compile Include="Other\RemoteAccsess.Designer.cs">
       <DependentUpon>RemoteAccsess.cs</DependentUpon>
     </Compile>
-    <Compile Include="RequestPrinters.cs">
+    <Compile Include="TabAddRequests\RequestPrinters.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RequestPrinters.Designer.cs">
+    <Compile Include="TabAddRequests\RequestPrinters.Designer.cs">
       <DependentUpon>RequestPrinters.cs</DependentUpon>
     </Compile>
-    <Compile Include="Service.cs">
+    <Compile Include="delete\Service.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Settings.cs" />
@@ -163,10 +163,10 @@
     <Compile Include="MyTextBox.Designer.cs">
       <DependentUpon>MyTextBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="SrvcChange.cs">
+    <Compile Include="TabServices\SrvcChange.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SrvcChange.designer.cs">
+    <Compile Include="TabServices\SrvcChange.designer.cs">
       <DependentUpon>SrvcChange.cs</DependentUpon>
     </Compile>
     <Compile Include="TabAddRequests\AddRequests.cs">
@@ -176,39 +176,39 @@
       <DependentUpon>AddRequests.cs</DependentUpon>
     </Compile>
     <Compile Include="TabAddRequests\MethodsAddRequests.cs" />
-    <Compile Include="TabControl\CustomTabControl.cs">
+    <Compile Include="delete\TabControl\CustomTabControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="TabControl\NativeMethods.cs" />
-    <Compile Include="TabControl\TabStyle.cs" />
-    <Compile Include="TabControl\TabStyleProvider.cs">
+    <Compile Include="delete\TabControl\NativeMethods.cs" />
+    <Compile Include="delete\TabControl\TabStyle.cs" />
+    <Compile Include="delete\TabControl\TabStyleProvider.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="TabControl\TabStyleProviders\TabStyleAngledProvider.cs">
+    <Compile Include="delete\TabControl\TabStyleProviders\TabStyleAngledProvider.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="TabControl\TabStyleProviders\TabStyleChromeProvider.cs">
+    <Compile Include="delete\TabControl\TabStyleProviders\TabStyleChromeProvider.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="TabControl\TabStyleProviders\TabStyleDefaultProvider.cs">
+    <Compile Include="delete\TabControl\TabStyleProviders\TabStyleDefaultProvider.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="TabControl\TabStyleProviders\TabStyleIE8Provider.cs">
+    <Compile Include="delete\TabControl\TabStyleProviders\TabStyleIE8Provider.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="TabControl\TabStyleProviders\TabStyleNoneProvider.cs">
+    <Compile Include="delete\TabControl\TabStyleProviders\TabStyleNoneProvider.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="TabControl\TabStyleProviders\TabStyleRoundedProvider.cs">
+    <Compile Include="delete\TabControl\TabStyleProviders\TabStyleRoundedProvider.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="TabControl\TabStyleProviders\TabStyleVisualStudioProvider.cs">
+    <Compile Include="delete\TabControl\TabStyleProviders\TabStyleVisualStudioProvider.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="TabControl\TabStyleProviders\TabStyleVS2010Provider.cs">
+    <Compile Include="delete\TabControl\TabStyleProviders\TabStyleVS2010Provider.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="TabControl\ThemedColors.cs" />
+    <Compile Include="delete\TabControl\ThemedColors.cs" />
     <Compile Include="TabPrinters\MethodsPrinters.cs" />
     <Compile Include="TabPrinters\Printers.cs">
       <SubType>UserControl</SubType>
@@ -237,16 +237,16 @@
     <Compile Include="TabServices\Services.Designer.cs">
       <DependentUpon>Services.cs</DependentUpon>
     </Compile>
-    <Compile Include="ToDoList.cs">
+    <Compile Include="Other\ToDoList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ToDoList.Designer.cs">
+    <Compile Include="Other\ToDoList.Designer.cs">
       <DependentUpon>ToDoList.cs</DependentUpon>
     </Compile>
-    <Compile Include="ToDoListUC.cs">
+    <Compile Include="delete\ToDoListUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ToDoListUC.Designer.cs">
+    <Compile Include="delete\ToDoListUC.Designer.cs">
       <DependentUpon>ToDoListUC.cs</DependentUpon>
     </Compile>
     <Compile Include="UseDB.cs" />
@@ -259,10 +259,10 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MassRequest.resx">
+    <EmbeddedResource Include="TabAddRequests\MassRequest.resx">
       <DependentUpon>MassRequest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PRChangeButton.resx">
+    <EmbeddedResource Include="TabProfRab\PRChangeButton.resx">
       <DependentUpon>PRChangeButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -275,16 +275,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="RemoteAccsess.resx">
+    <EmbeddedResource Include="Other\RemoteAccsess.resx">
       <DependentUpon>RemoteAccsess.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RequestPrinters.resx">
+    <EmbeddedResource Include="TabAddRequests\RequestPrinters.resx">
       <DependentUpon>RequestPrinters.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyTextBox.resx">
       <DependentUpon>MyTextBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SrvcChange.resx">
+    <EmbeddedResource Include="TabServices\SrvcChange.resx">
       <DependentUpon>SrvcChange.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TabAddRequests\AddRequests.resx">
@@ -302,10 +302,10 @@
     <EmbeddedResource Include="TabServices\Services.resx">
       <DependentUpon>Services.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ToDoList.resx">
+    <EmbeddedResource Include="Other\ToDoList.resx">
       <DependentUpon>ToDoList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ToDoListUC.resx">
+    <EmbeddedResource Include="delete\ToDoListUC.resx">
       <DependentUpon>ToDoListUC.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -324,7 +324,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="cave_man_emoticon_emoji_sticker_wave_icon_123503.ico" />
+    <Content Include="AppIcon.ico" />
+    <None Include="Resources\AppIcon.bmp" />
     <None Include="Resources\refresh-page-arrow-button_icon-icons.com_53909.png" />
     <None Include="Resources\refresh_arrow_icon_131504.png" />
     <None Include="Resources\wifi-signal-waves_icon-icons.com_72466.png" />
