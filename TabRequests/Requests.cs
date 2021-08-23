@@ -159,6 +159,8 @@ namespace ALLinONE.TabRequests
 
             //Загружаем префикс из реестра
             tbPrefixRequest.Text = AiOMethods.LoadFromRegistry("Prefix", "").ToString();
+
+            lblUserRequest.Text = Environment.UserName;
         }
 
         private void btnSaveToExcel_Click(object sender, EventArgs e)
