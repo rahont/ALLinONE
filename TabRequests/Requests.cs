@@ -85,9 +85,9 @@ namespace ALLinONE.TabRequests
 
                 DialogResult result = MessageBox.Show
                     ("Удалить запись?\n\n" +
-                        "'" + strValue + "'\n\n" +
-                            "Созданная: " + "'" + strDate + "'\n" +
-                                "Пользователем: " + "'" + strUser + "'",
+                        "\"" + strValue + "\"\n\n" +
+                            "Созданная: " + strDate + "\n" +
+                                "Пользователем: " + strUser,
                     "Ты уверен?", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (result == DialogResult.Yes)
                 {
@@ -102,17 +102,13 @@ namespace ALLinONE.TabRequests
         {
             if (dgvRequest.SelectedRows.Count > 0)
             {
-                string strRequest = dgvRequest.SelectedCells[1].Value.ToString();
+                string strRequest = dgvRequest.SelectedCells[2].Value.ToString();
                 Clipboard.SetText(strRequest);
                 lblInfoRequest.Text = "В буфер уехало:\n" + strRequest;
 
-                UseDB.UpdateDB("RequestList", "Value", "DateUse", strRequest, DateTime.Now.ToString());
-
-                dgvRequest.SelectedCells[4].Value = DateTime.Now.ToString(); //запись даты в ячейку "DataUse"
-
                 if (chckbRemoveRequest.Checked)
                 {
-                    UseDB.DeleteDB("RequestList", "Value", strRequest);
+                    UseDB.DeleteDB("RequestList", "id", dgvRequest.SelectedCells[0].Value.ToString());
                     dgvRequest.Rows.RemoveAt(dgvRequest.CurrentRow.Index); //удаляет строку из DataGridView
                     lblQuantity.Text = "Количество заявок: " + dgvRequest.Rows.Count.ToString(); // -1 заявка в lbl после удаления из dgv
                 }
@@ -179,6 +175,7 @@ namespace ALLinONE.TabRequests
             //Заполняем dgv
             MethodsRequests mr = new MethodsRequests();
             mr.RefreshRequestsList(dgvRequest, lblQuantity, chkbPrefixShow);
+            tbAddRequest.Clear();
         }
     }
 }
