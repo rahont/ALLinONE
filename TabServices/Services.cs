@@ -119,7 +119,7 @@ namespace ALLinONE.TabServices
 
             if (lbCyclePing.Items.Count > 0)
             {
-                myBrush = (lbCyclePing.Items[e.Index].ToString().Contains("Не доступен")) ? Brushes.DarkRed : Brushes.DarkGreen;
+                myBrush = (lbCyclePing.Items[e.Index].ToString().Contains("мс")) ? Brushes.DarkGreen : Brushes.DarkRed;
                 e.Graphics.DrawString(lbCyclePing.Items[e.Index].ToString(), e.Font, myBrush, e.Bounds);
             }
         }

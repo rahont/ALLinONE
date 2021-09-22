@@ -33,7 +33,7 @@ namespace ALLinONE.TabServices
                     pingReply = await ping.SendPingAsync(listName[listTitle.IndexOf(item)], Convert.ToInt32(num.Value));
 
                     if (pingReply.Status.ToString() == "Success")
-                        lbS.Items.Add(item + ": " + pingReply.RoundtripTime.ToString());
+                        lbS.Items.Add(item + ": " + pingReply.RoundtripTime.ToString() + "мс");
                     //resSucc[listTitle.IndexOf(item)] = item + ": " + pingReply.RoundtripTime.ToString();
                     else
                         lbT.Items.Add(item);
@@ -91,12 +91,15 @@ namespace ALLinONE.TabServices
             PingReply pingReply;
 
             adress = adress.Replace(',', '.'); //Меняем *запятую* на *точку*
-            string echo;
-            string tmp;
+            string echo, tmpIP, tmpPingRes;
+            int tmpPingIndex = 0;
             try
             {
                 while (true)
                 {
+                    if (CyclePingStop) //Если поле true, то остановить пинг
+                        break;
+
                     await Task.Run(async () =>
                     {
                         await Task.Delay(1000);
@@ -105,20 +108,23 @@ namespace ALLinONE.TabServices
                     pingReply = await ping.SendPingAsync(adress, 128);
 
                     //Присвоить IP в скобках, если адрес = DNS имя
-                    tmp = (adress == pingReply.Address.ToString()) ? string.Empty : " (" + pingReply.Address.ToString() + ")";
+                    if (pingReply.Address.ToString() == "0.0.0.0")
+                        tmpIP = string.Empty;
+                    else
+                        tmpIP = (adress != pingReply.Address.ToString()) ?
+                        " (" + pingReply.Address.ToString() + ")" : string.Empty;
+
+                    tmpPingIndex++;
+                    tmpPingRes = tmpPingIndex + ": " + adress + tmpIP;
 
                     //Проверяем доступность адреса
                     echo = (pingReply.Status.ToString() == "Success") ?
-                        adress + tmp + $": {pingReply.RoundtripTime}мс" : adress + ": Не доступен";
-                        //Собираем строку для последующего вывода       : //Если адрес не доступен
+                        tmpPingRes + $": {pingReply.RoundtripTime}мс" : tmpPingRes + ": Не доступен";
+                        //Собираем строку для последующего вывода     : //Если адрес не доступен
 
                     Action action = () => lb.Items.Add(echo);
                     action?.Invoke();
                     lb.TopIndex = lb.Items.Count - 1;
-
-
-                    if (CyclePingStop) //Если поле true, то остановить пинг
-                        break;
                 }
             }
             catch (Exception ex)
