@@ -30,7 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.toolStripFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDB = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDBCheckCon = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripDBInvertCon = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSettings = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripExit = new System.Windows.Forms.ToolStripMenuItem();
             this.toDoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.remoteAccsessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTabs = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTabsServices = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTabsProfRab = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,15 +49,6 @@
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlTabs = new System.Windows.Forms.Panel();
-            this.toolStripFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripDB = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripDBCheckCon = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripDBInvertCon = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSettings = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.remoteAccsessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,6 +67,71 @@
             this.menuStrip.TabIndex = 7;
             this.menuStrip.Text = "menuStrip1";
             // 
+            // toolStripFile
+            // 
+            this.toolStripFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripDB,
+            this.toolStripSettings,
+            this.toolStripSeparator1,
+            this.toolStripExit});
+            this.toolStripFile.Image = global::ALLinONE.Properties.Resources.down_arrow_icon_icons_com_64915;
+            this.toolStripFile.Name = "toolStripFile";
+            this.toolStripFile.Size = new System.Drawing.Size(64, 20);
+            this.toolStripFile.Text = "Файл";
+            // 
+            // toolStripDB
+            // 
+            this.toolStripDB.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripDBCheckCon,
+            this.toolStripSeparator3,
+            this.toolStripDBInvertCon});
+            this.toolStripDB.Image = global::ALLinONE.Properties.Resources.Data_settings_theapplication_3364;
+            this.toolStripDB.Name = "toolStripDB";
+            this.toolStripDB.Size = new System.Drawing.Size(144, 22);
+            this.toolStripDB.Text = "База Данных";
+            // 
+            // toolStripDBCheckCon
+            // 
+            this.toolStripDBCheckCon.Image = global::ALLinONE.Properties.Resources.dataencryption_application_dedatos_3363;
+            this.toolStripDBCheckCon.Name = "toolStripDBCheckCon";
+            this.toolStripDBCheckCon.Size = new System.Drawing.Size(237, 22);
+            this.toolStripDBCheckCon.Text = "Проверить подключение";
+            this.toolStripDBCheckCon.Click += new System.EventHandler(this.toolStripDBCheckCon_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(234, 6);
+            // 
+            // toolStripDBInvertCon
+            // 
+            this.toolStripDBInvertCon.Image = global::ALLinONE.Properties.Resources.databackup_theapplication_dedatos_3366;
+            this.toolStripDBInvertCon.Name = "toolStripDBInvertCon";
+            this.toolStripDBInvertCon.Size = new System.Drawing.Size(237, 22);
+            this.toolStripDBInvertCon.Text = "Инвертировать подключение";
+            this.toolStripDBInvertCon.Click += new System.EventHandler(this.toolStripDBInvertCon_Click);
+            // 
+            // toolStripSettings
+            // 
+            this.toolStripSettings.Image = global::ALLinONE.Properties.Resources._2849830_gear_interface_multimedia_options_setting_settings_107986;
+            this.toolStripSettings.Name = "toolStripSettings";
+            this.toolStripSettings.Size = new System.Drawing.Size(144, 22);
+            this.toolStripSettings.Text = "Настройки";
+            this.toolStripSettings.Visible = false;
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(141, 6);
+            // 
+            // toolStripExit
+            // 
+            this.toolStripExit.Image = global::ALLinONE.Properties.Resources.switch_power_on_off_icon_178313;
+            this.toolStripExit.Name = "toolStripExit";
+            this.toolStripExit.Size = new System.Drawing.Size(144, 22);
+            this.toolStripExit.Text = "Выход";
+            this.toolStripExit.Click += new System.EventHandler(this.toolStripExit_Click);
+            // 
             // toDoToolStripMenuItem
             // 
             this.toDoToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -74,6 +139,15 @@
             this.toDoToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.toDoToolStripMenuItem.Text = "ToDo";
             this.toDoToolStripMenuItem.Click += new System.EventHandler(this.toDoToolStripMenuItem_Click);
+            // 
+            // remoteAccsessToolStripMenuItem
+            // 
+            this.remoteAccsessToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.remoteAccsessToolStripMenuItem.Image = global::ALLinONE.Properties.Resources.wifi_signal_waves_icon_icons_com_72466;
+            this.remoteAccsessToolStripMenuItem.Name = "remoteAccsessToolStripMenuItem";
+            this.remoteAccsessToolStripMenuItem.Size = new System.Drawing.Size(117, 20);
+            this.remoteAccsessToolStripMenuItem.Text = "RemoteAccsess";
+            this.remoteAccsessToolStripMenuItem.Click += new System.EventHandler(this.remoteAccsessToolStripMenuItem_Click);
             // 
             // toolStripTabs
             // 
@@ -147,80 +221,6 @@
             this.pnlTabs.Name = "pnlTabs";
             this.pnlTabs.Size = new System.Drawing.Size(634, 619);
             this.pnlTabs.TabIndex = 8;
-            // 
-            // toolStripFile
-            // 
-            this.toolStripFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripDB,
-            this.toolStripSettings,
-            this.toolStripSeparator1,
-            this.toolStripExit});
-            this.toolStripFile.Image = global::ALLinONE.Properties.Resources.down_arrow_icon_icons_com_64915;
-            this.toolStripFile.Name = "toolStripFile";
-            this.toolStripFile.Size = new System.Drawing.Size(64, 20);
-            this.toolStripFile.Text = "Файл";
-            // 
-            // toolStripDB
-            // 
-            this.toolStripDB.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripDBCheckCon,
-            this.toolStripSeparator3,
-            this.toolStripDBInvertCon});
-            this.toolStripDB.Image = global::ALLinONE.Properties.Resources.Data_settings_theapplication_3364;
-            this.toolStripDB.Name = "toolStripDB";
-            this.toolStripDB.Size = new System.Drawing.Size(144, 22);
-            this.toolStripDB.Text = "База Данных";
-            // 
-            // toolStripDBCheckCon
-            // 
-            this.toolStripDBCheckCon.Image = global::ALLinONE.Properties.Resources.dataencryption_application_dedatos_3363;
-            this.toolStripDBCheckCon.Name = "toolStripDBCheckCon";
-            this.toolStripDBCheckCon.Size = new System.Drawing.Size(237, 22);
-            this.toolStripDBCheckCon.Text = "Проверить подключение";
-            this.toolStripDBCheckCon.Click += new System.EventHandler(this.toolStripDBCheckCon_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(234, 6);
-            // 
-            // toolStripDBInvertCon
-            // 
-            this.toolStripDBInvertCon.Image = global::ALLinONE.Properties.Resources.databackup_theapplication_dedatos_3366;
-            this.toolStripDBInvertCon.Name = "toolStripDBInvertCon";
-            this.toolStripDBInvertCon.Size = new System.Drawing.Size(237, 22);
-            this.toolStripDBInvertCon.Text = "Инвертировать подключение";
-            this.toolStripDBInvertCon.Click += new System.EventHandler(this.toolStripDBInvertCon_Click);
-            // 
-            // toolStripSettings
-            // 
-            this.toolStripSettings.Image = global::ALLinONE.Properties.Resources._2849830_gear_interface_multimedia_options_setting_settings_107986;
-            this.toolStripSettings.Name = "toolStripSettings";
-            this.toolStripSettings.Size = new System.Drawing.Size(144, 22);
-            this.toolStripSettings.Text = "Настройки";
-            this.toolStripSettings.Visible = false;
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(141, 6);
-            // 
-            // toolStripExit
-            // 
-            this.toolStripExit.Image = global::ALLinONE.Properties.Resources.switch_power_on_off_icon_178313;
-            this.toolStripExit.Name = "toolStripExit";
-            this.toolStripExit.Size = new System.Drawing.Size(144, 22);
-            this.toolStripExit.Text = "Выход";
-            this.toolStripExit.Click += new System.EventHandler(this.toolStripExit_Click);
-            // 
-            // remoteAccsessToolStripMenuItem
-            // 
-            this.remoteAccsessToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.remoteAccsessToolStripMenuItem.Image = global::ALLinONE.Properties.Resources.wifi_signal_waves_icon_icons_com_72466;
-            this.remoteAccsessToolStripMenuItem.Name = "remoteAccsessToolStripMenuItem";
-            this.remoteAccsessToolStripMenuItem.Size = new System.Drawing.Size(117, 20);
-            this.remoteAccsessToolStripMenuItem.Text = "RemoteAccsess";
-            this.remoteAccsessToolStripMenuItem.Click += new System.EventHandler(this.remoteAccsessToolStripMenuItem_Click);
             // 
             // MainForm
             // 
